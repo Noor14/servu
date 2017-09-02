@@ -1,0 +1,63 @@
+<page-loader ng-if="pageLoader"></page-loader>
+
+<div  class="jobList">
+<div class="wrapper-content" ng-if="vm.jobs && !pageLoader">
+
+  <div class="col-lg-12 wrapper white-bg page-heading">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <h3><a class="text-bold" ng-click="vm.addJob()"><i class="fa fa-plus" aria-hidden="true"></i> New Job</a></h3>
+    </div>
+    <div class="col-lg-6">
+      <h3>My Jobs</h3>
+    </div>
+  </div>
+
+
+  <div class="col-lg-12 myjobs-list">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 jobDiv" ng-repeat="job in vm.jobs">
+      <a ui-sref="home.jobs">
+        <div class="list-holder">
+          <div class="myjob-image">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> <img src="images/user.jpg" class="img-rounded"></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                  <h4>John Doe</h4>
+                  <h4>Dubai, UAE</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <h4 class="text-right">Thurs, 10:30 PM</h4>
+              <h4 class="text-right status">In Process</h4>
+            </div>
+            </div>
+
+
+            <div class="myjob-bg">
+              <img ng-if="job.images.length" ng-src="{{job.images[0].url}}" alt="job_image"/>
+              <img ng-if="!job.images.length" ng-src="images/no-image.jpg" alt="job_image"/>
+            </div>
+
+            <h4>{{job.title}}</h4>
+            <p>{{job.category.title}}</p>
+
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <nav class="text-center">
+    <ul class="pagination">
+      <li class="page-item" ng-if = "vm.disabled = (1 == vm.page_no)? 'disabled' : 'true'" ng-class="vm.disabled">
+        <a class="page-link" ng-click="vm.navigate(vm.page_no - 1, vm.current_time, vm.disabled)">Previous</a>
+      </li>
+      <li class="page-item" ng-class="vm.active" ng-repeat="page in vm.pages track by $index" ng-if="vm.active = ($index + 1 == vm.page_no)? 'active': 'true'" ><a class="page-link" ng-click="vm.getJobs($index + 1, vm.current_time)">{{$index + 1}}</a></li>
+      <li class="page-item" ng-if = "vm.disable = (vm.page_no == vm.total_pages)? 'disabled' : 'true'" ng-class="vm.disable">
+        <a class="page-link"  ng-click="vm.navigate(vm.page_no + 1, vm.current_time, vm.disable)">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+</div>

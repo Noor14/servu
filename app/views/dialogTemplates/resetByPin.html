@@ -1,0 +1,21 @@
+<h3>Enter pin or password</h3>
+
+<page-loader class="pinSpinner" ng-if="pinEntered"></page-loader>
+
+<form class="loginPopup" ng-submit="resetPassword()" name="passForm" novalidate>
+  <div class="form-group">
+    <input required type="text" ng-model="user.pin" name="pin" class="form-control" placeholder="Enter Pin Code *" />
+    <p class="valid" ng-bind="pinMessage"></p>
+  </div>
+  <div class="form-group resetpassword">
+    <input ng-required type="password" ng-model="user.password" ng-minlength="6"  name="password" class="form-control" placeholder="Enter new password *" />
+    <p class="valid" ng-if="passForm.password.$invalid">Password should be more than 6 characters</p>
+
+  </div>
+  <div class="form-group resetpassword">
+    <input ng-required type="password" ng-model="user.password_confirmation" name="confirmpassword" class="form-control" placeholder="Enter confirm password *" />
+    <p class="valid" ng-bind="passMessage"></p>
+  </div>
+  <button type="submit" ng-disabled="passForm.$invalid || pinEntered" class="btn btn-block resetpassword">Submit</button>
+</form>
+<a ng-click="resendPin()"  ng-disabled ="pinEntered">Resend Pin</a>

@@ -1,0 +1,539 @@
+.nav-header{
+  height : 67px;
+  display: flex !important;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.nav-header .logo img{
+  height: 42px;
+}
+#homePage .navbar{
+  margin: 0;
+  color: #ffffff;
+}
+.resetpassword{
+  margin-top: 30px
+}
+.jobList .myjob-image div{
+  padding-left: 0;
+  padding-right: 0;
+}
+.jobList .myjob-image div.padding{
+  padding: 10px 0;
+}
+.jobList .myjob-image div.padding h4{
+  margin: 0px 0 3px 5px;
+}
+.jobList img.img-rounded{
+  width:100%;
+}
+.sideNav{
+  background: #2b405a;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1500;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.spinner{
+  display: block;
+  margin: 0 auto;
+  width: 70px;
+}
+.spinner_two{
+  position: absolute;
+  right: -70px;
+  top: 0;
+  width: 50px;
+}
+.hamburger{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: transparent;
+  color: white;
+  border: 0;
+  display: none;
+}
+.mainNav{
+  padding: 0;
+  background-color: #f3f3f4;
+}
+.jobList{
+  padding: 0 15px;
+}
+#homePage .full-height{
+  height: 100vh;
+}
+#homePage .spinner{
+  position: absolute;
+  left : 50%;
+  top : 50%;
+}
+ .spinner img{
+  width: 70px;
+  height: 70px;
+}
+.jobList h3{
+  margin: 0;
+}
+.myjobs-list{
+  padding: 0;
+}
+.myjobs-list div.jobDiv{
+  padding: 10px;
+}
+.jobList div.myjob-bg{
+  height: 320px;
+}
+.jobList div.myjob-bg img{
+  width: 100%;
+  height: 250px;
+}
+.jobList div.myjob-image{
+  padding: 10px;
+}
+.jobList h4{
+  color: black;
+  margin: 10px 0 5px 0;
+}
+.jobList h4.status{
+  color: #46c049;
+}
+.jobList p{
+  color: black;
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+
+@media only screen and (max-width:550px){
+.myjobs-list div.jobDiv {
+  width: 100%;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Login pge---------------------------------------------------------------*/
+
+.loginPage .bgImage{
+background-image: url("../images/banner-login.png");
+background-position: center;
+background-size: cover;
+height: 100vh;
+}
+
+.loginPage .loginDiv{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.loginPage .loginDiv .loginForm{
+  margin: 5.6em 20px;
+}
+.loginPage .loginDiv .loginForm .forgetPassword{
+  margin-bottom: 16px;
+}
+.loginPage .loginDiv .loginForm .forgetPassword a{
+  color: #fff;
+}
+.loginPage .loginDiv .loginForm input{
+  border: 0;
+  outline: 0;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 2px solid #e5e6e7 !important;
+}
+.loginPage .loginDiv .loginForm .form-group{
+  margin-bottom: 25px;
+}
+.loginPage .loginDiv .loginForm button{
+  background-color: rgba(153, 153, 153, 0.5);
+}
+.loginPage h2{
+text-align:center;
+}
+.loginPage .loginDiv .loginForm .loginButton{
+  position: relative;
+}
+.socialIcons{
+  display: flex;
+  justify-content: space-evenly;
+}
+.loginPage .socialIcons div{
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 60px;
+  font-size: 22px;
+}
+
+
+.loginWith{
+  margin: 35px 0;
+}
+.socialIcons div i{
+  color: #000;
+}
+
+/*home menu---------------------------------------------------------------*/
+.homePage{
+  height: 100vh;
+  /*overflow: hidden;*/
+}
+.homeMenu{
+  background-color: #fff;
+  height: 100vh;
+  padding-left: 0;
+  position: absolute;
+  right: 0;
+  overflow-y: scroll;
+}
+p.valid{
+  position: absolute;
+  margin-top: 5px;
+}
+
+.sidenav {
+  height: 100%;
+  /*width: 0;*/
+  /*position: fixed;*/
+  /*z-index: 1;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  background-color: #fff;
+  /*overflow-x: hidden;*/
+  transition: 0.5s;
+  padding-top: 3%;
+}
+.sidenav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.sidenav a{
+  padding: 22px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+  font-weight: 500;
+}
+i.bar{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: none;
+  color: white;
+  background: none;
+  font-size: 30px;
+}
+.fa-close{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 20px;
+  color: #c1c1c1;
+  display: none;
+
+}
+/*button.bar:active, button.bar:hover, button.bar:focus{*/
+  /*box-shadow: none;*/
+  /*color: #fff;*/
+
+/*}*/
+/*.sidenav a:hover, .offcanvas a:focus{*/
+  /*color: #f1f1f1;*/
+/*}*/
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#mySidenav .logo{
+  padding: 20px 0;
+  border-bottom: 2px solid lightgray;
+
+}
+
+#mySidenav .logo img{
+display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+#mySidenav .search{
+  padding: 3% 0;
+
+}
+#mySidenav .search form{
+  padding: 8px 30px;
+  border-bottom: 2px solid lightgray;
+}
+#mySidenav .search form input{
+  background-image: url(../images/search-icon-home.png);
+  display: block;
+  outline: 0;
+  border: 0;
+  color: #888888;
+  width: 100%;
+  padding: 10px;
+  font-size:20px;
+  background-size: 23px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 35px;
+}
+::-webkit-input-placeholder{
+  color: #fff !important;
+}
+#mySidenav .search form input::-webkit-input-placeholder, form.loginPopup input::-webkit-input-placeholder{
+  color: #888888 !important;
+}
+
+#mySidenav .socialIcons{
+  padding: 20px 50px;
+}
+#mySidenav .socialIcons a{
+  padding: 0;
+}
+#mySidenav ul li.active a{
+  color:#52ba60 !important;
+}
+#mySidenav .socialIcons .facebook{
+  background-color: #3b5998;
+}
+#mySidenav .socialIcons .twitter{
+  background-color: #00aced;
+}
+#mySidenav .socialIcons .google{
+  background-color: #d34836;
+}
+#mySidenav .socialIcons div{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 50px;
+  font-size: 22px;
+}
+#mySidenav .socialIcons i{
+  color: #fff;
+}
+#mySidenav p{
+  text-align: center;
+  color: gray;
+}
+
+@media only screen and (max-width: 1199px){
+  .homeMenu{
+    display: none;
+  }
+  i.bar{
+    display: block;
+  }
+  .fa-close{
+    display: block;
+  }
+  div.display{
+    display: block;
+    position: absolute;
+    top: 0;
+
+  }
+  div.display-not{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .signupPage .bgImage{
+    height: 100% !important;
+  }
+}
+
+
+/*Signup Page-------------------------------------------*/
+
+.forgetPage .bgImage{
+  background-image: url("../images/banner-signup.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+.signupPage .bgImage{
+  background-image: url("../images/banner-signup.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.signupPage .signupDiv, .forgetPage .forgetDiv{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.signupPage .signupDiv .signupForm, .forgetPage .forgetDiv .forgetForm{
+
+  margin: 5px 20px;
+}
+
+.signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control{
+  border: 0;
+  outline: 0;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 2px solid #e5e6e7 !important;
+}
+.signupPage .signupDiv .signupForm .form-group{
+  margin-bottom: 25px;
+}
+.forgetPage .forgetDiv .forgetForm .form-group{
+  margin-bottom: 30%;
+}
+.signupPage .signupDiv .signupForm button, .forgetPage .forgetDiv .forgetForm button{
+  background-color: rgba(153, 153, 153, 0.5);
+}
+
+.uploadPicture{
+overflow: visible;
+}
+.uploadPicture .btn-bs-file{
+  position: relative;
+  background-image: url(../images/add-photo.png);
+  width: 120px;
+  height: 120px;
+  background-size: 120px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 0;
+}
+.signupPage .profile-pic{
+  width:150px;
+  height:150px;
+}
+.signupPage .uploadPicture .btn-bs-file input[type="file"] {
+  position: absolute;
+  /*top: -9999999;/\*/
+  /*filter: alpha(opacity=0);*/
+  opacity: 0;
+  width: 0;
+  height: 0;
+  outline: none;
+  cursor: inherit;
+}
+.signupPage .uploadPicture p{
+  position: absolute;
+  bottom: -50px;
+  z-index: 10000;
+  color: #fff !important;
+  text-align: center;
+  left: 30%;
+  font-weight: 600;
+}
+.signupPage .uploadPicture p.uploaded{
+  left: 0;
+}
+
+.signupPage .nameBox{
+  margin-top: 55px;
+}
+.signupPage .signupButton{
+  margin-top: 25px;
+}
+
+.pinSpinner{
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  z-index: 2000;
+}
+.signupPage .checkUser{
+  display: flex;
+  justify-content: space-between;
+}
+/*addjobpopup-----------------------*/
+
+
+.jobCategory img.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: 100px;
+  width: 100%;
+}
+.jobCategory .categoryback{
+  display: flex;
+}
+.jobCategory .categoryback a{
+  flex: 0;
+  color: #000;
+}
+.jobCategory .categoryback h3{
+  flex: 100;
+}
+.jobCategory hr{
+  border-top-color: #000;
+}
+.jobCategory .pointer{
+  cursor: pointer;
+}
+.jobCategory .serviceList, .jobCategory p{
+  padding: 0 15px;
+}
+.jobCategory .serviceList li{
+  display: flex;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.jobCategory .serviceList li span{
+  flex: 100;
+}
+
+.jobCategory .serviceList li a{
+  color: #000;
+  flex: 0;
+}
+
+.ngdialog-close{
+  top:-50px !important;
+  background-color: #f0f0f0 !important;
+  border-radius: 100% !important;
+  outline: none;
+
+}
+.ngdialog-close:before{
+  font-weight: 600 !important;
+  color: #000 !important;
+}

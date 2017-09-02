@@ -1,0 +1,12 @@
+<h3>Enter Pin No</h3>
+
+<page-loader class="pinSpinner" ng-if="pinEntered"></page-loader>
+<form class="loginPopup" ng-submit="pinLogin()" name="pinForm" novalidate>
+  <div class="form-group">
+    <input required type="text" ng-model="pin_code" name="pin" class="form-control" placeholder="Enter Pin Code" />
+    <p ng-bind="pinMessage"></p>
+  </div>
+  <button type="submit" ng-disabled="pinForm.$invalid || pinEntered" class="btn btn-block">Submit</button>
+</form>
+<a ng-click="resendPin()" ng-if="!socialProvider" ng-disabled ="pinEntered">Resend Pin</a>
+<a ng-click="resendSocial()" ng-if="socialProvider" ng-disabled ="pinEntered">Resend Pin</a>

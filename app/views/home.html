@@ -1,0 +1,43 @@
+
+<div class="homePage">
+<div class="col-lg-9 col-md-12 col-sm-12 no-padding">
+<i ng-click="vm.sidenav('display')" class="fa fa-bars bar"></i>
+<ui-view></ui-view>
+</div>
+<div ng-class="sidemenu" class="col-lg-3 homeMenu">
+
+  <div id="mySidenav" class="sidenav">
+    <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+
+    <div class="logo">
+      <img ng-src="images/logo.png">
+      <i ng-click="vm.sidenav('display-not')" class="fa fa-close"></i>
+    </div>
+    <div class="search">
+      <form ng-submit="vm.search()"><input type="text" ng-model="search" placeholder="Search"></form>
+    </div>
+    <ul>
+      <li ng-class="vm.getClass('/')"><a>HOME</a></li>
+      <li ng-class="vm.getClass('/services')"><a>SERVICES</a></li>
+      <li ng-class="vm.getClass('/login')"><a ui-sref="home.login">SIGN IN</a></li>
+      <li ng-class="vm.getClass('/signUp')"><a ui-sref="home.signup">SIGN UP</a></li>
+      <li ng-class="vm.getClass('/about')"><a>ABOUT</a></li>
+      <li ng-class="vm.getClass('/work')"><a>HOW IT WORKS</a></li>
+      <li ng-class="vm.getClass('/faq')"><a>FAQ</a></li>
+      <li ng-class="vm.getClass('/contact')"><a>CONTACT US</a></li>
+      <li ng-class="vm.getClass('/news-letter')"><a>NEWS LETTER</a></li>
+    </ul>
+
+      <div class="socialIcons">
+        <div class="google"><a g-login><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
+        <div class="facebook"><a fb-login><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+        <div class="twitter"><a ng-click="vm.twitterLogin()"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+
+      </div>
+    <p>All Rights Reserved.</p>
+
+  </div>
+</div>
+
+
+</div>

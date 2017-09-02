@@ -1,0 +1,40 @@
+<div class="loginPage">
+  <div class="bgImage">
+    <div class="loginDiv">
+      <h2>Login and discover our awesome mobile app.</h2>
+
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-8 loginForm">
+
+        <form ng-submit="vm.login()" novalidate name="userForm">
+          <div class="form-group">
+            <input type="text" name="email" required class="form-control" ng-model="vm.user.email" aria-describedby="emailHelp" placeholder="Enter email or phone">
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+            <p class='valid' ng-if="vm.loginCheck">{{vm.loginCheck}}</p>
+          </div>
+          <p class="text-right forgetPassword"><a ui-sref="home.forget">Forgot Password ?</a></p>
+            <div class="loginButton">
+          <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Login</button> <img ng-if="vm.loading" class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+            </div>
+        </form>
+
+        <div class="socialLogin">
+          <p class="text-center loginWith">Or login With</p>
+          <div class="socialIcons">
+            <div><a g-login><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
+            <div><a fb-login><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+            <div><a ng-click="vm.twitterLogin()"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <p class="text-right">Don't have an account? <a ui-sref="home.signup"><b>Sign Up.</b></a></p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="signupPage">
+  <div class="bgImage">
+    <div class="signupDiv">
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 signupForm">
+
+        <form ng-submit="vm.signup()" novalidate name="userForm">
+
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="form-group uploadPicture">
+            <label class="btn-bs-file btn btn-lg ">
+              <input type="file" class="form-control" accept="image/*" base-sixty-four-input ng-model="vm.user.profile_pic" aria-describedby="pixHelp">
+              <p ng-if="!vm.user.profile_pic">Photo</p><p class="uploaded" ng-if="vm.user.profile_pic">Photo Uploaded</p>
+            </label>
+
+          </div>
+
+          <div class="form-group nameBox">
+            <input type="text" class="form-control" ng-model=" vm.user.name" name="name" aria-describedby="nameHelp" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" ng-model=" vm.user.about" rows="4" name="about" placeholder="About"></textarea>
+          </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="form-group">
+                <input type="email" ng-required="true" class="form-control" name="email" ng-model="vm.user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" aria-describedby="emailHelp" placeholder="Email">
+                <p class="valid" ng-if="userForm.email.$dirty && userForm.email.$error.pattern">Please enter valid email</p>
+                <p class="valid" ng-if="vm.emailExist">{{vm.emailExist}}</p>
+              </div>
+              <div class="form-group">
+                <input type="text" ng-required class="form-control" name="phone_no" ng-minlength="12" ng-maxlength="12" ng-model="vm.user.phone" aria-describedby="phoneNoHelp" placeholder="Phone*">
+                <p class="valid" ng-if="userForm.phone_no.$invalid">Phone no should be 12 character</p>
+                <p class="valid" ng-if="vm.phone_noExist">{{vm.phone_noExist}}</p>
+
+              </div>
+              <div class="form-group">
+                <input type="password" ng-required class="form-control" name="password" ng-minlength="6" ng-model="vm.user.password" aria-describedby="passwordHelp" placeholder="Password*">
+                <p class="valid" ng-if="userForm.password.$invalid">Password should be more than 6 characters</p>
+              </div>
+              <div class="form-group">
+                <input type="password" ng-required="true" class="form-control" ng-model="vm.user.password_confirmation" name="confirmPassword" aria-describedby="passwordHelp" placeholder="Confirm Password*">
+                <p class="valid" ng-if="vm.message">{{vm.message}}</p>
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label checkUser">
+                 <p>Are you a service provider?</p><input class="form-check-input" type="checkbox">
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="vm.user.company_name" aria-describedby="companyName" name="companyName" placeholder="Company Name">
+              </div>
+            </div>
+
+
+          </div>
+
+        <div class="col-lg-4 col-lg-offset-4 signupButton">
+          <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Sign Up</button> <img ng-if="vm.loading" class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+        </div>
+
+        </form>
+
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div id="homePage">
+  <div class="sideNav col-sm-4 col-lg-2 col-md-3">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+              <div class="logo">
+                <img src="images/logo.png" alt="logo" class="img-responsive">
+              </div>
+            </div>
+            <div class="logo-element">
+              <img src="images/small_logo.png" alt="logo" class="img-responsive">
+            </div>
+          </li>
+          <li ng-class="vm.getClass('/dashboard')">
+            <a ui-sref="user.joblist"><i class="fa fa-briefcase" aria-hidden="true"></i>
+              <span class="nav-label">My Jobs</span></a>
+          </li>
+          <li ng-class="vm.getClass('/messages')">
+            <a ui-sref="user.message"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <span class="nav-label">Messages</span> </a>
+          </li>
+          <li>
+            <a><i class="fa fa-bell" aria-hidden="true"></i>
+              <span class="nav-label">Notifications</span> </a>
+          </li>
+          <li ng-class="vm.getClass('/profile')">
+            <a ui-sref="user.profile"><i class="fa fa-user" aria-hidden="true"></i>
+              <span class="nav-label">Users</span> </a>
+          </li>
+          <li>
+            <a><i class="fa fa-cog" aria-hidden="true"></i>
+              <span class="nav-label">Setting</span> </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+  </div>
+<div class="mainNav col-lg-10 col-md-9 col-sm-8 col-lg-offset-2 col-md-offset-3 col-sm-offset-4" ng-class="fullHeight">
+  <div class="navigation-bar">
+    <nav class="navbar navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" data-target="#"><i class="fa fa-bars"></i> </a>
+        <form role="search" class="navbar-form-custom">
+          <div class="form-group search_icon">
+            <input type="text" placeholder="Search..." class="form-control" name="top-search" id="top-search">
+          </div>
+        </form>
+      </div>
+      <ul class="nav navbar-top-links pull-right">
+        <li><img ng-if="pageLoader || navLoader" ng-src="images/spinner_two.gif" alt="loading" /></li>
+        <li>
+          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Louis tery
+            <img src="images/user.jpg" alt="user">
+            <span class=" fa fa-angle-down"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li><a ui-sref="home.pofile"> Profile</a></li>
+            <li>
+              <a href="#">
+                <span>Settings</span>
+              </a>
+            </li>
+            <li><a href="#">Help</a></li>
+            <li><a ng-click= "vm.logout()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+  <ui-view></ui-view>
+</div>
+  <!--<div id="page-wrapper" class="gray-bg">-->
+    <!--<div class="row border-bottom">-->
+    <!--</div>-->
+  <!--</div>-->
+
+</div>

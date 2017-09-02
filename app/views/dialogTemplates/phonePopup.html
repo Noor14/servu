@@ -1,0 +1,8 @@
+<h3>Enter Phone No</h3>
+
+<form class="loginPopup" ng-submit="loginSubmit()" name="phoneForm" novalidate>
+  <div class="form-group">
+    <input required type="text" ng-model="phone" name = "phone" class="form-control"  placeholder="Enter your phone no" />
+  </div>
+  <button type="submit" ng-disabled="phoneForm.$invalid" class="btn btn-block">Submit</button>
+</form>
