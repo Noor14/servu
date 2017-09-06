@@ -75,6 +75,7 @@ angular.module('servu')
 
           }
           else{
+            $scope.pinEntered = false;
             $scope.pinMessage = "Enter valid pin code"
           }
         },function(err){

@@ -17,7 +17,7 @@
       <form ng-submit="vm.search()"><input type="text" ng-model="search" placeholder="Search"></form>
     </div>
     <ul>
-      <li ng-class="vm.getClass('/')"><a>HOME</a></li>
+      <li ng-class="vm.getClass('/home')"><a>HOME</a></li>
       <li ng-class="vm.getClass('/services')"><a>SERVICES</a></li>
       <li ng-class="vm.getClass('/login')"><a ui-sref="home.login">SIGN IN</a></li>
       <li ng-class="vm.getClass('/signUp')"><a ui-sref="home.signup">SIGN UP</a></li>
@@ -25,7 +25,7 @@
       <li ng-class="vm.getClass('/work')"><a>HOW IT WORKS</a></li>
       <li ng-class="vm.getClass('/faq')"><a>FAQ</a></li>
       <li ng-class="vm.getClass('/contact')"><a>CONTACT US</a></li>
-      <li ng-class="vm.getClass('/news-letter')"><a>NEWS LETTER</a></li>
+      <li ng-class="vm.getClass('/news-letter')"><a ui-sref="home.newsletter">NEWS LETTER</a></li>
     </ul>
 
       <div class="socialIcons">

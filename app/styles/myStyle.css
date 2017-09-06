@@ -387,6 +387,12 @@ display: block;
   background-size: cover;
   height: 100vh;
 }
+.newsletterPage .bgImage{
+  background-image: url("../images/banner-signup.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  }
 .signupPage .bgImage{
   background-image: url("../images/banner-signup.png");
   background-position: center;
@@ -394,7 +400,7 @@ display: block;
   height: 100vh;
 }
 
-.signupPage .signupDiv, .forgetPage .forgetDiv{
+.signupPage .signupDiv, .forgetPage .forgetDiv, .newsletterPage .newsDiv{
   color: white;
   display: flex;
   flex-direction: column;
@@ -402,12 +408,14 @@ display: block;
   align-items: center;
   height: 100%;
 }
-.signupPage .signupDiv .signupForm, .forgetPage .forgetDiv .forgetForm{
-
+.newsletterPage .newsDiv{
+  justify-content:space-evenly;
+}
+.signupPage .signupDiv .signupForm, .forgetPage .forgetDiv .forgetForm, .newsletterPage .newsDiv .newsForm{
   margin: 5px 20px;
 }
 
-.signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control{
+.signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control, .newsletterPage .newsDiv .newsForm .form-control {
   border: 0;
   outline: 0;
   color: #fff;
@@ -417,10 +425,10 @@ display: block;
 .signupPage .signupDiv .signupForm .form-group{
   margin-bottom: 25px;
 }
-.forgetPage .forgetDiv .forgetForm .form-group{
+.forgetPage .forgetDiv .forgetForm .form-group, .newsletterPage .newsDiv .newsForm .form-group{
   margin-bottom: 30%;
 }
-.signupPage .signupDiv .signupForm button, .forgetPage .forgetDiv .forgetForm button{
+.signupPage .signupDiv .signupForm button, .forgetPage .forgetDiv .forgetForm button ,.newsletterPage .newsDiv .newsForm button{
   background-color: rgba(153, 153, 153, 0.5);
 }
 

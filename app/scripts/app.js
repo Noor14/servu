@@ -89,8 +89,8 @@ angular
     socialProvider.setGoogleKey("1065697815705-o2tn5bfkb55pdbp8e0imil21lbvk99bm.apps.googleusercontent.com");
     socialProvider.setFbKey({appId: "1831395580221168", apiVersion: "v2.10"});
     $qProvider.errorOnUnhandledRejections(false);
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('#!');
+    //$locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('#!');
     $urlRouterProvider.otherwise('/dashboard');
     $stateProvider
       .state('home', {
@@ -100,24 +100,51 @@ angular
         controller: 'homeCtrl',
         controllerAs: 'vm'
       })
+      .state('home.main', {
+        url:'/home',
+        templateUrl: 'views/LandingPageTemplates/main.html',
+        controller: 'homeCtrl',
+        controllerAs: 'vm'
+      })
+      .state('home.about', {
+        url:'/aout',
+        templateUrl: 'views/LandingPageTemplates/about.html',
+        controller: 'aboutCtrl',
+        controllerAs: 'vm'
+      })
       .state('home.login',{
         url:'/login',
         templateUrl: 'views/LandingPageTemplates/login.html'
-        //controller: 'loginCtrl',
-        //controllerAs: 'vm'
-
       })
       .state('home.forget',{
         url:'/forget-password',
         templateUrl: 'views/LandingPageTemplates/forget.html',
         controller: 'forgetCtrl',
         controllerAs: 'vm'
-
       })
       .state('home.signup', {
         url:'/signUp',
         templateUrl: 'views/LandingPageTemplates/signup.html',
         controller: 'signupCtrl',
+        controllerAs: 'vm'
+      })
+      .state('home.contact', {
+        url:'/contact',
+        templateUrl: 'views/LandingPageTemplates/contact.html',
+        controller: 'contactCtrl',
+        controllerAs: 'vm'
+      })
+
+      .state('home.service', {
+        url:'/services',
+        templateUrl: 'views/LandingPageTemplates/service.html',
+        controller: 'serviceCtrl',
+        controllerAs: 'vm'
+      })
+      .state('home.newsletter', {
+        url:'/news-letter',
+        templateUrl: 'views/LandingPageTemplates/newsletter.html',
+        controller: 'NewsletterCtrl',
         controllerAs: 'vm'
       })
       .state('user', {

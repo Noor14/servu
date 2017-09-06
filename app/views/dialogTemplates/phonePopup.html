@@ -2,7 +2,8 @@
 
 <form class="loginPopup" ng-submit="loginSubmit()" name="phoneForm" novalidate>
   <div class="form-group">
-    <input required type="text" ng-model="phone" name = "phone" class="form-control"  placeholder="Enter your phone no" />
+    <input ng-required type="text" ng-model="phone" name = "phone" ng-minlength="12" ng-maxlength="12" class="form-control"  placeholder="Enter your phone no" />
+    <p class="valid" ng-if="userForm.phone_no.$invalid">Phone no should be 12 character</p>
   </div>
   <button type="submit" ng-disabled="phoneForm.$invalid" class="btn btn-block">Submit</button>
 </form>

@@ -28,6 +28,7 @@ angular.module('servu')
             $state.go("user.joblist");
           }
           else{
+            $scope.pinEntered = false;
             $scope.pinMessage = "Enter valid pin code"
           }
         });
