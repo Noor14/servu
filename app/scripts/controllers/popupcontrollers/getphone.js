@@ -8,7 +8,7 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('getPhoneCtrl',['$scope', 'token', 'ngDialog', 'socialService', function ($scope, token, ngDialog, socialService){
+  .controller('getPhoneCtrl',['$scope', 'token', 'ngDialog', 'socialService', 'credentialService', function ($scope, token, ngDialog, socialService, credentialService){
     $scope.loginSubmit = function(){
 
       var obj = {
@@ -19,7 +19,13 @@ angular.module('servu')
 
 
       if(obj.provider == 'facebook'){
-        socialService.fbLogin(obj).then(function (res) {
+        socialService.fbLogin(obj).then(function (res){
+        if(res.status == 200){
+          localStorage.setItem('userDetail', JSON.stringify(res));
+          credentialService.authed = true;
+          $state.go('user.joblist');
+
+        }
         }, function (err) {
           if (err.data.type == 424) {
             $scope.closeThisDialog();
@@ -39,6 +45,12 @@ angular.module('servu')
       }
       else if(obj.provider == 'google'){
         socialService.googleLogin(obj).then(function (res) {
+          if(res.status == 200){
+            localStorage.setItem('userDetail', JSON.stringify(res));
+            credentialService.authed = true;
+            $state.go('user.joblist');
+
+          }
         }, function (err) {
           if (err.data.type == 424) {
             $scope.closeThisDialog();

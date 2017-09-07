@@ -36,14 +36,15 @@ angular.module('servu')
       var deffered = $q.defer();
       var obj={
         url: host + "/auth/sign_out",
-        method: "DELETE",
         headers: {
-          'Content-type': 'application/JSON'
-        },
-        data : credential
+          'Content-type': 'application/JSON',
+          'token' : credential.token,
+          'uid' : credential.uid,
+          'client' : credential.client
+        }
 
       };
-      $http(obj).then(function(res){
+      $http.delete(obj.url, {headers: obj.headers}).then(function(res){
           deffered.resolve(res);
         },function(err){
           deffered.resolve(err);

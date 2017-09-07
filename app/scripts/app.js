@@ -89,8 +89,8 @@ angular
     socialProvider.setGoogleKey("1065697815705-o2tn5bfkb55pdbp8e0imil21lbvk99bm.apps.googleusercontent.com");
     socialProvider.setFbKey({appId: "1831395580221168", apiVersion: "v2.10"});
     $qProvider.errorOnUnhandledRejections(false);
-    //$locationProvider.html5Mode(true);
-    //$locationProvider.hashPrefix('#!');
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('#!');
     $urlRouterProvider.otherwise('/dashboard');
     $stateProvider
       .state('home', {

@@ -50,7 +50,7 @@
                 </label>
               </div>
               <div class="form-group">
-                <input type="text" ng-required="vm.provider" class="form-control" ng-disabled="!vm.provider" ng-model="vm.user.company_name" aria-describedby="companyName" name="companyName" placeholder="Company Name">
+                <input type="text" class="form-control" ng-disabled="!vm.provider" ng-model="vm.user.company_name" aria-describedby="companyName" name="companyName" placeholder="Company Name">
               </div>
             </div>
 
@@ -58,7 +58,7 @@
           </div>
 
           <div class="col-lg-4 col-lg-offset-4 signupButton">
-            <button type="submit" ng-disabled="userForm.$invalid || !vm.user.phone || vm.provider || vm.loading" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+            <button type="submit" ng-disabled="userForm.$invalid || !vm.user.phone || vm.provider || vm.loading"  class="btn btn-primary btn-lg btn-block">Sign Up</button>
           </div>
           <div class="landing-page-spinner" ng-if="vm.loading">
             <img class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />

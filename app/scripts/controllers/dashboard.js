@@ -12,9 +12,9 @@ angular.module('servu')
     function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService) {
 
     var vm = this;
-      vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       vm.logout = function(){
-      $rootScope.navLoader = true;
+        vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+        $rootScope.navLoader = true;
       var obj = {
         token: vm.accountInfo.data.token,
         uid: vm.accountInfo.data.uid,

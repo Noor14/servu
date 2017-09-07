@@ -23,6 +23,7 @@ angular.module('servu')
             $scope.pinEntered = false;
             localStorage.setItem('userDetail', JSON.stringify(res));
             credentialService.authed = true;
+            $scope.pinEntered = false;
             $scope.closeThisDialog();
             $state.go('user.joblist');
 
