@@ -54,8 +54,9 @@
         <li><img ng-if="pageLoader || navLoader" ng-src="images/spinner_two.gif" alt="loading" /></li>
         <li>
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Louis tery
-            <img src="images/user.jpg" alt="user">
+            {{vm.userData.name}}
+            <img ng-if="!vm.userData.pic_url" src="images/user.jpg" alt="user">
+            <img ng-if="vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
