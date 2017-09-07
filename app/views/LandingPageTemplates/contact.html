@@ -1,0 +1,39 @@
+<div class="contactPage">
+  <div class="bgImage">
+    <div class="contactDiv">
+
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-8 contactForm">
+
+        <form ng-submit="vm.contact()" novalidate name="contactForm">
+          <div class="form-group">
+            <input type="text" name="email" required class="form-control" ng-model="vm.user.email" aria-describedby="emailHelp" placeholder="Enter email or phone">
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+          </div>
+          <div>
+            <button type="submit" ng-disabled="contactForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Send</button>
+          </div>
+          <div class="landing-page-spinner" ng-if="vm.loading">
+            <img  class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

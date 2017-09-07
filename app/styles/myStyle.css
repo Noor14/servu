@@ -45,11 +45,22 @@
   margin: 0 auto;
   width: 70px;
 }
-.spinner_two{
+.landing-page-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   position: absolute;
-  right: -70px;
+  height: 22vh;
   top: 0;
-  width: 50px;
+
+}
+.spinner_two{
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 11px;
+  border-radius: 5px;
 }
 .hamburger{
   position: absolute;
@@ -71,9 +82,10 @@
   height: 100vh;
 }
 #homePage .spinner{
-  position: absolute;
-  left : 50%;
-  top : 50%;
+  height: 90vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
  .spinner img{
   width: 70px;
@@ -180,16 +192,16 @@ text-align:center;
   justify-content: space-evenly;
 }
 .loginPage .socialIcons div{
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  border-radius: 100%;
-  line-height: 60px;
-  font-size: 22px;
+  width: 70px;
+  cursor: pointer;
 }
 
-
+.loginPage .socialIcons div img{
+  width: 100%;
+}
+.loginPage .socialIcons div:focus{
+outline: none;
+}
 .loginWith{
   margin: 35px 0;
 }
@@ -382,13 +394,19 @@ display: block;
 /*Signup Page-------------------------------------------*/
 
 .forgetPage .bgImage{
-  background-image: url("../images/banner-signup.png");
+  background-image: url("../images/forget-banner.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+.contactPage .bgImage{
+  background-image: url("../images/contact-banner.png");
   background-position: center;
   background-size: cover;
   height: 100vh;
 }
 .newsletterPage .bgImage{
-  background-image: url("../images/banner-signup.png");
+  background-image: url("../images/newsletter-banner.png");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -400,7 +418,7 @@ display: block;
   height: 100vh;
 }
 
-.signupPage .signupDiv, .forgetPage .forgetDiv, .newsletterPage .newsDiv{
+.signupPage .signupDiv, .forgetPage .forgetDiv, .newsletterPage .newsDiv, .contactPage .contactDiv{
   color: white;
   display: flex;
   flex-direction: column;
@@ -411,11 +429,11 @@ display: block;
 .newsletterPage .newsDiv{
   justify-content:space-evenly;
 }
-.signupPage .signupDiv .signupForm, .forgetPage .forgetDiv .forgetForm, .newsletterPage .newsDiv .newsForm{
+.signupPage .signupDiv .signupForm, .forgetPage .forgetDiv .forgetForm, .newsletterPage .newsDiv .newsForm, .contactPage .contactDiv .contactForm{
   margin: 5px 20px;
 }
 
-.signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control, .newsletterPage .newsDiv .newsForm .form-control {
+.signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control, .newsletterPage .newsDiv .newsForm .form-control, .contactPage .contactDiv .contactForm .form-control{
   border: 0;
   outline: 0;
   color: #fff;
@@ -428,7 +446,7 @@ display: block;
 .forgetPage .forgetDiv .forgetForm .form-group, .newsletterPage .newsDiv .newsForm .form-group{
   margin-bottom: 30%;
 }
-.signupPage .signupDiv .signupForm button, .forgetPage .forgetDiv .forgetForm button ,.newsletterPage .newsDiv .newsForm button{
+.signupPage .signupDiv .signupForm button, .forgetPage .forgetDiv .forgetForm button ,.newsletterPage .newsDiv .newsForm button, .contactPage .contactDiv .contactForm button{
   background-color: rgba(153, 153, 153, 0.5);
 }
 

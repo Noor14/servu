@@ -15,16 +15,19 @@
           </div>
           <p class="text-right forgetPassword"><a ui-sref="home.forget">Forgot Password ?</a></p>
             <div class="loginButton">
-          <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Login</button> <img ng-if="vm.loading" class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+          <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Login</button>
             </div>
+          <div class="landing-page-spinner" ng-if="vm.loading">
+            <img  class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+          </div>
         </form>
 
         <div class="socialLogin">
           <p class="text-center loginWith">Or login With</p>
           <div class="socialIcons">
-            <div><a g-login><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
-            <div><a fb-login><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
-            <div><a ng-click="vm.twitterLogin()"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+            <div g-login><img src="images/w-Google.png" alt="social_icons" /></div>
+            <div fb-login><img src="images/w-Facebook.png" alt="social_icons" /></div>
+            <div ng-click="vm.twitterLogin()"><img src="images/w-Twitter.png" alt="social_icons" /></div>
 
           </div>
         </div>

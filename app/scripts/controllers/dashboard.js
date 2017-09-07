@@ -12,10 +12,15 @@ angular.module('servu')
     function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService) {
 
     var vm = this;
-    vm.logout = function(){
-      $rootScope.navLoader = true;
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
-      credentialService.userLogout(vm.accountInfo.data).then(function(res){
+      vm.logout = function(){
+      $rootScope.navLoader = true;
+      var obj = {
+        token: vm.accountInfo.data.token,
+        uid: vm.accountInfo.data.uid,
+        client: vm.accountInfo.data.client
+      };
+      credentialService.userLogout(obj).then(function(res){
         console.log("res",res);
         $rootScope.navLoader = false;
         if(res.status == 204){

@@ -15,7 +15,7 @@ angular.module('servu')
     vm.forgetPassword = function() {
       vm.message = '';
       vm.loading = true;
-      if (vm.user.email.length == 12 && typeof(parseInt(vm.user.email)) == "number") {
+      if (vm.user.email.length == 12 && !isNaN(parseInt(vm.user.email))) {
         credentialService.resetPasswordbymail(vm.user).then(function (res) {
           console.log(res);
           vm.loading = false;
@@ -50,6 +50,9 @@ angular.module('servu')
               preventOpenDuplicates: true
             });
             $state.go("home.login");
+          }
+          else if(res.status == 404){
+            vm.message = "User not found please enter a valid credential";
           }
           else {
             vm.message = "Try after some time"

@@ -16,7 +16,10 @@
           </div>
 
           <div class="col-lg-4 col-lg-offset-4">
-            <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Send</button> <img ng-if="vm.loading" class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
+            <button type="submit" ng-disabled="userForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Send</button>
+          </div>
+          <div class="landing-page-spinner" ng-if="vm.loading">
+            <img class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
           </div>
 
         </form>

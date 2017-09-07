@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ServuApp.iml" filepath="$PROJECT_DIR$/.idea/ServuApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/servu.iml" filepath="$PROJECT_DIR$/.idea/servu.iml" />
     </modules>
   </component>
 </project>

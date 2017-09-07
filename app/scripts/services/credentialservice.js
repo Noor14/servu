@@ -37,8 +37,11 @@ angular.module('servu')
       var obj={
         url: host + "/auth/sign_out",
         method: "DELETE",
-        headers: { 'Content-type': 'application/JSON' },
+        headers: {
+          'Content-type': 'application/JSON'
+        },
         data : credential
+
       };
       $http(obj).then(function(res){
           deffered.resolve(res);
