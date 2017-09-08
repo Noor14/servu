@@ -20,8 +20,25 @@ angular.module('servu')
 
 
       if(vm.user.password === vm.user.password_confirmation){
-
-        createAccount()
+        var info = JSON.parse(localStorage.getItem('userInfo'));
+        if (info && info.user && info.user.phone && info.user.phone == vm.user.phone) {
+          vm.loading = false;
+          vm.user = {};
+          ngDialog.open({
+            template: 'views/dialogTemplates/pinPopup.html',
+            resolve: {
+              user_info: function () {
+                return info;
+              }
+            },
+            showClose: false,
+            overlay: false,
+            controller: 'confirmPinCtrl'
+          });
+        }
+        else{
+        createAccount();
+        }
       }
       else{
         vm.loading = false;
@@ -29,12 +46,14 @@ angular.module('servu')
       }
     };
 
-    function signUp(){
-      credentialService.userSignup(vm.user).then(function(res){
+    function signUp() {
+
+      credentialService.userSignup(vm.user).then(function (res) {
         console.log(res.data);
         vm.loading = false;
-        if(res.status === 201){
-
+        if (res.status === 201) {
+          localStorage.setItem('userInfo', JSON.stringify(res.data));
+          vm.user = {};
           ngDialog.open({
             template: 'views/dialogTemplates/pinPopup.html',
             resolve: {
@@ -42,22 +61,24 @@ angular.module('servu')
                 return res.data;
               }
             },
-            showClose:false,
+            showClose: false,
+            overlay: false,
             controller: 'confirmPinCtrl'
           });
         }
-        else if(res.data.errors.length && res.status === 422){
+        else if (res.data.errors.length && res.status === 422) {
           vm.emailExist = res.data.errors[0];
-          console.log(vm.emailExist,'emailExist');
+          console.log(vm.emailExist, 'emailExist');
         }
-        else if(res.data.errors.length && res.status === 409){
+        else if (res.data.errors.length && res.status === 409) {
           vm.phone_noExist = res.data.errors[0];
-          console.log(vm.phone_noExist,'phoneExist');
+          console.log(vm.phone_noExist, 'phoneExist');
         }
-      },function(err){
+      }, function (err) {
         vm.loading = false;
         console.log(err.data.errors);
       })
+
     }
 
     function createAccount(){
@@ -79,16 +100,6 @@ angular.module('servu')
         signUp();
       }
     }
-
-      vm.serviceProvider = function(){
-        if(vm.provider){
-          vm.required = true;
-        }
-        else {
-          vm.required = false;
-
-        }
-      }
 
 
   }]);

@@ -19,6 +19,7 @@ angular.module('servu')
             credentialService.authed = true;
             $scope.pinEntered = false;
             localStorage.setItem("userDetail",JSON.stringify(response.config));
+            localStorage.removeItem('userInfo');
             $scope.closeThisDialog();
             //vm.user = {};
             toastr.success('Your account has been created',{
