@@ -13,7 +13,7 @@ angular.module('servu')
     var vm = this;
     vm.user = {};
 
-    vm.signup = function(){
+    vm.newAccount = function(){
 
       vm.emailExist = vm.phone_noExist = vm.message = false;
       vm.loading = true;
@@ -79,6 +79,16 @@ angular.module('servu')
         signUp();
       }
     }
+
+      vm.serviceProvider = function(){
+        if(vm.provider){
+          vm.required = true;
+        }
+        else {
+          vm.required = false;
+
+        }
+      }
 
 
   }]);

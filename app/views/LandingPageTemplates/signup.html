@@ -3,7 +3,7 @@
     <div class="signupDiv">
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 signupForm">
 
-        <form ng-submit="vm.signup()" novalidate name="userForm">
+        <form ng-submit="vm.newAccount()" novalidate name="userForm">
 
           <div class="row">
 
@@ -46,11 +46,11 @@
               </div>
               <div class="form-group form-check">
                 <label class="form-check-label checkUser">
-                  <p>Are you a service provider?</p><input class="form-check-input" ng-model="vm.provider" type="checkbox">
+                  <p>Are you a service provider?</p><input class="form-check-input" ng-model="vm.provider" ng-checked="vm.serviceProvider()" type="checkbox">
                 </label>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" ng-disabled="!vm.provider" ng-model="vm.user.company_name" aria-describedby="companyName" name="companyName" placeholder="Company Name">
+                <input type="text" ng-required="vm.required" class="form-control" ng-disabled="!vm.required" ng-model="vm.user.company_name" aria-describedby="companyName" name="companyName" placeholder="Company Name">
               </div>
             </div>
 
@@ -58,7 +58,7 @@
           </div>
 
           <div class="col-lg-4 col-lg-offset-4 signupButton">
-            <button type="submit" ng-disabled="userForm.$invalid || !vm.user.phone || vm.provider || vm.loading"  class="btn btn-primary btn-lg btn-block">Sign Up</button>
+            <button type="submit" ng-disabled="userForm.$invalid || !vm.user.phone || vm.loading"  class="btn btn-primary btn-lg btn-block">Sign Up</button>
           </div>
           <div class="landing-page-spinner" ng-if="vm.loading">
             <img class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
