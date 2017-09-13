@@ -50,27 +50,30 @@ angular
           if (credentialService.authed && !$transition.$to().self.hasOwnProperty("data")) {
             $state.go($transition.$from().self.name);
           }
+          else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
+            $location.path($transition.$to().self.url);
+          }
+          else{
           $http(obj).then(function (res) {
             console.log(res, "res");
-            credentialService.authed = true;
-            if (res.status = 200 && $transition.$from().self.url == '/') {
+            if (res.status == 200) {
               credentialService.authed = true;
               $state.go("user.joblist");
             }
-            else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
-              $location.path($transition.$to().self.url);
-            }
+
             else {
-              $location.path($transition.$from().self.url);
+              localStorage.clear();
+              $state.go("home.login");
             }
 
           });
+          }
         }
         else{
           if(credentialService.authed && !$transition.$to().self.hasOwnProperty("data")){
             $location.path($transition.$from().self.url);
           }
-          else if (credentialService.authed == false && !$transition.$to().self.hasOwnProperty("data")) {
+          else if (!credentialService.authed && !$transition.$to().self.hasOwnProperty("data")) {
             $location.path($transition.$to().self.url);
           }
           else if (!credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
@@ -90,7 +93,7 @@ angular
     socialProvider.setFbKey({appId: "1831395580221168", apiVersion: "v2.10"});
     $qProvider.errorOnUnhandledRejections(false);
     //$locationProvider.html5Mode(true);
-    //$locationProvider.hashPrefix('#!');
+    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/dashboard');
     $stateProvider
       .state('home', {
