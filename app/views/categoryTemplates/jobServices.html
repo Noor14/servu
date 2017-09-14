@@ -8,7 +8,7 @@
     <page-loader ng-if="popupLoader"></page-loader>
 
     <ul class="serviceList" ng-if="services.length && !popupLoader">
-      <li ng-repeat="service in services"><span>{{service.title}}</span><a ng-click="gotoDetail(service)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+      <li ng-repeat="service in services" ng-click="gotoDetail(service)"><span>{{service.title}}</span><a><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
     </ul>
     <p ng-if="!services.length && !popupLoader">No data found please go back..</p>
   </div>

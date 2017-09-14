@@ -5,15 +5,23 @@
   </div>
   <div class="row border-top">
       <div class="col-lg-6">
-        <div class="location">
-
+        <div id="map_canvas" class="location">
+          <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+            <ui-gmap-marker
+              coords="marker.coords"
+              options="marker.options"
+              idkey="marker.id"
+              events="marker.events">
+            </ui-gmap-marker>
+          </ui-gmap-google-map>
+          <!--<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events"></ui-gmap-google-map>-->
 
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Title">
+          <input type="text" class="form-control" placeholder="Title" ng-model="job.title">
         </div>
         <div class="form-group">
-          <textarea row="4" class="form-control" placeholder="Description"></textarea>
+          <textarea rows="5" class="form-control" placeholder="Description" ng-model="job.description"></textarea>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Photo">
@@ -23,19 +31,19 @@
     <div class="col-lg-6 border-left">
       <h3>Where:</h3>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Street Address">
+          <input type="text" class="form-control" placeholder="Street Address" ng-model="job.address">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Area">
+          <input type="text" class="form-control" placeholder="Area" ng-model="job.area">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="City">
+          <input type="text" class="form-control" placeholder="City" ng-model="job.city">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Country">
+          <input type="text" class="form-control" placeholder="Country" ng-model="job.country">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Phone">
+          <input type="text" class="form-control" placeholder="Phone" ng-model="job.phone">
         </div>
 
         <h3>When:</h3>

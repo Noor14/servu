@@ -19,6 +19,7 @@ angular
     'ngTouch',
     'ui.router',
     'ngDialog',
+    'uiGmapgoogle-maps',
     'toastr',
     'socialLogin',
     'naif.base64'
@@ -87,11 +88,14 @@ angular
 
     });
   }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'socialProvider', '$qProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider, socialProvider, $qProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'socialProvider', '$qProvider','uiGmapGoogleMapApiProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, socialProvider, $qProvider, GoogleMapApiProviders) {
     socialProvider.setGoogleKey("1065697815705-o2tn5bfkb55pdbp8e0imil21lbvk99bm.apps.googleusercontent.com");
     socialProvider.setFbKey({appId: "1831395580221168", apiVersion: "v2.10"});
     $qProvider.errorOnUnhandledRejections(false);
+      GoogleMapApiProviders.configure({
+        china: true
+      });
     //$locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/dashboard');

@@ -542,6 +542,9 @@ overflow: visible;
   padding: 5px 0;
   border-bottom: 1px solid #ccc;
 }
+.jobCategory .serviceList li:focus{
+  outline:0
+}
 
 .jobCategory .serviceList li span{
   flex: 100;
@@ -564,7 +567,7 @@ overflow: visible;
   color: #000 !important;
 }
 .addjobPopup .ngdialog-content{
-  width:70% !important;
+  width:850px !important;
 }
 .addjobPopup .ngdialog-content,.addjobPopup .ngdialog-content .ngdialog-close{
   background-color: #fff !important;
@@ -580,17 +583,52 @@ overflow: visible;
 }
 .Detail .nav-tabs li.active a{
 color: #fff;
+  border:none !important;
+}
+.Detail .nav-tabs li:first-child{
+  border-left: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.Detail .nav-tabs li:last-child{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  }
+.Detail .nav-tabs li{
+  width: 33.333%;
+  border-left: 1px solid #999;
 }
 
 .Detail .nav-tabs{
-  border-bottom: none;
+  border: 1px solid #999;
+  border-radius: 8px;
 }
-
+.angular-google-map-container{
+  height: 300px;
+}
 .Detail .nav-tabs a{
-font-weight: 100;
-
+  font-weight: 100;
+  background-color: transparent;
+  margin: 0;
+  border:none;
+  text-align: center;
 }
-.Detail .form-group input::-webkit-input-placeholder{
+.Detail .location, .Detail .tab-content, .Detail #contract .col-lg-12{
+  padding: 15px 0;
+}
+
+.Detail #contract .col-lg-4{
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.Detail .btn-primary{
+  background-color: #e7eaec;
+  border-color: #426fb6;
+  color: #426fb6;
+  padding: 10px 0;
+}
+
+.Detail .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 
 }
