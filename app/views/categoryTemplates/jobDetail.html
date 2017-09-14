@@ -1,9 +1,50 @@
-<div class="services">
+<div class="Detail">
   <div class="categoryback">
     <a ng-click="navigate(3)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
     <h3 class="text-center">Job Detail</h3>
   </div>
-  <div class="row">
-      hjjk
+  <div class="row border-top">
+      <div class="col-lg-6">
+        <div class="location">
+
+
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <textarea row="4" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Photo">
+        </div>
+
+      </div>
+    <div class="col-lg-6 border-left">
+      <h3>Where:</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Street Address">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Area">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="City">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Country">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Phone">
+        </div>
+
+        <h3>When:</h3>
+
+      <div class="tabs">
+      <job-type-tab></job-type-tab>
+      </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+    </div>
   </div>
 </div>

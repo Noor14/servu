@@ -37,6 +37,7 @@ angular.module('servu')
                 }
               },
               showClose:false,
+              overlay: false,
               controller: 'getPinCtrl'
             });
           }
@@ -62,6 +63,7 @@ angular.module('servu')
                 }
               },
               showClose:false,
+              overlay: false,
               controller: 'getPinCtrl'
 
             });
@@ -92,6 +94,7 @@ angular.module('servu')
                 }
               },
               showClose:false,
+              overlay: false,
               controller: 'getPinCtrl'
             });
           }

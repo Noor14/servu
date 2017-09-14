@@ -42,6 +42,7 @@ angular.module('servu')
 
       ngDialog.open({
         template: 'views/dialogTemplates/jobcatergoryPopup.html',
+        appendClassName: 'addjobPopup',
         controller: 'getjobCategoryCtrl'
       });
 

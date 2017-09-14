@@ -563,3 +563,34 @@ overflow: visible;
   font-weight: 600 !important;
   color: #000 !important;
 }
+.addjobPopup .ngdialog-content{
+  width:70% !important;
+}
+.addjobPopup .ngdialog-content,.addjobPopup .ngdialog-content .ngdialog-close{
+  background-color: #fff !important;
+}
+
+.Detail .form-group input, .Detail .form-group textarea{
+  border: none;
+  border-bottom: 1px solid #e5e6e7;
+}
+.Detail .nav-tabs li.active{
+  background-color: #426fb6;
+  border-left:none;
+}
+.Detail .nav-tabs li.active a{
+color: #fff;
+}
+
+.Detail .nav-tabs{
+  border-bottom: none;
+}
+
+.Detail .nav-tabs a{
+font-weight: 100;
+
+}
+.Detail .form-group input::-webkit-input-placeholder{
+  color: #444 !important;
+
+}
