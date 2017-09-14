@@ -56,7 +56,6 @@ angular
           }
           else{
           $http(obj).then(function (res) {
-            console.log(res, "res");
             if (res.status == 200) {
               credentialService.authed = true;
               $state.go("user.joblist");

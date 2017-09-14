@@ -39,15 +39,17 @@ angular.module('servu')
 
 
     vm.addJob = function(){
-
-      ngDialog.open({
+      vm.dialog = ngDialog.open({
         template: 'views/dialogTemplates/jobcatergoryPopup.html',
         appendClassName: 'addjobPopup',
         controller: 'getjobCategoryCtrl'
       });
+      vm.dialog.closePromise.then(function (data) {
+        console.log(data.id + ' has been dismissed.');
+        vm.getJobs(1, time_stamp);
 
+      });
     };
-
 
 
     vm.getJobs(1, time_stamp);

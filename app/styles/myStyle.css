@@ -627,6 +627,10 @@ color: #fff;
   color: #426fb6;
   padding: 10px 0;
 }
+.Detail .btn-primary[disabled]:hover{
+  background-color: #e7eaec;
+  border-color: #426fb6;
+}
 
 .Detail .form-group ::-webkit-input-placeholder{
   color: #444 !important;

@@ -12,10 +12,9 @@ angular.module('servu')
     function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService) {
 
     var vm = this;
-      function init(){
-        vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
-        vm.userData = vm.accountInfo.data.user;
-      }
+    vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    vm.userData = vm.accountInfo.data.user;
+
       vm.logout = function(){
         $rootScope.navLoader = true;
       var obj = {
@@ -43,6 +42,6 @@ angular.module('servu')
       return ($location.path() === path) ? 'active' : '';
     };
 
- init();
+
 
   }]);

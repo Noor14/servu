@@ -4,6 +4,7 @@
     <h3 class="text-center">Job Detail</h3>
   </div>
   <div class="row border-top">
+    <form ng-submit="createJob()" novalidate name="jobInfo">
       <div class="col-lg-6">
         <div id="map_canvas" class="location">
           <ui-gmap-google-map center='map.center' zoom='map.zoom'>
@@ -18,10 +19,10 @@
 
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Title" ng-model="job.title">
+          <input type="text" class="form-control" placeholder="Title" required name="title" ng-model="job.title">
         </div>
         <div class="form-group">
-          <textarea rows="5" class="form-control" placeholder="Description" ng-model="job.description"></textarea>
+          <textarea rows="5" class="form-control" placeholder="Description" required name="description" ng-model="job.description"></textarea>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Photo">
@@ -37,10 +38,10 @@
           <input type="text" class="form-control" placeholder="Area" ng-model="job.area">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="City" ng-model="job.city">
+          <input type="text" class="form-control" disabled  placeholder="City" ng-model="job.city">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Country" ng-model="job.country">
+          <input type="text" class="form-control" disabled placeholder="Country" ng-model="job.country">
         </div>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Phone" ng-model="job.phone">
@@ -52,7 +53,8 @@
       <job-type-tab></job-type-tab>
       </div>
 
-        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        <button type="submit" ng-disabled="jobInfo.$invalid" class="btn btn-block btn-primary">Done</button>
     </div>
+    </form>
   </div>
 </div>
