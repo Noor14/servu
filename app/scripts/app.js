@@ -54,6 +54,7 @@ angular
           else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
             $location.path($transition.$to().self.url);
           }
+
           else{
           $http(obj).then(function (res) {
             if (res.status == 200) {

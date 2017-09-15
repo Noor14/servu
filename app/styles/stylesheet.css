@@ -450,9 +450,10 @@ h1 { font-size: 1.5em; margin: 10px; }
   background-color: #fff;
 }
 .profile_img img {
-  width: 509px;
-  height: 509px;
-  border-radius: 0;
+  width: 350px;
+  height: 350px;
+  border-radius: 8px;
+  margin: 0 auto;
 }
 .profile_img {
   border-radius: 0;
@@ -474,8 +475,8 @@ h1 { font-size: 1.5em; margin: 10px; }
   padding: 10px 10px;
 }
 .review_sect img {
-  width: 63px;
-  height: 63px;
+  width: 50px;
+  height: 50px;
   padding-right: 5px;
   border-radius: 12px;
   float: left;
@@ -586,6 +587,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 .chat_box {
   float: left;
 }
+.message-chat{
+  margin: 0;
+}
 .message_section {
   width: 50%;
   margin-right: 4px!important;
@@ -609,12 +613,12 @@ h1 { font-size: 1.5em; margin: 10px; }
   padding: 10px 10px;
 }
 .chat_sect img {
-  width: 63px;
-  height: 63px;
-  padding-right: 5px;
+  width: 50px;
+  height: 50px;
+  padding-right: 0px;
   border-radius: 12px;
   float: left;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
 }
 .chat_time {
   float: right;
@@ -625,11 +629,10 @@ h1 { font-size: 1.5em; margin: 10px; }
   color: #fff;
   content: " ";
   height: 0;
-  left: -6%;
   pointer-events: none;
   position: absolute;
-  right: 100%;
-  top: 36%;
+  left: -30px;
+  top: 25px;
 }
 
 .arrow_box:after {
@@ -703,8 +706,8 @@ h1 { font-size: 1.5em; margin: 10px; }
   background: #88b7d5;
 }
 .right_arrow_box::after, .arrow_box::before {
-  left: 102%;
-  top: 50%;
+  right: -50px;
+  top: 0px;
   border: solid transparent;
   content: " ";
   height: 0;
@@ -725,7 +728,8 @@ h1 { font-size: 1.5em; margin: 10px; }
   margin-top: -36px;
 }
 .chat-discussion p {
-  text-align: justify;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 .chat_section {
   background-color: #fff;

@@ -7,54 +7,78 @@
  * # getjobCategoryCtrl
  * Controller of the servu
  */
+var $gs;
 angular.module('servu')
-  .controller('getjobCategoryCtrl',['$scope', '$rootScope', 'toastr', 'jobCategory', 'locationService','documentService', 'jobListService', 'ngDialog', 'uiGmapGoogleMapApi', 'uiGmapIsReady',
-    function ($scope, $rootScope, toastr, jobCategory, locationService, documentService, jobListService, ngDialog, uiGmapGoogleMapApi, uiGmapIsReady){
+  .controller('getjobCategoryCtrl',['$scope', '$rootScope', 'toastr', 'jobCategory', 'locationService','documentService', 'jobListService', 'ngDialog', 'uiGmapGoogleMapApi', 'uiGmapIsReady','$timeout,',
+    function ($scope, $rootScope, toastr, jobCategory, locationService, documentService, jobListService, $timeout){
 
+      $gs = $scope;
     $scope.job = {};
     $scope.step = 1;
-    $scope.map = {
-      center: { latitude: 24.774265, longitude: 46.738586 },
-      zoom: 14,
-      control: {},
-      events: {
-        click: function (map, eventName, originalEventArgs) {
-          var e = originalEventArgs[0];
-          $scope.geocodePosition(e.latLng);
-        }
-      }
-    };
-    $scope.geocodePosition = function(pos) {
-      var map = $scope.map.control.getGMap();
-      var service = new google.maps.places.PlacesService(map);
-      var request = {
-        location: pos,
-        radius: '500',
-        //types: ['store']
+      $scope.map = {
+        center: {
+          latitude: 56.162939,
+          longitude: 10.203921
+        },
+        zoom: 14
       };
-      service.nearbySearch(request, function(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          var place = results[0];
-          alert(place.name);
+      $scope.options = {
+        scrollwheel: false
+      };
+      $scope.coordsUpdates = 0;
+      $scope.dynamicMoveCtr = 0;
+      $scope.marker = {
+        id: 0,
+        coords: {
+          latitude: 56.162939,
+          longitude: 10.203921
+        },
+        options: {
+          draggable: true
+        },
+        events: {
+          dragend: function(marker, eventName, args) {
+            var lat = marker.getPosition().lat();
+            var lon = marker.getPosition().lng();
+            console.log.log(lat);
+            console.log.log(lon);
+
+            $scope.marker.options = {
+              draggable: true,
+              labelContent: "",
+              labelAnchor: "100 0",
+              labelClass: "marker-labels"
+            };
+          }
         }
+      };
+      $scope.$watchCollection("marker.coords", function(newVal, oldVal) {
+        $scope.map.center.latitude = $scope.marker.coords.latitude;
+        $scope.map.center.longitude = $scope.marker.coords.longitude;
+        if (_.isEqual(newVal, oldVal))
+          return;
+        $scope.coordsUpdates++;
       });
-    };
+      $timeout(function() {
+        $scope.marker.coords = {
+          latitude: 56.162939,
+          longitude: 10.203921
+        };
+        $scope.dynamicMoveCtr++;
+        $timeout(function() {
+          $scope.marker.coords = {
+            latitude: 56.162939,
+            longitude: 10.203921
+          };
+          $scope.dynamicMoveCtr++;
+        }, 2000);
+      }, 1000);
 
-    uiGmapIsReady.promise().then(function(maps) {
-      //...
-    });
-    //$scope.$watch('$scope.map.center', function (newValue, oldValue) {
-    //  if (newValue !== oldValue) {
-    //    console.log("value change");
-    //    var center = map.getCenter(),
-    //      latitude = center.lat(),
-    //      longitude = center.lng();
-    //    if ($scope.latitude !== latitude || $scope.longitude !== longitude)
-    //      map.setCenter(new google.maps.LatLng($scope.latitude, $scope.longitude));
-    //  }
-    //});
 
-    $scope.category = function(){
+
+      // map area above
+
+      $scope.category = function(){
       $rootScope.popupLoader = true;
       jobCategory.getjobCategory().then(function(res){
         $rootScope.popupLoader = false;
@@ -85,8 +109,22 @@ angular.module('servu')
       $scope.step = page_no -1;
     };
 
+
+
+      $scope.$watch('job', function(){
+        getLocation();
+
+      });
+
     $scope.createJob = function(){
-      getLocation();
+      if($scope.job.location_id){
+        if($scope.job.photo){
+          addJobPhoto();
+        }
+        else{
+          addJobInfo();
+        }
+      }
     };
 
 
@@ -97,12 +135,6 @@ angular.module('servu')
           $scope.job.country = res.country.name;
           $scope.job.city = res.city.name;
           $scope.job.location_id = res.id;
-          if($scope.job.photo){
-          addJobPhoto();
-          }
-          else{
-            addJobInfo();
-          }
         }
       },function(err){
         console.log(err);
