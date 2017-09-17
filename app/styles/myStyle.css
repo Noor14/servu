@@ -53,7 +53,15 @@
   position: absolute;
   height: 22vh;
   top: 0;
-
+}
+.jobspinner{
+  z-index: 20000;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 60vh;
+  align-items: center;
 }
 .spinner_two{
   width: 70px;
@@ -631,8 +639,16 @@ color: #fff;
   background-color: #e7eaec;
   border-color: #426fb6;
 }
-
+.Detail .location-message{
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  padding: 4px;
+  background: #999999;
+  color: white;
+  border-radius: 3px;
+}
 .Detail .form-group ::-webkit-input-placeholder{
   color: #444 !important;
-
 }
+

@@ -12,6 +12,16 @@ angular.module('servu')
     function ($http, $q, host) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var vm = this;
+
+      var userCredential = JSON.parse(localStorage.getItem("userInfo"));
+      if(userCredential){
+      var headers = {
+        'Content-type': 'application/JSON',
+        token: userCredential.data.token,
+        client: userCredential.data.client,
+        uid: userCredential.data.uid
+      };
+      }
     vm.userLogin = function(credential){
       var deffered = $q.defer();
       var obj={
@@ -112,6 +122,7 @@ angular.module('servu')
       return deffered.promise;
     };
 
+
     vm.resendPin = function(detail){
       var deffered = $q.defer();
       var obj={
@@ -133,7 +144,7 @@ angular.module('servu')
       var obj={
         url: host + "/auth/confirm_phone",
         method: "PUT",
-        headers: { 'Content-type': 'application/JSON' },
+        headers: headers,
         data : pinCode
       };
       $http(obj).then(function(res){

@@ -19,6 +19,7 @@ angular
     'ngTouch',
     'ui.router',
     'ngDialog',
+    'ae-datetimepicker',
     'uiGmapgoogle-maps',
     'toastr',
     'socialLogin',
@@ -33,8 +34,8 @@ angular
       function checkLogin(){
         var userCredential = JSON.parse(localStorage.getItem("userDetail"));
         if(userCredential){
-
-          var info = {
+          var headers = {
+            'Content-type': 'application/JSON',
             token: userCredential.data.token,
             client: userCredential.data.client,
             uid: userCredential.data.uid
@@ -44,10 +45,9 @@ angular
         var obj={
           url: host+ "/auth/validate_token",
           method: "GET",
-          headers: {'Content-type': 'application/JSON' },
-          params : info
+          headers: headers
         };
-        if(info) {
+        if(headers) {
           if (credentialService.authed && !$transition.$to().self.hasOwnProperty("data")) {
             $state.go($transition.$from().self.name);
           }
@@ -59,7 +59,9 @@ angular
           $http(obj).then(function (res) {
             if (res.status == 200) {
               credentialService.authed = true;
+              if($location.$$url == '/dashboard'){
               $state.go("user.joblist");
+              }
             }
 
             else {
@@ -67,6 +69,10 @@ angular
               $state.go("home.login");
             }
 
+          },function(err){
+            console.log(err);
+            localStorage.clear();
+            $state.go("home.login");
           });
           }
         }
@@ -161,10 +167,10 @@ angular
         controller: 'dashboardCtrl',
         controllerAs: 'vm'
       })
-      .state('user.jobs', {
-        url:'/jobs',
+      .state('user.jobDetail', {
+        url:'/job-detail/:id',
         templateUrl: 'views/templates/jobDetail.html',
-        controller: 'jobCtrl',
+        controller: 'JobDetailCtrl',
         controllerAs: 'vm',
         data: {
           authRequired: true

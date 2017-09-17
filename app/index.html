@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -48,8 +49,7 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -79,6 +79,9 @@
     <script src="bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js"></script>
     <script src="bower_components/js-rich-marker/src/richmarker.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/angular-eonasdan-datetimepicker/dist/angular-eonasdan-datetimepicker.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -105,6 +108,8 @@
         <script src="scripts/controllers/newsletter.js"></script>
         <script src="scripts/directives/jobtypetab.js"></script>
         <script src="scripts/services/locationservice.js"></script>
+        <script src="scripts/controllers/jobdetail.js"></script>
         <!-- endbuild -->
+
 </body>
 </html>

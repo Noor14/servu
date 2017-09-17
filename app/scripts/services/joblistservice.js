@@ -11,12 +11,21 @@ angular.module('servu')
   .service('jobListService',['$http', '$q', 'host',
     function ($http, $q, host) {
     var vm = this;
+      var userCredential = JSON.parse(localStorage.getItem("userDetail"));
+      if(userCredential){
+      var headers = {
+        'Content-type': 'application/JSON',
+        token: userCredential.data.token,
+        client: userCredential.data.client,
+        uid: userCredential.data.uid
+      };
+      }
     vm.getJobList = function(page, time){
       var deffered = $q.defer();
       var obj = {
-        url :  host + "/jobs",
+        url :  host + "/jobs/my_jobs",
         method : "GET",
-        headers: {'Content-type': 'application/JSON'},
+        headers: headers,
         params : {
           page : page,
           timestamp: time
@@ -33,7 +42,7 @@ angular.module('servu')
       var obj = {
         url :  host + "/jobs",
         method : "POST",
-        headers: {'Content-type': 'application/JSON'},
+        headers: headers,
         data : data
       };
       $http(obj).then(function(res){

@@ -164,8 +164,7 @@ h5 {
 .pace-done .nav-header {
   transition: all 0.4s;
 }
-.nav > li.active {
-  border-left: 4px solid #19aa8d;
+.sideNav .nav > li.active {
   background: #6b798b;;
 }
 .nav.nav-second-level > li.active {
