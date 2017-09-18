@@ -20,7 +20,7 @@ angular.module('servu')
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
       jobListService.getJobList(page, time).then(function(res){
-        //console.log("res",res.data.jobs);
+        console.log("res",res.data.jobs);
         $rootScope.pageLoader = false;
         $rootScope.fullHeight = '';
         if(!vm.current_time){

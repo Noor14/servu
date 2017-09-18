@@ -23,7 +23,6 @@ angular
     'uiGmapgoogle-maps',
     'toastr',
     'socialLogin',
-    'angular-input-stars',
     'naif.base64'
   ])
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http',
