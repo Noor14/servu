@@ -83,7 +83,7 @@
   padding: 0;
   background-color: #f3f3f4;
 }
-.jobList{
+.jobList, .jobDetailpage{
   padding: 0 15px;
 }
 #homePage .full-height{
@@ -116,7 +116,7 @@
   height: 250px;
 }
 .jobList div.myjob-image{
-  padding: 10px;
+  padding: 25px;
 }
 .jobList h4{
   color: black;
@@ -651,4 +651,50 @@ color: #fff;
 .Detail .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
+
+.jobDetailpage .page-heading{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  align-items: center;
+}
+.jobDetailpage .page-heading h2{
+  margin: 0;
+}
+.jobDetailpage .page-heading .jobEdit{
+  display: flex;
+  justify-content: space-evenly;
+  width: 250px;
+}
+.jobDetailpage .page-heading .jobEdit .btn-circle{
+  color: #426fb6;
+  background: none;
+  border: 1px solid #426fb6;
+}
+.jobDetailpage .jobDetailtab .nav-tabs li a{
+  border: 1px solid #ddd;
+  margin: 0;
+}
+.jobDetailpage .jobDetailtab .nav-tabs li.active a{
+background-color: #426fb6;
+color: white;
+margin: 0;
+border: 1px solid #ddd;
+}
+.jobDetailpage .widget-job-awarded{
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 15px;
+}
+.jobDetailpage .widget-box{
+  display: flex;
+  flex-direction: column;
+}
+.jobDetailpage .widget-box .tab-content{
+margin-top: 10px;
+}
+
 

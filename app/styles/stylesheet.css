@@ -2,6 +2,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   color: #000;
+  background-color: #f3f3f4;
 }
 .navigation-bar {
   background-color: #ecf5fe;
@@ -185,11 +186,11 @@ h2{
   padding: 10px 20px;
 }
 .locat_heading {
-  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.locat_text {
-  float: right;
-}
+
 .navy-bg, .bg-success {
   background-color: #fff;
   color: #000;
@@ -203,7 +204,7 @@ h2{
 }
 .border_widg {
   border: 0;
-  float: right;
+  display: flex;
 }
 .nav li .widget_border3 {
   margin-right: 0!important;
@@ -408,11 +409,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 .rating_star {
   overflow: hidden;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  padding: 10px 0;
 }
 .border_widg li {
-  display: inline-block;
   border: 0;
 }
 .coment_sect img {

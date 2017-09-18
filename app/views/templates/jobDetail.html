@@ -1,255 +1,234 @@
+<page-loader ng-if="pageLoader"></page-loader>
+
 <div class="jobDetailpage">
-<div class="col-lg-12 wrapper">
-  <div class="col-lg-11">
-    <h2 class="text-bold">Job Title</h2>
+  <div class="wrapper-content" ng-if="vm.job.title && !pageLoader">
+    <div class="col-lg-12 col-lg-12 wrapper white-bg page-heading">
+  <div class="jobEdit">
+    <h2 class="text-bold">{{vm.job.title}}</h2>
+    <button type="button" class="btn btn-circle" ng-click="vm.editJob(vm.job)"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button type="button" class="btn btn-circle" ng-click="vm.deleteJob(vm.job.id)"><i class="glyphicon glyphicon-trash"></i></button>
   </div>
-  <div class="col-lg-1 text-right wrape_parag">
-    <b>AED 495</b></br>
-    Awarded For
+  <div>
+    <b>AED {{vm.job.budget}}</b>
+    <p>Awarded For</p>
   </div>
 </div>
 
-<div class="wrapper wrapper-content animated fadeIn">
-  <div class="col-lg-12">
-    <div class="col-lg-8">
-      <div class="tabs-container">
-        <ul class="nav nav-tabs text-center">
-          <li class="col-md-4 no-padding active"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Detail</a></li>
-          <li class="col-md-4 no-padding "><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
-          <li class="col-md-4 no-padding "><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
-        </ul>
-        <div class="tab-content">
-          <div id="tab-1" class="tab-pane active">
-            <div class="panel-body">
-              <div class="panel_parag">
-                <h3>Description</h3>
-                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                  existence in this spot, which was created for the bliss of souls like mine.
-                  I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+      <div class="col-lg-12 no-padding">
+        <div class="col-lg-8 no-padding">
+          <div class="tabs-container jobDetailtab">
+            <ul class="nav nav-tabs text-center">
+              <li class="col-md-4 no-padding active"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Detail</a></li>
+              <li class="col-md-4 no-padding"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
+              <li class="col-md-4 no-padding"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab-1" class="tab-pane active">
+                <div class="panel-body">
+                  <div class="panel_parag">
+                    <h3>Description</h3>
+                    <p>
+                     {{vm.job.description}}
+                    </p>
+                  </div>
+                  <div class="panel_media">
+                    <h3>Media</h3>
+                    <ul class="list-unstyled panel_img">
+                      <li>
+                        <a>
+                          <img src="images/user.jpg" alt="user" class="image">
+                        </a>
+                        <div class="middle">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                      </li>
+                      <div class="middle">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="panel_location">
+                    <div class="locat_heading">
+                      <h3>Location</h3>
+                      <span>Business Bay, Dubai</span>
+                    </div>
+                    <div id="map_canvas" class="location">
+                      <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                        </ui-gmap-marker>
+                      </ui-gmap-google-map>
+                    </div>
+                  </div>
+                  <div class="panel_aditional" ng-if="vm.job.additional_info">
+                    <h3>Additional info</h3>
+                    <p>
+                      {{vm.job.additional_info}}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div class="panel_media">
-                <h3>Media</h3>
-                <ul class="list-unstyled panel_img">
-                  <li>
-                    <a href="#">
-                      <img src="images/user.jpg" alt="user" class="image">
-                    </a>
-                    <div class="middle">
-                      <i class="fa fa-search" aria-hidden="true"></i>
+              <div id="tab-2" class="tab-pane">
+                <div class="panel-body bids_section">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="ibox-content">
+                        <div class="inbox-text">
+                          <div class="bid_btn">
+                            <a class="btn btn-primary" href="#">Accept</a>
+                          </div>
+                          <img src="images/user.jpg" alt="user" class="img-responsive">
+                          <div class="bid_text">
+                            <strong>Maud Fitzgerald</strong><br>
+                            <strong>AED 151</strong>
+                          </div>
+                        </div>
+                        <div class="rating_star">
+                          <input-stars max="5" ng-model="stars"></input-stars>
+                          <div class="stat-percent font-bold text-navy"><i class="fa fa-map-marker"></i>12km </div>
+                        </div>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                      </div>
                     </div>
+
+                  </div>
+                </div>
+              </div>
+              <div id="tab-3" class="tab-pane">
+                <div class="panel-body commt_section">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="coment_sect">
+                        <img src="images/user.jpg" alt="user" class="img-responsive">
+                        <div class="comnt_text">
+                          <strong>Maud Fitzgerald</strong><br>
+                          <span>Great Work Done.....</span>
+                          <span class="commmt_time">01.36AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 widget-box no-padding">
+            <div class="widget-job-awarded col-lg-12">
+              <div>
+                <h5 class="m-b-md">Awarded to</h5>
+                <img src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
+                <span>Katherine Doyle</span>
+              </div>
+              <div class="text-right">
+                <span class="widget_text"> 23March,2017 </span>
+                <ul class="border_widg nav nav-tabs">
+                  <li class="active"><a class="widget_border active" data-toggle="tab" data-target="#widget-one" aria-expanded="true">
+                  </a>
                   </li>
-                    <div class="middle">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
+                  <li><a class="widget_border" data-toggle="tab" data-target="#widget-two" aria-expanded="true">
+                  </a>
+                  </li>
+                  <li><a class="widget_border widget_border3" data-toggle="tab" data-target="#widget-three" aria-expanded="true">
+                  </a>
                   </li>
                 </ul>
               </div>
-              <div class="panel_location">
-                <h3 class="locat_heading">Location</h3>
-                <span class="locat_text">Business Bay, Dubai</span>
-                <div>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217757.6071175415!2d74.18612255429119!3d31.48396577846733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C+Pakistan!5e0!3m2!1sen!2s!4v1501154982764" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="panel_aditional">
-                <h3>Additional info</h3>
-                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                  existence in this spot, which was created for the bliss of souls like mine.</p>
-              </div>
             </div>
-          </div>
-          <div id="tab-2" class="tab-pane">
-            <div class="panel-body bids_section">
-              <div class="row">
+           <div class="tab-content">
+            <div id="widget-one" class="tab-pane active">
+              <div class="col-lg-12 no-padding">
                 <div class="col-md-6">
-                  <div class="ibox-content">
-                    <div class="inbox-text">
-                      <div class="bid_btn">
-                        <a class="btn btn-primary" href="#">Accept</a>
-                      </div>
-                      <img src="images/user.jpg" alt="user" class="img-responsive">
-                      <div class="bid_text">
-                        <strong>Maud Fitzgerald</strong><br>
-                        <strong>AED 151</strong>
-                      </div>
+                  <div class="widget yellow-bg p-lg text-center">
+                    <div class="m-b-md">
+                      <span>Completed on</span>
+                      <h1 class="m-xs">15 July 2017</h1>
                     </div>
-                    <div class="rating_star">
-                      <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <div class="stat-percent font-bold text-navy"><i class="fa fa-map-marker"></i>12km </div>
-                    </div>
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="ibox-content">
-                    <div class="inbox-text">
-                      <div class="bid_btn">
-                        <a class="btn btn-primary" href="#">Accept</a>
-                      </div>
-                      <img src="images/user.jpg" alt="user" class="img-responsive">
-                      <div class="bid_text">
-                        <strong>Maud Fitzgerald</strong><br>
-                        <strong>AED 151</strong>
-                      </div>
-                    </div>
-                    <div class="rating_star">
-                      <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <div class="stat-percent font-bold text-navy"><i class="fa fa-map-marker"></i>12km </div>
-                    </div>
-                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="tab-3" class="tab-pane">
-            <div class="panel-body commt_section">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="coment_sect">
-                    <img src="images/user.jpg" alt="user" class="img-responsive">
-                    <div class="comnt_text">
-                      <strong>Maud Fitzgerald</strong><br>
-                      <span>Great Work Done.....</span>
-                      <span class="commmt_time">01.36AM</span>
+                  <div class="widget yellow-bg p-lg text-center">
+                    <div class="m-b-md">
+                      <span>Completed on</span>
+                      <h1 class="m-xs">15 July 2017</h1>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 no-padding">
-      <div class="widget style1 navy-bg">
-        <div class="col-lg-12">
-          <div class="col-xs-4">
-            <h5 class="m-b-md">Awarded to</h5>
-            <img src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
-            <span>Katherine Doyle</span>
-          </div>
-          <div class="col-xs-8 text-right">
-            <span class="widget_text"> 23March,2017 </span>
-            <ul class="border_widg nav nav-tabs">
-              <li class="active"><a class="widget_border active" data-toggle="tab" href="#widg" aria-expanded="true" href="#">
-              </a>
-              </li>
-              <li><a class="widget_border" data-toggle="tab" href="#widg12" aria-expanded="true" href="#">
-              </a>
-              </li>
-              <li><a class="widget_border widget_border3" data-toggle="tab" href="#widg13" aria-expanded="true" href="#">
-              </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-content">
-        <div id="widg13" class="tab-pane fade in active">
-          <div class="col-lg-12 no-padding">
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
+                <div class="col-md-6">
+                  <div class="widget yellow-bg p-lg text-center">
+                    <div class="m-b-md">
+                      <span>Start Code</span>
+                      <h1 class="m-xs">{{vm.job.start_code}}</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="widget yellow-bg p-lg text-center">
+                    <div class="m-b-md">
+                      <span>Completed on</span>
+                      <h1 class="m-xs">15 July 2017</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 widget_btn">
+                  <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
+                  <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#">Start</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 widget_btn">
-              <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#"> File a Complant</a>
-              <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#"> Review Services</a>
-            </div>
-          </div>
-        </div>
-        <div id="widg12" class="tab-pane fade">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 widget_btn">
-              <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
-            </div>
-          </div>
-        </div>
-        <div id="widg" class="tab-pane fade">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="widget yellow-bg p-lg text-center">
-                <div class="m-b-md">
-                  <span>Completed on</span>
-                  <h1 class="m-xs">15 July 2017</h1>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 widget_btn">
-              <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
-              <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#">Start</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+             <div id="widget-two" class="tab-pane">
+               <div class="col-lg-12 no-padding">
+                 <div class="col-md-6">
+                   <div class="widget yellow-bg p-lg text-center">
+                     <div class="m-b-md">
+                       <span>Completed on</span>
+                       <h1 class="m-xs">15 July 2017</h1>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                   <div class="widget yellow-bg p-lg text-center">
+                     <div class="m-b-md">
+                       <span>Completed on</span>
+                       <h1 class="m-xs">15 July 2017</h1>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-12 widget_btn">
+                   <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
+                 </div>
+               </div>
+             </div>
+             <div id="widget-three" class="tab-pane">
+               <div class="col-lg-12 no-padding">
+                 <div class="col-md-6">
+                   <div class="widget yellow-bg p-lg text-center">
+                     <div class="m-b-md">
+                       <span>Completed on</span>
+                       <h1 class="m-xs">15 July 2017</h1>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-12 widget_btn">
+                   <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#"> File a Complant</a>
+                   <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#"> Review Services</a>
+                 </div>
+               </div>
+             </div>
 
-</div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+  </div>
 </div>

@@ -2,7 +2,7 @@
 <div class="Detail">
   <p class="location-message" ng-if="message">{{message}}</p>
   <div class="categoryback">
-    <a ng-click="navigate(3)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+    <a ng-if="!job.id" ng-click="navigate(3)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
     <h3 class="text-center">Job Detail</h3>
   </div>
   <div class="row border-top">
@@ -48,6 +48,9 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Phone" ng-model="job.phone">
         </div>
+        <div class="form-group">
+          <textarea rows="5" class="form-control" placeholder="Additional info "  name="additionalInfo" ng-model="job.additional_info"></textarea>
+        </div>
 
         <h3>When:</h3>
 
@@ -55,7 +58,8 @@
       <job-type-tab></job-type-tab>
       </div>
 
-        <button type="submit" ng-disabled="jobInfo.$invalid || jobLoader" class="btn btn-block btn-primary">Done</button>
+        <button ng-if="!job.id" type="submit" ng-disabled="jobInfo.$invalid || jobLoader" class="btn btn-block btn-primary">Done</button>
+        <button ng-if="job.id" type="button" ng-disabled="jobInfo.$invalid || jobLoader" ng-click="updateJob()" class="btn btn-block btn-primary">Done</button>
     </div>
     </form>
   </div>

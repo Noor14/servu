@@ -128,7 +128,7 @@ angular.module('servu')
       var obj={
         url: host + "/auth/resend_phone_confirmation",
         method: "PUT",
-        headers: { 'Content-type': 'application/JSON' },
+        headers: headers,
         data : detail
       };
       $http(obj).then(function(res){

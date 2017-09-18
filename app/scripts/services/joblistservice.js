@@ -37,19 +37,57 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-    vm.addJob = function(data){
-      var deffered = $q.defer();
-      var obj = {
-        url :  host + "/jobs",
-        method : "POST",
-        headers: headers,
-        data : data
+
+      vm.addJob = function(data){
+        var deffered = $q.defer();
+        var obj = {
+          url :  host + "/jobs",
+          method : "POST",
+          headers: headers,
+          data : data
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
       };
-      $http(obj).then(function(res){
-        deffered.resolve(res);
-      });
-      return deffered.promise;
-    }
+      vm.updateUserJob = function(data){
+        var deffered = $q.defer();
+        var obj = {
+          url :  host + "/jobs/"+data.id,
+          method : "PUT",
+          headers: headers,
+          params : data
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
+      };
+
+      vm.jobDetail = function(id){
+        var deffered = $q.defer();
+        var obj = {
+          url :  host + "/jobs/"+id,
+          method : "GET"
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
+      };
+
+      vm.deleteUserJob = function(id){
+        var deffered = $q.defer();
+        var obj = {
+          url :  host + "/jobs/"+id,
+          headers: headers
+        };
+        $http.delete(obj.url, {headers: obj.headers}).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
+      }
 
 
 
