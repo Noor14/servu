@@ -182,6 +182,7 @@ angular.module('servu')
     };
     $scope.gotoDetail = function(service){
       $scope.job.service_id = service.id;
+      $scope.className = "addjobPopup";
       $scope.step = 3;
     };
     $scope.navigate = function(page_no){
