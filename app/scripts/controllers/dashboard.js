@@ -26,6 +26,7 @@ angular.module('servu')
         console.log("res",res);
         $rootScope.navLoader = false;
         if(res.status == 204){
+          localStorage.clear();
           socialLoginService.logout();
           localStorage.clear();
           twitterService.clearCache();

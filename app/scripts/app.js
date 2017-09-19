@@ -59,7 +59,7 @@ angular
           $http(obj).then(function (res) {
             if (res.status == 200) {
               credentialService.authed = true;
-              if($location.$$url == '/dashboard'){
+              if($location.$$url == '/user/dashboard'){
               $state.go("user.joblist");
               }
             }
@@ -104,7 +104,7 @@ angular
       });
     //$locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('');
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/user/dashboard');
     $stateProvider
       .state('home', {
         url: '',
@@ -161,7 +161,7 @@ angular
         controllerAs: 'vm'
       })
       .state('user', {
-        url: '',
+        url: '/user',
         abstract: true,
         templateUrl: 'views/user.html',
         controller: 'dashboardCtrl',

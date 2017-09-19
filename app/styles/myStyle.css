@@ -606,7 +606,16 @@ color: #fff;
   width: 33.333%;
   border-left: 1px solid #999;
 }
-
+.nojobMessgae{
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 200;
+  color: #656a6f;
+}
 .Detail .nav-tabs{
   border: 1px solid #999;
   border-radius: 8px;
@@ -666,7 +675,7 @@ color: #fff;
 .jobDetailpage .page-heading .jobEdit{
   display: flex;
   justify-content: space-evenly;
-  width: 250px;
+  width: 200px;
 }
 .jobDetailpage .page-heading .jobEdit .btn-circle{
   color: #426fb6;
