@@ -19,7 +19,7 @@ angular.module('servu')
         },
         {
           id:1,
-          name:"Open"
+          name:"In Process"
         },
         {
           id:2,
@@ -86,8 +86,7 @@ angular.module('servu')
     vm.addJob = function(){
       vm.dialog = ngDialog.open({
         template: 'views/dialogTemplates/jobcatergoryPopup.html',
-        scope: $scope,
-        appendClassName: $scope.ClassName,
+        appendClassName: "addjobPopup",
         controller: 'getjobCategoryCtrl'
       });
       vm.dialog.closePromise.then(function (data) {
@@ -96,7 +95,6 @@ angular.module('servu')
 
       });
     };
-
 
     vm.getJobs(1, time_stamp);
   }]);

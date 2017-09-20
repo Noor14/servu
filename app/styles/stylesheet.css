@@ -693,9 +693,7 @@ h1 { font-size: 1.5em; margin: 10px; }
   overflow: hidden;
   padding: 0 25px;
 }
-.form-group {
-  overflow: hidden;
-}
+
 .message-form_input {
   resize: unset;
 }

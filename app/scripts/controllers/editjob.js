@@ -94,6 +94,7 @@ angular.module('servu')
       $scope.job.job_type = type;
       if($scope.job.job_type == 2){
         $scope.job.contract={};
+        delete $scope.job.schedule;
         $scope.contType = true;
         $scope.schedule = false;
 
@@ -102,9 +103,16 @@ angular.module('servu')
         $scope.job.schedule='';
         $scope.schedule = true;
         $scope.contType = false;
+        delete $scope.job.contract;
+
       }
       else{
         $scope.schedule= $scope.contType = false;
+        delete $scope.job.schedule;
+        delete $scope.job.contract;
+
+
+
       }
 
     };
@@ -192,6 +200,14 @@ angular.module('servu')
       })
     }
     function addJobInfo(){
+      if($scope.job.schedule){
+        $scope.job.schedule = new Date($scope.job.schedule).toString();
+      }
+      if($scope.job.contract && $scope.job.contract.first_service_date){
+        $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
+        $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
+      }
+
       jobListService.updateUserJob($scope.job).then(function(res){
         if(res.status == 200){
           console.log(res);

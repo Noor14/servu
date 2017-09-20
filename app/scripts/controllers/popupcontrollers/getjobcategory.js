@@ -246,6 +246,13 @@ angular.module('servu')
         })
       }
       function addJobInfo(){
+        if($scope.job.schedule){
+          $scope.job.schedule = new Date($scope.job.schedule).toString();
+        }
+        if($scope.job.contract && $scope.job.contract.first_service_date){
+          $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
+          $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
+        }
         jobListService.addJob($scope.job).then(function(res){
           if(res.status == 201){
             console.log(res);
@@ -262,18 +269,6 @@ angular.module('servu')
           console.log(err);
         })
       }
-
-
-
-
-
-
-
-
-    //  Edit Job ---------------------------------------------------------------------------------------
-
-
-
 
 
 

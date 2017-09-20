@@ -51,13 +51,14 @@ angular.module('servu')
         });
         return deffered.promise;
       };
+
       vm.updateUserJob = function(data){
         var deffered = $q.defer();
         var obj = {
           url :  host + "/jobs/"+data.id,
           method : "PUT",
           headers: headers,
-          params : data
+          data : data
         };
         $http(obj).then(function(res){
           deffered.resolve(res);
