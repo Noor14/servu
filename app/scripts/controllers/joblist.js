@@ -45,11 +45,10 @@ angular.module('servu')
       ];
 
       vm.getStatus = function(id){
-        return vm.status.find(function(obj){
-            if (obj.id === id){
-              return obj.name;
-            }
-        })
+         var status= vm.status.find(function(obj){
+           return obj.id === id;
+        });
+        return status.name;
       };
 
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));

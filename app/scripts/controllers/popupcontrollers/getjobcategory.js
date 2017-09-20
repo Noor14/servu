@@ -191,7 +191,7 @@ angular.module('servu')
     $scope.jobType = function(type){
       $scope.job.job_type = type;
       if($scope.job.job_type == 2){
-        $scope.job.contract={};
+        $scope.job.contract = {};
         $scope.contType = true;
         $scope.schedule = false;
 
