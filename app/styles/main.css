@@ -3494,6 +3494,7 @@ video {
 }
 .wrapper-content {
   padding: 20px 10px 40px;
+  overflow: hidden;
 }
 #page-wrapper {
   padding: 0 15px;

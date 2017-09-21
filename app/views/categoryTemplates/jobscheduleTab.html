@@ -1,8 +1,8 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" ng-click="jobType(0)" class="active"><a data-target="#urgent" aria-controls="home" role="tab" data-toggle="tab">Urgent</a></li>
-  <li role="presentation" ng-click="jobType(1)" ><a data-target="#shedule" aria-controls="profile" role="tab" data-toggle="tab">Scheduled</a></li>
-  <li role="presentation" ng-click="jobType(2)"><a data-target="#contract" aria-controls="messages" role="tab" data-toggle="tab">Contract</a></li>
+  <li role="presentation" ng-click="jobType(0)" ng-class="activeUrgent"><a data-target="#urgent" aria-controls="home" role="tab" data-toggle="tab">Urgent</a></li>
+  <li role="presentation" ng-click="jobType(1)" ng-class="activeSchedule"><a data-target="#shedule" aria-controls="profile" role="tab" data-toggle="tab">Scheduled</a></li>
+  <li role="presentation" ng-click="jobType(2)" ng-class="activeContract"><a data-target="#contract" aria-controls="messages" role="tab" data-toggle="tab">Contract</a></li>
 </ul>
 
 <!-- Tab panes -->

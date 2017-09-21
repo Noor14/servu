@@ -15,8 +15,23 @@ angular.module('servu')
     $scope.job = JobDetail;
     $scope.job.city = JobDetail.location.city.name;
     $scope.job.country = JobDetail.location.country.name;
-    $scope.job.category = JobDetail.category.id;
-    $scope.job.service = JobDetail.service.id;
+    $scope.job.category_id = JobDetail.category.id;
+    $scope.job.service_id = JobDetail.service.id;
+    if(!$scope.job.job_type){
+      $scope.activeUrgent = 'active';
+    }
+    else if($scope.job.job_type == 1){
+      $scope.activeSchedule = 'active';
+    }
+    else if($scope.job.job_type == 2){
+      $scope.activeContract = 'active';
+    }
+
+
+
+
+
+
 
     $scope.map = {
       center: {
@@ -107,9 +122,10 @@ angular.module('servu')
 
       }
       else{
-        $scope.schedule= $scope.contType = false;
+        $scope.schedule = $scope.contType = false;
         delete $scope.job.schedule;
         delete $scope.job.contract;
+
 
 
 

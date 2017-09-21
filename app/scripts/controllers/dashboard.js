@@ -12,6 +12,7 @@ angular.module('servu')
     function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService) {
 
     var vm = this;
+      vm.toggle = false;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
 
@@ -42,6 +43,10 @@ angular.module('servu')
     vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
+      vm.filter = function(){
+        vm.toggle = !vm.toggle;
+        $rootScope.$broadcast('filterScope', vm.toggle);
+      }
 
 
 

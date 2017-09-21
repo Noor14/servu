@@ -17,7 +17,10 @@ angular.module('servu')
     $scope.job = {
       job_type : 0
     };
-    $scope.map = {
+      $scope.activeUrgent = 'active';
+
+
+      $scope.map = {
       center: {
         latitude: 24.774265,
         longitude: 46.738586
@@ -27,6 +30,11 @@ angular.module('servu')
     $scope.options = {
       scrollwheel: false
     };
+
+
+
+
+
     //$scope.coordsUpdates = 0;
     //$scope.dynamicMoveCtr = 0;
     $scope.marker = {
@@ -175,6 +183,7 @@ angular.module('servu')
       $rootScope.popupLoader = true;
       jobCategory.categoryService(category).then(function(res){
         $scope.step = 2;
+
         $rootScope.popupLoader = false;
         $scope.job.category_id = category.id;
         $scope.services = res.data.services;
@@ -184,27 +193,40 @@ angular.module('servu')
       $scope.job.service_id = service.id;
       $scope.className = "addjobPopup";
       $scope.step = 3;
+      if($scope.step == 3){
+     document.getElementsByClassName('ngdialog-content')[0].style.width = "850px";
+      }
     };
     $scope.navigate = function(page_no){
       $scope.step = page_no -1;
+      if($scope.step < 3){
+        document.getElementsByClassName('ngdialog-content')[0].style.width = "450px";
+      }
     };
     $scope.jobType = function(type){
       $scope.job.job_type = type;
-      if($scope.job.job_type == 2){
-        $scope.job.contract = {};
-        $scope.contType = true;
-        $scope.schedule = false;
+
+
+      if($scope.job.job_type == 0){
+        $scope.schedule= $scope.contType = false;
+        $scope.activeUrgent = 'active';
 
       }
       else if($scope.job.job_type == 1){
         $scope.job.schedule='';
         $scope.schedule = true;
         $scope.contType = false;
-      }
-      else{
-        $scope.schedule= $scope.contType = false;
-      }
+        $scope.activeSchedule = 'active';
 
+      }
+      else if($scope.job.job_type == 2){
+        $scope.job.contract = {};
+        $scope.contType = true;
+        $scope.schedule = false;
+        $scope.activeContract = 'active';
+
+
+      }
     };
 
 

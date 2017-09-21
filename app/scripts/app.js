@@ -20,6 +20,7 @@ angular
     'ui.router',
     'ngDialog',
     'ae-datetimepicker',
+    'angular-input-stars',
     'uiGmapgoogle-maps',
     'toastr',
     'socialLogin',

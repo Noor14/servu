@@ -12,6 +12,8 @@ angular.module('servu')
     function ($rootScope, jobListService, ngDialog, $state) {
 
     var vm = this;
+      vm.jobsCard = "col-lg-4";
+
       vm.status = [
         {
           id:0,
@@ -44,12 +46,27 @@ angular.module('servu')
 
       ];
 
-      vm.getStatus = function(id){
+      vm.getStatus = function(job){
          var status= vm.status.find(function(obj){
-           return obj.id === id;
+           return obj.id === job.status;
         });
+
+        job.statusName = status.name;
         return status.name;
       };
+      $rootScope.$on('filterScope', function(events, args){
+        vm.showfilter = args;
+        if(vm.showfilter){
+          vm.jobContent = "col-md-9";
+          vm.jobsCard = "col-lg-6"
+        }
+        else{
+          vm.jobContent="";
+          vm.jobsCard = "col-lg-4"
+
+        }
+
+      });
 
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
@@ -86,7 +103,6 @@ angular.module('servu')
     vm.addJob = function(){
       vm.dialog = ngDialog.open({
         template: 'views/dialogTemplates/jobcatergoryPopup.html',
-        appendClassName: "addjobPopup",
         controller: 'getjobCategoryCtrl'
       });
       vm.dialog.closePromise.then(function (data) {

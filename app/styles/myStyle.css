@@ -21,6 +21,7 @@
 .resetpassword{
   margin-top: 30px
 }
+
 .jobList .myjob-image div{
   padding-left: 0;
   padding-right: 0;
@@ -34,6 +35,24 @@
 .jobList img.img-rounded{
   width:100%;
 }
+.jobList .filterDiv h3{
+  padding: 15px;
+  background-color: #e2f7f9;
+  color: #999999;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.jobList .filterMode{
+background-color: white;
+padding: 10px 15px;
+height: calc(100vh - 90px);
+}
+.jobList .filterMode .form-group{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
 .sideNav{
   background: #2b405a;
   position: fixed;
@@ -90,8 +109,14 @@
   padding: 0;
   background-color: #f3f3f4;
 }
-.jobList, .jobDetailpage{
+.jobDetailpage{
   padding: 0 15px;
+}
+.jobContent{
+  padding: 20px 35px 45px;
+}
+.filterDiv, .jobList, .jobList .wrapper-content{
+  padding: 0;
 }
 #homePage .full-height{
   height: 100vh;
