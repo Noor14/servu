@@ -29,7 +29,7 @@
 .jobList .myjob-image div.padding{
   padding: 10px 0;
 }
-.jobList .myjob-image div.padding h4{
+.jobList .myjob-image div.padding h4, .jobList .myjob-image div.padding p{
   margin: 0px 0 3px 5px;
 }
 .jobList img.img-rounded{
@@ -152,7 +152,7 @@ height: calc(100vh - 90px);
 }
 .jobList h4{
   color: black;
-  margin: 10px 0 5px 0;
+  margin: 20px 0 5px 0;
 }
 .jobList h4.status{
   color: #46c049;
@@ -692,7 +692,9 @@ color: #fff;
 .Detail .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
-
+.jobDetailpage .form-group ::-webkit-input-placeholder{
+  color: #444 !important;
+}
 .jobDetailpage .page-heading{
   display: flex;
   justify-content: space-between;

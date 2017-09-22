@@ -8,9 +8,18 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', '$state', '$rootScope', 'toastr', '$stateParams', function ($scope, ngDialog, jobListService, $state, $rootScope, toastr, $stateParams) {
+  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', 'commentService', '$state', '$rootScope', 'toastr', '$stateParams', function ($scope, ngDialog, jobListService, commentService, $state, $rootScope, toastr, $stateParams) {
 
     var vm = this;
+    vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    vm.userData = vm.accountInfo.data.user;
+    if(vm.userData.user_type == 1){
+      vm.tabwidth = "col-md-4"
+    }
+    if(vm.userData.user_type == 2){
+      vm.tabwidth = "col-md-6"
+    }
+    vm.comment={};
 
     $scope.map = {
       center: {
@@ -97,9 +106,33 @@ angular.module('servu')
 
 
 
+    vm.insertComment = function(){
+      commentService.addComment($stateParams.id, vm.comment).then(function(res){
+        console.log(res,'res');
+        if(res.status == 201){
+          vm.comment={};
+          getComment('', '');
+        }
+
+      },function(err){
+        console.log(err)
+      })
+    };
+
+
+    function getComment(page, time_stamp){
+      commentService.commentList($stateParams.id, page, time_stamp).then(function(res){
+        if(res.status == 200){
+          vm.userComment = res.data.comments;
+        }
+      },function(err){
+        console.log(err);
+      })
+    }
 
 
 
+    getComment('', '');
     vm.getJobDetail();
 
 

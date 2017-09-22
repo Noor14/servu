@@ -22,8 +22,15 @@ angular.module('servu')
       }
     vm.getJobList = function(page, time){
       var deffered = $q.defer();
+      if(userCredential.data.user.user_type == 1){
+        var url = host + "/jobs/my_jobs";
+      }
+      if(userCredential.data.user.user_type == 2){
+        var url = host + "/jobs";
+      }
+
       var obj = {
-        url :  host + "/jobs/my_jobs",
+        url : url ,
         method : "GET",
         headers: headers,
         params : {

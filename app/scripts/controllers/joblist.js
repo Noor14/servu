@@ -8,10 +8,13 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state',
-    function ($rootScope, jobListService, ngDialog, $state) {
+  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state','$timeout',
+    function ($rootScope, jobListService, ngDialog, $state, $timeout) {
 
     var vm = this;
+      vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+      vm.userData = vm.accountInfo.data.user;
+
       vm.jobsCard = "col-lg-4";
 
       vm.status = [
@@ -57,21 +60,26 @@ angular.module('servu')
       $rootScope.$on('filterScope', function(events, args){
         vm.showfilter = args;
         if(vm.showfilter){
-          vm.jobContent = "col-md-9";
-          vm.jobsCard = "col-lg-6"
+          vm.jobContent = "col-md-9 fadeInLeft";
+          vm.jobsCard = "col-lg-6";
+          vm.filterContainer = "fadeInDown";
+
         }
         else{
-          vm.jobContent="";
-          vm.jobsCard = "col-lg-4"
+          vm.filterContainer = "fadeInUp";
+          $timeout(function(){
+            vm.jobContent="fadeInRight";
+            vm.jobsCard = "col-lg-4"
+
+          },1000)
+
 
         }
 
       });
 
-    vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
-    vm.userData = vm.accountInfo.data.user;
+
     vm.current_time;
-    var time_stamp = new Date();
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
@@ -107,10 +115,11 @@ angular.module('servu')
       });
       vm.dialog.closePromise.then(function (data) {
         console.log(data.id + ' has been dismissed.');
-        vm.getJobs(1, time_stamp);
+        vm.getJobs('', '');
+
 
       });
     };
 
-    vm.getJobs(1, time_stamp);
+    vm.getJobs('', '');
   }]);

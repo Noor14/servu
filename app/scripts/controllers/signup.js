@@ -20,25 +20,9 @@ angular.module('servu')
 
 
       if(vm.user.password === vm.user.password_confirmation){
-        var info = JSON.parse(localStorage.getItem('userInfo'));
-        if (info && info.user && info.user.phone && info.user.phone == vm.user.phone) {
-          vm.loading = false;
-          vm.user = {};
-          ngDialog.open({
-            template: 'views/dialogTemplates/pinPopup.html',
-            resolve: {
-              user_info: function () {
-                return info;
-              }
-            },
-            showClose: false,
-            overlay: false,
-            controller: 'confirmPinCtrl'
-          });
-        }
-        else{
+
         createAccount();
-        }
+
       }
       else{
         vm.loading = false;
@@ -52,7 +36,6 @@ angular.module('servu')
         console.log(res.data);
         vm.loading = false;
         if (res.status === 201) {
-          localStorage.setItem('userInfo', JSON.stringify(res.data));
           vm.user = {};
           ngDialog.open({
             template: 'views/dialogTemplates/pinPopup.html',

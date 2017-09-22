@@ -18,9 +18,9 @@
         <div class="col-lg-8 no-padding">
           <div class="tabs-container jobDetailtab">
             <ul class="nav nav-tabs text-center">
-              <li class="col-md-4 no-padding active"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Detail</a></li>
-              <li class="col-md-4 no-padding"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
-              <li class="col-md-4 no-padding"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
+              <li class="no-padding active" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Detail</a></li>
+              <li class="no-padding" ng-class="vm.tabwidth" ng-if="vm.userData.user_type == 1"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
+              <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
             </ul>
             <div class="tab-content">
               <div id="tab-1" class="tab-pane active">
@@ -100,11 +100,27 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="coment_sect">
-                        <img src="images/user.jpg" alt="user" class="img-responsive">
+                       <form  novalidate ng-submit="vm.insertComment()" name="commentForm">
+                         <div class="form-group">
+                           <textarea class="form-control" required rows="5" ng-model="vm.comment.body" placeholder="Add Comments..." name="comment"></textarea>
+
+                         </div>
+                         <div class="text-right">
+                           <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Add</button>
+                         </div>
+                       </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" ng-if="vm.userComment.length">
+                    <div class="col-md-12" ng-repeat="commenter in vm.userComment">
+                      <div class="coment_sect">
+                        <img ng-if="!commenter.user.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
+                        <img ng-if="commenter.user.pic_url" ng-src="{{commenter.user.pic_url}}" alt="user" class="img-responsive">
                         <div class="comnt_text">
-                          <strong>Maud Fitzgerald</strong><br>
-                          <span>Great Work Done.....</span>
-                          <span class="commmt_time">01.36AM</span>
+                          <strong>{{commenter.user.name}}</strong><br>
+                          <span>{{commenter.body}}</span>
+                          <span class="commmt_time">{{commenter.created_at | date: 'MMM d, h:mm a'}}</span>
                         </div>
                       </div>
                     </div>

@@ -27,8 +27,23 @@ angular.module('servu')
         console.log(res);
         vm.loading = false;
         if(res.status === 200){
+          if(res.data.user.phone_confirmed){
           localStorage.setItem("userDetail",JSON.stringify(res));
           $state.go("user.joblist");
+          }
+          else if(!res.data.user.phone_confirmed){
+            ngDialog.open({
+              template: 'views/dialogTemplates/pinPopup.html',
+              resolve: {
+                user_info: function () {
+                  return res.data;
+                }
+              },
+              showClose: false,
+              overlay: false,
+              controller: 'confirmPinCtrl'
+            });
+          }
         }
         else{
           vm.loginCheck = "Username or password is incorrect";
