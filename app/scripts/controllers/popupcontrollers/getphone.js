@@ -11,14 +11,15 @@ angular.module('servu')
   .controller('getPhoneCtrl',['$scope', 'token', 'ngDialog', 'socialService', 'credentialService', function ($scope, token, ngDialog, socialService, credentialService){
     $scope.loginSubmit = function(){
 
+      var provider= token.provider;
+
       var obj = {
         access_token  : token.access_token,
-        provider: token.provider,
         phone : $scope.phone
       };
 
 
-      if(obj.provider == 'facebook'){
+      if(provider == 'facebook'){
         socialService.fbLogin(obj).then(function (res){
         if(res.status == 200){
           if(res.data.user.phone_confirmed){
@@ -49,7 +50,11 @@ angular.module('servu')
               template: 'views/dialogTemplates/pinPopup.html',
               resolve: {
                 token: function () {
-                  return obj;
+                  return {
+                    access_token:obj.access_token,
+                    phone:obj.access_token,
+                    provider: provider
+                  }
                 }
               },
               showClose:false,
@@ -60,7 +65,7 @@ angular.module('servu')
         })
 
       }
-      else if(obj.provider == 'google'){
+      else if(provider == 'google'){
         socialService.googleLogin(obj).then(function (res) {
           if(res.status == 200){
             if(res.data.user.phone_confirmed){
@@ -91,7 +96,11 @@ angular.module('servu')
               template: 'views/dialogTemplates/pinPopup.html',
               resolve: {
                 token: function () {
-                  return obj;
+                  return {
+                    access_token:obj.access_token,
+                    phone:obj.access_token,
+                    provider: provider
+                  }
                 }
               },
               showClose:false,
@@ -102,10 +111,8 @@ angular.module('servu')
           }
         })
       }
-      else if(obj.provider == 'twitter'){
-        obj = token.access_token;
-        obj.phone = $scope.phone;
-        obj.provider = token.provider;
+      else if(provider == 'twitter'){
+
         socialService.twitterLogin(obj).then(function (res) {
           console.log($scope.phone, 'phone');
           if(res.status == 200){
@@ -137,7 +144,11 @@ angular.module('servu')
               template: 'views/dialogTemplates/pinPopup.html',
               resolve: {
                 token: function () {
-                  return obj;
+                  return {
+                    access_token:obj.access_token,
+                    phone:obj.access_token,
+                    provider: provider
+                  }
                 }
               },
               showClose:false,

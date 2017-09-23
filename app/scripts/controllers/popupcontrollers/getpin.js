@@ -12,8 +12,11 @@ angular.module('servu')
     function ($scope, token, socialService, credentialService, $state, toastr) {
     $scope.socialProvider = token.provider;
     $scope.pinLogin = function () {
-      $scope.token = token;
-      $scope.token.pin = $scope.pin_code;
+      $scope.token = {
+        access_token : token.access_token,
+        phone : token.phone,
+        pin : $scope.pin_code
+      };
       $scope.pinEntered = true;
       $scope.pinMessage='';
       if ($scope.socialProvider == 'facebook') {
