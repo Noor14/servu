@@ -27,16 +27,12 @@ angular.module('servu')
             $state.go('user.joblist');
           }
           else if(!res.data.user.phone_confirmed){
-            $scope.closeThisDialog();
             ngDialog.open({
               template: 'views/dialogTemplates/pinPopup.html',
               resolve: {
                 token: function () {
-                  return {
-                    access_token:obj.access_token,
-                    phone:obj.access_token,
-                    provider: provider
-                  };
+                  return obj;
+
                 }
               },
               showClose:false,
@@ -72,16 +68,12 @@ angular.module('servu')
               $state.go('user.joblist');
             }
             else if(!res.data.user.phone_confirmed){
-              $scope.closeThisDialog();
               ngDialog.open({
                 template: 'views/dialogTemplates/pinPopup.html',
                 resolve: {
                   token: function () {
-                    return {
-                      access_token:obj.access_token,
-                      phone:obj.access_token,
-                      provider: provider
-                    };
+                    return obj;
+
                   }
                 },
                 showClose:false,
@@ -93,7 +85,6 @@ angular.module('servu')
           }
         }, function (err) {
           if (err.data.type == 424) {
-            $scope.closeThisDialog();
             ngDialog.open({
               template: 'views/dialogTemplates/pinPopup.html',
               resolve: {
@@ -122,16 +113,11 @@ angular.module('servu')
               $state.go('user.joblist');
             }
             else if(!res.data.user.phone_confirmed){
-              $scope.closeThisDialog();
               ngDialog.open({
                 template: 'views/dialogTemplates/pinPopup.html',
                 resolve: {
                   token: function () {
-                    return {
-                      access_token:obj.access_token,
-                      phone:obj.access_token,
-                      provider: provider
-                    };
+                    return obj;
                   }
                 },
                 showClose:false,

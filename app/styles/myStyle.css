@@ -212,6 +212,7 @@ height: 100vh;
   border: 0;
   outline: 0;
   color: #fff;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0);
   border-bottom: 2px solid #e5e6e7 !important;
 }
@@ -339,10 +340,7 @@ display: block;
   margin: 0 auto;
   width: 80%;
 }
-#mySidenav .search{
-  padding: 3% 0;
 
-}
 #mySidenav .search form{
   padding: 8px 30px;
   border-bottom: 2px solid lightgray;
@@ -476,6 +474,7 @@ display: block;
 .signupPage .signupDiv .signupForm .form-control, .forgetPage .forgetDiv .forgetForm .form-control, .newsletterPage .newsDiv .newsForm .form-control, .contactPage .contactDiv .contactForm .form-control{
   border: 0;
   outline: 0;
+  text-align: center;
   color: #fff;
   background-color: rgba(255, 255, 255, 0);
   border-bottom: 2px solid #e5e6e7 !important;
