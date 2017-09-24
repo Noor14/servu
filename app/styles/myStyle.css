@@ -443,6 +443,9 @@ display: block;
   background-size: cover;
   height: 100vh;
 }
+.contactPage .contactAddress{
+  margin-top: 50px;
+}
 .newsletterPage .bgImage{
   background-image: url("../images/newsletter-banner.png");
   background-position: center;

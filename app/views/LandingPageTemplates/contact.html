@@ -6,30 +6,35 @@
 
         <form ng-submit="vm.contact()" novalidate name="contactForm">
           <div class="form-group">
-            <input type="text" name="email" required class="form-control" ng-model="vm.user.email" aria-describedby="emailHelp" placeholder="Enter email or phone">
+            <input type="text" name="firstName" required class="form-control" ng-model="vm.contact.firstname" placeholder="First Name *">
           </div>
           <div class="form-group">
-            <input type="password" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+            <input type="text" name="lastName" class="form-control" ng-model="vm.contact.lastname" placeholder="Last Name">
           </div>
           <div class="form-group">
-            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+            <input type="email" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required class="form-control" ng-model="vm.contact.email" placeholder="Email *">
+            <p class="valid" ng-if="userForm.email.$dirty && userForm.email.$error.pattern">Please enter valid email</p>
+            <p class="valid" ng-if="vm.emailExist">{{vm.emailExist}}</p>
           </div>
           <div class="form-group">
-            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+            <input type="text" name="phone" class="form-control" ng-model="vm.user.phone" placeholder="Phone No">
           </div>
           <div class="form-group">
-            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <input type="text" name="password" required class="form-control" ng-model="vm.user.password" placeholder="Password">
+            <textarea type="text" name="message" required class="form-control" rows="4" ng-model="vm.contact.message" placeholder="Your Message Here *"></textarea>
           </div>
           <div>
-            <button type="submit" ng-disabled="contactForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Send</button>
+            <button type="submit" ng-disabled="contactForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Submit</button>
           </div>
           <div class="landing-page-spinner" ng-if="vm.loading">
             <img  class="spinner_two" ng-src="images/spinner_two.gif" alt="loading" />
           </div>
         </form>
+
+        <div class="contactAddress text-center">
+          <p><i class="fa fa-phone"></i> 111-111-111</p>
+          <p><i class="fa fa-envelope-o"></i> info@servu.com</p>
+          <p><i class="fa fa-home"></i> Churchi Tower, Business Bay, Dubai </p>
+        </div>
 
       </div>
 

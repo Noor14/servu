@@ -121,7 +121,7 @@ angular
         controllerAs: 'vm'
       })
       .state('home.about', {
-        url:'/aout',
+        url:'/about',
         templateUrl: 'views/LandingPageTemplates/about.html',
         controller: 'aboutCtrl',
         controllerAs: 'vm'
