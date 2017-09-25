@@ -35,10 +35,10 @@
 .jobList img.img-rounded{
   width:100%;
 }
-.jobList .filterDiv input[type='radio']{
+.Detail input[type='radio'], .jobList .filterDiv input[type='radio']{
   margin-right: 10px;
 }
-.jobList .filterDiv input[type='radio']:after{
+.Detail input[type='radio']:after, .jobList .filterDiv input[type='radio']:after{
 width: 20px;
 height: 20px;
 border-radius: 100%;
@@ -52,7 +52,7 @@ visibility: visible;
 border: 2px solid #ccc;
 }
 
-.jobList .filterDiv input[type='radio']:checked:after {
+.Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after{
 width: 20px;
 height: 20px;
 border-radius: 100%;
@@ -684,6 +684,9 @@ color: #fff;
 .Detail .tab-content .active{
   display: block;
 }
+.Detail .tab-content .tab-pane .col-lg-4:last-child{
+  width: 150px;
+}
 .nojobMessgae{
   display: flex;
   height: 70vh;
@@ -721,6 +724,7 @@ color: #fff;
   border-color: #426fb6;
   color: #426fb6;
   padding: 10px 0;
+  margin-top: 55px;
 }
 .Detail .btn-primary[disabled]:hover{
   background-color: #e7eaec;
