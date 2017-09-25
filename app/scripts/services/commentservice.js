@@ -37,7 +37,7 @@ angular.module('servu')
         },function(err){
           deffered.reject(err);
         });
-        return deffered.promise
+        return deffered.promise;
       };
       vm.commentList = function(id, page, time){
         var deffered = $q.defer();
@@ -51,6 +51,41 @@ angular.module('servu')
           }
         };
         $http(obj).then(function(res){
+          console.log(res);
+          deffered.resolve(res);
+        },function(err){
+          deffered.reject(err);
+        });
+        return deffered.promise
+      };
+      vm.commentUpdate = function(obj){
+        var deffered = $q.defer();
+        var obj = {
+          url : host + '/jobs/'+ obj.job_id + '/comments/' + obj.id ,
+          method: 'PUT',
+          headers: headers,
+          body: obj.body
+
+        };
+        $http(obj).then(function(res){
+          console.log(res);
+          deffered.resolve(res);
+        },function(err){
+          deffered.reject(err);
+        });
+        return deffered.promise;
+      };
+      vm.deleteUserComment = function(jobId, id){
+        var deffered = $q.defer();
+        var obj = {
+          url : host + '/jobs/'+ jobId + '/comments/' + id ,
+          headers: headers,
+          params: {
+            job_id : jobId,
+            id : id
+          }
+        };
+        $http.delete(obj.url, {headers: obj.headers}).then(function(res){
           console.log(res);
           deffered.resolve(res);
         },function(err){

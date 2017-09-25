@@ -18,13 +18,13 @@ angular.module('servu')
     $scope.job.category_id = JobDetail.category.id;
     $scope.job.service_id = JobDetail.service.id;
     if(!$scope.job.job_type){
-      $scope.activeUrgent = 'active';
+      $scope.activeUrgent = 'active full-width';
     }
     else if($scope.job.job_type == 1){
-      $scope.activeSchedule = 'active';
+      $scope.activeSchedule = 'active full-width';
     }
     else if($scope.job.job_type == 2){
-      $scope.activeContract = 'active';
+      $scope.activeContract = 'active full-width';
     }
 
 

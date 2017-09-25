@@ -111,7 +111,7 @@ angular.module('servu')
         console.log(res,'res');
         if(res.status == 201){
           vm.comment={};
-          getComment('', '');
+          vm.getComment('', '');
         }
 
       },function(err){
@@ -120,7 +120,7 @@ angular.module('servu')
     };
 
 
-    function getComment(page, time_stamp){
+    vm.getComment = function(page, time_stamp){
       commentService.commentList($stateParams.id, page, time_stamp).then(function(res){
         if(res.status == 200){
           vm.userComment = res.data.comments;
@@ -128,11 +128,56 @@ angular.module('servu')
       },function(err){
         console.log(err);
       })
-    }
+    };
+    vm.editComment = function(comment){
+      vm.editdialog = ngDialog.open({
+        template: 'views/dialogTemplates/editjobComment.html',
+        controller: 'EditjobcommentCtrl',
+        resolve: {
+          comment: function(){
+            return angular.copy(comment);
+          }
+
+        }
+
+      });
+      vm.editdialog.closePromise.then(function (data) {
+        console.log(data.id + ' has been dismissed.');
+        vm.getComment('', '');
+
+
+      });
+    };
+
+    vm.deleteComment = function(id){
+      ngDialog.openConfirm({
+        template:'\
+                <p>Are you sure you want to delete this comment?</p>\
+                <div class="ngdialog-buttons">\
+                    <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">No</button>\
+                    <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">Yes</button>\
+                </div>',
+        plain: true
+      }).then(function (yes) {
+        commentService.deleteUserComment($stateParams.id, id).then(function(res){
+          if(res.status == 204){
+            toastr.success('Comment has been deleted',{
+              closeButton: true,
+              preventOpenDuplicates: true
+            });
+
+            vm.getComment('', '');
+
+          }
+        })
+      }, function (no) {
+        console.log(no,'no');
+      });
+    };
 
 
 
-    getComment('', '');
+    vm.getComment('', '');
     vm.getJobDetail();
 
 

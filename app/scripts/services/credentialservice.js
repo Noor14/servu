@@ -13,15 +13,6 @@ angular.module('servu')
     // AngularJS will instantiate a singleton by calling "new" on this function
     var vm = this;
 
-      var userCredential = JSON.parse(localStorage.getItem("userInfo"));
-      if(userCredential){
-      var headers = {
-        'Content-type': 'application/JSON',
-        token: userCredential.data.token,
-        client: userCredential.data.client,
-        uid: userCredential.data.uid
-      };
-      }
     vm.userLogin = function(credential){
       var deffered = $q.defer();
       var obj={
@@ -123,13 +114,18 @@ angular.module('servu')
     };
 
 
-    vm.resendPin = function(detail){
+    vm.resendPin = function(info){
+      var headers = {
+        'Content-type': 'application/JSON',
+        token: info.data.token,
+        client: info.data.client,
+        uid: info.data.uid
+      };
       var deffered = $q.defer();
       var obj={
         url: host + "/auth/resend_phone_confirmation",
         method: "PUT",
-        headers: headers,
-        data : detail
+        headers: headers
       };
       $http(obj).then(function(res){
         deffered.resolve(res);
@@ -139,13 +135,19 @@ angular.module('servu')
       return deffered.promise;
     };
 
-    vm.phoneConfirm = function(pinCode){
+    vm.phoneConfirm = function(info){
+      var headers = {
+        'Content-type': 'application/JSON',
+        token: info.data.token,
+        client: info.data.client,
+        uid: info.data.uid
+      };
       var deffered = $q.defer();
       var obj={
         url: host + "/auth/confirm_phone",
         method: "PUT",
         headers: headers,
-        data : pinCode
+        data : info.pin_code
       };
       $http(obj).then(function(res){
         deffered.resolve(res);

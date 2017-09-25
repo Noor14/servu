@@ -1,19 +1,24 @@
 <!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" ng-click="jobType(0)" ng-class="activeUrgent"><a data-target="#urgent" aria-controls="home" role="tab" data-toggle="tab">Urgent</a></li>
-  <li role="presentation" ng-click="jobType(1)" ng-class="activeSchedule"><a data-target="#shedule" aria-controls="profile" role="tab" data-toggle="tab">Scheduled</a></li>
-  <li role="presentation" ng-click="jobType(2)" ng-class="activeContract"><a data-target="#contract" aria-controls="messages" role="tab" data-toggle="tab">Contract</a></li>
+<ul class="nav nav-tabs" role="tablist" ng-if="job.id">
+  <li role="presentation"  ng-if="job.job_type == 0" ng-click="jobType(0)" ng-class="activeUrgent"><a data-target="#urgent" aria-controls="home" role="tab" data-toggle="tab">Urgent</a></li>
+  <li role="presentation" ng-if="job.job_type == 1" ng-click="jobType(1)" ng-class="activeSchedule"><a data-target="#shedule" aria-controls="profile" role="tab" data-toggle="tab">Scheduled</a></li>
+  <li role="presentation"  ng-if="job.job_type == 2" ng-click="jobType(2)" ng-class="activeContract"><a data-target="#contract" aria-controls="messages" role="tab" data-toggle="tab">Contract</a></li>
+</ul>
+<ul class="nav nav-tabs" role="tablist" ng-if="!job.id">
+  <li role="presentation"  ng-click="jobType(0)" class="active"><a data-target="#urgent" aria-controls="home" role="tab" data-toggle="tab">Urgent</a></li>
+  <li role="presentation" ng-click="jobType(1)"><a data-target="#schedule" aria-controls="profile" role="tab" data-toggle="tab">Scheduled</a></li>
+  <li role="presentation" ng-click="jobType(2)"><a data-target="#contract" aria-controls="messages" role="tab" data-toggle="tab">Contract</a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="urgent"></div>
-  <div role="tabpanel" class="tab-pane" id="shedule">
+  <div role="tabpanel" class="tab-pane active" id="urgent" ng-class="activeUrgent"></div>
+  <div role="tabpanel" class="tab-pane" ng-class="activeSchedule" id="schedule">
     <p>Required </p>
     <div class="col-lg-12">
       <div class="form-group">
         <div class="input-group">
-          <input class="form-control" ng-required="schedule" name="schedule" ng-model="job.schedule" datetimepicker  />
+          <input class="form-control datetimepicker" ng-required="schedule" name="schedule" ng-model="job.schedule" datetimepicker  />
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
@@ -22,7 +27,7 @@
 
 
   </div>
-  <div role="tabpanel" class="tab-pane" id="contract">
+  <div role="tabpanel" class="tab-pane" ng-class="activeContract" id="contract">
 
     <p>Both fields are required </p>
 
@@ -34,7 +39,7 @@
     <div class="col-lg-12">
       <div class="form-group">
         <div class="input-group">
-          <input class="form-control" ng-required="contType"  name="first_service_date" datetimepicker ng-model="job.contract.first_service_date"  />
+          <input class="form-control datetimepicker" ng-required="contType" name="first_service_date" datetimepicker ng-model="job.contract.first_service_date"  />
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>

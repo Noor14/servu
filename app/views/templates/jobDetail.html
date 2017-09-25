@@ -8,9 +8,9 @@
     <button type="button" class="btn btn-circle" ng-click="vm.editJob(vm.job)"><i class="glyphicon glyphicon-pencil"></i></button>
     <button type="button" class="btn btn-circle" ng-click="vm.deleteJob(vm.job.id)"><i class="glyphicon glyphicon-trash"></i></button>
   </div>
-  <div>
+  <div class="text-right">
     <b>AED {{vm.job.budget}}</b>
-    <p>Awarded For</p>
+    <p>Estimated Budget</p>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
         <div class="col-lg-8 no-padding">
           <div class="tabs-container jobDetailtab">
             <ul class="nav nav-tabs text-center">
-              <li class="no-padding active" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Detail</a></li>
+              <li class="no-padding active" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Details</a></li>
               <li class="no-padding" ng-class="vm.tabwidth" ng-if="vm.userData.user_type == 1"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
               <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
             </ul>
@@ -120,7 +120,12 @@
                         <div class="comnt_text">
                           <strong>{{commenter.user.name}}</strong><br>
                           <span>{{commenter.body}}</span>
-                          <span class="commmt_time">{{commenter.created_at | date: 'MMM d, h:mm a'}}</span>
+                          <div class="commmt_time">
+                            {{commenter.created_at | date: 'MMM d, h:mm a'}}
+
+                            <span ng-click="vm.editComment(commenter)" class="glyphicon glyphicon-pencil"></span>
+                            <span ng-click="vm.deleteComment(commenter.id)" class="glyphicon glyphicon-trash"></span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -130,7 +135,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 widget-box no-padding">
+        <div class="col-lg-4 widget-box">
             <div class="widget-job-awarded col-lg-12">
               <div>
                 <h5 class="m-b-md">Awarded to</h5>
@@ -140,14 +145,17 @@
               <div class="text-right">
                 <span class="widget_text"> 23March,2017 </span>
                 <ul class="border_widg nav nav-tabs">
-                  <li class="active"><a class="widget_border active" data-toggle="tab" data-target="#widget-one" aria-expanded="true">
-                  </a>
+                  <li class="active">
+                    <a class="widget_border active" data-toggle="tab" data-target="#widget-one" aria-expanded="true"></a>
+                    <span ng-if="vm.job.status == 1" class="openjob">Open</span>
                   </li>
-                  <li><a class="widget_border" data-toggle="tab" data-target="#widget-two" aria-expanded="true">
-                  </a>
+                  <li>
+                    <a class="widget_border" data-toggle="tab" data-target="#widget-two" aria-expanded="true"></a>
+                    <span ng-if="vm.job.status == 2" class="awardedjob">Awarded</span>
                   </li>
-                  <li><a class="widget_border widget_border3" data-toggle="tab" data-target="#widget-three" aria-expanded="true">
-                  </a>
+                  <li>
+                    <a class="widget_border widget_border3" data-toggle="tab" data-target="#widget-three" aria-expanded="true"></a>
+                    <span ng-if="vm.job.status == 3" class="completejob">Completed</span>
                   </li>
                 </ul>
               </div>
@@ -155,7 +163,7 @@
            <div class="tab-content">
             <div id="widget-one" class="tab-pane active">
               <div class="col-lg-12 no-padding">
-                <div class="col-md-6">
+                <div class="Nopadding-left col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Completed on</span>
@@ -163,7 +171,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="Nopadding-right col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Completed on</span>
@@ -171,7 +179,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="Nopadding-left col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Start Code</span>
@@ -179,7 +187,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="Nopadding-right col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Completed on</span>
@@ -187,7 +195,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 widget_btn">
+                <div class="no-padding col-md-12 widget_btn">
                   <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
                   <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#">Start</a>
                 </div>

@@ -14,10 +14,11 @@ angular.module('servu')
 
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.jobspinner = 'jobspinner';
+      $scope.minDate = Date.now();
     $scope.job = {
       job_type : 0
     };
-      $scope.activeUrgent = 'active';
+
 
 
       $scope.map = {
@@ -209,21 +210,18 @@ angular.module('servu')
 
       if($scope.job.job_type == 0){
         $scope.schedule= $scope.contType = false;
-        $scope.activeUrgent = 'active';
 
       }
       else if($scope.job.job_type == 1){
         $scope.job.schedule='';
         $scope.schedule = true;
         $scope.contType = false;
-        $scope.activeSchedule = 'active';
 
       }
       else if($scope.job.job_type == 2){
         $scope.job.contract = {};
         $scope.contType = true;
         $scope.schedule = false;
-        $scope.activeContract = 'active';
 
 
       }

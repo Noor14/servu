@@ -230,7 +230,7 @@ h2{
   border-top: 1px solid;
 }
 .nav li .widget_border:hover {
-  background-color: #86ca2d;
+  background-color: #f8ac59;
 }
 .widget_text {
   display: block;
@@ -245,7 +245,7 @@ h2{
 .nav-tabs > li.active > .widget_border,
 .nav-tabs > li.active > .widget_border:hover,
 .nav-tabs > li.active > .widget_border:focus {
-  background-color: #86ca2d;
+  background-color: #f8ac59;
   border-color: #8b939a;
 }
 .after_border:hover {
@@ -279,7 +279,7 @@ h2{
 }
 .panel_img li{
   position: relative;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   display: inline-block;
   border-radius: 12px;
   overflow: hidden;
