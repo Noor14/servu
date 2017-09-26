@@ -22,7 +22,7 @@
           <div class="form-group">
             <textarea type="text" name="message" required class="form-control" rows="4" ng-model="vm.contact.message" placeholder="Your Message Here *"></textarea>
           </div>
-          <div>
+          <div class="contactBtn">
             <button type="submit" ng-disabled="contactForm.$invalid || vm.loading" class="btn btn-primary btn-lg btn-block">Submit</button>
           </div>
           <div class="landing-page-spinner" ng-if="vm.loading">

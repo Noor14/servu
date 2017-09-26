@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ed8049-1500-4f33-82f0-ffa5489c8e2f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist.zip" afterPath="$PROJECT_DIR$/dist.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/editjob.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/editjob.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/home.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/jobdetail.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/jobdetail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/commentservice.js" afterPath="$PROJECT_DIR$/app/scripts/services/commentservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/credentialservice.js" afterPath="$PROJECT_DIR$/app/scripts/services/credentialservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.css" afterPath="$PROJECT_DIR$/app/styles/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/myStyle.css" afterPath="$PROJECT_DIR$/app/styles/myStyle.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/stylesheet.css" afterPath="$PROJECT_DIR$/app/styles/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html" afterPath="$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html" afterPath="$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html" afterPath="$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" afterPath="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dialogTemplates/resetByPin.html" afterPath="$PROJECT_DIR$/app/views/dialogTemplates/resetByPin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/jobDetail.html" afterPath="$PROJECT_DIR$/app/views/templates/jobDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/jobList.html" afterPath="$PROJECT_DIR$/app/views/templates/jobList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user.html" afterPath="$PROJECT_DIR$/app/views/user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/karma.conf.js" afterPath="$PROJECT_DIR$/test/karma.conf.js" />
     </list>
     <ignored path="ServuApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,99 +36,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="joblist.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
+      <file leaf-file-name="myStyle.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
-              <folding>
-                <element signature="e#518#982#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jobdetail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/jobdetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
-              <folding>
-                <element signature="e#3441#3681#0" expanded="false" />
-                <element signature="e#4189#5087#0" expanded="false" />
-                <marker date="1506336380027" expanded="true" signature="1795:2080" placeholder="..." />
-                <marker date="1506336380027" expanded="true" signature="4355:4640" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-5.7090907">
+              <caret line="850" column="15" selection-start-line="850" selection-start-column="15" selection-end-line="850" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="jobDetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/templates/jobDetail.html">
+        <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-26.23077">
+              <caret line="61" column="157" selection-start-line="61" selection-start-column="157" selection-end-line="61" selection-end-column="157" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editjobcomment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editjobcomment.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editjobComment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/editjobComment.html">
+      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="-18.384615">
+              <caret line="59" column="78" selection-start-line="59" selection-start-column="78" selection-end-line="59" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myStyle.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
+      <file leaf-file-name="getpin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getpin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81904763">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getphone.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.298324">
+              <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
               <folding>
-                <marker date="1506347401060" expanded="true" signature="3868:3914" placeholder="{...}" />
+                <element signature="e#908#1071#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobCategory.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobCategory.html">
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="103" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jobcatergoryPopup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/jobcatergoryPopup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="23" />
-              <folding />
+            <state vertical-scroll-proportion="-5.8727274">
+              <caret line="34" column="51" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="51" />
+              <folding>
+                <marker date="1506414214586" expanded="true" signature="252:291" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +123,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="3496" column="19" selection-start-line="3496" selection-start-column="19" selection-end-line="3496" selection-end-column="19" />
+            <state vertical-scroll-proportion="-8.0">
+              <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,8 +133,8 @@
       <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.076923">
-              <caret line="281" column="21" selection-start-line="281" selection-start-column="21" selection-end-line="281" selection-end-column="21" />
+            <state vertical-scroll-proportion="-16.5">
+              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -180,7 +164,6 @@
         <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/forget.html" />
         <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/login.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getpin.js" />
-        <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html" />
         <option value="$PROJECT_DIR$/app/scripts/directives/jobtypetab.js" />
         <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobServices.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/documentservice.js" />
@@ -192,25 +175,18 @@
         <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobCategory.html" />
         <option value="$PROJECT_DIR$/bower_components/bootstrap/dist/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" />
-        <option value="$PROJECT_DIR$/app/styles/main.css" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/dashboard.js" />
-        <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/signup.js" />
         <option value="$PROJECT_DIR$/test/karma.conf.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/joblistservice.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/joblist.js" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/dist/scripts/scripts.58244b0d.js" />
         <option value="$PROJECT_DIR$/test/spec/controllers/contact.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/contact.js" />
-        <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/credentialservice.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/editjob.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/confirmpin.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/views/dialogTemplates/editjobComment.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/jobdetail.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editjobcomment.js" />
@@ -218,10 +194,18 @@
         <option value="$PROJECT_DIR$/app/views/user.html" />
         <option value="$PROJECT_DIR$/app/views/dialogTemplates/resetByPin.html" />
         <option value="$PROJECT_DIR$/app/views/templates/jobList.html" />
-        <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" />
-        <option value="$PROJECT_DIR$/app/styles/stylesheet.css" />
         <option value="$PROJECT_DIR$/app/views/templates/jobDetail.html" />
+        <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html" />
+        <option value="$PROJECT_DIR$/app/styles/main.css" />
+        <option value="$PROJECT_DIR$/app/styles/stylesheet.css" />
         <option value="$PROJECT_DIR$/app/styles/myStyle.css" />
+        <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js" />
       </list>
     </option>
   </component>
@@ -389,6 +373,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="LandingPageTemplates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dialogTemplates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -448,28 +454,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ServuApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -619,18 +603,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
+    <frame x="-8" y="0" width="1924" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23913044" sideWeight="0.41386783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23913044" sideWeight="0.41061756" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23913044" sideWeight="0.58613217" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23913044" sideWeight="0.58938247" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36511377" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2665222" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2654388" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2407211" sideWeight="0.54112554" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -752,19 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="31" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,62 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5831904">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="148" column="26" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="32" />
-          <folding>
-            <marker date="1506320417469" expanded="true" signature="15:121" placeholder="/** @ngdoc overview ...*/" />
-            <marker date="1506320417469" expanded="true" signature="149:432" placeholder="[...]" />
-            <marker date="1506320417469" expanded="true" signature="441:2643" placeholder="[...]" />
-            <marker date="1506320417469" expanded="true" signature="624:2642" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="679:2636" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="749:2607" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="854:1088" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="880:1076" placeholder="{&quot;Content-type&quot;: 'application/JSON'...}" />
-            <marker date="1506320417469" expanded="true" signature="1105:1213" placeholder="{&quot;method&quot;: &quot;GET&quot;...}" />
-            <marker date="1506320417469" expanded="true" signature="1235:2103" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1574:2093" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1617:1951" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1654:1829" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1757:1815" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1848:1938" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="1965:2079" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="2116:2599" placeholder="{...}" />
-            <marker date="1506320417469" expanded="true" signature="3381:3530" placeholder="{&quot;url&quot;: ''...}" />
-            <marker date="1506320417469" expanded="true" signature="3558:3708" placeholder="{&quot;url&quot;: '/home'...}" />
-            <marker date="1506320417469" expanded="true" signature="3737:3890" placeholder="{&quot;url&quot;: '/aout'...}" />
-            <marker date="1506320417469" expanded="true" signature="3918:4010" placeholder="{&quot;url&quot;: '/login'...}" />
-            <marker date="1506320417469" expanded="true" signature="4039:4204" placeholder="{&quot;url&quot;: '/forget-password'...}" />
-            <marker date="1506320417469" expanded="true" signature="4234:4390" placeholder="{&quot;url&quot;: '/signUp'...}" />
-            <marker date="1506320417469" expanded="true" signature="4421:4580" placeholder="{&quot;url&quot;: '/contact'...}" />
-            <marker date="1506320417469" expanded="true" signature="4612:4772" placeholder="{&quot;url&quot;: '/services'...}" />
-            <marker date="1506320417469" expanded="true" signature="4806:4975" placeholder="{&quot;url&quot;: '/news-letter'...}" />
-            <marker date="1506320417469" expanded="true" signature="4998:5157" placeholder="{&quot;url&quot;: '/user'...}" />
-            <marker date="1506320417469" expanded="true" signature="5190:5405" placeholder="{&quot;url&quot;: '/job-detail/:id'...}" />
-            <marker date="1506320417469" expanded="true" signature="5357:5397" placeholder="{&quot;authRequired&quot;: true...}" />
-            <marker date="1506320417469" expanded="true" signature="5436:5642" placeholder="{&quot;url&quot;: '/dashboard'...}" />
-            <marker date="1506320417469" expanded="true" signature="5594:5634" placeholder="{&quot;authRequired&quot;: true...}" />
-            <marker date="1506320417469" expanded="true" signature="5673:5881" placeholder="{&quot;url&quot;: '/messages'...}" />
-            <marker date="1506320417469" expanded="true" signature="5767:5807" placeholder="{&quot;authRequired&quot;: true...}" />
-            <marker date="1506320417469" expanded="true" signature="5816:5873" placeholder="//..." />
-            <marker date="1506320417469" expanded="true" signature="5912:6119" placeholder="{&quot;url&quot;: '/profile'...}" />
-            <marker date="1506320417469" expanded="true" signature="6005:6045" placeholder="{&quot;authRequired&quot;: true...}" />
-            <marker date="1506320417469" expanded="true" signature="6054:6111" placeholder="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <marker date="1506320417469" expanded="true" signature="252:291" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,48 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="23" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
-          <folding>
-            <element signature="e#908#1071#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getpin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.192308">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.038462">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -974,17 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding>
-            <element signature="e#2023#2805#0" expanded="false" />
-            <element signature="e#3528#4310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/commentservice.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1000,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.73077">
           <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,7 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.192307">
           <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,25 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.153846">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="n#ul#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="3496" column="19" selection-start-line="3496" selection-start-column="19" selection-end-line="3496" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,23 +919,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobCategory.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
+        <state vertical-scroll-proportion="0.0">
           <caret line="6" column="103" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.076923">
-          <caret line="281" column="21" selection-start-line="281" selection-start-column="21" selection-end-line="281" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/jobDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
@@ -1117,12 +951,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.807692">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="n#ul#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.23077">
+          <caret line="61" column="157" selection-start-line="61" selection-start-column="157" selection-end-line="61" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8727274">
+          <caret line="34" column="51" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="51" />
+          <folding>
+            <marker date="1506414214586" expanded="true" signature="252:291" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.5">
+          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81904763">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.7090907">
+          <caret line="850" column="15" selection-start-line="850" selection-start-column="15" selection-end-line="850" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.384615">
+          <caret line="59" column="78" selection-start-line="59" selection-start-column="78" selection-end-line="59" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getpin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="7" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getphone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.298324">
+          <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
           <folding>
-            <marker date="1506347401060" expanded="true" signature="3868:3914" placeholder="{...}" />
+            <element signature="e#908#1071#0" expanded="false" />
           </folding>
         </state>
       </provider>

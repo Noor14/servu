@@ -19,6 +19,7 @@ angular
     'ngTouch',
     'ui.router',
     'ngDialog',
+    'ui.toggle',
     'ae-datetimepicker',
     'angular-input-stars',
     'uiGmapgoogle-maps',

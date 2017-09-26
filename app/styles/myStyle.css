@@ -15,11 +15,25 @@
   color: white;
   font-size:20px;
 }
+.mainNav nav.navbar-static-top{
+  display: flex;
+}
+.mainNav nav .navbar-header{
+  flex: 80;
+}
+.mainNav nav .navbar-header .navbar-form-custom {
+  float: left;
+  width: 40%;
+
+}
 .mainNav a.filter:hover{
   color: white;
 }
 .resetpassword{
   margin-top: 30px
+}
+.mainNav .navigation-bar ul.pull-right{
+  margin-right: 20px;
 }
 
 .jobList .myjob-image div{
@@ -39,31 +53,31 @@
   margin-right: 10px;
 }
 .Detail input[type='radio']:after, .jobList .filterDiv input[type='radio']:after{
-width: 20px;
-height: 20px;
-border-radius: 100%;
-top: -2px;
-left: -5px;
-position: relative;
-background-color: #fff;
-content: '';
-display: inline-block;
-visibility: visible;
-border: 2px solid #ccc;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  top: -2px;
+  left: -5px;
+  position: relative;
+  background-color: #fff;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #ccc;
 }
 
 .Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after{
-width: 20px;
-height: 20px;
-border-radius: 100%;
-top: -2px;
-left: -5px;
-position: relative;
-background-color: #86ca2d;
-content: '';
-display: inline-block;
-visibility: visible;
-border: 2px solid #ccc;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  top: -2px;
+  left: -5px;
+  position: relative;
+  background-color: #86ca2d;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #ccc;
 }
 
 .jobList .filterDiv h3{
@@ -75,9 +89,9 @@ border: 2px solid #ccc;
   justify-content: space-between;
 }
 .jobList .filterMode{
-background-color: white;
-padding: 10px 15px;
-height: calc(100vh - 90px);
+  background-color: white;
+  padding: 10px 15px;
+  height: calc(100vh - 90px);
 }
 .jobList .filterMode .form-group{
   border-bottom: 1px solid #ddd;
@@ -158,7 +172,7 @@ height: calc(100vh - 90px);
   display: flex;
   align-items: center;
 }
- .spinner img{
+.spinner img{
   width: 70px;
   height: 70px;
 }
@@ -196,9 +210,9 @@ height: calc(100vh - 90px);
 
 
 @media only screen and (max-width:550px){
-.myjobs-list div.jobDiv {
-  width: 100%;
-}
+  .myjobs-list div.jobDiv {
+    width: 100%;
+  }
 }
 
 
@@ -216,10 +230,10 @@ height: calc(100vh - 90px);
 /*Login pge---------------------------------------------------------------*/
 
 .loginPage .bgImage{
-background-image: url("../images/banner-login.png");
-background-position: center;
-background-size: cover;
-height: 100vh;
+  background-image: url("../images/banner-login.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
 }
 
 .loginPage .loginDiv{
@@ -254,7 +268,7 @@ height: 100vh;
   background-color: rgba(153, 153, 153, 0.5);
 }
 .loginPage h2{
-text-align:center;
+  text-align:center;
 }
 .loginPage .loginDiv .loginForm .loginButton{
   position: relative;
@@ -264,7 +278,7 @@ text-align:center;
   justify-content: space-evenly;
 }
 .loginPage .socialIcons div{
-  width: 70px;
+  width: 65px;
   cursor: pointer;
 }
 
@@ -272,7 +286,7 @@ text-align:center;
   width: 100%;
 }
 .loginPage .socialIcons div:focus{
-outline: none;
+  outline: none;
 }
 .loginWith{
   margin: 35px 0;
@@ -317,7 +331,7 @@ p.valid{
   padding: 0;
 }
 .sidenav a{
-  padding: 22px;
+  padding: 27px;
   text-decoration: none;
   font-size: 22px;
   color: #000;
@@ -345,12 +359,12 @@ i.bar{
 
 }
 /*button.bar:active, button.bar:hover, button.bar:focus{*/
-  /*box-shadow: none;*/
-  /*color: #fff;*/
+/*box-shadow: none;*/
+/*color: #fff;*/
 
 /*}*/
 /*.sidenav a:hover, .offcanvas a:focus{*/
-  /*color: #f1f1f1;*/
+/*color: #f1f1f1;*/
 /*}*/
 
 .sidenav .closebtn {
@@ -367,9 +381,9 @@ i.bar{
 }
 
 #mySidenav .logo img{
-display: block;
+  display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 250px;
 }
 
 #mySidenav .search form{
@@ -432,32 +446,6 @@ display: block;
   color: gray;
 }
 
-@media only screen and (max-width: 1199px){
-  .homeMenu{
-    display: none;
-  }
-  i.bar{
-    display: block;
-  }
-  .fa-close{
-    display: block;
-  }
-  div.display{
-    display: block;
-    position: absolute;
-    top: 0;
-
-  }
-  div.display-not{
-    display: none;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .signupPage .bgImage{
-    height: 100% !important;
-  }
-}
 
 
 /*Signup Page-------------------------------------------*/
@@ -477,12 +465,18 @@ display: block;
 .contactPage .contactAddress{
   margin-top: 50px;
 }
+.contactPage .contactBtn{
+  margin: 120px 0;
+}
+.contactPage .contactDiv .contactForm .form-group{
+  margin-bottom: 30px;
+}
 .newsletterPage .bgImage{
   background-image: url("../images/newsletter-banner.png");
   background-position: center;
   background-size: cover;
   height: 100vh;
-  }
+}
 .signupPage .bgImage{
   background-image: url("../images/banner-signup.png");
   background-position: center;
@@ -524,7 +518,7 @@ display: block;
 }
 
 .uploadPicture{
-overflow: visible;
+  overflow: visible;
 }
 .uploadPicture .btn-bs-file{
   position: relative;
@@ -565,7 +559,7 @@ overflow: visible;
 }
 
 .signupPage .nameBox{
-  margin-top: 55px;
+  margin-top: 128px;
 }
 .signupPage .signupButton{
   margin-top: 25px;
@@ -662,7 +656,7 @@ overflow: visible;
   border-left:none;
 }
 .Detail .nav-tabs li.active a{
-color: #fff;
+  color: #fff;
   border:none !important;
 }
 .Detail .nav-tabs li:first-child{
@@ -673,7 +667,7 @@ color: #fff;
 .Detail .nav-tabs li:last-child{
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  }
+}
 .Detail .nav-tabs li{
   width: 33.333%;
   border-left: 1px solid #999;
@@ -681,7 +675,7 @@ color: #fff;
 .Detail .full-width{
   width: 100%;
 }
-.Detail .tab-content .active{
+.Detail .tab-content div.active{
   display: block;
 }
 .Detail .tab-content .tab-pane .col-lg-4:last-child{
@@ -696,6 +690,17 @@ color: #fff;
   font-size: 20px;
   font-weight: 200;
   color: #656a6f;
+}
+.toggle.btn {
+  height: 25px !important;
+  width:40px !important;
+  min-width: 40px !important;
+  min-height: 25px !important;
+}
+.toggle .toggle-group label{
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .Detail .nav-tabs{
   border: 1px solid #999;
@@ -719,7 +724,7 @@ color: #fff;
   padding-top: 5px;
   padding-bottom: 20px;
 }
-.Detail .btn-primary{
+.Detail .jobSubmitBtn{
   background-color: #e7eaec;
   border-color: #426fb6;
   color: #426fb6;
@@ -754,7 +759,7 @@ color: #fff;
   align-items: center;
 }
 .jobDetailpage .commmt_time span.glyphicon{
-color: #426fb6;
+  color: #426fb6;
 }
 .jobDetailpage .commmt_time span.glyphicon:focus{
   outline: 0;
@@ -777,10 +782,10 @@ color: #426fb6;
   margin: 0;
 }
 .jobDetailpage .jobDetailtab .nav-tabs li.active a{
-background-color: #426fb6;
-color: white;
-margin: 0;
-border: 1px solid #ddd;
+  background-color: #b8cce8;
+  color: #426fb6;
+  margin: 0;
+  border: 1px solid #426fb6;
 }
 .jobDetailpage .widget-job-awarded{
   display: flex;
@@ -789,7 +794,7 @@ border: 1px solid #ddd;
   padding: 15px;
 }
 .jobDetailpage .widget-job-awarded img{
-border-radius: 5px;
+  border-radius: 5px;
 }
 .jobDetailpage .widget-job-awarded .openjob{
   color:#f8ac59;
@@ -828,6 +833,47 @@ border-radius: 5px;
   flex-direction: column;
 }
 .jobDetailpage .widget-box .tab-content{
-margin-top: 10px;
+  margin-top: 10px;
 }
 
+
+
+@media only screen and (min-width: 767px){
+
+  .uploadPicture{
+    width: 120px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: -70px !important;
+  }
+  .signupButton {
+    position: fixed;
+    bottom: 100px;
+  }
+}
+@media only screen and (max-width: 1199px){
+  .homeMenu{
+    display: none;
+  }
+  i.bar{
+    display: block;
+  }
+  .fa-close{
+    display: block;
+  }
+  div.display{
+    display: block;
+    position: absolute;
+    top: 0;
+
+  }
+  div.display-not{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .signupPage .bgImage, .contactPage .bgImage{
+    height: 100% !important;
+  }
+}

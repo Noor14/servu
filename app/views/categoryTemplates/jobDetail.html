@@ -58,8 +58,8 @@
       <job-type-tab></job-type-tab>
       </div>
 
-        <button ng-if="!job.id" type="submit" ng-disabled="jobInfo.$invalid || jobLoader" class="btn btn-block btn-primary">Done</button>
-        <button ng-if="job.id" type="button" ng-disabled="jobInfo.$invalid || jobLoader" ng-click="updateJob()" class="btn btn-block btn-primary">Done</button>
+        <button ng-if="!job.id" type="submit" ng-disabled="jobInfo.$invalid || jobLoader" class="btn btn-block btn-primary jobSubmitBtn">Done</button>
+        <button ng-if="job.id" type="button" ng-disabled="jobInfo.$invalid || jobLoader" ng-click="updateJob()" class="btn btn-block btn-primary jobSubmitBtn">Done</button>
     </div>
     </form>
   </div>

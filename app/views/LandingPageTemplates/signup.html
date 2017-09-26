@@ -46,7 +46,7 @@
               </div>
               <div class="form-group form-check">
                 <label class="form-check-label checkUser">
-                  <p>Are you a service provider?</p><input class="form-check-input" ng-model="vm.provider" ng-checked="vm.required = (vm.provider)? true : false" type="checkbox">
+                  <p>Are you a service provider?</p> <toggle ng-model="vm.provider" ng-checked="vm.required = (vm.provider)? true : false" onstyle="btn-success"></toggle>
                 </label>
               </div>
               <div class="form-group">
@@ -57,7 +57,7 @@
 
           </div>
 
-          <div class="col-lg-4 col-lg-offset-4 signupButton">
+          <div class="col-lg-4 col-lg-offset-2 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 signupButton">
             <button type="submit" ng-disabled="userForm.$invalid || !vm.user.phone || vm.loading"  class="btn btn-primary btn-lg btn-block">Sign Up</button>
           </div>
           <div class="landing-page-spinner" ng-if="vm.loading">

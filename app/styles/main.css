@@ -185,13 +185,7 @@ h5 {
   font-size: 14px;
   float: left;
 }
-.navbar-form-custom {
-  float: left;
-  height: 50px;
-  padding: 0;
-  width: 200px;
-  display: block;
-}
+
 .navbar-form-custom .form-group {
   margin-bottom: 0;
 }
@@ -670,24 +664,24 @@ fieldset[disabled] .btn-primary.active {
   background-color: #1dc5a3;
   border-color: #1dc5a3;
 }
-.btn-success {
-  background-color: #1c84c6;
-  border-color: #1c84c6;
-  color: #FFFFFF;
-}
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active,
-.btn-success.active,
-.open .dropdown-toggle.btn-success,
-.btn-success:active:focus,
-.btn-success:active:hover,
-.btn-success.active:hover,
-.btn-success.active:focus {
-  background-color: #1a7bb9;
-  border-color: #1a7bb9;
-  color: #FFFFFF;
-}
+/*.btn-success {*/
+  /*background-color: #1c84c6;*/
+  /*border-color: #1c84c6;*/
+  /*color: #FFFFFF;*/
+/*}*/
+/*.btn-success:hover,*/
+/*.btn-success:focus,*/
+/*.btn-success:active,*/
+/*.btn-success.active,*/
+/*.open .dropdown-toggle.btn-success,*/
+/*.btn-success:active:focus,*/
+/*.btn-success:active:hover,*/
+/*.btn-success.active:hover,*/
+/*.btn-success.active:focus {*/
+  /*background-color: #1a7bb9;*/
+  /*border-color: #1a7bb9;*/
+  /*color: #FFFFFF;*/
+/*}*/
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
