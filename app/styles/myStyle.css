@@ -924,7 +924,7 @@ i.bar{
   }
   .signupButton {
     position: fixed;
-    bottom: 100px;
+    bottom: 35px;
   }
 }
 @media only screen and (max-width: 1199px){
