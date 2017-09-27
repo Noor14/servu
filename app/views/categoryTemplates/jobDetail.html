@@ -8,7 +8,7 @@
   <div class="row border-top">
     <page-loader ng-if="jobLoader" ng-class="jobspinner"></page-loader>
     <form ng-submit="createJob()" novalidate name="jobInfo">
-      <div class="col-lg-6">
+      <div class="col-lg-6 border-right">
         <div id="map_canvas" class="location">
           <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
             <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
@@ -26,12 +26,19 @@
         <div class="form-group">
           <input type="number" class="form-control" placeholder="Budget *" required name="Budget" ng-model="job.budget">
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Photo">
+        <div class="pictureBox">
+          <div class="pixContainer">
+          <div class="jobPix" ng-repeat="image in jobImages"><img ng-src="{{image.url}}" class="img img-responsive" alt="job_pix"> <i class="fa fa-times" ng-click="deleteJobPhoto(image ,$index)"></i></div>
+          </div>
+
+          <div class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="jobImages.length < 5 || job.id">
+          <input type="file" name="pic" class="form-control" placeholder="Photo" base-sixty-four-input multiple accept="image/*" ng-model="job.photo">
+          </label>
+          </div>
         </div>
 
       </div>
-    <div class="col-lg-6 border-left">
+    <div class="col-lg-6">
       <h3>Where:</h3>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Street Address" ng-model="job.address">

@@ -11,6 +11,11 @@
   margin: 0;
   color: #ffffff;
 }
+#homePage .profileIcon{
+  font-size: 22px;
+  width: 38px !important;
+  height: 40px;
+}
 .mainNav a.filter{
   color: white;
   font-size:20px;
@@ -65,7 +70,52 @@
   visibility: visible;
   border: 2px solid #ccc;
 }
+.Detail .btn-bs-file{
+  background-image: url(../images/plus.png);
+  width: 75px;
+  height: 75px;
+  background-size: 65px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Detail .btn-bs-file:active{
+  box-shadow: unset;
+}
+.Detail .pixContainer{
+  padding: 10px 0;
+  max-width: 320px;
+  display: -webkit-inline-box;
+  overflow-x: scroll;
+}
+.Detail .pictureBox{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.Detail .jobPix{
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  margin: 10px 2px;
+  position: relative;
+}
+.Detail .jobPix i{
+  position: absolute;
+  right: -3px;
+  top: -18px;
+  cursor: pointer;
+}
 
+.Detail .btn-bs-file input[type="file"] {
+  position: absolute;
+  /*top: -9999999;/\*/
+  /*filter: alpha(opacity=0);*/
+  opacity: 0;
+  width: 0;
+  height: 0;
+  outline: none;
+  cursor: inherit;
+}
 .Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after{
   width: 20px;
   height: 20px;
@@ -578,7 +628,12 @@ i.bar{
 }
 /*addjobpopup-----------------------*/
 
-
+.jobCategory{
+  margin: -15.4px;
+}
+.jobCategory .row{
+  margin: 0;
+}
 .jobCategory img.img-responsive{
   display: block;
   max-width: 100%;
@@ -587,10 +642,18 @@ i.bar{
   border-radius: 8px;
 }
 .jobCategory img.img-responsive:focus{
-  border-radius: 0px;
+  border-radius: 0;
 }
 .jobCategory .categoryback{
   display: flex;
+  padding: 15.4px;
+}
+.jobCategory .category h3{
+  padding: 15.4px;
+  margin: 0;
+}
+.jobCategory .categoryback h3{
+  margin: 0;
 }
 .jobCategory .categoryback a{
   flex: 0;
@@ -599,20 +662,31 @@ i.bar{
 .jobCategory .categoryback h3{
   flex: 100;
 }
-.jobCategory hr{
-  border-top-color: #000;
+.jobCategory .category hr{
+  margin-top: 0;
+  border-top-color: #b7b7b7;
+}
+.jobCategory .services hr{
+  margin: 0;
+  border-top-color: #b7b7b7;
 }
 .jobCategory .pointer{
   cursor: pointer;
   padding: 0 12px;
 }
-.jobCategory .serviceList, .jobCategory p{
+.jobCategory .serviceList{
+  padding: 0;
+}
+.jobCategory p{
   padding: 0 15px;
+}
+.jobCategory .serviceList hr{
+  margin:0;
+  border-top-color: #b7b7b7;
 }
 .jobCategory .serviceList li{
   display: flex;
-  padding: 5px 0;
-  border-bottom: 1px solid #ccc;
+  padding: 15px;
 }
 .jobCategory .serviceList li:focus{
   outline:0
@@ -622,6 +696,7 @@ i.bar{
 }
 .jobCategory .serviceList li span{
   flex: 100;
+  color: black;
 }
 
 .jobCategory .serviceList li a{
@@ -643,7 +718,7 @@ i.bar{
 .addjobPopup .ngdialog-content{
   width:850px !important;
 }
-.addjobPopup .ngdialog-content,.addjobPopup .ngdialog-content .ngdialog-close{
+.addPopup .ngdialog-content,.addPopup .ngdialog-content .ngdialog-close, .addjobPopup .ngdialog-content,.addjobPopup .ngdialog-content .ngdialog-close{
   background-color: #fff !important;
 }
 
@@ -730,6 +805,7 @@ i.bar{
   color: #426fb6;
   padding: 10px 0;
   margin-top: 55px;
+  margin-bottom: 10px;
 }
 .Detail .btn-primary[disabled]:hover{
   background-color: #e7eaec;

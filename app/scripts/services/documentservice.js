@@ -34,5 +34,18 @@ angular.module('servu')
           deffered.resolve(res);
         });
         return deffered.promise;
+      };
+
+      vm.deleteDoc = function(id){
+        var deffered = $q.defer();
+
+        var obj = {
+          url : host + "/documents/"+id,
+          headers: headers
+        };
+        $http.delete(obj.url,{headers : obj.headers}).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
       }
     }]);

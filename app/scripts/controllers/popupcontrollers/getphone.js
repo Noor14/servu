@@ -28,7 +28,7 @@ angular.module('servu')
             }
             else if(!res.data.user.phone_confirmed){
               $scope.closeThisDialog();
-              credentialService.resendPin(res.data).then(function(res){
+              credentialService.resendPin(res.data).then(function(response){
                 ngDialog.open({
                   template: 'views/dialogTemplates/pinPopup.html',
                   resolve: {
@@ -37,7 +37,6 @@ angular.module('servu')
                     }
                   },
                   showClose: false,
-                  overlay: false,
                   controller: 'confirmPinCtrl'
                 });
               });
@@ -73,7 +72,7 @@ angular.module('servu')
             }
             else if(!res.data.user.phone_confirmed){
               $scope.closeThisDialog();
-              credentialService.resendPin(res.data).then(function(res){
+              credentialService.resendPin(res.data).then(function(response){
                 ngDialog.open({
                   template: 'views/dialogTemplates/pinPopup.html',
                   resolve: {
@@ -82,7 +81,6 @@ angular.module('servu')
                     }
                   },
                   showClose: false,
-                  overlay: false,
                   controller: 'confirmPinCtrl'
                 });
               });
@@ -121,7 +119,7 @@ angular.module('servu')
               $state.go("user.joblist");
             }
             else if(!res.data.user.phone_confirmed){
-              credentialService.resendPin(res.data).then(function(res){
+              credentialService.resendPin(res.data).then(function(response){
                 $scope.closeThisDialog();
                 ngDialog.open({
                   template: 'views/dialogTemplates/pinPopup.html',
@@ -131,7 +129,6 @@ angular.module('servu')
                     }
                   },
                   showClose: false,
-                  overlay: false,
                   controller: 'confirmPinCtrl'
                 });
               });

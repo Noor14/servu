@@ -9,6 +9,7 @@
 
     <ul class="serviceList" ng-if="services.length && !popupLoader">
       <li ng-repeat="service in services" ng-click="gotoDetail(service)"><span>{{service.title}}</span><a><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+      <hr>
     </ul>
     <p ng-if="!services.length && !popupLoader">No data found please go back..</p>
   </div>

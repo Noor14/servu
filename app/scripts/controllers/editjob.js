@@ -17,6 +17,17 @@ angular.module('servu')
     $scope.job.country = JobDetail.location.country.name;
     $scope.job.category_id = JobDetail.category.id;
     $scope.job.service_id = JobDetail.service.id;
+
+    if(JobDetail.images && JobDetail.images.length){
+      $scope.job.image_ids=[];
+      $scope.jobImages= JobDetail.images;
+    }
+    else{
+       $scope.job.image_ids = [];
+      $scope.jobImages =[];
+
+    }
+
     if(!$scope.job.job_type){
       $scope.activeUrgent = 'active full-width';
     }
@@ -178,6 +189,20 @@ angular.module('servu')
         console.log(err);
       })
     }
+
+
+    $scope.$watch('job.photo', function(newValue, oldValue, scope){
+      console.log(oldValue,'oldValue');
+      console.log(newValue,'newValue');
+
+      if(newValue != undefined && newValue.length <= 5 ){
+        angular.forEach(newValue, function(obj){
+          var pix = "data:" + obj.filetype + ";base64,"+ obj.base64;
+          addJobPhoto(pix);
+        })
+      }
+    });
+
     $scope.updateJob = function() {
       $scope.jobLoader = true;
       if(!$scope.lat && !$scope.lon){
@@ -193,28 +218,36 @@ angular.module('servu')
         return $scope.message;
       }
       else if($scope.cityName && $scope.cityInfo && $scope.job.location_id){
-        if($scope.job.photo) {
-          addJobPhoto();
-        }
-        else{
+
           addJobInfo();
-        }
+
       }
 
     };
 
-    function addJobPhoto(){
-      documentService.profileDoc().then(function(res){
+    function addJobPhoto(pix){
+      documentService.profileDoc({input:pix}).then(function(res){
         if(res.status == 201){
-          $scope.job.image_ids = res.id; //should be an array
-          addJobInfo();
-
+          $scope.job.image_ids.push(res.data.id) ; //should be an array
+          $scope.jobImages.push(res.data);
+          console.log("res.data",res.data);
         }
       },function(err){
         $scope.jobLoader = false;
         console.log(err);
       })
     }
+    $scope.deleteJobPhoto = function(img, index){
+      documentService.deleteDoc(img.id).then(function(res){
+        if(res.status == 204){
+          $scope.job.image_ids.splice(img.id, 1);
+          $scope.jobImages.splice(index, 1);
+        }
+      },function(err){
+        $scope.jobLoader = false;
+        console.log(err);
+      })
+    };
     function addJobInfo(){
       if($scope.job.schedule){
         $scope.job.schedule = new Date($scope.job.schedule).toString();
@@ -222,6 +255,12 @@ angular.module('servu')
       if($scope.job.contract && $scope.job.contract.first_service_date){
         $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
         $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
+      }
+      if($scope.job.images && !$scope.job.images.length){
+        delete $scope.job.images;
+      }
+      if($scope.job.image_ids && !$scope.job.image_ids.length){
+        delete $scope.job.image_ids;
       }
 
       jobListService.updateUserJob($scope.job).then(function(res){

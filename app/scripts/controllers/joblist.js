@@ -111,6 +111,7 @@ angular.module('servu')
     vm.addJob = function(){
       vm.dialog = ngDialog.open({
         template: 'views/dialogTemplates/jobcatergoryPopup.html',
+        appendClassName: 'addPopup',
         controller: 'getjobCategoryCtrl'
       });
       vm.dialog.closePromise.then(function (data) {

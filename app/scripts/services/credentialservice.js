@@ -117,9 +117,9 @@ angular.module('servu')
     vm.resendPin = function(info){
       var headers = {
         'Content-type': 'application/JSON',
-        token: info.data.token,
-        client: info.data.client,
-        uid: info.data.uid
+        token: info.token,
+        client: info.client,
+        uid: info.uid
       };
       var deffered = $q.defer();
       var obj={
@@ -138,9 +138,9 @@ angular.module('servu')
     vm.phoneConfirm = function(info){
       var headers = {
         'Content-type': 'application/JSON',
-        token: info.data.token,
-        client: info.data.client,
-        uid: info.data.uid
+        token: info.token,
+        client: info.client,
+        uid: info.uid
       };
       var deffered = $q.defer();
       var obj={

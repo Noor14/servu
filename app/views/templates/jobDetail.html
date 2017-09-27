@@ -31,12 +31,12 @@
                      {{vm.job.description}}
                     </p>
                   </div>
-                  <div class="panel_media">
+                  <div class="panel_media" ng-if="vm.job.images.length">
                     <h3>Media</h3>
                     <ul class="list-unstyled panel_img">
-                      <li>
+                      <li ng-repeat="image in vm.job.images">
                         <a>
-                          <img src="images/user.jpg" alt="user" class="image">
+                          <img ng-src="{{image.url}}" alt="user" class="image">
                         </a>
                         <div class="middle">
                           <i class="fa fa-search" aria-hidden="true"></i>
