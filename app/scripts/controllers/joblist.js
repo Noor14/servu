@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state','$timeout',
-    function ($rootScope, jobListService, ngDialog, $state, $timeout) {
+  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state','$timeout','header',
+    function ($rootScope, jobListService, ngDialog, $state, $timeout, header) {
 
     var vm = this;
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -81,6 +81,7 @@ angular.module('servu')
 
     vm.current_time;
     vm.getJobs = function(page, time){
+      header.authorize(vm.accountInfo);
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
       jobListService.getJobList(page, time).then(function(res){

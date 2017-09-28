@@ -49,7 +49,7 @@
   </div>
 
 
-  <div ng-if="vm.jobs.length && !pageLoader" class="col-lg-12 myjobs-list">
+  <div ng-if="vm.jobs.length && !pageLoader" class="row myjobs-list">
     <div class="jobDiv col-md-6 col-sm-6 col-xs-6" ng-class="vm.jobsCard" ng-repeat="job in vm.jobs | filter : vm.filter">
       <a ng-click="vm.jobDetail(job.id)">
         <div class="list-holder">
@@ -57,11 +57,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                  <img ng-if="!vm.userData.pic_url" src="images/user.jpg" class="img-rounded">
-                  <img ng-if="vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" class="img-rounded">
+                  <img ng-if="!job.user.pic_url" src="images/user.jpg" class="img-rounded">
+                  <img ng-if="job.user.pic_url" ng-src="{{job.user.pic_url}}" class="img-rounded">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                  <h4>John Doe</h4>
+                  <h4><span ng-bind="job.user.name | limitTo:13"></span><span ng-if="job.user.name.length > 13">...</span></h4>
                   <p>Dubai, UAE</p>
                 </div>
             </div>

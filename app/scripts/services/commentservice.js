@@ -8,19 +8,10 @@
  * Service in the servu.
  */
 angular.module('servu')
-  .service('commentService',['$http', '$q', 'host',
-    function ($http, $q, host) {
+  .service('commentService',['$http', '$q', 'host','header',
+    function ($http, $q, host, header) {
 
       var vm = this;
-      var userCredential = JSON.parse(localStorage.getItem("userDetail"));
-      if(userCredential){
-        var headers = {
-          'Content-type': 'application/JSON',
-          token: userCredential.data.token,
-          client: userCredential.data.client,
-          uid: userCredential.data.uid
-        };
-      }
 
 
       vm.addComment = function(id, data){
@@ -28,7 +19,7 @@ angular.module('servu')
         var obj = {
           url : host + '/jobs/'+ id + '/comments',
           method: 'POST',
-          headers: headers,
+          headers: header.userAuth,
           data: data
         };
         $http(obj).then(function(res){
@@ -63,7 +54,7 @@ angular.module('servu')
         var obj = {
           url : host + '/jobs/'+ obj.job_id + '/comments/' + obj.id ,
           method: 'PUT',
-          headers: headers,
+          headers: header.userAuth,
           body: obj.body
 
         };
@@ -79,7 +70,7 @@ angular.module('servu')
         var deffered = $q.defer();
         var obj = {
           url : host + '/jobs/'+ jobId + '/comments/' + id ,
-          headers: headers,
+          headers: header.userAuth,
           params: {
             job_id : jobId,
             id : id

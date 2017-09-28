@@ -8,23 +8,14 @@
  * Service in the servu.
  */
 angular.module('servu')
-  .service('locationService',['$http', '$q', 'host', function ($http, $q ,host) {
+  .service('locationService',['$http', '$q', 'host', 'header', function ($http, $q ,host, header) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var vm = this;
-    var userCredential = JSON.parse(localStorage.getItem("userDetail"));
-    if(userCredential){
-      var headers = {
-        'Content-type': 'application/JSON',
-        token: userCredential.data.token,
-        client: userCredential.data.client,
-        uid: userCredential.data.uid
-      };
-    }
     vm.addLocation = function(data){
       var deffered = $q.defer();
       var obj={
         method:'POST',
-        headers : headers,
+        headers : header.userAuth,
         url: host + "/locations",
         data : data
       };

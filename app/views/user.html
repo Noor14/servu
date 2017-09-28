@@ -54,7 +54,7 @@
         <li><img ng-if="pageLoader || navLoader" ng-src="images/spinner_two.gif" alt="loading" /></li>
         <li>
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            {{vm.userData.name}}
+            <span ng-bind="vm.userData.name | limitTo:13"></span><span ng-if="vm.userData.name.length > 13">...</span>
             <img ng-if="!vm.userData.pic_url" src="images/user.jpg" alt="user">
             <img ng-if="vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
             <span class=" fa fa-angle-down"></span>
@@ -80,10 +80,11 @@
 
 
 
-<!--<div class="footer">-->
-    <!--<div>-->
-      <!--<strong>Copyright</strong> Pantera Engineering &copy; 2017-->
-    <!--</div>-->
+  <!--<div class="footer">-->
+  <!--<div>-->
+  <!--<strong>Copyright</strong> Pantera Engineering &copy; 2017-->
   <!--</div>-->
-<!--</div>-->
+  <!--</div>-->
+
+</div>
 </div>

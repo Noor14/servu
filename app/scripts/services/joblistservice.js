@@ -8,31 +8,24 @@
  * Service in the servu.
  */
 angular.module('servu')
-  .service('jobListService',['$http', '$q', 'host',
-    function ($http, $q, host) {
+  .service('jobListService',['$http', '$q', 'host','header',
+    function ($http, $q, host ,header) {
     var vm = this;
-      var userCredential = JSON.parse(localStorage.getItem("userDetail"));
-      if(userCredential){
-      var headers = {
-        'Content-type': 'application/JSON',
-        token: userCredential.data.token,
-        client: userCredential.data.client,
-        uid: userCredential.data.uid
-      };
-      }
+
+
     vm.getJobList = function(page, time){
       var deffered = $q.defer();
-      if(userCredential.data.user.user_type == 1){
+      if(header.userCredential.data.user.user_type == 1){
         var url = host + "/jobs/my_jobs";
       }
-      if(userCredential.data.user.user_type == 2){
+      if(header.userCredential.data.user.user_type == 2){
         var url = host + "/jobs";
       }
 
       var obj = {
         url : url ,
         method : "GET",
-        headers: headers,
+        headers: header.userAuth,
         params : {
           page : page,
           timestamp: time
@@ -50,7 +43,7 @@ angular.module('servu')
         var obj = {
           url :  host + "/jobs",
           method : "POST",
-          headers: headers,
+          headers: header.userAuth,
           data : data
         };
         $http(obj).then(function(res){
@@ -64,7 +57,7 @@ angular.module('servu')
         var obj = {
           url :  host + "/jobs/"+data.id,
           method : "PUT",
-          headers: headers,
+          headers: header.userAuth,
           data : data
         };
         $http(obj).then(function(res){
@@ -89,7 +82,7 @@ angular.module('servu')
         var deffered = $q.defer();
         var obj = {
           url :  host + "/jobs/"+id,
-          headers: headers
+          headers: header.userAuth
         };
         $http.delete(obj.url, {headers: obj.headers}).then(function(res){
           deffered.resolve(res);

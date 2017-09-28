@@ -231,6 +231,8 @@ align-items: center;
 }
 .myjobs-list{
   padding: 0;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 .myjobs-list div.jobDiv{
   padding: 10px;
@@ -318,10 +320,24 @@ align-items: center;
   background-color: rgba(153, 153, 153, 0.5);
 }
 .loginPage h2{
-  text-align:center;
+  text-align: center;
+  word-spacing: 1px;
+  letter-spacing: .4px;
+  font-weight: 200;
 }
 .loginPage .loginDiv .loginForm .loginButton{
-  position: relative;
+  margin-top: 65px;
+}
+.loginPage .loginDiv .signupLink{
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+}
+.loginPage .loginDiv .signupLink a{
+  color: #fff;
+}
+.loginPage .loginDiv .socialLogin{
+  margin-top: 140px;
 }
 .socialIcons{
   display: flex;
@@ -840,14 +856,16 @@ i.bar{
 .jobDetailpage .commmt_time span.glyphicon:focus{
   outline: 0;
 }
-.jobDetailpage .page-heading h2{
+.jobDetailpage .page-heading h2,.jobDetailpage .page-heading .jobEdit button{
+
   margin: 0;
+  margin-right: 15px;
 }
 .jobDetailpage .page-heading .jobEdit{
   display: flex;
-  justify-content: space-evenly;
-  width: 200px;
+  /*width: 200px;*/
 }
+
 .jobDetailpage .page-heading .jobEdit .btn-circle{
   color: #426fb6;
   background: none;
