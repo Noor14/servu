@@ -1,0 +1,17 @@
+<div class="biddingBox">
+  <h3 class="text-center">Place a Bid</h3>
+  <hr>
+  <div class="row">
+  <form ng-submit="bidPlace()" name="bidForm" novalidate>
+    <div class="form-group">
+      <input type="number" class="form-control" name="budget" required ng-model="obj.budget" placeholder="Add Budget (AED) *" />
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" name="description" rows="5" ng-model="obj.description" placeholder="Other Description"></textarea>
+    </div>
+    <div>
+      <button type="submit" ng-disabled="bidForm.$invalid" class="btn btn-primary btn-block">Place</button>
+    </div>
+  </form>
+  </div>
+  </div>

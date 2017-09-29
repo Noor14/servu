@@ -52,11 +52,14 @@ angular.module('servu')
       vm.commentUpdate = function(obj){
         var deffered = $q.defer();
         var obj = {
-          url : host + '/jobs/'+ obj.job_id + '/comments/' + obj.id ,
+          url: host + '/jobs/' + obj.job_id + '/comments/' + obj.id,
           method: 'PUT',
           headers: header.userAuth,
-          body: obj.body
-
+          data: obj,
+          params: {
+            job_id: obj.job_id,
+            id: obj.id
+          }
         };
         $http(obj).then(function(res){
           console.log(res);

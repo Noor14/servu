@@ -19,8 +19,8 @@
           <div class="tabs-container jobDetailtab">
             <ul class="nav nav-tabs text-center">
               <li class="no-padding active" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"> Details</a></li>
-              <li class="no-padding" ng-class="vm.tabwidth" ng-if="vm.userData.user_type == 1"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
-              <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
+              <li class="no-padding" ng-class="vm.tabwidth" ng-if="vm.userData.user_type == 1" ng-click="vm.getBidList()"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false">Bids</a></li>
+              <li class="no-padding" ng-class="vm.tabwidth" ng-click="vm.getComment('', '')"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false">Comments</a></li>
             </ul>
             <div class="tab-content">
               <div id="tab-1" class="tab-pane active">
@@ -72,23 +72,23 @@
               <div id="tab-2" class="tab-pane">
                 <div class="panel-body bids_section">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" ng-repeat="bid in vm.userBid.bids">
                       <div class="ibox-content">
                         <div class="inbox-text">
                           <div class="bid_btn">
                             <a class="btn btn-primary" href="#">Accept</a>
                           </div>
-                          <img src="images/user.jpg" alt="user" class="img-responsive">
+                          <img ng-if="!bid.user.profile_pic.url" src="images/user.jpg" alt="user" class="img-responsive">
+                          <img ng-if="bid.user.profile_pic.url" ng-src="{{bid.user.profile_pic.url}}" alt="user" class="img-responsive">
                           <div class="bid_text">
-                            <strong>Maud Fitzgerald</strong><br>
-                            <strong>AED 151</strong>
+                            <strong>{{bid.user.name}}</strong><br>
+                            <strong>AED {{bid.budget}}</strong>
                           </div>
                         </div>
                         <div class="rating_star">
-                          <input-stars max="5" ng-model="stars"></input-stars>
-                          <div class="stat-percent font-bold text-navy"><i class="fa fa-map-marker"></i>12km </div>
+                          <input-stars max="5" readonly="true" ng-model="bid.user.average_rating"></input-stars>
                         </div>
-                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <p>{{bid.description}}</p>
                       </div>
                     </div>
 
@@ -138,9 +138,12 @@
         <div class="col-lg-4 widget-box">
             <div class="widget-job-awarded col-lg-12">
               <div>
-                <h5 class="m-b-md">Awarded to</h5>
-                <img src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
-                <span>Katherine Doyle</span>
+                <h5 ng-if="vm.userData.user_type == 1" class="m-b-md">Awarded to</h5>
+                <h5 ng-if="vm.userData.user_type == 2" class="m-b-md">Posted By</h5>
+                <img ng-if="!vm.job.user.pic_url" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="vm.job.user.pic_url" ng-src="{{vm.job.user.pic_url}}" alt="user" width="29px" height="29px" class="img">
+                <span ng-if="vm.userData.user_type == 2">{{vm.job.user.name}}</span>
+                <span ng-if="vm.userData.user_type == 1 && vm.job.status == 1">Katherine Doyle</span>
               </div>
               <div class="text-right">
                 <span class="widget_text"> 23March,2017 </span>
@@ -196,8 +199,9 @@
                   </div>
                 </div>
                 <div class="no-padding col-md-12 widget_btn">
-                  <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
-                  <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#">Start</a>
+                  <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
+                  <button class="btn btn-primary btn-rounded btn-block widget_revi">Start</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
                 </div>
               </div>
             </div>

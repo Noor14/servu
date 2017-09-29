@@ -70,7 +70,9 @@ angular.module('servu')
         var deffered = $q.defer();
         var obj = {
           url :  host + "/jobs/"+id,
-          method : "GET"
+          method : "GET",
+          headers: header.userAuth
+
         };
         $http(obj).then(function(res){
           deffered.resolve(res);

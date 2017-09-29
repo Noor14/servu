@@ -8,7 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', 'commentService', '$state', '$rootScope', 'toastr', '$stateParams', function ($scope, ngDialog, jobListService, commentService, $state, $rootScope, toastr, $stateParams) {
+  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', 'commentService', '$state', '$rootScope', 'toastr', '$stateParams','header', 'bidService',
+    function ($scope, ngDialog, jobListService, commentService, $state, $rootScope, toastr, $stateParams, header, bidService) {
 
     var vm = this;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -40,6 +41,7 @@ angular.module('servu')
     };
 
     vm.getJobDetail = function(){
+      header.authorize(vm.accountInfo);
       $rootScope.pageLoader = true;
       jobListService.jobDetail($stateParams.id).then(function(res){
         $rootScope.pageLoader = false;
@@ -142,7 +144,6 @@ angular.module('servu')
 
       });
       vm.editdialog.closePromise.then(function (data) {
-        console.log(data.id + ' has been dismissed.');
         vm.getComment('', '');
 
 
@@ -175,9 +176,27 @@ angular.module('servu')
       });
     };
 
+    vm.insertBid = function(){
+      vm.editdialog = ngDialog.open({
+        template: 'views/dialogTemplates/addBid.html',
+        appendClassName: 'bidPopup',
+        controller: 'bidCtrl'
+      });
+    };
+    vm.getBidList = function(){
+    bidService.getAllBid($stateParams.id, '','').then(function(res){
+      console.log(res,'allbid');
+      if(res.status==200){
+        vm.userBid = res.data;
+      }
+    },function(err){
+      console.log(err,'errbid');
+
+    })
+    };
 
 
-    vm.getComment('', '');
+
     vm.getJobDetail();
 
 
