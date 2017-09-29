@@ -14,10 +14,10 @@ angular.module('servu')
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     if(vm.userData.user_type == 1){
-      vm.tabwidth = "col-md-4"
+      vm.tabwidth = "col-md-4 col-sm-4"
     }
     if(vm.userData.user_type == 2){
-      vm.tabwidth = "col-md-6"
+      vm.tabwidth = "col-md-6 col-sm-6"
     }
     vm.comment={};
 
