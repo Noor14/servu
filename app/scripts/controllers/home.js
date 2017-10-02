@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('homeCtrl', ['$location', 'credentialService', 'toastr', '$state', '$rootScope', 'twitterService', 'ngDialog', 'socialService',
-    function ($location, credentialService, toastr, $state, $rootScope, twitterService, ngDialog, socialService) {
+  .controller('homeCtrl', ['$scope', '$location', 'credentialService', 'toastr', '$state', '$rootScope', 'twitterService', 'ngDialog', 'socialService',
+    function ($scope, $location, credentialService, toastr, $state, $rootScope, twitterService, ngDialog, socialService) {
     var vm = this;
     vm.user = {};
 
@@ -61,7 +61,7 @@ angular.module('servu')
     };
 
 
-    $rootScope.$on('event:social-sign-in-success', function(event, userDetails){
+    $scope.$on('event:social-sign-in-success', function(event, userDetails){
       vm.userDetails = userDetails;
       if(userDetails.provider == 'facebook')
       {
@@ -163,6 +163,7 @@ angular.module('servu')
       }
 
     });
+
       vm.twitterLogin = function(){
         twitterService.connectTwitter().then(function(res) {
           vm.userDetails  = res;

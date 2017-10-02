@@ -41,7 +41,6 @@ angular.module('servu')
     };
 
     vm.getJobDetail = function(){
-      header.authorize(vm.accountInfo);
       $rootScope.pageLoader = true;
       jobListService.jobDetail($stateParams.id).then(function(res){
         $rootScope.pageLoader = false;
@@ -196,8 +195,12 @@ angular.module('servu')
     };
 
 
+    function init(){
+      header.authorize(vm.accountInfo);
+      vm.getJobDetail();
+    }
 
-    vm.getJobDetail();
+      init();
 
 
   }]);

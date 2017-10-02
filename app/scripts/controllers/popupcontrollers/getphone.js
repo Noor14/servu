@@ -8,7 +8,7 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('getPhoneCtrl',['$scope', 'token', 'ngDialog', 'socialService', 'credentialService', function ($scope, token, ngDialog, socialService, credentialService){
+  .controller('getPhoneCtrl',['$scope', 'token', 'ngDialog', 'socialService', 'credentialService','$state', function ($scope, token, ngDialog, socialService, credentialService, $state){
     $scope.loginSubmit = function(){
 
       var obj = {
@@ -22,6 +22,7 @@ angular.module('servu')
         socialService.fbLogin(obj).then(function (res){
           if(res.status === 200){
             if(res.data.user.phone_confirmed){
+              $scope.closeThisDialog();
               credentialService.authed = true;
               localStorage.setItem("userDetail",JSON.stringify(res));
               $state.go("user.joblist");
@@ -66,6 +67,7 @@ angular.module('servu')
         socialService.googleLogin(obj).then(function (res) {
           if(res.status === 200){
             if(res.data.user.phone_confirmed){
+              $scope.closeThisDialog();
               credentialService.authed = true;
               localStorage.setItem("userDetail",JSON.stringify(res));
               $state.go("user.joblist");
@@ -114,6 +116,7 @@ angular.module('servu')
           console.log($scope.phone, 'phone');
           if(res.status === 200){
             if(res.data.user.phone_confirmed){
+              $scope.closeThisDialog();
               credentialService.authed = true;
               localStorage.setItem("userDetail",JSON.stringify(res));
               $state.go("user.joblist");

@@ -8,13 +8,12 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('dashboardCtrl', ['$state', 'twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService',
-    function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService) {
+  .controller('dashboardCtrl', ['$state', 'twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService','header',
+    function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService, header) {
 
     var vm = this;
       vm.toggle = false;
-    vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
-    vm.userData = vm.accountInfo.data.user;
+
 
       vm.logout = function(){
         $rootScope.navLoader = true;
@@ -27,16 +26,17 @@ angular.module('servu')
         console.log("res",res);
         $rootScope.navLoader = false;
         if(res.status == 204){
-          localStorage.clear();
           socialLoginService.logout();
-          localStorage.clear();
           twitterService.clearCache();
           credentialService.authed = false;
+          localStorage.clear();
           toastr.success('Account has been logout',{
             closeButton: true,
             preventOpenDuplicates: true
           });
           $state.go("home.login");
+          header.userCredential = header.userAuth = {};
+
         }
       });
     };
@@ -46,8 +46,13 @@ angular.module('servu')
       vm.filter = function(){
         vm.toggle = !vm.toggle;
         $rootScope.$broadcast('filterScope', vm.toggle);
-      }
-
+      };
+    function init(){
+      vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+      header.authorize(vm.accountInfo);
+      vm.userData = vm.accountInfo.data.user;
+    }
+      init();
 
 
   }]);

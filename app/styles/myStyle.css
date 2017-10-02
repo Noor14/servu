@@ -132,10 +132,12 @@ align-items: center;
 
 .jobList .filterDiv h3{
   padding: 15px;
-  background-color: #e2f7f9;
+  background-color: #EDF5FA;
   color: #999999;
   font-weight: 100;
   display: flex;
+  border-top:2px solid #ddd;
+  border-bottom:2px solid #ddd;
   justify-content: space-between;
 }
 .jobList .filterMode{
@@ -144,7 +146,6 @@ align-items: center;
   height: calc(100vh - 90px);
 }
 .jobList .filterMode .form-group{
-  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
@@ -212,6 +213,10 @@ align-items: center;
 }
 .filterDiv, .jobList, .jobList .wrapper-content{
   padding: 0;
+}
+.filterDiv{
+  border-right:2px solid #ddd;
+  border-bottom: 2px solid #ddd;
 }
 #homePage .full-height{
   height: 100vh;
@@ -695,6 +700,9 @@ i.bar{
 }
 .jobCategory .categoryback h3{
   flex: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .biddingBox hr{
   margin: 0;
@@ -838,10 +846,11 @@ i.bar{
   padding-bottom: 20px;
 }
 .Detail .jobSubmitBtn{
-  background-color: #e7eaec;
-  border-color: #426fb6;
-  color: #426fb6;
   padding: 10px 0;
+  background-color: #b8cce8;
+  color: #426fb6;
+  font-weight: 600;
+  border: 2px solid #426fb6;
   margin-top: 55px;
   margin-bottom: 10px;
 }
