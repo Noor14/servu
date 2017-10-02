@@ -142,11 +142,16 @@ align-items: center;
 }
 .jobList .filterMode{
   background-color: white;
-  padding: 10px 15px;
+  padding: 10px 0;
   height: calc(100vh - 90px);
 }
 .jobList .filterMode .form-group{
+  padding: 0 10px;
   padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.jobList .filterMode .form-group span{
+  font-weight: 600;
 }
 
 .sideNav{
