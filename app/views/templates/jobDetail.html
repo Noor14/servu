@@ -91,7 +91,7 @@
                         <p>{{bid.description}}</p>
                       </div>
                     </div>
-                    <p class="text-center" ng-if="!vm.userBid.bids.length">No bids are found against this job</p>
+                    <p class="text-center" ng-if="vm.userBid.bids && !vm.userBid.bids.length">No bids are found against this job</p>
 
                   </div>
                 </div>
