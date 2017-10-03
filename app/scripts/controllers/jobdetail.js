@@ -176,13 +176,26 @@ angular.module('servu')
     };
 
     vm.insertBid = function(){
-      vm.editdialog = ngDialog.open({
+     ngDialog.open({
         template: 'views/dialogTemplates/addBid.html',
         appendClassName: 'bidPopup',
         controller: 'bidCtrl'
       });
     };
-    vm.getBidList = function(){
+
+   vm.acceptBid = function(bid) {
+     ngDialog.open({
+       template: 'views/dialogTemplates/acceptBid.html',
+       appendClassName: 'bidPopup',
+       controller: 'acceptBidCtrl',
+       resolve: {
+         bidDetail: function () {
+           return bid;
+         }
+       }
+     });
+   };
+   vm.getBidList = function(){
     bidService.getAllBid($stateParams.id, '','').then(function(res){
       console.log(res,'allbid');
       if(res.status==200){

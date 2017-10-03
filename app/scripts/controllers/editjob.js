@@ -17,6 +17,10 @@ angular.module('servu')
     $scope.job.country = JobDetail.location.country.name;
     $scope.job.category_id = JobDetail.category.id;
     $scope.job.service_id = JobDetail.service.id;
+    $scope.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    $scope.userData = $scope.accountInfo.data.user;
+    $scope.job.phone = $scope.userData.phone;
+
 
     if(JobDetail.images && JobDetail.images.length){
       $scope.job.image_ids=[];

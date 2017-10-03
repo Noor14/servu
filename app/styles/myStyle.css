@@ -31,6 +31,14 @@
   width: 40%;
 
 }
+.mainNav a.filter i.true{
+  transform: rotate(180deg);
+  transition: all .8s;
+}
+.mainNav a.filter i.false{
+  transform: rotate(0deg);
+  transition: all .8s;
+}
 .mainNav a.filter:hover{
   color: white;
 }

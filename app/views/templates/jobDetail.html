@@ -76,7 +76,7 @@
                       <div class="ibox-content">
                         <div class="inbox-text">
                           <div class="bid_btn">
-                            <a class="btn btn-primary" href="#">Accept</a>
+                            <button class="btn btn-primary" ng-click="vm.acceptBid(bid)">Accept</button>
                           </div>
                           <img ng-if="!bid.user.profile_pic.url" src="images/user.jpg" alt="user" class="img-responsive">
                           <img ng-if="bid.user.profile_pic.url" ng-src="{{bid.user.profile_pic.url}}" alt="user" class="img-responsive">
@@ -91,6 +91,7 @@
                         <p>{{bid.description}}</p>
                       </div>
                     </div>
+                    <p class="text-center" ng-if="!vm.userBid.bids.length">No bids are found against this job</p>
 
                   </div>
                 </div>

@@ -58,7 +58,8 @@ angular.module('servu')
         return status.name;
       };
       $rootScope.$on('filterScope', function(events, args){
-        vm.showfilter = args;
+         vm.showfilter = args;
+        $rootScope.filterArrow = args.toString();
         if(vm.showfilter){
           vm.jobContent = "col-md-9 fadeInLeft";
           vm.jobsCard = "col-lg-6";
@@ -71,7 +72,7 @@ angular.module('servu')
             vm.jobContent="fadeInRight";
             vm.jobsCard = "col-lg-4"
 
-          },1000)
+          },1200)
 
 
         }

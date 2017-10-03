@@ -14,12 +14,15 @@ angular.module('servu')
     $scope.jobImages=[];
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.jobspinner = 'jobspinner';
-      $scope.minDate = new Date();
+    $scope.minDate = new Date();
     $scope.job = {
       job_type : 0,
       image_ids:[]
 
     };
+    $scope.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    $scope.userData = $scope.accountInfo.data.user;
+    $scope.job.phone = $scope.userData.phone;
 
 
       $scope.map = {
