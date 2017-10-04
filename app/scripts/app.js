@@ -25,7 +25,8 @@ angular
     'uiGmapgoogle-maps',
     'toastr',
     'socialLogin',
-    'naif.base64'
+    'naif.base64',
+    'credit-cards'
   ])
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http',
     function($transitions, $rootScope, credentialService, $state, $location, host,  $http){

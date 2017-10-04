@@ -13,7 +13,6 @@ angular.module('servu')
 
     $scope.jobImages=[];
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
-    $scope.jobspinner = 'jobspinner';
     $scope.minDate = new Date();
     $scope.job = {
       job_type : 0,

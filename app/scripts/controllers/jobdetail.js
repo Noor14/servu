@@ -133,6 +133,7 @@ angular.module('servu')
     vm.editComment = function(comment){
       vm.editdialog = ngDialog.open({
         template: 'views/dialogTemplates/editjobComment.html',
+        appendClassName: 'addPopup',
         controller: 'EditjobcommentCtrl',
         resolve: {
           comment: function(){
@@ -206,7 +207,14 @@ angular.module('servu')
 
     })
     };
+      vm.jobCode = function(){
+           ngDialog.open({
+            template: 'views/dialogTemplates/startJob.html',
+            appendClassName: 'addPopup',
+            controller: 'jobcodeCtrl'
+          });
 
+        };
 
     function init(){
       header.authorize(vm.accountInfo);

@@ -83,11 +83,12 @@
                           <div class="bid_text">
                             <strong>{{bid.user.name}}</strong><br>
                             <strong>AED {{bid.budget}}</strong>
+                            <div class="rating_star">
+                              <input-stars max="5" readonly="true" ng-model="bid.user.average_rating"></input-stars>
+                            </div>
                           </div>
                         </div>
-                        <div class="rating_star">
-                          <input-stars max="5" readonly="true" ng-model="bid.user.average_rating"></input-stars>
-                        </div>
+
                         <p>{{bid.description}}</p>
                       </div>
                     </div>
@@ -201,7 +202,7 @@
                 </div>
                 <div class="no-padding col-md-12 widget_btn">
                   <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
-                  <button class="btn btn-primary btn-rounded btn-block widget_revi">Start</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
                 </div>
               </div>

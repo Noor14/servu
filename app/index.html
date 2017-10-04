@@ -11,15 +11,7 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <script src="https://beautiful.start.payfort.com/checkout.js"></script>
-    <script>
-      // Initialize Start on page load
-      StartCheckout.config({
-        key: "test_open_k_8a7b71440fff9ece9816",
-        complete: function(params) {
-          submitFormWithToken(params);
-        }
-      });
-    </script>
+
     <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyD0sFYZqJXmjElxCfg8E5j-73WDZy6649o&sensor=false'></script>
 
     <!-- build:css(.) styles/vendor.css -->
@@ -99,6 +91,7 @@
     <script src="bower_components/angular-eonasdan-datetimepicker/dist/angular-eonasdan-datetimepicker.js"></script>
     <script src="bower_components/angular-input-stars-directive/angular-input-stars.js"></script>
     <script src="bower_components/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js"></script>
+    <script src="bower_components/angular-credit-cards/release/angular-credit-cards.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -134,6 +127,7 @@
         <script src="scripts/services/bidservice.js"></script>
         <script src="scripts/controllers/popupcontrollers/bid.js"></script>
         <script src="scripts/controllers/popupcontrollers/acceptbid.js"></script>
+        <script src="scripts/controllers/popupcontrollers/jobcode.js"></script>
         <!-- endbuild -->
 
 </body>

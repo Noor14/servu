@@ -53,6 +53,12 @@
   padding-left: 0;
   padding-right: 0;
 }
+.jobList .myjob-image .titleDiv{
+  display: flex;
+}
+.jobList .myjob-image .titleDiv .picDiv, .jobList .myjob-image .titleDiv .picDiv img{
+  width:40px;
+}
 .jobList .myjob-image div.padding{
   padding-bottom: 10px;
 }
@@ -198,6 +204,11 @@ align-items: center;
   height: 60vh;
   align-items: center;
 }
+.jobCodeSpinner .loader{
+  position: absolute;
+  border: 1px solid #fdf3f3;
+  border-radius: 8px;
+}
 .spinner_two{
   width: 70px;
   height: 70px;
@@ -256,7 +267,7 @@ align-items: center;
   padding: 10px;
 }
 .jobList div.myjob-bg{
-  height: 320px;
+  height: 250px;
 }
 .angular-input-stars > li, .angular-input-stars > li i.readonly{
   cursor: auto;
@@ -266,14 +277,16 @@ align-items: center;
 }
 .jobList div.myjob-bg img{
   width: 100%;
-  height: 250px;
+  height: 100%;
 }
 .jobList div.myjob-image{
   padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 .jobList h4{
   color: black;
-  margin: 20px 0 5px 0;
+  margin: 10px 0 5px 0;
 }
 .jobList h4.status{
   color: #46c049;
@@ -781,7 +794,7 @@ i.bar{
   background-color: #fff !important;
 }
 
-.Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
+.startjob .form-group input, .acceptBidform .form-group input, .Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
   border: none;
   border-bottom: 1px solid #e5e6e7;
 }
@@ -883,9 +896,19 @@ i.bar{
 .Detail .form-group ::-webkit-input-placeholder, .biddingBox .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
-.jobDetailpage .form-group ::-webkit-input-placeholder{
+.jobDetailpage .form-group ::-webkit-input-placeholder, .acceptBidform .form-group ::-webkit-input-placeholder, .startjob .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
+.acceptBidform .form-group{
+  margin-top: 30px;
+}
+.acceptBidform .cardYear{
+  display: flex;
+}
+.acceptBidform .cardYear input:first-child {
+margin-right: 20px;
+}
+
 .jobDetailpage .page-heading{
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,15 @@
+<div class="startjob">
+  <h3 class="text-center">Job Code</h3>
+    <hr>
+
+  <page-loader ng-if="pageLoader" class="jobCodeSpinner"></page-loader>
+
+  <form ng-submit="startJob()" name="startjobForm" novalidate>
+    <div class="form-group">
+      <input type="text" class="form-control" name="start" required ng-model="obj.start_code" placeholder="Job Code">
+    </div>
+  <div class="text-right">
+    <button type="submit" ng-disabled="startjobForm.$invalid" class="btn btn-primary">Start</button>
+  </div>
+  </form>
+</div>
