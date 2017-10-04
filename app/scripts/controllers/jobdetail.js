@@ -145,8 +145,6 @@ angular.module('servu')
       });
       vm.editdialog.closePromise.then(function (data) {
         vm.getComment('', '');
-
-
       });
     };
 
@@ -177,11 +175,15 @@ angular.module('servu')
     };
 
     vm.insertBid = function(){
-     ngDialog.open({
+     vm.biding = ngDialog.open({
         template: 'views/dialogTemplates/addBid.html',
         appendClassName: 'bidPopup',
         controller: 'bidCtrl'
       });
+      vm.biding.closePromise.then(function (data) {
+        vm.getJobDetail();
+      });
+
     };
 
    vm.acceptBid = function(bid) {
