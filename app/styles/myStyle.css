@@ -996,12 +996,6 @@ background-color: #426fb6;
 .jobDetailpage .widget-job-awarded .completeJob, .jobDetailpage .widget-job-awarded .completeJob:hover{
   background-color:  #86ca2d;
 }
-.jobDetailpage .tab-content .Nopadding-left{
-  padding: 0 !important;
-}
-.jobDetailpage .tab-content .Nopadding-right{
-  padding-right: 0 !important;
-}
 .editjobComment .form-group textarea{
   border: none;
   border-bottom: 1px solid #e5e6e7;
