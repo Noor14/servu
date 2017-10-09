@@ -25,6 +25,14 @@
 }
 .mainNav nav .navbar-header{
   flex: 80;
+  display: flex;
+}
+.mainNav nav .navbar-header button.navbar-toggle{
+margin-left: 20px;
+}
+.mainNav nav .navbar-header button.navbar-toggle .icon-bar{
+  border: 1px solid white;
+
 }
 .mainNav nav .navbar-header .navbar-form-custom {
   float: left;
@@ -52,6 +60,12 @@
 .jobList .myjob-image div{
   padding-left: 0;
   padding-right: 0;
+}
+.jobList .createJob{
+  box-shadow: 0 0 2px 2px #dadada;
+  padding: 10px;
+  border-radius: 4px;
+
 }
 .jobList .myjob-image .titleDiv{
   display: flex;
@@ -794,7 +808,7 @@ i.bar{
   background-color: #fff !important;
 }
 
-.startjob .form-group input, .acceptBidform .form-group input, .Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
+.startjob .form-group input, .Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
   border: none;
   border-bottom: 1px solid #e5e6e7;
 }
@@ -896,19 +910,9 @@ i.bar{
 .Detail .form-group ::-webkit-input-placeholder, .biddingBox .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
-.jobDetailpage .form-group ::-webkit-input-placeholder, .acceptBidform .form-group ::-webkit-input-placeholder, .startjob .form-group ::-webkit-input-placeholder{
+.jobDetailpage .form-group ::-webkit-input-placeholder, .startjob .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
-.acceptBidform .form-group{
-  margin-top: 30px;
-}
-.acceptBidform .cardYear{
-  display: flex;
-}
-.acceptBidform .cardYear input:first-child {
-margin-right: 20px;
-}
-
 .jobDetailpage .page-heading{
   display: flex;
   justify-content: space-between;
@@ -919,6 +923,13 @@ margin-right: 20px;
 }
 .jobDetailpage .commmt_time span.glyphicon{
   color: #426fb6;
+  border: 1px solid #426fb6;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 5px;
+  text-align: center;
 }
 .jobDetailpage .commmt_time span.glyphicon:focus{
   outline: 0;

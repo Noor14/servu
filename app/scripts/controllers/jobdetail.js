@@ -12,6 +12,7 @@ angular.module('servu')
     function ($scope, ngDialog, jobListService, commentService, $state, $rootScope, toastr, $stateParams, header, bidService) {
 
     var vm = this;
+    vm.activeDetailTab = 'active';
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     if(vm.userData.user_type == 1){
@@ -122,6 +123,9 @@ angular.module('servu')
 
 
     vm.getComment = function(page, time_stamp){
+      vm.activeCommentTab='active';
+      vm.activeBidTab='';
+      vm.activeDetailTab = '';
       commentService.commentList($stateParams.id, page, time_stamp).then(function(res){
         if(res.status == 200){
           vm.userComment = res.data.comments;
@@ -207,18 +211,17 @@ angular.module('servu')
     };
 
    vm.acceptBid = function(bid) {
-     ngDialog.open({
-       template: 'views/dialogTemplates/acceptBid.html',
-       appendClassName: 'bidPopup',
-       controller: 'acceptBidCtrl',
-       resolve: {
-         bidDetail: function () {
-           return bid;
-         }
-       }
+     vm.bidId = bid.id;
+     vm.bidBudget = bid.budget;
+     StartCheckout.open({
+       amount: bid.budget + "00",
+       currency: "AED"
      });
    };
    vm.getBidList = function(){
+     vm.activeBidTab = 'active';
+     vm.activeDetailTab = '';
+     vm.activeCommentTab = '';
     bidService.getAllBid($stateParams.id, '','').then(function(res){
       console.log(res,'allbid');
       if(res.status==200){
@@ -230,20 +233,48 @@ angular.module('servu')
     })
     };
       vm.jobCode = function(){
-           ngDialog.open({
+           vm.startStatus = ngDialog.open({
             template: 'views/dialogTemplates/startJob.html',
             appendClassName: 'addPopup',
             controller: 'jobcodeCtrl'
           });
-
+        vm.startStatus.closePromise.then(function (data) {
+          vm.getJobDetail();
+        });
         };
+      function init(){
+        header.authorize(vm.accountInfo);
+        vm.getJobDetail();
+      }
 
-    function init(){
-      header.authorize(vm.accountInfo);
-      vm.getJobDetail();
-    }
+
+      StartCheckout.config({
+        key: "test_open_k_8a7b71440fff9ece9816",
+        complete: function (params) {
+          var token_details = params;
+          console.log(token_details,'token_details');
+          vm.payment = {
+            token_name: token_details.token.id, amount: parseInt(vm.bidBudget), currency: "AED"
+          };
+          bidService.acceptBid(vm.payment, $state.params.id, vm.bidId).then(function(res){
+          if(res.status == 200){
+            toastr.success('Your bid has been accepted',{
+              closeButton: true,
+              preventOpenDuplicates: true
+            });
+            vm.getJobDetail();
+          }
+          },function(err){
+            toastr.warning('Your bid has not been accepted',{
+              closeButton: true,
+              preventOpenDuplicates: true
+            });
+          })
+
+        }
+
+      });
+
 
       init();
-
-
   }]);

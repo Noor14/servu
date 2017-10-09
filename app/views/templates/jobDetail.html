@@ -5,8 +5,8 @@
     <div class="col-lg-12 col-lg-12 wrapper white-bg page-heading">
   <div class="jobEdit">
     <h2 class="text-bold">{{vm.job.title}}</h2>
-    <button ng-if="vm.userData.user_type == 1" type="button" class="btn btn-circle" ng-click="vm.editJob(vm.job)"><i class="glyphicon glyphicon-pencil"></i></button>
-    <button ng-if="vm.userData.user_type == 1" type="button" class="btn btn-circle" ng-click="vm.deleteJob(vm.job.id)"><i class="glyphicon glyphicon-trash"></i></button>
+    <button ng-if="vm.userData.user_type == 1 && vm.job.status == 1" type="button" class="btn btn-circle" ng-click="vm.editJob(vm.job)"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button ng-if="vm.userData.user_type == 1 && vm.job.status == 1" type="button" class="btn btn-circle" ng-click="vm.deleteJob(vm.job.id)"><i class="glyphicon glyphicon-trash"></i></button>
   </div>
   <div class="text-right">
     <b>AED {{vm.job.budget}}</b>
@@ -75,7 +75,7 @@
                     <div class="col-md-6" ng-repeat="bid in vm.userBid.bids">
                       <div class="ibox-content">
                         <div class="inbox-text">
-                          <div class="bid_btn">
+                          <div class="bid_btn" ng-if="vm.job.status == 1">
                             <button class="btn btn-primary" ng-click="vm.acceptBid(bid)">Accept</button>
                           </div>
                           <img ng-if="!bid.user.profile_pic.url" src="images/user.jpg" alt="user" class="img-responsive">
@@ -156,11 +156,11 @@
                   </li>
                   <li>
                     <a class="widget_border" data-toggle="tab" data-target="#widget-two" aria-expanded="true"></a>
-                    <span ng-if="vm.job.status == 2" class="awardedjob">Awarded</span>
+                    <span ng-if="vm.job.status == 2 || vm.job.status == 3" class="awardedjob">Awarded</span>
                   </li>
                   <li>
                     <a class="widget_border widget_border3" data-toggle="tab" data-target="#widget-three" aria-expanded="true"></a>
-                    <span ng-if="vm.job.status == 3" class="completejob">Completed</span>
+                    <span ng-if="vm.job.status == 4" class="completejob">Completed</span>
                   </li>
                 </ul>
               </div>
@@ -188,7 +188,8 @@
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Start Code</span>
-                      <h1 class="m-xs">{{vm.job.start_code}}</h1>
+                      <h1 class="m-xs" ng-if="vm.job.status > 1">{{vm.job.start_code}}</h1>
+                      <h1 class="m-xs" ng-if="vm.job.status == 1"> -- </h1>
                     </div>
                   </div>
                 </div>
@@ -202,7 +203,7 @@
                 </div>
                 <div class="no-padding col-md-12 widget_btn">
                   <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
-                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
                 </div>

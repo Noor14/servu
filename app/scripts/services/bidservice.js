@@ -12,7 +12,7 @@ angular.module('servu')
     function ($http, $q, host, header) {
       var vm = this;
 
-      vm.addBid = function(jobId,obj){
+      vm.addBid = function(jobId, obj){
         var deffered = $q.defer();
         var obj = {
           url: host+'/jobs/'+jobId+'/bids',
@@ -30,12 +30,13 @@ angular.module('servu')
         });
         return deffered.promise;
       };
-      vm.acceptBid = function(){
+      vm.acceptBid = function(obj, jobId, id){
         var deffered = $q.defer();
         var obj = {
           url: host+'/jobs/'+jobId+'/bids/'+id+'/accept',
           method:'PUT',
-          headers:header.userAuth,
+          headers: header.userAuth,
+          data : obj,
           params:{
             job_id:jobId,
             id:id
@@ -45,7 +46,7 @@ angular.module('servu')
           deffered.resolve(res)
         },function(err){
           deffered.reject(err)
-        })
+        });
         return deffered.promise;
       };
       vm.getBid = function(){

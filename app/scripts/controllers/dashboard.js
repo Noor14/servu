@@ -16,7 +16,6 @@ angular.module('servu')
 
 
       vm.logout = function(){
-        $rootScope.navLoader = true;
       var obj = {
         token: vm.accountInfo.data.token,
         uid: vm.accountInfo.data.uid,
@@ -24,7 +23,6 @@ angular.module('servu')
       };
       credentialService.userLogout(obj).then(function(res){
         console.log("res",res);
-        $rootScope.navLoader = false;
         if(res.status == 204){
           socialLoginService.logout();
           twitterService.clearCache();

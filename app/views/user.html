@@ -43,6 +43,12 @@
   <div class="navigation-bar">
     <nav class="navbar navbar-static-top" role="navigation">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="sidebar-collapse" data-target="#sidebar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="minimalize-styl-2 filter" ng-if="vm.getClass('/user/dashboard')" ng-click="vm.filter()">Filters <i class="fa fa-angle-down" ng-class="filterArrow"></i></a>
         <form role="search" class="navbar-form-custom">
           <div class="form-group search_icon">
@@ -51,7 +57,6 @@
         </form>
       </div>
       <ul class="nav navbar-top-links pull-right">
-        <li><img ng-if="pageLoader || navLoader" ng-src="images/spinner_two.gif" alt="loading" /></li>
         <li>
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span ng-bind="vm.userData.name | limitTo:13"></span><span ng-if="vm.userData.name.length > 13">...</span>
