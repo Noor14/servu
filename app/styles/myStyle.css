@@ -974,17 +974,27 @@ i.bar{
   left: 15px;
   top: 27px;
 }
+.jobDetailpage .Openjob, .jobDetailpage .Openjob:hover{
+  background-color:#f8ac59;
+}
+
 .jobDetailpage .widget-job-awarded .awardedjob{
   color:  #426fb6;
   position: absolute;
   left: -5px;
   top: 27px;
 }
+.jobDetailpage .widget-job-awarded .awardJob, .jobDetailpage .widget-job-awarded .awardJob:hover{
+background-color: #426fb6;
+}
 .jobDetailpage .widget-job-awarded .completejob{
   color:  #86ca2d;
   position: absolute;
   left: -40px;
   top: 27px;
+}
+.jobDetailpage .widget-job-awarded .completeJob, .jobDetailpage .widget-job-awarded .completeJob:hover{
+  background-color:  #86ca2d;
 }
 .jobDetailpage .tab-content .Nopadding-left{
   padding: 0 !important;

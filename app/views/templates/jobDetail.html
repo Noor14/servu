@@ -150,17 +150,17 @@
               <div class="text-right">
                 <span class="widget_text"> 23March,2017 </span>
                 <ul class="border_widg nav nav-tabs">
-                  <li class="active">
-                    <a class="widget_border active" data-toggle="tab" data-target="#widget-one" aria-expanded="true"></a>
+                  <li ng-if="vm.open = (vm.job.status == 1)?'Openjob':'o'">
+                    <a class="widget_border" ng-class="vm.open"></a>
                     <span ng-if="vm.job.status == 1" class="openjob">Open</span>
                   </li>
-                  <li>
-                    <a class="widget_border" data-toggle="tab" data-target="#widget-two" aria-expanded="true"></a>
+                  <li ng-if="vm.awardJob = (vm.job.status == 2 || vm.job.status == 3)?'awardJob':'a'">
+                    <a class="widget_border" ng-class="vm.awardJob"></a>
                     <span ng-if="vm.job.status == 2 || vm.job.status == 3" class="awardedjob">Awarded</span>
                   </li>
                   <li>
-                    <a class="widget_border widget_border3" data-toggle="tab" data-target="#widget-three" aria-expanded="true"></a>
-                    <span ng-if="vm.job.status == 4" class="completejob">Completed</span>
+                    <a class="widget_border widget_border3" ng-if="vm.completeJob = (vm.job.status == 4)?'completeJob':'c'"></a>
+                    <span ng-if="vm.job.status == 4" class="completejob" ng-class="vm.completeJob">Completed</span>
                   </li>
                 </ul>
               </div>
@@ -209,45 +209,7 @@
                 </div>
               </div>
             </div>
-             <div id="widget-two" class="tab-pane">
-               <div class="col-lg-12 no-padding">
-                 <div class="col-md-6">
-                   <div class="widget yellow-bg p-lg text-center">
-                     <div class="m-b-md">
-                       <span>Completed on</span>
-                       <h1 class="m-xs">15 July 2017</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-md-6">
-                   <div class="widget yellow-bg p-lg text-center">
-                     <div class="m-b-md">
-                       <span>Completed on</span>
-                       <h1 class="m-xs">15 July 2017</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-md-12 widget_btn">
-                   <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#">Go To Conversation</a>
-                 </div>
-               </div>
-             </div>
-             <div id="widget-three" class="tab-pane">
-               <div class="col-lg-12 no-padding">
-                 <div class="col-md-6">
-                   <div class="widget yellow-bg p-lg text-center">
-                     <div class="m-b-md">
-                       <span>Completed on</span>
-                       <h1 class="m-xs">15 July 2017</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-md-12 widget_btn">
-                   <a class="btn btn-primary btn-rounded btn-block widget_compl" href="#"> File a Complant</a>
-                   <a class="btn btn-primary btn-rounded btn-block widget_revi" href="#"> Review Services</a>
-                 </div>
-               </div>
-             </div>
+
 
           </div>
 
