@@ -8,13 +8,13 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobcodeCtrl',['$scope','bidService', '$stateParams', function ($scope, bidService, $stateParams) {
+  .controller('jobcodeCtrl',['$scope','jobListService', '$stateParams', function ($scope, jobListService, $stateParams) {
     $scope.obj={};
 
 
     $scope.startJob = function(){
       $scope.pageLoader = true;
-      bidService.jobStartCode($stateParams.id, $scope.obj).then(function(res){
+      jobListService.jobStartCode($stateParams.id, $scope.obj).then(function(res){
         console.log(res);
         $scope.pageLoader = false;
         $scope.closeThisDialog();

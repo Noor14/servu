@@ -90,8 +90,24 @@ angular.module('servu')
           deffered.resolve(res);
         });
         return deffered.promise;
-      }
+      };
+      vm.jobStartCode = function(jobId, obj){
+        var deffered = $q.defer();
+        var obj = {
+          url: host+'/jobs/'+jobId+'/start',
+          method:'PUT',
+          headers:header.userAuth,
+          data:obj
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res)
+        },function(err){
+          deffered.reject(err)
+        });
+        return deffered.promise;
+      };
 
 
 
-  }]);
+
+    }]);

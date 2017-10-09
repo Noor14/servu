@@ -204,6 +204,7 @@
                   <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
                 </div>
               </div>
             </div>

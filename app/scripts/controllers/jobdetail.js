@@ -178,12 +178,32 @@ angular.module('servu')
      vm.biding = ngDialog.open({
         template: 'views/dialogTemplates/addBid.html',
         appendClassName: 'bidPopup',
-        controller: 'bidCtrl'
+        controller: 'bidCtrl',
+        resolve:{
+         bidDetail: function(){
+           return vm.job
+         }
+       }
       });
       vm.biding.closePromise.then(function (data) {
         vm.getJobDetail();
       });
 
+    };
+      vm.viewBid = function(){
+      vm.bidView = ngDialog.open({
+        template: 'views/dialogTemplates/viewBid.html',
+        appendClassName: 'bidPopup',
+        controller: 'bidCtrl',
+        resolve:{
+          bidDetail: function(){
+            return vm.job
+          }
+        }
+      });
+        vm.bidView.closePromise.then(function (data) {
+          vm.getJobDetail();
+        });
     };
 
    vm.acceptBid = function(bid) {

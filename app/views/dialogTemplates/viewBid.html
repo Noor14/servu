@@ -1,0 +1,25 @@
+<div class="biddingBox">
+  <h3 class="text-center">{{bidTitle}}</h3>
+  <hr>
+  <div class="row">
+      <div class="form-group">
+        <label>Bid Budget</label>
+        <input type="number" ng-readonly="readOnly" class="form-control" name="budget" required ng-model="job.my_bid.budget" placeholder="Add Budget (AED) *" />
+      </div>
+    <div class="form-group" ng-if="readOnly">
+      <label>Bid Timing</label>
+      <input type="text" ng-readonly="readOnly" class="form-control" name="time" required ng-model="job.my_bid.created_at | date : 'fullDate'" placeholder="Created At" />
+      </div>
+      <div class="form-group">
+        <label>Bid Description</label>
+        <textarea class="form-control" ng-readonly="readOnly" name="description" rows="5" ng-model="job.my_bid.description" placeholder="Other Description"></textarea>
+      </div>
+
+    <div class="text-right">
+      <button class="btn btn-primary" ng-if="job.status == 1 && job.my_bid && readOnly" ng-click="updateBidConfirm()">Update My Bid</button>
+      <button class="btn btn-primary" ng-disabled="!job.my_bid.budget" ng-if="job.status == 1 && job.my_bid && !readOnly" ng-click="updateBid()">Update My Bid</button>
+      <button class="btn btn-primary" ng-if="job.status == 1 && job.my_bid" ng-click="deleteBid()">Delete My Bid</button>
+    </div>
+
+  </div>
+</div>

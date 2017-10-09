@@ -86,13 +86,16 @@ angular.module('servu')
         return deffered.promise;
       };
 
-      vm.jobStartCode = function(jobId, obj){
-      var deffered = $q.defer();
+      vm.deleteBid = function(jobId, bidId){
+        var deffered = $q.defer();
         var obj = {
-          url: host+'/jobs/'+jobId+'/start',
-          method:'PUT',
+          url: host+'/jobs/'+jobId+'/bids/'+bidId,
+          method:'DELETE',
           headers:header.userAuth,
-          data:obj
+          params:{
+            job_id : jobId,
+            id : bidId
+          }
         };
         $http(obj).then(function(res){
           deffered.resolve(res)
@@ -101,15 +104,16 @@ angular.module('servu')
         });
         return deffered.promise;
       };
-      vm.deleteBid = function(){
+      vm.bidUpdate = function(jobId, bidId, data){
         var deffered = $q.defer();
         var obj = {
-          url: host+'/jobs/'+jobId+'/bids/'+id,
-          method:'DELETE',
+          url: host+'/jobs/'+jobId+'/bids/'+bidId,
+          method:'PUT',
           headers:header.userAuth,
+          data:data,
           params:{
             job_id : jobId,
-            id : id
+            id : bidId
           }
         };
         $http(obj).then(function(res){
