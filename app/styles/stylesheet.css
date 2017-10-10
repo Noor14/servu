@@ -219,6 +219,10 @@ h2{
   border:1px solid #8b939a;
   cursor: auto;
 }
+.nav li .widget_border:hover{
+border:1px solid #8b939a;
+
+}
 .nav li .widget_border::after {
   position: absolute;
   right: -33px;

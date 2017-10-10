@@ -3623,7 +3623,6 @@ body.body-small .footer.fixed {
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
   background-color: transparent;
-  border: 1px solid #8b939a;
 }
 .ui-tab .tab-content {
   padding: 20px 0;
