@@ -1,6 +1,6 @@
 <div id="homePage">
-  <div class="sideNav col-sm-4 col-lg-2 col-md-3">
-    <nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sideNav col-sm-4 col-lg-2 col-md-3" >
+    <nav class="navbar-default navbar-static-side" role="navigation" ng-class="sidemenuHome">
       <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
           <li class="nav-header">
@@ -39,11 +39,11 @@
     </nav>
 
   </div>
-<div class="mainNav col-lg-10 col-md-9 col-sm-8 col-lg-offset-2 col-md-offset-3 col-sm-offset-4" ng-class="fullHeight">
+<div class="mainNav col-lg-10 col-md-9 col-sm-8 col-lg-offset-2 col-md-offset-3 col-sm-offset-4" ng-class="fullHeight" ng-click="vm.sidemenu($event, 'display-not')">
   <div class="navigation-bar">
     <nav class="navbar navbar-static-top" role="navigation">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="sidebar" data-target=".sidebar-collapse" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="sideNav" data-target=".sideNav" ng-click="vm.sidemenu($event, 'display')" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>

@@ -13,7 +13,13 @@ angular.module('servu')
 
     var vm = this;
       vm.toggle = false;
-
+      vm.sidemenu = function(event, display){
+        if(display == 'display'){
+          event.stopPropagation();
+          event.preventDefault();
+        }
+        $rootScope.sidemenuHome = display;
+      };
 
       vm.logout = function(){
       var obj = {

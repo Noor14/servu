@@ -11,7 +11,7 @@ angular.module('servu')
   .controller('bidCtrl',['$scope','bidService','toastr','$stateParams','bidDetail', 'ngDialog', function ($scope, bidService, toastr, $stateParams, bidDetail, ngDialog) {
     if(bidDetail && bidDetail.my_bid){
       $scope.job = bidDetail;
-      $scope.job.my_bid.created_at = new Date(bidDetail.my_bid.created_at);
+      $scope.job.my_bid.created_at = moment(new Date(bidDetail.my_bid.created_at)).format('LLLL');
       $scope.bidTitle = "View Bid";
       $scope.readOnly = true;
     }

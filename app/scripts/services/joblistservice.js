@@ -106,6 +106,42 @@ angular.module('servu')
         });
         return deffered.promise;
       };
+      vm.jobComplete = function(jobId){
+        var deffered = $q.defer();
+        var obj = {
+          url: host+'/jobs/'+jobId+'/complete',
+          method:'PUT',
+          headers:header.userAuth,
+          params:{
+           id :  jobId
+          }
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res)
+        },function(err){
+          deffered.reject(err)
+        });
+        return deffered.promise;
+      };
+
+      vm.jobComplain = function(obj, jobId){
+        var deffered = $q.defer();
+        var obj = {
+          url: host+'/jobs/'+jobId+'/complaint',
+          method:'POST',
+          headers:header.userAuth,
+          data:obj,
+          params:{
+            id :  jobId
+          }
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res)
+        },function(err){
+          deffered.reject(err)
+        });
+        return deffered.promise;
+      };
 
 
 

@@ -232,6 +232,37 @@ angular.module('servu')
 
     })
     };
+
+      vm.JobCompleted = function(){
+        jobListService.jobComplete($state.params.id).then(function(res){
+
+          if(res.status==200){
+            toastr.success('Your job has been completed',{
+              closeButton: true,
+              preventOpenDuplicates: true
+            });
+            vm.getJobDetail();
+          }
+
+        },function(err){
+          console.log(err);
+        })
+      };
+
+      vm.JobComplain = function(){
+        vm.complain = ngDialog.open({
+          template: 'views/dialogTemplates/complainJob.html',
+          appendClassName: 'bidPopup',
+          controller: 'jobComplainCtrl'
+        });
+
+        vm.complain.closePromise.then(function (data) {
+          vm.getJobDetail();
+        });
+      };
+
+
+
       vm.jobCode = function(){
            vm.startStatus = ngDialog.open({
             template: 'views/dialogTemplates/startJob.html',

@@ -240,6 +240,7 @@ align-items: center;
   display: none;
 }
 .mainNav{
+  outline: 0;
   padding: 0;
   background-color: #f3f3f4;
 }
@@ -965,6 +966,9 @@ i.bar{
   background: white;
   padding: 15px;
 }
+.jobDetailpage #widget-one .col-md-6{
+  padding: 5px 15px;
+}
 .jobDetailpage .widget-job-awarded img{
   border-radius: 5px;
 }
@@ -978,14 +982,25 @@ i.bar{
   background-color:#f8ac59;
 }
 
-.jobDetailpage .widget-job-awarded .awardedjob{
+.jobDetailpage .widget-job-awarded .awardedjob, .jobDetailpage .widget-job-awarded .ongoingjob{
   color:  #426fb6;
   position: absolute;
   left: -5px;
   top: 27px;
 }
+.jobDetailpage .widget-job-awarded .ongoingjob{
+  width:60px;
+}
 .jobDetailpage .widget-job-awarded .awardJob, .jobDetailpage .widget-job-awarded .awardJob:hover{
 background-color: #426fb6;
+}
+
+.jobDetailpage .widget-job-awarded .bidplaced{
+  color: #f8ac59;
+  position: absolute;
+  left: 12px;
+  top: 32px;
+  width: 70px;
 }
 .jobDetailpage .widget-job-awarded .completejob{
   color:  #86ca2d;
@@ -993,8 +1008,17 @@ background-color: #426fb6;
   left: -40px;
   top: 27px;
 }
+.jobDetailpage .widget-job-awarded .indispute{
+  color:  rgb(208,53,74);
+  position: absolute;
+  left: -40px;
+  top: 27px;
+}
 .jobDetailpage .widget-job-awarded .completeJob, .jobDetailpage .widget-job-awarded .completeJob:hover{
   background-color:  #86ca2d;
+}
+.jobDetailpage .widget-job-awarded .Indispute, .jobDetailpage .widget-job-awarded .Indispute:hover{
+  background-color:  rgb(208,53,74);
 }
 .editjobComment .form-group textarea{
   border: none;
@@ -1007,12 +1031,19 @@ background-color: #426fb6;
   display: flex;
   padding-right: 0;
   flex-direction: column;
+  cursor: auto;
 }
 .jobDetailpage .widget-box .tab-content{
   margin-top: 10px;
 }
 
+@media only screen and (max-width: 1199px){
 
+  .jobDetailpage .widget-box {
+  padding: 0;
+  }
+
+}
 
 @media only screen and (min-width: 767px){
 

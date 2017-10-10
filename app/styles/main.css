@@ -8223,6 +8223,12 @@ body.md-skin {
   .navbar-static-side {
     display: none;
   }
+  .display{
+    display: block;
+  }
+  .display-not{
+    display: none;
+  }
   body:not(.mini-navbar) {
     -webkit-transition: background-color 500ms linear;
     -moz-transition: background-color 500ms linear;

@@ -86,7 +86,7 @@
     </div>
   </div>
 
-  <nav ng-if="vm.records && !pageLoader && (vm.jobs | filter : vm.filter).length" class="text-center">
+  <nav ng-if="vm.total_pages >1 && vm.records && !pageLoader && (vm.jobs | filter : vm.filter).length" class="text-center">
     <ul class="pagination">
       <li class="page-item" ng-if = "vm.disabled = (1 == vm.page_no)? 'disabled' : 'true'" ng-class="vm.disabled">
         <a class="page-link" ng-click="vm.navigate(vm.page_no - 1, vm.current_time, vm.disabled)">Previous</a>

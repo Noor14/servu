@@ -33,6 +33,7 @@ angular
 
     $transitions.onStart({}, function($transition) {
       $rootScope.sidemenu='display-not';
+      $rootScope.sidemenuHome='display-not';
       function checkLogin(){
         var userCredential = JSON.parse(localStorage.getItem("userDetail"));
         if(userCredential){

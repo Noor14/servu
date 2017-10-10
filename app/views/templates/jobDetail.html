@@ -155,22 +155,29 @@
                 <ul class="border_widg nav nav-tabs">
                   <li ng-if="vm.open = (vm.job.status == 1)?'Openjob':'o'">
                     <a class="widget_border" ng-class="vm.open"></a>
-                    <span ng-if="vm.job.status == 1" class="openjob">Open</span>
+                    <span ng-if="vm.job.status == 1 && vm.userData.user_type == 1" class="openjob">Open</span>
+                    <span ng-if="vm.job.status == 1 && vm.userData.user_type == 2 && !vm.job.my_bid" class="openjob">Open</span>
+                    <span ng-if="vm.job.status == 1 && vm.userData.user_type == 2 && vm.job.my_bid" class="bidplaced">Bid Placed</span>
                   </li>
                   <li ng-if="vm.awardJob = (vm.job.status == 2 || vm.job.status == 3)?'awardJob':'a'">
                     <a class="widget_border" ng-class="vm.awardJob"></a>
-                    <span ng-if="vm.job.status == 2 || vm.job.status == 3" class="awardedjob">Awarded</span>
+                    <span ng-if="vm.job.status == 2 " class="awardedjob">Awarded</span>
+                    <span ng-if="vm.job.status == 3" class="ongoingjob">On Going</span>
                   </li>
-                  <li>
-                    <a class="widget_border widget_border3" ng-if="vm.completeJob = (vm.job.status == 4)?'completeJob':'c'"></a>
-                    <span ng-if="vm.job.status == 4" class="completejob" ng-class="vm.completeJob">Completed</span>
+                  <li ng-hide="vm.job.status == 5" ng-if="vm.completeJob = (vm.job.status == 4)?'completeJob':'c'">
+                    <a class="widget_border widget_border3" ng-class="vm.completeJob"></a>
+                    <span ng-if="vm.job.status == 4" class="completejob">Completed</span>
+                  </li>
+                  <li ng-if="vm.disputeJob = (vm.job.status == 5)?'Indispute':''">
+                    <a class="widget_border widget_border3" ng-class="vm.disputeJob"></a>
+                    <span ng-if="vm.job.status == 5" class="indispute">In Dispute</span>
                   </li>
                 </ul>
               </div>
             </div>
            <div class="tab-content">
             <div id="widget-one" class="tab-pane active">
-              <div class="col-lg-12 no-padding">
+              <div class="row no-padding">
                 <div class="col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
@@ -183,7 +190,7 @@
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Completed on</span>
-                      <h1 class="m-xs">{{vm.job.created_at | date : "mediumDate"}}</h1>
+                      <h1 class="m-xs">{{vm.job.completed_at | date : "mediumDate"}}</h1>
                     </div>
                   </div>
                 </div>
@@ -199,17 +206,21 @@
                 <div class="col-md-6">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
-                      <span>Schedule</span>
+                      <span>Schedule for</span>
                       <h1 class="m-xs" ng-if="vm.job.schedule">{{vm.job.schedule | date : "mediumDate"}}</h1>
                       <h1 class="m-xs" ng-if="!vm.job.schedule">Urgent</h1>
                     </div>
                   </div>
                 </div>
-                <div class="no-padding col-md-12 widget_btn">
+                <div class="col-md-12 widget_btn">
                   <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
-                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 3" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.JobCompleted()">Job Complete</button>
+                  <button ng-if="vm.userData.user_type == 1 && vm.job.status == 4" class="btn btn-primary btn-rounded btn-block widget_compl" ng-click="vm.JobComplain()">File a Complaint</button>
+
+
                 </div>
               </div>
             </div>

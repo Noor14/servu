@@ -1,0 +1,18 @@
+<div class="biddingBox">
+  <h3 class="text-center">Job Complain</h3>
+  <hr>
+  <div class="row">
+    <form name="complainForm" ng-submit="createComplain()" novalidate>
+    <div class="form-group">
+      <input type="text" class="form-control" required name="title" required ng-model="complain.title" placeholder="Title *" />
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" required name="description" rows="5" ng-model="complain.body" placeholder="Description *"></textarea>
+    </div>
+
+    <div class="text-right">
+      <button class="btn btn-primary" type="submit" ng-disabled="complainForm.$invalid">Create Complain</button>
+    </div>
+    </form>
+  </div>
+</div>
