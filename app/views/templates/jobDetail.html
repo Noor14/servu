@@ -219,6 +219,8 @@
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 3" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.JobCompleted()">Job Complete</button>
                   <button ng-if="vm.userData.user_type == 1 && vm.job.status == 4" class="btn btn-primary btn-rounded btn-block widget_compl" ng-click="vm.JobComplain()">File a Complaint</button>
+                  <button ng-if="vm.userData.user_type == 1 && !vm.job.review &&(vm.job.status == 4 || vm.job.status == 5)" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobRating()">Review Services</button>
+                  <button ng-if="vm.userData.user_type == 1 && vm.job.review &&(vm.job.status == 4 || vm.job.status == 5)" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobRatingUpdate()">Edit Review Services</button>
 
 
                 </div>

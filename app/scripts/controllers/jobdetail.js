@@ -261,7 +261,17 @@ angular.module('servu')
         });
       };
 
+      vm.jobRating = function(){
+        vm.review = ngDialog.open({
+          template: 'views/dialogTemplates/reviewJob.html',
+          appendClassName: 'bidPopup',
+          controller: 'jobReviewCtrl'
+        });
 
+        vm.review.closePromise.then(function (data) {
+          vm.getJobDetail();
+        });
+      };
 
       vm.jobCode = function(){
            vm.startStatus = ngDialog.open({

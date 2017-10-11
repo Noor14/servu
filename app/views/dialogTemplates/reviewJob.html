@@ -1,0 +1,16 @@
+<div class="biddingBox">
+  <h3 class="text-center">Review Services</h3>
+  <hr>
+  <div class="row">
+    <form name="reviewForm" ng-submit="createReview()" novalidate>
+      <div class="form-group reviewRate">
+        <input-stars max="5" ng-model="review.stars"></input-stars>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="description" rows="5" ng-model="review.rating" placeholder="Write your review"></textarea>
+      </div>
+
+        <button class="btn btn-primary btn-block" type="submit" ng-disabled="reviewForm.$invalid">Submit</button>
+    </form>
+  </div>
+</div>
