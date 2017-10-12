@@ -218,10 +218,11 @@ align-items: center;
   height: 60vh;
   align-items: center;
 }
-.jobCodeSpinner .loader{
+.dialogSpinner .loader{
   position: absolute;
   border: 1px solid #fdf3f3;
   border-radius: 8px;
+  top: 35%;
 }
 .spinner_two{
   width: 70px;
@@ -1030,7 +1031,7 @@ background-color: #426fb6;
   border: none;
   border-bottom: 1px solid #e5e6e7;
 }
-.editjobComment .form-group ::-webkit-input-placeholder{
+.editjobComment .form-group ::-webkit-input-placeholder, .message-chat .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
 .jobDetailpage .widget-box{

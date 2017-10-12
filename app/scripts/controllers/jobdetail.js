@@ -265,10 +265,30 @@ angular.module('servu')
         vm.review = ngDialog.open({
           template: 'views/dialogTemplates/reviewJob.html',
           appendClassName: 'bidPopup',
-          controller: 'jobReviewCtrl'
+          controller: 'jobReviewCtrl',
+          resolve:{
+            jobRating : function(){
+              return ;
+            }
+          }
         });
 
         vm.review.closePromise.then(function (data) {
+          vm.getJobDetail();
+        });
+      };
+      vm.jobRatingUpdate = function(){
+        vm.updateReview = ngDialog.open({
+          template: 'views/dialogTemplates/reviewJob.html',
+          appendClassName: 'bidPopup',
+          controller: 'jobReviewCtrl',
+          resolve:{
+            jobRating : function(){
+              return angular.copy(vm.job.review);
+            }
+          }
+        });
+        vm.updateReview.closePromise.then(function (data) {
           vm.getJobDetail();
         });
       };

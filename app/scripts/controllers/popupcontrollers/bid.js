@@ -17,8 +17,10 @@ angular.module('servu')
     }
     $scope.obj={};
     $scope.bidPlace = function(){
-      bidService.addBid($stateParams.id, $scope.obj).then(function(res){
+      $scope.pageLoader = true;
+        bidService.addBid($stateParams.id, $scope.obj).then(function(res){
         if(res.status == 201){
+          $scope.pageLoader = false;
           $scope.closeThisDialog();
           toastr.success('Your bid has been placed successfully',{
             closeButton: true,
@@ -38,8 +40,10 @@ angular.module('servu')
                 </div>',
         plain: true
       }).then(function (yes) {
+        $scope.pageLoader = true;
         bidService.deleteBid($stateParams.id, $scope.job.my_bid.id).then(function(res){
           if(res.status == 204){
+            $scope.pageLoader = false;
             toastr.success('Your bid has been deleted',{
               closeButton: true,
               preventOpenDuplicates: true
@@ -71,8 +75,10 @@ angular.module('servu')
     };
 
     $scope.updateBid = function(){
+      $scope.pageLoader = true;
       bidService.bidUpdate($stateParams.id, $scope.job.my_bid.id, $scope.job.my_bid).then(function(res){
         if(res.status == 200){
+          $scope.pageLoader = false;
           toastr.success('Your bid has been updated',{
             closeButton: true,
             preventOpenDuplicates: true
@@ -81,6 +87,8 @@ angular.module('servu')
         }
 
       },function(err){
+        $scope.pageLoader = false;
+        console.log(err);
 
       })
     }

@@ -8,4 +8,5 @@
  * Constant in the servu.
  */
 angular.module('servu')
-  .constant('host', 'http://panterasrv.cloudapp.net/servu_api_test/api');
+  .constant('host', 'http://panterasrv.cloudapp.net/servu_api_test/api')
+  .constant('cableUrl', 'ws://panterasrv.cloudapp.net/servu_api_test/cable');

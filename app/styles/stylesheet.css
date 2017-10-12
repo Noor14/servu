@@ -695,9 +695,6 @@ h1 { font-size: 1.5em; margin: 10px; }
   padding: 0 25px;
 }
 
-.message-form_input {
-  resize: unset;
-}
 
 .right_arrow_box {
   position: relative;

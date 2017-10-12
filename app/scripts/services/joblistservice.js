@@ -161,6 +161,24 @@ angular.module('servu')
         });
         return deffered.promise;
       };
+      vm.jobRatingUpdate = function(obj, jobId){
+        var deffered = $q.defer();
+        var obj = {
+          url: host+'/jobs/'+jobId+'/reviews',
+          method:'PUT',
+          headers:header.userAuth,
+          data:obj,
+          params:{
+            id :  jobId
+          }
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res)
+        },function(err){
+          deffered.reject(err)
+        });
+        return deffered.promise;
+      };
 
 
     }]);

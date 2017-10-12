@@ -80,10 +80,12 @@
       </div>
     </div>
     <div class="chat-message-form form_chat">
+      <form novalidate name="messageForm" ng-submit="vm.message()">
       <div class="form-group ">
-        <textarea class="form-control message-input message-form_input" name="message" placeholder="Type here...."></textarea>
-        <button type="button" class="btn btn-w-m btn-success message_btn">Submit</button>
+        <textarea class="form-control message-input message-form_input" rows="5" required name="message" ng-model="vm.msg.body" placeholder="Type here...."></textarea>
+        <button type="submit" class="btn btn-w-m btn-primary message_btn" ng-disabled="messageForm.$invalid">Send</button>
       </div>
+      </form>
     </div>
 
   </div>

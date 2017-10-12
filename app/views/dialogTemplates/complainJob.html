@@ -1,6 +1,8 @@
 <div class="biddingBox">
   <h3 class="text-center">Job Complain</h3>
   <hr>
+
+  <page-loader ng-if="pageLoader" class="dialogSpinner"></page-loader>
   <div class="row">
     <form name="complainForm" ng-submit="createComplain()" novalidate>
     <div class="form-group">

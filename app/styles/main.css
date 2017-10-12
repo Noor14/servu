@@ -5066,9 +5066,7 @@ dd.project-people {
   text-transform: uppercase;
 }
 /* Chat view */
-.message-input {
-  height: 90px !important;
-}
+
 .chat-avatar {
   white: 36px;
   height: 36px;

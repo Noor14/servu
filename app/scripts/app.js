@@ -23,15 +23,15 @@ angular
     'ae-datetimepicker',
     'angular-input-stars',
     'uiGmapgoogle-maps',
+    'ngActionCable',
     'toastr',
     'socialLogin',
     'naif.base64'
   ])
-  .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http',
-    function($transitions, $rootScope, credentialService, $state, $location, host,  $http){
+  .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http', 'ActionCableConfig','cableUrl',
+    function($transitions, $rootScope, credentialService, $state, $location, host,  $http, ActionCableConfig, cableUrl){
 
-
-    $transitions.onStart({}, function($transition) {
+      $transitions.onStart({}, function($transition) {
       $rootScope.sidemenu='display-not';
       $rootScope.sidemenuHome='display-not';
       function checkLogin(){
@@ -43,7 +43,8 @@ angular
             client: userCredential.data.client,
             uid: userCredential.data.uid
           };
-
+          ActionCableConfig.wsUri = cableUrl+'?token='+userCredential.data.token+'&uid='+userCredential.data.uid+'&email='+userCredential.data.user.phoneu;
+          ActionCableConfig.autoStart= false;
         }
         var obj={
           url: host+ "/auth/validate_token",
@@ -191,11 +192,12 @@ angular
       .state('user.message', {
         url:'/messages',
         templateUrl: 'views/templates/message.html',
+        controller: 'MessageCtrl',
+        controllerAs: 'vm',
         data: {
           authRequired: true
         }
-        //controller: 'messageCtrl',
-        //controllerAs: 'vm'
+
       })
       .state('user.profile', {
         url:'/profile',

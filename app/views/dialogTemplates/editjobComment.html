@@ -1,6 +1,7 @@
 <div class="editjobComment">
   <h3 class="text-center">Update Job Comment</h3>
 
+  <page-loader ng-if="pageLoader" class="dialogSpinner"></page-loader>
   <form ng-submit="updateComment()" name="updateForm" novalidate>
     <div class="form-group">
       <textarea class="form-control" name="update" required rows="5" ng-model="obj.body" placeholder="Comment..."></textarea>

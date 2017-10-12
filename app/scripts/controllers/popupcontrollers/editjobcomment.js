@@ -15,9 +15,10 @@ angular.module('servu')
     $scope.obj.job_id = comment.job_id;
 
         $scope.updateComment = function(){
-
+        $scope.pageLoader = true;
         commentService.commentUpdate($scope.obj).then(function(res){
           if(res.status == 200){
+            $scope.pageLoader = false;
             $scope.closeThisDialog();
             toastr.success('Comment has been updated',{
               closeButton: true,
@@ -26,6 +27,7 @@ angular.module('servu')
           }
 
         },function(err){
+          $scope.pageLoader = false;
           console.log(err)
         })
       }

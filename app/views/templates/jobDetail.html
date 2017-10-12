@@ -186,7 +186,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6" ng-if="vm.job.status == 4">
+                <div class="col-md-6" ng-if="vm.job.completed_at">
                   <div class="widget yellow-bg p-lg text-center">
                     <div class="m-b-md">
                       <span>Completed on</span>
@@ -213,7 +213,7 @@
                   </div>
                 </div>
                 <div class="col-md-12 widget_btn">
-                  <button class="btn btn-primary btn-rounded btn-block widget_compl">Go To Conversation</button>
+                  <button class="btn btn-primary btn-rounded btn-block widget_compl" ng-if="vm.job.my_bid && (vm.userData.user_type == 1 || vm.userData.user_type == 2)">Go To Conversation</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
