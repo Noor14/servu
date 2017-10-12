@@ -52,9 +52,7 @@ body {
   background-color: #426fb6;
   border-color: #fff;
 }
-.navbar-header {
-  padding-top: 5px;
-}
+
 .navbar-header,
 .btn-primary:hover,
 .btn-primary:focus,
