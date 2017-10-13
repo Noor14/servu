@@ -8,19 +8,58 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('MessageCtrl',['ActionCableChannel', function (ActionCableChannel, ActionCableSocketWrangler) {
+  .controller('MessageCtrl',['$scope', 'ActionCableChannel', 'ActionCableSocketWrangler', 'messageService', '$rootScope', function ($scope, ActionCableChannel, ActionCableSocketWrangler, messageService, $rootScope) {
     var vm = this;
     vm.msg = {};
-    vm.inputText = "";
-    vm.myData = [];
 
-    //ActionCableSocketWrangler.start();
-    console.log(ActionCableSocketWrangler);
-    var consumer = new ActionCableChannel("ChatChannel");
+    vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    vm.userData = vm.accountInfo.data.user;
 
-    vm.message = function(){
+    vm.callback = function(message){
+      vm.conversations.push(message);
+    };
+    var consumer = new ActionCableChannel("ConversationsChannel");
+    ActionCableSocketWrangler.start();
+      consumer.subscribe(vm.callback).then(function(){
+        vm.message = function(){
+          consumer.send(vm.msg, 'receive');
+          vm.msg = {};
 
-      consumer.send(vm.msg,'receive');
-    }
+        };
+    });
 
+
+
+
+
+    vm.conversationList = function(page, time){
+      $rootScope.pageLoader = true;
+      messageService.allConversation(page, time).then(function(res){
+          if(res.status == 200){
+            $rootScope.pageLoader = false;
+          vm.conversations = res.data.conversations;
+          }
+      },function(err){
+        $rootScope.pageLoader = false;
+        console.log(err);
+      })
+    };
+
+    vm.openConversation = function(id, page, time){
+      vm.chatLoader = true;
+      messageService.getSpecConversation(id, page, time).then(function(res){
+        if(res.status == 200){
+          console.log(res);
+          vm.chatLoader = false;
+          vm.messages = res.data.messages;
+
+        }
+      },function(err){
+        vm.chatLoader = false;
+        console.log(err)
+      })
+    };
+
+
+    vm.conversationList('', '');
   }]);

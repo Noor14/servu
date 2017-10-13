@@ -606,6 +606,10 @@ h1 { font-size: 1.5em; margin: 10px; }
   padding: 10px 10px;
   border-bottom: 1px solid #e1e1e1;
 }
+.chat_sect:focus{
+  background-color: #c4d3e9;
+  outline: 0;
+}
 .chat_text {
   overflow: hidden;
   padding: 10px 10px;
@@ -681,8 +685,9 @@ h1 { font-size: 1.5em; margin: 10px; }
   top: 0;
 }
 .chat-discussion {
-  height: auto;
+  height: calc(100vh - 285px);
   padding: 6px 15px;
+  overflow-y: scroll;
 }
 .message_btn {
   float: right;
@@ -700,7 +705,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 .right_arrow_box::after, .arrow_box::before {
   right: -50px;
-  top: 0px;
+  top: -0.6em;
   border: solid transparent;
   content: " ";
   height: 0;
@@ -727,7 +732,11 @@ h1 { font-size: 1.5em; margin: 10px; }
 .chat_section {
   background-color: #fff;
   border-right: 1px solid #e1e1e1;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
 }
+
+
 .message {
   border: 1px solid #e1e1e1;
 }

@@ -43,8 +43,9 @@ angular
             client: userCredential.data.client,
             uid: userCredential.data.uid
           };
-          ActionCableConfig.wsUri = cableUrl+'?token='+userCredential.data.token+'&uid='+userCredential.data.uid+'&email='+userCredential.data.user.phoneu;
+          ActionCableConfig.wsUri = cableUrl+'?token='+userCredential.data.token+'&uid='+userCredential.data.uid+'&email='+userCredential.data.user.email;
           ActionCableConfig.autoStart= false;
+          ActionCableConfig.debug = true;
         }
         var obj={
           url: host+ "/auth/validate_token",

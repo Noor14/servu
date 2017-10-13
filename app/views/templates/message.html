@@ -1,82 +1,52 @@
-<div class="row message-chat">
-  <div class="col-md-4 no-padding chat_section">
-    <div class="chat_sect">
-      <img src="images/user.jpg" alt="user" class="img-responsive">
+<page-loader ng-if="pageLoader"></page-loader>
+
+<div class="row message-chat" ng-if="!pageLoader">
+  <div class="col-md-4 no-padding chat_section" >
+    <div class="chat_sect" ng-repeat="con in vm.conversations" ng-if="con.last_message.body"  ng-click="vm.openConversation(con.id,'', '')">
+      <img ng-if = "!con.user.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
+      <img ng-if = "con.user.pic_url" ng-src="{{con.user.pic_url}}" alt="user" class="img-responsive">
       <div class="chat_text">
         <div class="chat_box">
-          <strong>Maud Fitzgerald</strong><br>
-          <span>Hey!!How are You</span>
+          <strong>{{con.user.name}}</strong><br>
+          <span>{{con.last_message.body}}</span>
         </div>
         <div class="chat_time">
-          <span>01.36AM</span>
-        </div>
-      </div>
-    </div>
-    <div class="chat_sect">
-      <img src="images/user.jpg" alt="user" class="img-responsive">
-      <div class="chat_text">
-        <div class="chat_box">
-          <strong>Maud Fitzgerald</strong><br>
-          <span>Hey!!How are You</span>
-        </div>
-        <div class="chat_time">
-          <span>01.36AM</span>
+          <span>{{con.created_at | date : 'shortTime'}}</span>
         </div>
       </div>
     </div>
   </div>
   <div class="col-md-8 no-padding">
     <div class="chat-discussion">
-      <div class="chat-message left">
+      <page-loader ng-if="vm.chatLoader"></page-loader>
+      <div ng-repeat="message in vm.messages" ng-if="!vm.chatLoader">
+      <div ng-if="vm.userData.id != message.user_id" class="chat-message left">
         <img class="message-avatar" src="images/user.jpg" alt="user" class="img-responsive">
         <div class="message message_sect">
           <div class="arrow_box"></div>
-                                            <span class="message-content">
-											                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elitsed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                            </span>
+             <span class="message-content">
+							 <p>{{message.body}}</p>
+             </span>
         </div>
         <div class="chating_box">
-          <span class="pull-left"> Yesterday at 11:09PM </span>
+          <span class="pull-left"> {{message.created_at | date : "mediumDate"}} </span>
         </div>
       </div>
-      <div class="chat-message right chatting_section">
+      <div ng-if="vm.userData.id == message.user_id" class="chat-message right chatting_section">
         <img class="message-avatar" src="images/user.jpg" alt="user" class="img-responsive">
         <div class="message message_section pull-right">
           <div class="right_arrow_box"></div>
           <div class="message-content">
-            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.</p>
+            <p>{{message.body}}</p>
           </div>
         </div>
         <div class="chating_box12">
-          <span class=""> Yesterday at 11:09PM </span>
+          <span class=""> {{message.created_at | date : "mediumDate"}} </span>
         </div>
       </div>
-      <div class="new_message_box text-center">
-        <strong>New Message</strong>
-      </div>
-      <div class="chat-message left">
-        <img class="message-avatar" src="images/user.jpg" alt="user" class="img-responsive">
-        <div class="message message_sect">
-          <div class="arrow_box"></div>
-          <div class="message-content">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elitsed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-        </div>
-        <div class="chating_box">
-          <span class="pull-left"> Yesterday at 11:09PM </span>
-        </div>
-      </div>
-      <div class="chat-message right chatting_section">
-        <img class="message-avatar" src="images/user.jpg" alt="user" class="img-responsive">
-        <div class="message message_section pull-right">
-          <div class="right_arrow_box"></div>
-                                                <span class="message-content">
-    											<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.</p>
-                                                </span>
-        </div>
-        <div class="chating_box12 pull-right">
-          <span class=""> Yesterday at 11:09PM </span>
-        </div>
+      <!--<div class="new_message_box text-center">-->
+        <!--<strong>New Message</strong>-->
+      <!--</div>-->
       </div>
     </div>
     <div class="chat-message-form form_chat">

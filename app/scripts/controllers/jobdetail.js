@@ -319,14 +319,14 @@ angular.module('servu')
           };
           bidService.acceptBid(vm.payment, $state.params.id, vm.bidId).then(function(res){
           if(res.status == 200){
-            toastr.success('Your bid has been accepted',{
+            toastr.success('You successfully accepted the bid',{
               closeButton: true,
               preventOpenDuplicates: true
             });
             vm.getJobDetail();
           }
           },function(err){
-            toastr.warning('Your bid has not been accepted',{
+            toastr.warning('You do not successfully accepted the bid',{
               closeButton: true,
               preventOpenDuplicates: true
             });
