@@ -84,10 +84,10 @@ angular
         }
         else{
           if(credentialService.authed && !$transition.$to().self.hasOwnProperty("data")){
-            $location.path($transition.$from().self.url);
+            $state.go($transition.$from().self.name);
           }
           else if (!credentialService.authed && !$transition.$to().self.hasOwnProperty("data")) {
-            $location.path($transition.$to().self.url);
+            $state.go($transition.$to().self.name);
           }
           else if (!credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
             $state.go("home.login");

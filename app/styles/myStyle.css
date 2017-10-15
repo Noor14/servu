@@ -979,7 +979,7 @@ color:#86ca2d;
 }
 .userProfile .tab-content{
   height: calc(100vh - 120px);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .jobDetailpage .widget-job-awarded{
