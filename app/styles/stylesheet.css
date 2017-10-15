@@ -690,7 +690,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .chat-discussion {
   height: calc(100vh - 285px);
   padding: 6px 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .message_btn {
   float: right;
@@ -736,7 +736,7 @@ h1 { font-size: 1.5em; margin: 10px; }
   background-color: #fff;
   border-right: 1px solid #e1e1e1;
   height: calc(100vh - 70px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 
