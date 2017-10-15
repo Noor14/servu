@@ -30,26 +30,6 @@ angular.module('servu')
       });
       return deffered.promise;
       };
-
-      vm.insertMessageCon = function(data, id){
-        var deffered = $q.defer();
-        var obj={
-          method:'POST',
-          headers : header.userAuth,
-          url: host + "conversations/"+id +"/messages",
-          data : data,
-          params:{
-            id: id
-          }
-        };
-      $http(obj).then(function(res){
-        deffered.resolve(res);
-      },function(err){
-        deffered.reject(err);
-      });
-      return deffered.promise;
-    };
-
     vm.allMessages = function(id, page, time){
       var deffered = $q.defer();
       var obj = {
@@ -67,7 +47,24 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-
+    vm.insertMessageCon = function(data, id){
+      var deffered = $q.defer();
+      var obj={
+        method:'POST',
+        headers : header.userAuth,
+        url: host + "conversations/"+id +"/messages",
+        data : data,
+        params:{
+          id: id
+        }
+      };
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      },function(err){
+        deffered.reject(err);
+      });
+      return deffered.promise;
+    };
     vm.allConversation = function(page, time){
       var deffered = $q.defer();
       var obj = {

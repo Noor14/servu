@@ -57,7 +57,7 @@ margin-left: 20px;
   margin-right: 20px;
 }
 
-.jobList .myjob-image div{
+.jobList .myjob-image div, .userProfile .myjob-image div{
   padding-left: 0;
   padding-right: 0;
 }
@@ -67,16 +67,16 @@ margin-left: 20px;
   border-radius: 4px;
 
 }
-.jobList .myjob-image .titleDiv{
+.jobList .myjob-image .titleDiv, .userProfile .myjob-image .titleDiv{
   display: flex;
 }
-.jobList .myjob-image .titleDiv .picDiv, .jobList .myjob-image .titleDiv .picDiv img{
+.jobList .myjob-image .titleDiv .picDiv, .jobList .myjob-image .titleDiv .picDiv img, .userProfile .myjob-image .titleDiv .picDiv, .userProfile .myjob-image .titleDiv .picDiv img{
   width:40px;
 }
-.jobList .myjob-image div.padding{
+.jobList .myjob-image div.padding, .userProfile .myjob-image div.padding{
   padding-bottom: 10px;
 }
-.jobList .myjob-image div.padding h4, .jobList .myjob-image div.padding p{
+.jobList .myjob-image div.padding h4, .jobList .myjob-image div.padding p, .userProfile .myjob-image div.padding h4, .userProfile .myjob-image div.padding p{
   margin: 0px 0 3px 5px;
 }
 .jobList img.img-rounded{
@@ -279,14 +279,18 @@ align-items: center;
   margin-right: -10px;
   margin-left: -10px;
 }
+.userProfile .myjobs-list{
+  margin: 0;
+}
 .myjobs-list div.jobDiv{
   padding: 10px;
 }
-.jobList div.myjob-bg{
+.jobList div.myjob-bg, .userProfile div.myjob-bg{
   height: 250px;
 }
 .angular-input-stars > li, .angular-input-stars > li i.readonly{
   cursor: auto;
+  padding: 0 2px;
 }
 .angular-input-stars > li i.readonly:focus{
   outline: 0;
@@ -301,20 +305,20 @@ font-size: 30px;
 .reviewRate .angular-input-stars li i:focus{
   outline: 0;
 }
-.jobList div.myjob-bg img{
+.jobList div.myjob-bg img, .userProfile div.myjob-bg img{
   width: 100%;
   height: 100%;
 }
-.jobList div.myjob-image{
+.jobList div.myjob-image, .userProfile div.myjob-image{
   padding: 25px;
   display: flex;
   flex-direction: column;
 }
-.jobList h4{
+.jobList h4, .userProfile h4{
   color: black;
   margin: 10px 0 5px 0;
 }
-.jobList h4.status{
+.jobList h4.status, .userProfile h4.status{
   color: #46c049;
 }
 .jobList p{
@@ -961,12 +965,23 @@ i.bar{
   border: 1px solid #ddd;
   margin: 0;
 }
-.jobDetailpage .jobDetailtab .nav-tabs li.active a{
+.jobDetailpage .jobDetailtab .nav-tabs li.active a, .userProfile .tabs-container .nav-tabs li.active a{
   background-color: #b8cce8;
   color: #426fb6;
   margin: 0;
   border: 1px solid #426fb6;
 }
+.userProfile .tabs-container .count{
+  font-size: 24px;
+}
+.userProfile .fa-map-marker{
+color:#86ca2d;
+}
+.userProfile .tab-content{
+  height: calc(100vh - 120px);
+  overflow: auto;
+}
+
 .jobDetailpage .widget-job-awarded{
   display: flex;
   justify-content: space-between;

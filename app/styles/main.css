@@ -3481,6 +3481,7 @@ video {
 .wrapper-content {
   padding: 20px 10px 40px;
   overflow: hidden;
+  cursor: auto;
 }
 #page-wrapper {
   padding: 0 15px;
@@ -3630,6 +3631,7 @@ body.body-small .footer.fixed {
 /* GLOBAL  */
 .no-padding {
   padding: 0 !important;
+  cursor: auto;
 }
 .no-borders {
   border: none !important;

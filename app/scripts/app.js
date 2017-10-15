@@ -57,7 +57,7 @@ angular
             $state.go($transition.$from().self.name);
           }
           else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
-            $location.path($transition.$to().self.url);
+            $state.go($transition.$to().self.name);
           }
 
           else{
@@ -66,6 +66,7 @@ angular
               credentialService.authed = true;
               if($location.$$url == '/user/dashboard'){
               $state.go("user.joblist");
+
               }
             }
 
@@ -98,6 +99,7 @@ angular
 
 
     });
+
   }])
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'socialProvider', '$qProvider','uiGmapGoogleMapApiProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider, socialProvider, $qProvider, GoogleMapApiProviders) {
@@ -205,8 +207,8 @@ angular
         templateUrl: 'views/templates/profile.html',
         data: {
           authRequired: true
-        }
-        //controller: 'profileCtrl',
-        //controllerAs: 'vm'
+        },
+        controller: 'ProfileCtrl',
+        controllerAs: 'vm'
       });
   }]);

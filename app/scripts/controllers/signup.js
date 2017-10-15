@@ -12,6 +12,16 @@ angular.module('servu')
     function (credentialService, documentService, toastr, $state, ngDialog) {
     var vm = this;
     vm.user = {};
+      vm.serviceProvider = function(){
+        if(vm.provider){
+          vm.required = true;
+        }
+        else{
+          vm.required = false;
+          delete vm.user.company_name;
+        }
+      };
+
 
     vm.newAccount = function(){
 

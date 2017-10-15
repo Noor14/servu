@@ -8,7 +8,7 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('MessageCtrl',['$scope', 'ActionCableChannel', 'ActionCableSocketWrangler', 'messageService', '$rootScope', function ($scope, ActionCableChannel, ActionCableSocketWrangler, messageService, $rootScope) {
+  .controller('MessageCtrl',['$scope', 'ActionCableChannel','ActionCableController', 'ActionCableSocketWrangler', 'messageService', '$rootScope', function ($scope, ActionCableChannel,ActionCableController, ActionCableSocketWrangler, messageService, $rootScope) {
     var vm = this;
     vm.msg = {};
 
@@ -16,17 +16,25 @@ angular.module('servu')
     vm.userData = vm.accountInfo.data.user;
 
     vm.callback = function(message){
-      vm.conversations.push(message);
+      vm.messages.push(message);
     };
     var consumer = new ActionCableChannel("ConversationsChannel");
     ActionCableSocketWrangler.start();
-      consumer.subscribe(vm.callback).then(function(){
-        vm.message = function(){
-          consumer.send(vm.msg, 'receive');
-          vm.msg = {};
+    ActionCableController.actions.ping();
 
-        };
+    vm.status = ActionCableSocketWrangler.connected;
+      consumer.subscribe(vm.callback).then(function(){
+
+          vm.message = function(){
+            consumer.send(vm.msg, 'receive');
+            console.log(vm.msg);
+            vm.msg = {};
+          };
     });
+    $scope.$on("$destroy", function(){
+      consumer.unsubscribe().then(function(){ vm.message = undefined; });
+    });
+
 
 
 
@@ -51,7 +59,7 @@ angular.module('servu')
         if(res.status == 200){
           console.log(res);
           vm.chatLoader = false;
-          vm.messages = res.data.messages;
+          vm.messages = res.data.messages.reverse();
 
         }
       },function(err){

@@ -141,10 +141,11 @@ h2{
   display: inline-block;
 }
 .nav-tabs li a {
-  border: 2px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
   color: #000;
   background-color: #fff;
   border-radius: 0;
+  margin: 0;
 }
 .tabs-container .nav-tabs > li a:hover {
   color: #426fb6;
@@ -450,7 +451,6 @@ h1 { font-size: 1.5em; margin: 10px; }
 .profile_img img {
   width: 350px;
   height: 350px;
-  border-radius: 8px;
   margin: 0 auto;
 }
 .profile_img {
@@ -464,7 +464,7 @@ h1 { font-size: 1.5em; margin: 10px; }
   float: none;
 }
 .review_sect{
-  overflow: hidden;
+  display: flex;
   padding: 10px 10px;
   border-bottom: 1px solid #e1e1e1;
 }
@@ -473,32 +473,35 @@ h1 { font-size: 1.5em; margin: 10px; }
   padding: 10px 10px;
 }
 .review_sect img {
-  width: 50px;
-  height: 50px;
-  padding-right: 5px;
-  border-radius: 12px;
-  float: left;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
   margin: 0 10px;
 }
 .review_box {
   float: left;
 }
 .review_time {
-  float: right;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .review_rating {
   float: none;
 }
 .review_time >span {
-  padding-left: 65px;
+  padding-right: 8px;
+  text-align: right;
 }
 .review_text {
   padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .profile_review {
   padding-bottom: 0 !important;
 }
+
 /***** Jobdetails *****/
 .tilte_control {
   border: 0;
@@ -652,7 +655,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 .chating_box12 {
   position: absolute;
-  right: 8%;
+  right: 6em;
   bottom: 0;
 }
 .message.message_sect {
