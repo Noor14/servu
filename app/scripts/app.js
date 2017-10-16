@@ -31,7 +31,6 @@ angular
   ])
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http', 'ActionCableConfig','cableUrl',
     function($transitions, $rootScope, credentialService, $state, $location, host,  $http, ActionCableConfig, cableUrl){
-
       $transitions.onStart({}, function($transition) {
       $rootScope.sidemenu='display-not';
       $rootScope.sidemenuHome='display-not';
@@ -58,7 +57,13 @@ angular
             $state.go($transition.$from().self.name);
           }
           else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
-            $state.go($transition.$to().self.name);
+
+            if($transition.$to().self.url == "/job-detail/:id"){
+              $location.path($transition.$to().self.url)
+            }
+            else{
+              $state.go($transition.$to().self.name);
+            }
           }
 
           else{

@@ -3,39 +3,7 @@
 <div  class="jobList">
 <div class="wrapper-content">
 
-  <div class="filterDiv col-md-3 animated" ng-class="vm.filterContainer" ng-if="vm.showfilter && !pageLoader">
-    <h3><span>STATUS</span> <i class="fa fa-angle-down"></i></h3>
-
-    <div class="filterMode">
-    <div class='form-group'>
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value=""> <span>All</span>
-    </div>
-      <div class='form-group'>
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Rejected by Admin"> <span>Rejected by Admin</span>
-      </div>
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="In Process"> <span>In Process</span>
-      </div>
-
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Awarded"> <span>Awarded</span>
-      </div>
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Started"> <span>Started</span>
-      </div>
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Completed"> <span>Completed</span>
-      </div>
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="In Dispute"> <span>In Dispute</span>
-      </div>
-      <div class="form-group">
-        <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Signed Off"> <span>Signed Off</span>
-      </div>
-
-    </div>
-
-  </div>
+  <filter-panel ></filter-panel>
 
   <div class="jobContent animated" ng-class="vm.jobContent">
   <div class="col-lg-12 wrapper white-bg page-heading"  ng-if="!pageLoader">

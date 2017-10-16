@@ -1,43 +1,6 @@
 <div id="homePage">
-  <div class="sideNav col-sm-4 col-lg-2 col-md-3" >
-    <nav class="navbar-default navbar-static-side" role="navigation" ng-class="sidemenuHome">
-      <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-          <li class="nav-header">
-            <div class="dropdown profile-element">
-              <div class="logo">
-                <img src="images/logo.png" alt="logo" class="img-responsive">
-              </div>
-            </div>
-          </li>
-          <li ng-class="vm.getClass('/user/dashboard')">
-            <a ui-sref="user.joblist"><i class="fa fa-briefcase" aria-hidden="true"></i>
-              <span ng-if="vm.userData.user_type == 1" class="nav-label">My Jobs</span>
-              <span ng-if="vm.userData.user_type == 2" class="nav-label">Jobs</span>
-            </a>
-          </li>
-          <li ng-class="vm.getClass('/user/messages')">
-            <a ui-sref="user.message"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-              <span class="nav-label">Messages</span> </a>
-          </li>
-          <li>
-            <a><i class="fa fa-bell" aria-hidden="true"></i>
-              <span class="nav-label">Notifications</span> </a>
-          </li>
-          <li ng-class="vm.getClass('/user/profile')">
-            <a ui-sref="user.profile"><i class="fa fa-user profileIcon" aria-hidden="true"></i>
-              <span class="nav-label">Profile</span> </a>
-          </li>
-          <li>
-            <a><i class="fa fa-cog profileIcon" aria-hidden="true"></i>
-              <span class="nav-label">Settings</span> </a>
-          </li>
-        </ul>
+  <side-nav-panel></side-nav-panel>
 
-      </div>
-    </nav>
-
-  </div>
 <div class="mainNav col-lg-10 col-md-9 col-sm-8 col-lg-offset-2 col-md-offset-3 col-sm-offset-4" ng-class="fullHeight" ng-click="vm.sidemenu($event, 'display-not')">
   <div class="navigation-bar">
     <nav class="navbar navbar-static-top" role="navigation">
@@ -72,11 +35,9 @@
 
     </nav>
   </div>
+  <setting-panel ng-class="vm.displayToggle"></setting-panel>
+  <div></div>
   <ui-view></ui-view>
-
-
-
-
 
   <!--<div class="footer">-->
   <!--<div>-->

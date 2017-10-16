@@ -16,6 +16,44 @@
   width: 38px !important;
   height: 40px;
 }
+#homePage .setting{
+  position: absolute;
+  z-index: 2000;
+  background-color: white;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+}
+#homePage .setting-close{
+  display: none;
+}
+#homePage .setting-open{
+  display: block;
+}
+#homePage .setting .panelHeading{
+  padding: 15px;
+  background-color: #edf5fa;
+  color: #8e8d8d;
+  border-bottom: 1px solid #b4b4b4;
+  border-top: 1px solid #b4b4b4;
+}
+#homePage .setting ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#homePage .setting ul li{
+  padding:15px;
+  border-bottom: 1px solid #b4b4b4;
+  display: flex;
+  justify-content: space-between;
+
+}
+#homePage .setting .panelHeading h3{
+  display: flex;
+  justify-content: space-between;
+}
 .mainNav a.filter{
   color: white;
   font-size:20px;
@@ -243,6 +281,7 @@ align-items: center;
 .mainNav{
   outline: 0;
   padding: 0;
+  cursor: auto;
   background-color: #f3f3f4;
 }
 .jobDetailpage{
@@ -308,6 +347,9 @@ font-size: 30px;
 .jobList div.myjob-bg img, .userProfile div.myjob-bg img{
   width: 100%;
   height: 100%;
+}
+.userProfile .tabs-container .nav-tabs .col-md-12 a{
+  padding: 20px 0;
 }
 .jobList div.myjob-image, .userProfile div.myjob-image{
   padding: 25px;

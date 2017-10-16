@@ -38,5 +38,18 @@ angular.module('servu')
         deffered.resolve(res);
       });
       return deffered.promise;
+    };
+    vm.getSetting = function(id, page, time){
+      var deffered = $q.defer();
+      var obj = {
+        url :  host + "/users/get_settings",
+        method : "GET",
+        headers: header.userAuth
+
+      };
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      });
+      return deffered.promise;
     }
   }]);

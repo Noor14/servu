@@ -68,13 +68,8 @@ angular.module('servu')
         }
         else{
           vm.filterContainer = "fadeInUp";
-          $timeout(function(){
             vm.jobContent="fadeInRight";
             vm.jobsCard = "col-lg-4"
-
-          },1200)
-
-
         }
 
       });

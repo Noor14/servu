@@ -24,10 +24,10 @@
         <ul class="nav nav-tabs text-center">
           <li ng-if="vm.userData.user_type == 2" class="no-padding active" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-1" aria-expanded="true"><strong class="count">{{vm.profile.total_review_count}}</strong><br><strong> Reviews</strong></a></li>
           <li ng-if="vm.userData.user_type == 2" class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-2" aria-expanded="false"><strong class="count">{{vm.profile.total_skill_count}}</strong><br> <strong>Skills</strong></a></li>
-          <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false"><strong class="count">{{vm.profile.total_jobs_completed + vm.profile.total_jobs_assigned}}</strong><br><strong>Jobs</strong></a></li>
+          <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false"><strong class="count" ng-if="vm.profile.user_type == 2">{{vm.profile.total_jobs_completed}} <br></strong><strong><span ng-if="vm.profile.user_type == 1">My </span>Jobs</strong></a></li>
         </ul>
         <div class="tab-content">
-          <div id="tab-1" class="tab-pane active">
+          <div id="tab-1" class="tab-pane" ng-class="vm.activeTabOne">
             <page-loader ng-if="vm.reviewLoader"></page-loader>
             <div class="panel-body profile_review" ng-repeat="review in vm.reviews">
               <div class="review_sect">
@@ -54,7 +54,8 @@
               </div>
             </div>
           </div>
-          <div id="tab-3" class="tab-pane myjobs-list">
+          <div id="tab-3" class="tab-pane myjobs-list" ng-class="vm.activeTabThree">
+            <page-loader ng-if="vm.JobLoader"></page-loader>
             <div class="jobDiv col-md-6 col-sm-6 col-xs-6" ng-repeat="jobs in vm.reviews">
                 <div class="list-holder">
                   <div class="myjob-image">
