@@ -25,6 +25,7 @@ angular
     'uiGmapgoogle-maps',
     'ngActionCable',
     'toastr',
+    'infinite-scroll',
     'socialLogin',
     'naif.base64'
   ])
