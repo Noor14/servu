@@ -43,7 +43,7 @@ angular
             client: userCredential.data.client,
             uid: userCredential.data.uid
           };
-          ActionCableConfig.wsUri = cableUrl+'?token='+userCredential.data.token+'&uid='+userCredential.data.uid+'&email='+userCredential.data.user.email;
+          ActionCableConfig.wsUri = cableUrl+'?uid='+userCredential.data.uid+'&client='+userCredential.data.client+'&token='+userCredential.data.token;
           ActionCableConfig.autoStart= false;
           ActionCableConfig.debug = true;
         }

@@ -53,7 +53,7 @@
       <form novalidate name="messageForm" ng-submit="vm.message()">
       <div class="form-group ">
         <textarea class="form-control message-input message-form_input" rows="5" required name="body" ng-model="vm.msg.body" placeholder="Type here...."></textarea>
-        <button type="submit" class="btn btn-w-m btn-primary message_btn" ng-disabled="!vm.status || messageForm.$invalid">Send</button>
+        <button type="submit" class="btn btn-w-m btn-primary message_btn" ng-disabled="messageForm.$invalid">Send</button>
       </div>
       </form>
     </div>

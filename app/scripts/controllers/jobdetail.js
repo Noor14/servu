@@ -292,6 +292,9 @@ angular.module('servu')
           vm.getJobDetail();
         });
       };
+      vm.gotoMessage = function(){
+        //$state.go('user.chatScreen',{id: $stateParams.id});
+      };
 
       vm.jobCode = function(){
            vm.startStatus = ngDialog.open({
