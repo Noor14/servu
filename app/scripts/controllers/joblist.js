@@ -12,6 +12,8 @@ angular.module('servu')
     function ($rootScope, jobListService, ngDialog, $state, $timeout) {
 
     var vm = this;
+      localStorage.removeItem('jobId');
+      localStorage.removeItem('conversation_id');
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       vm.userData = vm.accountInfo.data.user;
 

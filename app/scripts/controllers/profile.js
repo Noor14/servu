@@ -11,6 +11,8 @@ angular.module('servu')
   .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService', function (profileService, $rootScope, jobListService) {
     var vm = this;
     vm.current_time;
+    localStorage.removeItem('jobId');
+    localStorage.removeItem('conversation_id');
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     vm.status = [

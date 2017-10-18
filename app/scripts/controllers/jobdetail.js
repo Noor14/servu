@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', 'commentService', '$state', '$rootScope', 'toastr', '$stateParams','header', 'bidService',
-    function ($scope, ngDialog, jobListService, commentService, $state, $rootScope, toastr, $stateParams, header, bidService) {
+  .controller('JobDetailCtrl',['$scope', 'ngDialog', 'jobListService', 'messageService', 'commentService', '$state', '$rootScope', 'toastr', '$stateParams','header', 'bidService',
+    function ($scope, ngDialog, jobListService, messageService, commentService, $state, $rootScope, toastr, $stateParams, header, bidService) {
 
     var vm = this;
     vm.activeDetailTab = 'active';
@@ -293,7 +293,10 @@ angular.module('servu')
         });
       };
       vm.gotoMessage = function(){
-        //$state.go('user.chatScreen',{id: $stateParams.id});
+
+        localStorage.setItem('jobId',$state.params.id);
+        localStorage.setItem('conversation_id', vm.job.conversation_id);
+        $state.go('user.message');
       };
 
       vm.jobCode = function(){

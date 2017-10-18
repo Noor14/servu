@@ -737,8 +737,14 @@ h1 { font-size: 1.5em; margin: 10px; }
   border-right: 1px solid #e1e1e1;
   height: calc(100vh - 70px);
   overflow-y: auto;
+  display: none;
 }
-
+.con-display{
+  display: block;
+}
+.con-display-not{
+  display: none;
+}
 
 .message {
   border: 1px solid #e1e1e1;

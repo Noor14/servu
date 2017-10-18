@@ -11,7 +11,6 @@ angular.module('servu')
   .service('messageService',['$http', '$q', 'host', 'header', function ($http, $q, host, header) {
     var vm = this;
 
-
     vm.insertMessage = function(data, id){
       var deffered = $q.defer();
       var obj={

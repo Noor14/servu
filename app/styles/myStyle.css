@@ -25,7 +25,7 @@
   left: 0;
   overflow-y: auto;
 }
-#homePage .setting-close{
+#homePage .setting-close, #homePage .settingPanel{
   display: none;
 }
 #homePage .setting-open{
@@ -446,7 +446,7 @@ font-size: 30px;
   color: #fff;
 }
 .loginPage .loginDiv .socialLogin{
-  margin-top: 140px;
+  margin-top: 27%;
 }
 .socialIcons{
   display: flex;
@@ -637,10 +637,10 @@ i.bar{
   margin-top: 50px;
 }
 .contactPage .contactBtn{
-  margin: 120px 0;
+  margin: 25% 0;
 }
 .contactPage .contactDiv .contactForm .form-group{
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 .newsletterPage .bgImage{
   background-image: url("../images/newsletter-banner.png");

@@ -1,14 +1,15 @@
 <page-loader ng-if="pageLoader"></page-loader>
 
-<div class="row message-chat" ng-if="!pageLoader">
-  <div class="col-md-4 no-padding chat_section" >
-    <div class="chat_sect" ng-repeat="con in vm.conversations" ng-if="con.last_message.body"  ng-click="vm.openConversation(con.id,'', '')">
+<div class="row message-chat" ng-if="!pageLoader && vm.chatSection">
+  <div class="col-md-4 no-padding chat_section"  ng-class="vm.convlist">
+    <div class="chat_sect" ng-repeat="con in vm.conversations" ng-click="vm.openConversation(con.id,'', '')">
       <img ng-if = "!con.user.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
       <img ng-if = "con.user.pic_url" ng-src="{{con.user.pic_url}}" alt="user" class="img-responsive">
       <div class="chat_text">
         <div class="chat_box">
           <strong>{{con.user.name}}</strong><br>
-          <span>{{con.last_message.body}}</span>
+          <strong>{{con.job_title}}</strong><br>
+          <span>{{con.last_message.body || 'No recent messages'}}</span>
         </div>
         <div class="chat_time">
           <span>{{con.created_at | date : 'shortTime'}}</span>
@@ -16,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-8 no-padding">
+  <div ng-class="vm.chatbox" class="col-md-8 no-padding">
     <div class="chat-discussion">
       <page-loader ng-if="vm.chatLoader"></page-loader>
       <div ng-repeat="message in vm.messages" ng-if="!vm.chatLoader">
@@ -52,11 +53,13 @@
     <div class="chat-message-form form_chat">
       <form novalidate name="messageForm" ng-submit="vm.message()">
       <div class="form-group ">
-        <textarea class="form-control message-input message-form_input" rows="5" required name="body" ng-model="vm.msg.body" placeholder="Type here...."></textarea>
-        <button type="submit" class="btn btn-w-m btn-primary message_btn" ng-disabled="messageForm.$invalid">Send</button>
+        <textarea class="form-control message-input message-form_input" rows="5" required name="body" ng-model="vm.msg.body" placeholder="Type here...." ng-keyup="vm.send($event)"></textarea>
+        <button type="submit" class="btn btn-w-m btn-primary message_btn" ng-disabled="vm.status || messageForm.$invalid">Send</button>
       </div>
       </form>
     </div>
 
   </div>
 </div>
+
+<h2 class="text-center" ng-if="!pageLoader && !vm.chatSection">No conversation available</h2>
