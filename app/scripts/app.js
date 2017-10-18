@@ -115,7 +115,7 @@ angular
       GoogleMapApiProviders.configure({
         china: true
       });
-    //$locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/user/dashboard');
     $stateProvider

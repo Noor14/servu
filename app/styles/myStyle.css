@@ -527,7 +527,9 @@ i.bar{
   font-size: 20px;
   color: #c1c1c1;
   display: none;
-
+}
+.fa-close:focus, i.bar:focus{
+  outline:0
 }
 /*button.bar:active, button.bar:hover, button.bar:focus{*/
 /*box-shadow: none;*/
@@ -538,7 +540,7 @@ i.bar{
 /*color: #f1f1f1;*/
 /*}*/
 
-.sidenav .closebtn {
+.sidenav .closebtn{
   position: absolute;
   top: 0;
   right: 25px;
@@ -1151,7 +1153,7 @@ background-color: #426fb6;
 }
 
 @media screen and (max-width: 767px) {
-  .signupPage .bgImage, .contactPage .bgImage{
+  .signupPage .bgImage{
     height: 100% !important;
   }
 }
