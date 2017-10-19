@@ -961,7 +961,7 @@ i.bar{
   background-color: #e7eaec;
   border-color: #426fb6;
 }
-.Detail .location-message{
+.Detail .location-message, .profile-update .location-message{
   position: absolute;
   right: 9px;
   top: 9px;

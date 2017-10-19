@@ -91,9 +91,20 @@ angular.module('servu')
         }
       })
     }
-    
+
     $scope.updateProfile = function(){
       $scope.pageLoader = true;
+
+      if(!$scope.locationId && $scope.cityInfo){
+        getLocation($scope.locationObj);
+      }
+      else if($scope.locationId && $scope.cityInfo){
+        updateLocation($scope.locationId, $scope.locationObj)
+      }
+      update();
+
+    };
+    function update(){
       if($scope.location_id){
         $scope.obj.location_id = $scope.location_id;
       }
@@ -115,8 +126,7 @@ angular.module('servu')
         $scope.pageLoader = false;
         console.log(err)
       });
-
-    };
+    }
     function getCityId(){
       locationService.searchCity($scope.cityName).then(function(res){
         if(res.status == 200) {
@@ -126,23 +136,29 @@ angular.module('servu')
               return obj;
             }
           });
-          if (!$scope.cityInfo) {
-            $scope.cityInfo = res.data[0];
-          }
-          console.log($scope.cityInfo);
-          var locationObj = {
-            longitude: $scope.lon,
-            latitude: $scope.lat,
-            city_id: $scope.cityInfo.id,
-            country_id: $scope.cityInfo.country_id
-          };
           if (res.data.length) {
-            if(!$scope.locationId){
-            getLocation(locationObj);
+            if(!$scope.cityInfo){
+              $scope.cityInfo = res.data[0];
+              $scope.locationObj = {
+              longitude: $scope.lon,
+              latitude: $scope.lat,
+              city_id: $scope.cityInfo.id,
+              country_id: $scope.cityInfo.country_id
+            };
+              $scope.address = $scope.cityInfo.name + " Saudi Arabia";
+
             }
             else{
-              updateLocation($scope.locationId, locationObj)
+              $scope.locationObj = {
+                longitude: $scope.lon,
+                latitude: $scope.lat,
+                city_id: $scope.cityInfo.id,
+                country_id: $scope.cityInfo.country_id
+              };
+              $scope.address = $scope.cityInfo.name + " Saudi Arabia";
+
             }
+
           }
           else if(!res.data.length){
             $scope.message = "Please drag the marker and select the location only in Saudia Arabia";
@@ -160,7 +176,6 @@ angular.module('servu')
       locationService.addLocation(locationObj).then(function(res){
         console.log(res);
         if(res.status == 201){
-          $scope.address = res.data.city.name + " " + res.data.country.name;
           $scope.location_id = res.data.id;
           $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.location.latitude;
           $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.location.longitude;
@@ -171,8 +186,7 @@ angular.module('servu')
     }
     function updateLocation(id, locationObj){
       locationService.updateLocation(id, locationObj).then(function(res){
-        if(res.status==200){
-          $scope.address = res.data.city.name + " " + res.data.country.name;
+        if(res.status == 200){
           $scope.location_id = res.data.id;
           $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.location.latitude;
           $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.location.longitude;
