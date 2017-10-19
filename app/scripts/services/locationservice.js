@@ -27,6 +27,23 @@ angular.module('servu')
       });
       return deffered.promise;
     };
+
+    vm.updateLocation = function(id, data){
+      var deffered = $q.defer();
+      var obj={
+        method:'PUT',
+        headers : header.userAuth,
+        url: host + "/locations/"+id,
+        data : data
+      };
+
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      },function(err){
+        deffered.reject(err);
+      });
+      return deffered.promise;
+    };
     vm.searchCity = function(cityName){
       var deffered = $q.defer();
       var obj={

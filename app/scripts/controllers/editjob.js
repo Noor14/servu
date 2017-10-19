@@ -232,7 +232,7 @@ angular.module('servu')
     function addJobPhoto(pix){
       documentService.profileDoc({input:pix}).then(function(res){
         if(res.status == 201){
-          $scope.job.image_ids.push(res.data.id) ; //should be an array
+          $scope.job.image_ids.push(res.data.id);
           $scope.jobImages.push(res.data);
           console.log("res.data",res.data);
         }

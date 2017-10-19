@@ -706,6 +706,14 @@ i.bar{
   width:150px;
   height:150px;
 }
+.profile-update .profile-pic{
+  width: 215px;
+  height: 215px;
+  margin: 10px auto;
+}
+.profile-update .profile-pic img{
+  width:100%;
+}
 .signupPage .uploadPicture .btn-bs-file input[type="file"] {
   position: absolute;
   /*top: -9999999;/\*/
@@ -749,16 +757,17 @@ i.bar{
 }
 /*addjobpopup-----------------------*/
 
-.jobCategory, .biddingBox{
+.jobCategory, .biddingBox,.profile-update{
   margin: -15.4px;
 }
 .jobCategory .row{
   margin: 0;
 }
-.biddingBox .row{
+.biddingBox .row, .profile-update .row{
   margin: 0;
   padding: 15.4px;
 }
+
 .biddingBox button{
   background-color: #b8cce8;
   color: #426fb6;
@@ -781,7 +790,7 @@ i.bar{
   display: flex;
   padding: 15.4px;
 }
-.jobCategory .category h3, .biddingBox h3{
+.jobCategory .category h3, .biddingBox h3, .profile-update h3{
   padding: 15.4px;
   margin: 0;
 }
@@ -798,7 +807,7 @@ i.bar{
   justify-content: center;
   align-items: center;
 }
-.biddingBox hr{
+.biddingBox hr, .profile-update hr{
   margin: 0;
   border-top-color: #b7b7b7;
 }
@@ -862,7 +871,7 @@ i.bar{
   background-color: #fff !important;
 }
 
-.startjob .form-group input, .Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
+.profile-update .form-group input, .profile-update .form-group textarea, .startjob .form-group input, .Detail .form-group input, .Detail .form-group textarea, .biddingBox .form-group input, .biddingBox .form-group textarea{
   border: none;
   border-bottom: 1px solid #e5e6e7;
 }
@@ -964,7 +973,7 @@ i.bar{
 .Detail .form-group ::-webkit-input-placeholder, .biddingBox .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
-.jobDetailpage .form-group ::-webkit-input-placeholder, .startjob .form-group ::-webkit-input-placeholder{
+.jobDetailpage .form-group ::-webkit-input-placeholder, .startjob .form-group ::-webkit-input-placeholder,.profile-update .form-group ::-webkit-input-placeholder{
   color: #444 !important;
 }
 .jobDetailpage .page-heading{

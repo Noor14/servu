@@ -195,7 +195,6 @@ angular.module('servu')
     };
     $scope.gotoDetail = function(service){
       $scope.job.service_id = service.id;
-      $scope.className = "addjobPopup";
       $scope.step = 3;
       if($scope.step == 3){
      document.getElementsByClassName('ngdialog-content')[0].style.width = "850px";
