@@ -21,17 +21,16 @@ angular.module('servu')
       vm.messages.push(message);
     };
     function socket_connect(){
-    ActionCableSocketWrangler.start();
+      ActionCableSocketWrangler.start();
+
       consumer.subscribe(vm.callback).then(function(){
       vm.message = function(){
-        $rootScope.pageLoader = false;
         vm.msg.conversation_id = vm.conversation_id;
               consumer.send(vm.msg, 'receive');
             console.log(vm.msg);
             vm.msg = {};
           };
     });
-
       consumer.onConfirmSubscription(function(){
         console.log('subscribed');
         vm.chatLoader = $rootScope.pageLoader = false;

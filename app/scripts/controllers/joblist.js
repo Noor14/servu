@@ -8,10 +8,12 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state','$timeout',
-    function ($rootScope, jobListService, ngDialog, $state, $timeout) {
+  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state', 'ActionCableSocketWrangler', 'ActionCableWebsocket',
+    function ($rootScope, jobListService, ngDialog, $state, ActionCableSocketWrangler, ActionCableWebsocket) {
 
     var vm = this;
+      ActionCableWebsocket.unsubscribe("ConversationsChannel");
+      ActionCableSocketWrangler.stop();
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
