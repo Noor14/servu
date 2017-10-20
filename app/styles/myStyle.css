@@ -33,7 +33,7 @@
   display: block;
 }
 #homePage .setting .panelHeading{
-  padding: 15px;
+  padding:10px 15px;
   background-color: #edf5fa;
   color: #8e8d8d;
   border-bottom: 1px solid #b4b4b4;
@@ -51,8 +51,12 @@
   justify-content: space-between;
 
 }
+#homePage .setting .setting-update button{
+  margin: 10px 5px;
+}
 #homePage .setting .panelHeading h3{
   display: flex;
+  margin-top: 10px;
   justify-content: space-between;
 }
 .mainNav a.filter{
@@ -138,6 +142,33 @@ margin-left: 20px;
   visibility: visible;
   border: 2px solid #ccc;
 }
+.setting input[type='checkbox']:after{
+  width: 20px;
+  height: 20px;
+  top: -4px;
+  left: -4px;
+  position: relative;
+  background-color: #fff;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #ccc;
+}
+.setting input[type='checkbox']:checked:after{
+  width: 20px;
+  height: 20px;
+  top: -4px;
+  left: -4px;
+  position: relative;
+  background-image: url(../images/checked.png);
+  background-size: 15px 16px;
+  background-repeat: no-repeat;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #ccc;
+}
+
 .Detail .btn-bs-file{
   background-image: url(../images/plus.png);
   width: 75px;
@@ -278,6 +309,14 @@ align-items: center;
   width: 100%;
   height: 60vh;
   align-items: center;
+}
+.setting .settingLoader{
+ position: absolute;
+ width: 100%;
+}
+.setting .settingLoader .loader{
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 .dialogSpinner .loader{
   position: absolute;

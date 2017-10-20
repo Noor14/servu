@@ -52,12 +52,26 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-    vm.getSetting = function(id, page, time){
+    vm.getSetting = function(){
       var deffered = $q.defer();
       var obj = {
         url :  host + "/users/get_settings",
         method : "GET",
         headers: header.userAuth
+
+      };
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      });
+      return deffered.promise;
+    };
+    vm.updateSetting = function(obj){
+      var deffered = $q.defer();
+      var obj = {
+        url :  host + "/users/update_settings",
+        method : "PUT",
+        headers: header.userAuth,
+        data: obj
 
       };
       $http(obj).then(function(res){

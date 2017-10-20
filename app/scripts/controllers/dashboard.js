@@ -15,6 +15,11 @@ angular.module('servu')
       vm.toggle = false;
       vm.set_notify={};
       vm.set_email={};
+      $rootScope.$on('picChange', function(event, arg){
+        if(arg){
+          vm.userData.profile_pic = arg;
+        }
+      });
       vm.sidemenu = function(event, display){
         if(display == 'display'){
           event.stopPropagation();
@@ -22,12 +27,12 @@ angular.module('servu')
         }
         $rootScope.sidemenuHome = display;
       };
-
       vm.settingBox = function(){
-
       if($rootScope.displayToggle =='setting-close'){
         $rootScope.displayToggle = "setting-open";
+        vm.loadSetting = true;
         profileService.getSetting().then(function(res){
+          vm.loadSetting = false;
           if(res.status == 200){
             if(!res.data.job_status || res.data.job_status == 1){
                vm.set_email.jobStatus = true;
@@ -60,10 +65,11 @@ angular.module('servu')
         })
         }
         else if($rootScope.displayToggle == "setting-open"){
-        $rootScope.displayToggle ='setting-close'
-        }
-      };
+        $rootScope.displayToggle ='setting-close';
+        vm.loadSetting = false;
 
+      }
+      };
       vm.logout = function(){
       var obj = {
         token: vm.accountInfo.data.token,
@@ -87,30 +93,87 @@ angular.module('servu')
         }
       });
     };
-    vm.getClass = function (path) {
+      vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
-
       vm.search = function(arg){
       $rootScope.$broadcast('searchFilter', arg);
       };
-
-      $rootScope.$on('picChange', function(event, arg){
-        if(arg){
-          vm.userData.profile_pic = arg;
-        }
-      });
-
+      vm.updateSetting = function(){
+        vm.obj = {};
+        vm.loadSetting = true;
+        updateFeature();
+        profileService.updateSetting(vm.obj).then(function(res){
+          if(res.status == 200){
+            vm.loadSetting = false;
+            $rootScope.displayToggle ='setting-close';
+            toastr.success("Update user setting");
+          }
+        },function(err){
+          console.log(err);
+          vm.loadSetting = false;
+        })
+      };
       vm.filter = function(){
         vm.toggle = !vm.toggle;
         $rootScope.$broadcast('filterScope', vm.toggle);
       };
-    function init(){
+      function init(){
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       header.authorize(vm.accountInfo);
       vm.id = vm.accountInfo.data.user.id;
       getProfile()
     }
+      function updateFeature(){
+        if(vm.set_email.jobStatus && vm.set_notify.jobStatus){
+          vm.obj.job_status = 0
+        }
+        if(vm.set_email.jobStatus && !vm.set_notify.jobStatus){
+          vm.obj.job_status = 1
+        }
+        if(!vm.set_email.jobStatus && vm.set_notify.jobStatus){
+          vm.obj.job_status = 2
+        }
+        if(!vm.set_email.jobStatus && !vm.set_notify.jobStatus){
+          vm.obj.job_status = 3
+        }
+        if(vm.set_email.related_jobs && vm.set_notify.related_jobs){
+          vm.obj.related_jobs = 0
+        }
+        if(vm.set_email.related_jobs && !vm.set_notify.related_jobs){
+          vm.obj.related_jobs = 1
+        }
+        if(!vm.set_email.related_jobs && vm.set_notify.related_jobs){
+          vm.obj.related_jobs = 2
+        }
+        if(!vm.set_email.related_jobs && !vm.set_notify.related_jobs){
+          vm.obj.related_jobs = 3
+        }
+        if(vm.set_email.new_review && vm.set_notify.new_review){
+          vm.obj.new_review = 0
+        }
+        if(vm.set_email.new_review && !vm.set_notify.new_review){
+          vm.obj.new_review = 1
+        }
+        if(!vm.set_email.new_review && vm.set_notify.new_review){
+          vm.obj.new_review = 2
+        }
+        if(!vm.set_email.new_review && !vm.set_notify.new_review){
+          vm.obj.new_review = 3
+        }
+        if(vm.set_email.new_message && vm.set_notify.new_message){
+          vm.obj.new_message = 0
+        }
+        if(vm.set_email.new_message && !vm.set_notify.new_message){
+          vm.obj.new_message = 1
+        }
+        if(!vm.set_email.new_message && vm.set_notify.new_message){
+          vm.obj.new_message = 2
+        }
+        if(!vm.set_email.new_message && !vm.set_notify.new_message){
+          vm.obj.new_message = 3
+        }
+      }
       function getProfile(){
         profileService.getProfile(vm.id).then(function(res){
           if(res.status == 200){
