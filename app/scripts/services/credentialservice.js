@@ -147,7 +147,7 @@ angular.module('servu')
         url: host + "/auth/confirm_phone",
         method: "PUT",
         headers: headers,
-        data : info.pin_code
+        data : {pin_code: info.pin_code}
       };
       $http(obj).then(function(res){
         deffered.resolve(res);

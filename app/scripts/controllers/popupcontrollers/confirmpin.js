@@ -18,11 +18,12 @@ angular.module('servu')
           if(response.status == 200){
             $scope.pinEntered = false;
             credentialService.authed = true;
+            user_info.user.phone_confirmed = true;
             $scope.closeThisDialog();
             //vm.user = {};
-            if(response.data.user.user_type < 3){
+            if(user_info.user.user_type < 3){
               credentialService.authed = true;
-              localStorage.setItem("userDetail",JSON.stringify(response.config));
+              localStorage.setItem("userDetail",JSON.stringify(user_info));
               toastr.success('Your account has been created',{
                 closeButton: true,
                 preventOpenDuplicates: true
