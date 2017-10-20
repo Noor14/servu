@@ -8,7 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('editProfileCtrl',['$scope','locationService', 'profileService','toastr', function ($scope, locationService, profileService,toastr) {
+  .controller('editProfileCtrl',['$scope','locationService','documentService', 'profileService','toastr',
+    function ($scope, locationService, documentService, profileService,toastr) {
 
     $scope.obj={};
     $scope.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -79,6 +80,7 @@ angular.module('servu')
     function getProfile(id){
       profileService.getProfile(id).then(function(res){
         if(res.status==200){
+          $scope.picture = res.data.profile_pic.url;
           $scope.obj.name = res.data.name;
           $scope.obj.phone = res.data.phone;
           $scope.obj.about = res.data.about;
@@ -91,7 +93,26 @@ angular.module('servu')
         }
       })
     }
+    $scope.$watch('photo', function(newValue, oldValue){
+      console.log(oldValue,'oldValue');
+      console.log(newValue,'newValue');
 
+      if(newValue != undefined){
+          var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
+          addJobPhoto(pix);
+      }
+    });
+    function addJobPhoto(pix){
+      documentService.profileDoc({input:pix}).then(function(res){
+        if(res.status == 201){
+          $scope.profile_pic_id = res.data.id;
+          $scope.picture = res.data.url;
+        }
+      },function(err){
+        $scope.jobLoader = false;
+        console.log(err);
+      })
+    }
     $scope.updateProfile = function(){
       $scope.pageLoader = true;
 

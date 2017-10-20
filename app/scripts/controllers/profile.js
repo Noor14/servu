@@ -10,9 +10,6 @@
 angular.module('servu')
   .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService','ngDialog', function (profileService, $rootScope, jobListService, ngDialog) {
     var vm = this;
-      ActionCableWebsocket.unsubscribe("ConversationsChannel");
-      ActionCableSocketWrangler.stop();
-
     vm.current_time;
     localStorage.removeItem('jobId');
     localStorage.removeItem('conversation_id');

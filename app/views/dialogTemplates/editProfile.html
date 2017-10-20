@@ -7,7 +7,13 @@
   <div class="row">
   <form ng-submit="updateProfile()" name="updateForm" novalidate>
 
-    <div class="profile-pic"><img src="images/user.jpg" alt="profile-pc" class="img-circle"></div>
+    <div class="profile-pic">
+      <label class="btn-bs-file btn btn-lg">
+        <input type="file" name="pic" class="form-control" placeholder="Photo" base-sixty-four-input accept="image/*" ng-model="photo">
+      </label>
+      <img ng-if="!picture" src="images/no-image.jpg" alt="pic" class="img-responsive" />
+      <img ng-if="picture" ng-src="{{picture}}" alt="pic" class="img-responsive" />
+    </div>
     <div class="form-group">
       <input type="text" class="form-control" name="name" required ng-model="obj.name" placeholder="Name" readonly>
     </div>

@@ -8,12 +8,11 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state', 'ActionCableSocketWrangler', 'ActionCableWebsocket',
-    function ($rootScope, jobListService, ngDialog, $state, ActionCableSocketWrangler, ActionCableWebsocket) {
+  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state',
+    function ($rootScope, jobListService, ngDialog, $state) {
 
     var vm = this;
-      ActionCableWebsocket.unsubscribe("ConversationsChannel");
-      ActionCableSocketWrangler.stop();
+
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -78,8 +77,13 @@ angular.module('servu')
 
       });
 
+      $rootScope.$on('searchFilter', function(events, args){
+        vm.filter = args;
+      });
 
-    vm.current_time;
+
+
+      vm.current_time;
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';

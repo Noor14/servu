@@ -25,11 +25,12 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 titleDiv">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 picDiv">
-                  <img ng-if="!job.user.pic_url" src="images/user.jpg" class="img-rounded">
-                  <img ng-if="job.user.pic_url" ng-src="{{job.user.pic_url}}" class="img-rounded">
+                  <img ng-if="job.user.profile_pic" ng-src="{{job.user.profile_pic.url}}" class="img-rounded">
+                  <img ng-if="!job.user.profile_pic && job.user.pic_url" ng-src="{{job.user.pic_url}}" class="img-rounded">
+                  <img ng-if="!job.user.profile_pic && !job.user.pic_url" src="images/user.jpg" class="img-rounded">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                  <h4><span ng-bind="job.user.name | limitTo:13"></span><span ng-if="job.user.name.length > 13">...</span></h4>
+                  <h4><span ng-bind="job.user.name | limitTo:8"></span><span ng-if="job.user.name.length > 8">...</span></h4>
                   <p>{{job.location.city.name}}, {{job.location.country.name}}</p>
                 </div>
             </div>

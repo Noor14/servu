@@ -3,8 +3,10 @@
 <div class="row message-chat" ng-if="!pageLoader && vm.chatSection">
   <div class="col-md-4 no-padding chat_section"  ng-class="vm.convlist">
     <div class="chat_sect" ng-repeat="con in vm.conversations" ng-click="vm.openConversation(con.id,'', '')">
-      <img ng-if = "!con.user.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
-      <img ng-if = "con.user.pic_url" ng-src="{{con.user.pic_url}}" alt="user" class="img-responsive">
+      <img ng-if = "con.user.profile_pic" ng-src="{{con.user.profile_pic.url}}" alt="user" class="img-responsive">
+      <img ng-if = "!con.user.profile_pic && con.user.pic_url" ng-src="{{con.user.pic_url}}" alt="user" class="img-responsive">
+      <img ng-if = "!con.user.profile_pic && !con.user.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
+
       <div class="chat_text">
         <div class="chat_box">
           <strong>{{con.user.name}}</strong><br>

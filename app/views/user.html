@@ -14,7 +14,7 @@
         <a class="minimalize-styl-2 filter" ng-if="vm.getClass('/user/dashboard')" ng-click="vm.filter()">Filters <i class="fa fa-angle-down" ng-class="filterArrow"></i></a>
         <form role="search" class="navbar-form-custom">
           <div class="form-group search_icon">
-            <input type="text" placeholder="Search..." class="form-control" name="top-search" id="top-search">
+            <input type="text" placeholder="Search..." class="form-control" name="top-search" ng-model="vm.searchjob" ng-keyup="vm.search(vm.searchjob)" id="top-search">
           </div>
         </form>
       </div>
@@ -22,8 +22,9 @@
         <li>
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span ng-bind="vm.userData.name | limitTo:13"></span><span ng-if="vm.userData.name.length > 13">...</span>
-            <img ng-if="!vm.userData.pic_url" src="images/user.jpg" alt="user">
-            <img ng-if="vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
+            <img ng-if="vm.userData.profile_pic" ng-src="{{vm.userData.profile_pic.url}}" alt="user">
+            <img ng-if="!vm.userData.profile_pic && vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
+            <img ng-if="!vm.userData.profile_pic && !vm.userData.pic_url" src="images/user.jpg" alt="user">
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">

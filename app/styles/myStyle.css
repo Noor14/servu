@@ -110,6 +110,7 @@ margin-left: 20px;
 }
 .jobList .myjob-image .titleDiv .picDiv, .jobList .myjob-image .titleDiv .picDiv img, .userProfile .myjob-image .titleDiv .picDiv, .userProfile .myjob-image .titleDiv .picDiv img{
   width:40px;
+  height: 40px;
 }
 .jobList .myjob-image div.padding, .userProfile .myjob-image div.padding{
   padding-bottom: 10px;
@@ -144,7 +145,15 @@ margin-left: 20px;
   background-position: center;
   background-repeat: no-repeat;
 }
-.Detail .btn-bs-file:active{
+.profile-update .btn-bs-file{
+  background-image: url(../images/edit.png);
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+}
+.Detail .btn-bs-file:active, .profile-update .btn-bs-file:active{
   box-shadow: unset;
 }
 .Detail .pixContainer{
@@ -172,7 +181,7 @@ align-items: center;
   cursor: pointer;
 }
 
-.Detail .btn-bs-file input[type="file"] {
+.Detail .btn-bs-file input[type="file"]{
   position: absolute;
   /*top: -9999999;/\*/
   /*filter: alpha(opacity=0);*/
@@ -181,6 +190,16 @@ align-items: center;
   height: 0;
   outline: none;
   cursor: inherit;
+}
+.profile-update .btn-bs-file input[type="file"]{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  outline: none;
+  cursor: inherit;
+  right: 2px;
+  top:1px
 }
 .Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after{
   width: 20px;
@@ -704,18 +723,26 @@ i.bar{
   border-radius: 10px;
   padding: 0;
 }
+
 .signupPage .profile-pic{
   width:150px;
   height:150px;
 }
 .profile-update .profile-pic{
-  width: 215px;
-  height: 215px;
-  margin: 10px auto;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #b7b7b7;
+  border-radius: 100%;
+  margin: 5px auto;
+  position: relative;
 }
 .profile-update .profile-pic img{
-  width:100%;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+
 }
+
 .signupPage .uploadPicture .btn-bs-file input[type="file"] {
   position: absolute;
   /*top: -9999999;/\*/

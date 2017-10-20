@@ -142,10 +142,12 @@
               <div>
                 <h5 ng-if="vm.userData.user_type == 1" class="m-b-md">Awarded to</h5>
                 <h5 ng-if="vm.userData.user_type == 2" class="m-b-md">Posted By</h5>
-                <img ng-if="!vm.job.user.pic_url && vm.userData.user_type == 2" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
-                <img ng-if="vm.job.user.pic_url && vm.userData.user_type == 2" ng-src="{{vm.job.user.pic_url}}" alt="user" width="29px" height="29px" class="img">
-                <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && vm.job.accepted_bid.user.pic_url" ng-src="{{vm.job.accepted_bid.user.pic_url}}" alt="user" width="29px" height="29px" class="img">
-                <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && !vm.job.accepted_bid.user.pic_url" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="vm.job.user.profile_pic && vm.userData.user_type == 2" ng-src="{{vm.job.user.profile_pic.url}}" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="!vm.job.user.profile_pic && vm.job.user.pic_url && vm.userData.user_type == 2" ng-src="{{vm.job.user.pic_url}}" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="!vm.job.user.profile_pic && !vm.job.user.pic_url && vm.userData.user_type == 2" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && vm.job.accepted_bid.user.profile_pic" ng-src="{{vm.job.accepted_bid.user.profile_pic.url}}" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && !vm.job.accepted_bid.user.profile_pic && vm.job.accepted_bid.user.pic_url" ng-src="{{vm.job.accepted_bid.user.pic_url}}" alt="user" width="29px" height="29px" class="img">
+                <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && !vm.job.accepted_bid.user.profile_pic && !vm.job.accepted_bid.user.pic_url" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
                 <span ng-if="vm.userData.user_type == 2"><span ng-bind="vm.job.user.name | limitTo:13"></span></span><span ng-if="vm.userData.user_type == 2 && vm.job.user.name.length > 13">...</span>
                 <span ng-if="vm.userData.user_type == 1 && vm.job.status == 1">Job not awarded yet</span>
                 <span ng-if="vm.userData.user_type == 1 && vm.job.status > 1">{{vm.job.accepted_bid.user.name}}</span>

@@ -91,6 +91,12 @@ angular.module('servu')
     vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
+
+      vm.search = function(arg){
+      $rootScope.$broadcast('searchFilter', arg);
+      };
+
+
       vm.filter = function(){
         vm.toggle = !vm.toggle;
         $rootScope.$broadcast('filterScope', vm.toggle);
