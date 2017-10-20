@@ -23,7 +23,7 @@ angular.module('servu')
             //vm.user = {};
             if(user_info.user.user_type < 3){
               credentialService.authed = true;
-              localStorage.setItem("userDetail",JSON.stringify(user_info));
+              localStorage.setItem("userDetail",JSON.stringify({data: user_info}));
               toastr.success('Your account has been created',{
                 closeButton: true,
                 preventOpenDuplicates: true
