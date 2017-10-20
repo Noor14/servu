@@ -20,7 +20,7 @@
     </div>
   </div>
   <div ng-class="vm.chatbox" class="col-md-8 no-padding">
-    <div class="chat-discussion">
+    <div class="chat-discussion" scroll-glue="vm.glued">
       <page-loader ng-if="vm.chatLoader"></page-loader>
       <div ng-repeat="message in vm.messages" ng-if="!vm.chatLoader">
       <div ng-if="vm.userData.id != message.user_id" class="chat-message left">

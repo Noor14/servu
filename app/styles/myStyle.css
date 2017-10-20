@@ -23,6 +23,7 @@
   top: 70px;
   bottom: 0;
   left: 0;
+  box-shadow: 0 0 1px 1px #ccc;
   overflow-y: auto;
 }
 #homePage .setting-close, #homePage .settingPanel{
@@ -152,6 +153,9 @@ margin-left: 20px;
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
+}
+.profile-update .profilebtn{
+  margin-top: 20px;
 }
 .Detail .btn-bs-file:active, .profile-update .btn-bs-file:active{
   box-shadow: unset;

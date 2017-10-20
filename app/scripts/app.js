@@ -27,12 +27,14 @@ angular
     'toastr',
     'infinite-scroll',
     'socialLogin',
-    'naif.base64'
+    'naif.base64',
+    'luegg.directives'
   ])
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http', 'ActionCableConfig','cableUrl',
     function($transitions, $rootScope, credentialService, $state, $location, host,  $http, ActionCableConfig, cableUrl){
       $transitions.onStart({}, function($transition) {
-      $rootScope.sidemenu='display-not';
+        $rootScope.displayToggle = 'setting-close';
+        $rootScope.sidemenu='display-not';
       $rootScope.sidemenuHome='display-not';
       function checkLogin(){
         var userCredential = JSON.parse(localStorage.getItem("userDetail"));

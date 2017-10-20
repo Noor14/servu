@@ -135,6 +135,9 @@ angular.module('servu')
       profileService.updateProfile($scope.obj).then(function(res){
         if(res.status == 200){
           $scope.pageLoader = false;
+          $scope.PicChange = res.data.profile_pic;
+          $scope.$emit('picChange', $scope.PicChange);
+
           console.log(res);
           toastr.success('Profile has been updated',{
             closeButton: true

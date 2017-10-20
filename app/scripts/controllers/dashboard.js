@@ -13,7 +13,6 @@ angular.module('servu')
 
       var vm = this;
       vm.toggle = false;
-      vm.displayToggle = 'setting-close';
       vm.set_notify={};
       vm.set_email={};
       vm.sidemenu = function(event, display){
@@ -26,8 +25,8 @@ angular.module('servu')
 
       vm.settingBox = function(){
 
-      if(vm.displayToggle =='setting-close'){
-        vm.displayToggle = "setting-open";
+      if($rootScope.displayToggle =='setting-close'){
+        $rootScope.displayToggle = "setting-open";
         profileService.getSetting().then(function(res){
           if(res.status == 200){
             if(!res.data.job_status || res.data.job_status == 1){
@@ -60,8 +59,8 @@ angular.module('servu')
           console.log(err);
         })
         }
-        else if(vm.displayToggle == "setting-open"){
-        vm.displayToggle ='setting-close'
+        else if($rootScope.displayToggle == "setting-open"){
+        $rootScope.displayToggle ='setting-close'
         }
       };
 
@@ -96,6 +95,11 @@ angular.module('servu')
       $rootScope.$broadcast('searchFilter', arg);
       };
 
+      $rootScope.$on('picChange', function(event, arg){
+        if(arg){
+          vm.userData.profile_pic = arg;
+        }
+      });
 
       vm.filter = function(){
         vm.toggle = !vm.toggle;
@@ -104,8 +108,16 @@ angular.module('servu')
     function init(){
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       header.authorize(vm.accountInfo);
-      vm.userData = vm.accountInfo.data.user;
+      vm.id = vm.accountInfo.data.user.id;
+      getProfile()
     }
+      function getProfile(){
+        profileService.getProfile(vm.id).then(function(res){
+          if(res.status == 200){
+            vm.userData = res.data;
+          }
+        })
+      }
       init();
 
 

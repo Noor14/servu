@@ -28,9 +28,16 @@ angular.module('servu')
         vm.loading = false;
         if(res.status === 200){
           if(res.data.user.phone_confirmed){
-            credentialService.authed = true;
-            localStorage.setItem("userDetail",JSON.stringify(res));
-          $state.go("user.joblist");
+            if(res.data.user.user_type < 3){
+              credentialService.authed = true;
+              localStorage.setItem("userDetail",JSON.stringify(res));
+              $state.go("user.joblist");
+            }
+            else{
+              toastr.warning('Invalid login credential',{
+                closeButton: true
+              });
+            }
           }
           else if(!res.data.user.phone_confirmed){
             credentialService.resendPin(res.data).then(function(response){

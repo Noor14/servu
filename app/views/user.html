@@ -24,7 +24,7 @@
             <span ng-bind="vm.userData.name | limitTo:13"></span><span ng-if="vm.userData.name.length > 13">...</span>
             <img ng-if="vm.userData.profile_pic" ng-src="{{vm.userData.profile_pic.url}}" alt="user">
             <img ng-if="!vm.userData.profile_pic && vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
-            <img ng-if="!vm.userData.profile_pic && !vm.userData.pic_url" src="images/user.jpg" alt="user">
+            <img ng-if="!vm.userData.profile_pic && !vm.userData.pic_url && !pageLoader" src="images/user.jpg" alt="user">
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -36,7 +36,7 @@
 
     </nav>
   </div>
-  <setting-panel class="settingPanel" ng-class="vm.displayToggle"></setting-panel>
+  <setting-panel class="settingPanel" ng-class="displayToggle"></setting-panel>
   <div></div>
   <ui-view></ui-view>
 

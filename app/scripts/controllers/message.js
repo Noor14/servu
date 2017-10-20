@@ -13,6 +13,7 @@ angular.module('servu')
     var vm = this;
     vm.msg = {};
     vm.messages=[];
+    vm.glued = true;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     var consumer = new ActionCableChannel("ConversationsChannel");
