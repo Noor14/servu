@@ -292,6 +292,20 @@ angular.module('servu')
           vm.getJobDetail();
         });
       };
+
+      vm.viewImage = function(url){
+          ngDialog.open({
+          template: 'views/dialogTemplates/viewImage.html',
+          appendClassName: 'bidPopup',
+          controller: 'imgViewCtrl',
+          resolve:{
+            imageUrl : function(){
+              return url;
+            }
+          }
+        });
+      };
+
       vm.gotoMessage = function(){
 
         localStorage.setItem('jobId',$state.params.id);

@@ -154,6 +154,9 @@ margin-left: 20px;
   visibility: visible;
   border: 2px solid #ccc;
 }
+.image img.view{
+  margin: 0 auto;
+}
 .setting input[type='checkbox']:checked:after{
   width: 20px;
   height: 20px;

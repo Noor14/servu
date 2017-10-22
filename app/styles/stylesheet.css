@@ -285,6 +285,9 @@ border:1px solid #8b939a;
   overflow: hidden;
   cursor: pointer;
 }
+.panel_img li:focus{
+  outline: 0;
+}
 .panel_img li:after{
   position: absolute;
   left: 0;
@@ -601,12 +604,15 @@ h1 { font-size: 1.5em; margin: 10px; }
   position: relative;
 }
 .chat_text {
-  overflow: hidden;
-  padding: 10px 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
 }
 .chat_sect{
-  overflow: hidden;
-  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
   border-bottom: 1px solid #e1e1e1;
 }
 .chat_sect:focus{
@@ -614,21 +620,14 @@ h1 { font-size: 1.5em; margin: 10px; }
   outline: 0;
 }
 .chat_text {
-  overflow: hidden;
-  padding: 10px 10px;
+  padding: 10px;
 }
 .chat_sect img {
   width: 50px;
   height: 50px;
-  padding-right: 0px;
   border-radius: 12px;
-  float: left;
-  margin: 0 10px 0 0;
 }
-.chat_time {
-  float: right;
-  overflow: hidden;
-}
+
 .arrow_box::after, .arrow_box::before {
   border: medium solid transparent;
   color: #fff;

@@ -34,7 +34,7 @@
                   <div class="panel_media" ng-if="vm.job.images.length">
                     <h3>Media</h3>
                     <ul class="list-unstyled panel_img">
-                      <li ng-repeat="image in vm.job.images">
+                      <li ng-repeat="image in vm.job.images" ng-click="vm.viewImage(image.url)">
                         <a>
                           <img ng-src="{{image.url}}" alt="user" class="image">
                         </a>
