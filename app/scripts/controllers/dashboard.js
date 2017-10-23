@@ -15,9 +15,11 @@ angular.module('servu')
       vm.toggle = false;
       vm.set_notify={};
       vm.set_email={};
-      $rootScope.$on('picChange', function(event, arg){
+      $rootScope.$on('profileChange', function(event, arg){
         if(arg){
-          vm.userData.profile_pic = arg;
+          vm.userData.profile_pic = arg.profile_pic;
+          vm.userData.name = arg.name;
+
         }
       });
       vm.sidemenu = function(event, display){

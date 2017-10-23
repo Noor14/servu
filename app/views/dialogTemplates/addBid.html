@@ -6,7 +6,7 @@
   <div class="row">
     <form ng-submit="bidPlace()" name="bidForm" novalidate>
       <div class="form-group">
-        <input type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" name="budget" required ng-model="obj.budget" placeholder="Add Budget (AED) *" />
+        <input type="number" min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"  class="form-control" name="budget" required ng-model="obj.budget" placeholder="Add Budget (AED) *" />
       </div>
       <div class="form-group">
         <textarea class="form-control" name="description" rows="5" ng-model="obj.description" placeholder="Other Description"></textarea>

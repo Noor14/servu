@@ -595,12 +595,13 @@ h1 { font-size: 1.5em; margin: 10px; }
   margin: 0;
 }
 .message_section {
-  width: 50%;
+  width: max-content;
+  max-width: 50%;
   margin-right: 4px!important;
 
 }
 .chatting_section {
-  padding-bottom: 20px!important;
+  padding-bottom: 40px!important;
   position: relative;
 }
 .chat_text {
@@ -650,16 +651,17 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 .chating_box {
   float: left;
-  padding: 10px 0 0 72px;
+  padding: 10px 0 0 62px;
 }
 .chating_box12 {
   position: absolute;
   right: 6em;
-  bottom: 0;
+  bottom: 12px;
 }
 .message.message_sect {
   margin-left: 60px !important;
-  width: 50%;
+  width: max-content;
+  max-width: 50%;
 }
 .form_chat {
   padding: 25px!important;
@@ -729,6 +731,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 .chat-discussion p {
   text-align: left;
+  margin: 5px 0;
   overflow-wrap: break-word;
 }
 .chat_section {

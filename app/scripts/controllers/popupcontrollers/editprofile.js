@@ -80,10 +80,12 @@ angular.module('servu')
     function getProfile(id){
       profileService.getProfile(id).then(function(res){
         if(res.status==200){
-          $scope.picture = res.data.profile_pic.url;
           $scope.obj.name = res.data.name;
           $scope.obj.phone = res.data.phone;
           $scope.obj.about = res.data.about;
+          if(res.data.profile_pic){
+          $scope.picture = res.data.profile_pic.url;
+          }
           if(res.data.location.id){
             $scope.locationId = res.data.location.id;
             $scope.address = res.data.location.city.name+ " " + res.data.location.country.name;
@@ -136,7 +138,11 @@ angular.module('servu')
         if(res.status == 200){
           $scope.pageLoader = false;
           $scope.PicChange = res.data.profile_pic;
-          $scope.$emit('picChange', $scope.PicChange);
+          $scope.profileObj = {
+          name: res.data.name,
+          profile_pic: res.data.profile_pic
+          };
+          $scope.$emit('profileChange', $scope.profileObj);
 
           console.log(res);
           toastr.success('Profile has been updated',{

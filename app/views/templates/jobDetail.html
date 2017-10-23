@@ -52,7 +52,7 @@
                   <div class="panel_location">
                     <div class="locat_heading">
                       <h3>Location</h3>
-                      <span>Business Bay, Dubai</span>
+                      <span>{{vm.job.location.city.name + ", "+ vm.job.location.country.name }}</span>
                     </div>
                     <div id="map_canvas" class="location">
                       <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
