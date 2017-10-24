@@ -180,9 +180,7 @@ angular.module('servu')
                 country_id: $scope.cityInfo.country_id
               };
               $scope.address = $scope.cityInfo.name + " Saudi Arabia";
-
             }
-            updateLocation($scope.job.location.id , $scope.locationObj);
           }
           else if(!res.data.length){
             $scope.message = "Please drag the marker and select the location only in Saudia Arabia";

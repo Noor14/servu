@@ -156,7 +156,6 @@ angular.module('servu')
                 city_id: $scope.cityInfo.id,
                 country_id: $scope.cityInfo.country_id
               };
-              getLocation($scope.locationObj);
             }
           }
           else if(!res.data.length){
@@ -178,6 +177,7 @@ angular.module('servu')
           $scope.job.country = res.data.country.name;
           $scope.job.city = res.data.city.name;
           $scope.job.location_id = res.data.id;
+          addJobInfo();
         }
       },function(err){
         console.log(err);
@@ -269,10 +269,8 @@ angular.module('servu')
           $scope.jobLoader = false;
           return $scope.message;
     }
-       else if($scope.cityName && $scope.cityInfo && $scope.job.location_id){
-
-        addJobInfo();
-
+       else if($scope.cityName && $scope.cityInfo && !$scope.job.location_id){
+        getLocation($scope.locationObj);
       }
 
       };
