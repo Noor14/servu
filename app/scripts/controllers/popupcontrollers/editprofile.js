@@ -82,6 +82,7 @@ angular.module('servu')
         if(res.status==200){
           $scope.obj.name = res.data.name;
           $scope.obj.phone = res.data.phone;
+          $scope.obj.email = res.data.email;
           $scope.obj.about = res.data.about;
           if(res.data.profile_pic){
           $scope.picture = res.data.profile_pic.url;

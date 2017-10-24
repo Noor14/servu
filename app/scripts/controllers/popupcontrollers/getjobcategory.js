@@ -135,19 +135,30 @@ angular.module('servu')
               return obj;
             }
           });
-          if (!$scope.cityInfo) {
-            $scope.cityInfo = res.data[0];
-          }
-          console.log($scope.cityInfo);
-          var locationObj = {
-            longitude: $scope.lon,
-            latitude: $scope.lat,
-            city_id: $scope.cityInfo.id,
-            country_id: $scope.cityInfo.country_id
-          };
           if (res.data.length) {
-          getLocation(locationObj);
-        }
+            if (!$scope.cityInfo) {
+              $scope.cityInfo = res.data[0];
+              $scope.locationObj = {
+                longitude: $scope.lon,
+                latitude: $scope.lat,
+                street : $scope.job.address,
+                area: $scope.job.area,
+                city_id: $scope.cityInfo.id,
+                country_id: $scope.cityInfo.country_id
+              };
+            }
+            else {
+              $scope.locationObj = {
+                longitude: $scope.lon,
+                latitude: $scope.lat,
+                street : $scope.job.address,
+                area: $scope.job.area,
+                city_id: $scope.cityInfo.id,
+                country_id: $scope.cityInfo.country_id
+              };
+              getLocation($scope.locationObj);
+            }
+          }
           else if(!res.data.length){
             $scope.message = "Please drag the marker and select the location only in Saudia Arabia";
 

@@ -252,14 +252,18 @@ border:1px solid #8b939a;
   background-color: #86ca2d;
 }
 .widget_btn .btn-primary {
-  border-radius: 0;
   padding: 15px 10px;
   border-radius: 7px;
 }
-.widget_compl {
+.widget_complain{
   background-color: #e3bac6;
   color: #d23347;
   border-color: #d23347;
+}
+.widget_compl{
+  background-color: #c4e3ba;
+  color: #3c763d;
+  border-color: #3c763d;
 }
 .widget_revi {
   background-color: #b8cce8;

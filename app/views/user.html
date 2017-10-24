@@ -21,7 +21,7 @@
       <ul class="nav navbar-top-links pull-right">
         <li>
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span ng-bind="vm.userData.name | limitTo:13"></span><span ng-if="vm.userData.name.length > 13">...</span>
+            <span ng-bind="vm.userData.name | limitTo:8"></span><span ng-if="vm.userData.name.length > 8">...</span>
             <img ng-if="vm.userData.profile_pic" ng-src="{{vm.userData.profile_pic.url}}" alt="user">
             <img ng-if="!vm.userData.profile_pic && vm.userData.pic_url" ng-src="{{vm.userData.pic_url}}" alt="user">
             <img ng-if="!vm.userData.profile_pic && !vm.userData.pic_url && !pageLoader" src="images/user.jpg" alt="user">

@@ -13,7 +13,7 @@
         <textarea class="form-control" name="description" rows="5" ng-model="review.rating" placeholder="Write your review"></textarea>
       </div>
 
-        <button ng-if="!btn" class="btn btn-primary btn-block" type="submit" ng-disabled="reviewForm.$invalid">Submit</button>
+        <button ng-if="!btn" class="btn btn-primary btn-block" type="submit" ng-disabled="reviewForm.$invalid || pageLoader">Submit</button>
     </form>
     <button ng-if="btn" class="btn btn-primary btn-block" type="button" ng-disabled="!review.stars" ng-click="updateReview()">Update</button>
   </div>

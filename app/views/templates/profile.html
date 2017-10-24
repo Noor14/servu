@@ -35,8 +35,8 @@
                 <img ng-if="review.job.user.profile_pic && review.job.user.profile_pic.url" ng-src="{{review.job.user.profile_pic.url}}" alt="user" class="img-responsive">
                 <div class="review_text">
                   <div class="review_box">
-                    <strong>{{review.job.user.name}}</strong><br>
-                    <strong>{{review.job.title}}</strong><br>
+                    <strong><span>{{review.job.user.name | limitTo : 8}}</span> <span ng-if="review.job.user.name.length > 8 ">...</span></strong><br>
+                    <strong><span>{{review.job.title | limitTo : 40}}</span> <span ng-if="review.job.title.length > 40 ">...</span></strong><br>
                     <span>{{review.rating}}</span>
                   </div>
                   <div class="review_time">
@@ -67,7 +67,7 @@
                           <img ng-if="!jobs.job.user.profile_pic && !jobs.job.user.pic_url" src="images/user.jpg" class="img-rounded">
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                          <h4><span ng-bind="jobs.job.user.name | limitTo:8"></span><span ng-if="jobs.job.user.name.length > 8">...</span></h4>
+                          <h4><span ng-bind="jobs.job.user.name | limitTo : 8"></span><span ng-if="jobs.job.user.name.length > 8">...</span></h4>
                           <p>{{jobs.job.location.city.name}}, {{jobs.job.location.country.name}}</p>
                         </div>
                       </div>
@@ -83,7 +83,7 @@
                       <img ng-if="!jobs.job.images.length" ng-src="images/no-image.jpg" class="img-responsive" alt="job_image"/>
                     </div>
 
-                    <h4>{{jobs.job.title}}</h4>
+                    <h4><span ng-bind="jobs.job.title| limitTo : 40"></span><span ng-if="jobs.job.title.length > 40">...</span></h4>
                     <p>{{jobs.job.category.title}}</p>
 
                   </div>

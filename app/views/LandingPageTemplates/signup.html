@@ -27,7 +27,7 @@
 
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="form-group">
-                <input type="email" class="form-control" name="email" ng-model="vm.user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" aria-describedby="emailHelp" placeholder="Email">
+                <input type="email" required class="form-control" name="email" ng-model="vm.user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" aria-describedby="emailHelp" placeholder="Email *">
                 <p class="valid" ng-if="userForm.email.$dirty && userForm.email.$error.pattern">Please enter valid email</p>
                 <p class="valid" ng-if="vm.emailExist">{{vm.emailExist}}</p>
               </div>

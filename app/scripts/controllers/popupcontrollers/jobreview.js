@@ -36,6 +36,8 @@ angular.module('servu')
       })
     };
     $scope.updateReview = function(){
+
+      if(!$scope.pageLoader){
       $scope.pageLoader = true;
       jobListService.jobRatingUpdate($scope.review, $stateParams.id).then(function(res){
         if(res.status == 200){
@@ -51,5 +53,6 @@ angular.module('servu')
         $scope.pageLoader = false;
         console.log(err)
       })
+      }
     }
   }]);

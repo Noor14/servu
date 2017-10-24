@@ -9,8 +9,8 @@
 
       <div class="chat_text">
         <div class="chat_box">
-          <strong>{{con.user.name}}</strong><br>
-          <strong>{{con.job_title}}</strong><br>
+          <strong><span>{{con.user.name | limitTo:8}}</span> <span ng-if="con.user.name.length > 8">...</span></strong><br>
+          <strong><span>{{con.job_title | limitTo:20}}</span> <span ng-if="con.job_title.length > 20">...</span></strong><br>
           <span ng-bind="con.last_message.body | limitTo : 24"></span><span ng-if="con.last_message.body.length > 24"> ...</span>
           <span ng-if="!con.last_message.body">No recent messages</span>
         </div>

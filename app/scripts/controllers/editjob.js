@@ -13,6 +13,8 @@ angular.module('servu')
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.step = 3;
     $scope.job = JobDetail;
+    $scope.job.address = JobDetail.location.street;
+    $scope.job.area = JobDetail.location.area;
     $scope.job.city = JobDetail.location.city.name;
     $scope.job.country = JobDetail.location.country.name;
     $scope.job.category_id = JobDetail.category.id;
@@ -156,22 +158,34 @@ angular.module('servu')
               return obj;
             }
           });
-          if (!$scope.cityInfo) {
-            $scope.cityInfo = res.data[0];
-          }
-          console.log($scope.cityInfo);
-          var locationObj = {
-            longitude: $scope.lon,
-            latitude: $scope.lat,
-            city_id: $scope.cityInfo.id,
-            country_id: $scope.cityInfo.country_id
-          };
           if (res.data.length) {
-            getLocation(locationObj);
+            if(!$scope.cityInfo){
+              $scope.cityInfo = res.data[0];
+              $scope.locationObj = {
+                longitude: $scope.lon,
+                latitude: $scope.lat,
+                city_id: $scope.cityInfo.id,
+                street:$scope.job.address,
+                area: $scope.job.area,
+                country_id: $scope.cityInfo.country_id
+              };
+            }
+            else{
+              $scope.locationObj = {
+                longitude: $scope.lon,
+                latitude: $scope.lat,
+                city_id: $scope.cityInfo.id,
+                street:$scope.job.address,
+                area: $scope.job.area,
+                country_id: $scope.cityInfo.country_id
+              };
+              $scope.address = $scope.cityInfo.name + " Saudi Arabia";
+
+            }
+            updateLocation($scope.job.location.id , $scope.locationObj);
           }
           else if(!res.data.length){
             $scope.message = "Please drag the marker and select the location only in Saudia Arabia";
-
           }
         }
         else{
@@ -181,13 +195,14 @@ angular.module('servu')
         console.log(err);
       })
     }
-    function getLocation(locationObj){
-      locationService.addLocation(locationObj).then(function(res){
-        console.log(res);
-        if(res.status == 201){
+    function updateLocation(id, locationObj){
+      locationService.updateLocation(id, locationObj).then(function(res){
+        if(res.status == 200){
+          $scope.job.location_id = res.data.id;
           $scope.job.country = res.data.country.name;
           $scope.job.city = res.data.city.name;
-          $scope.job.location_id = res.data.id;
+          $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.location.latitude;
+          $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.location.longitude;
         }
       },function(err){
         console.log(err);
@@ -195,7 +210,7 @@ angular.module('servu')
     }
 
 
-    $scope.$watch('job.photo', function(newValue, oldValue, scope){
+    $scope.$watch('job.photo', function(newValue, oldValue){
       console.log(oldValue,'oldValue');
       console.log(newValue,'newValue');
 
@@ -209,24 +224,7 @@ angular.module('servu')
 
     $scope.updateJob = function() {
       $scope.jobLoader = true;
-      if(!$scope.lat && !$scope.lon){
-        $scope.jobLoader = false;
-        $scope.message = "Please drag the marker and select the location"
-      }
-      else if(!$scope.cityName){
-        $scope.jobLoader = false;
-        return $scope.message;
-      }
-      else if($scope.cityName && !$scope.cityInfo){
-        $scope.jobLoader = false;
-        return $scope.message;
-      }
-      else if($scope.cityName && $scope.cityInfo && $scope.job.location_id){
-
-          addJobInfo();
-
-      }
-
+        addJobInfo();
     };
 
     function addJobPhoto(pix){

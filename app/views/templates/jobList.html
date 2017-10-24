@@ -46,7 +46,7 @@
               <img ng-if="!job.images.length" ng-src="images/no-image.jpg" class="img-responsive" alt="job_image"/>
             </div>
 
-            <h4>{{job.title}}</h4>
+           <h4><span ng-bind="job.title| limitTo : 40"></span><span ng-if="job.title.length > 40">...</span></h4>
             <p>{{job.category.title}}</p>
 
           </div>
