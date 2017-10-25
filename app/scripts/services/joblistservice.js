@@ -37,7 +37,23 @@ angular.module('servu')
       });
       return deffered.promise;
     };
+      vm.myJobs = function(page, time){
+        var deffered = $q.defer();
+        var obj = {
+          url : host + "/jobs/my_jobs",
+          method : "GET",
+          headers: header.userAuth,
+          params : {
+            page : page,
+            timestamp: time
+          }
 
+        };
+        $http(obj).then(function(res){
+          deffered.resolve(res);
+        });
+        return deffered.promise;
+      };
       vm.addJob = function(data){
         var deffered = $q.defer();
         var obj = {

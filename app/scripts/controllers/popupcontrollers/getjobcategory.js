@@ -86,43 +86,10 @@ angular.module('servu')
             }
           });
 
-
-
-
-
-          //$scope.marker.options = {
-          //  draggable: true,
-          //  labelContent: "",
-          //  labelAnchor: "100 0",
-          //  labelClass: "marker-labels"
-          //};
         }
       }
     };
-    //$scope.$watchCollection("marker.coords", function(newVal, oldVal) {
-    //  $scope.map.center.latitude = $scope.marker.coords.latitude;
-    //  $scope.map.center.longitude = $scope.marker.coords.longitude;
-    //  if (_.isEqual(newVal, oldVal))
-    //    return;
-    //  $scope.coordsUpdates++;
-    //});
-    //$timeout(function() {
-    //  $scope.marker.coords = {
-    //    latitude: 56.162939,
-    //    longitude: 10.203921
-    //  };
-    //  $scope.dynamicMoveCtr++;
-    //  $timeout(function() {
-    //    $scope.marker.coords = {
-    //      latitude: 56.162939,
-    //      longitude: 10.203921
-    //    };
-    //    $scope.dynamicMoveCtr++;
-    //  }, 2000);
-    //}, 1000);
 
-
-    // map area above
 
 
 
@@ -142,21 +109,22 @@ angular.module('servu')
                 longitude: $scope.lon,
                 latitude: $scope.lat,
                 street : $scope.job.address,
-                area: $scope.job.area,
                 city_id: $scope.cityInfo.id,
                 country_id: $scope.cityInfo.country_id
               };
+              $scope.job.city = $scope.cityInfo.name;
             }
             else {
               $scope.locationObj = {
                 longitude: $scope.lon,
                 latitude: $scope.lat,
                 street : $scope.job.address,
-                area: $scope.job.area,
                 city_id: $scope.cityInfo.id,
                 country_id: $scope.cityInfo.country_id
               };
+              $scope.job.city = $scope.cityInfo.name;
             }
+            $scope.job.country = "Saudi Arabia";
           }
           else if(!res.data.length){
             $scope.message = "Please drag the marker and select the location only in Saudia Arabia";
@@ -174,8 +142,6 @@ angular.module('servu')
       locationService.addLocation(locationObj).then(function(res){
         console.log(res);
         if(res.status == 201){
-          $scope.job.country = res.data.country.name;
-          $scope.job.city = res.data.city.name;
           $scope.job.location_id = res.data.id;
           addJobInfo();
         }
@@ -242,14 +208,11 @@ angular.module('servu')
 
 
       $scope.$watch('job.photo', function(newValue, oldValue, scope){
-        console.log(oldValue,'oldValue');
         console.log(newValue,'newValue');
 
-        if(newValue != undefined && newValue.length <= 5 ){
-          angular.forEach(newValue, function(obj){
-            var pix = "data:" + obj.filetype + ";base64,"+ obj.base64;
-            addJobPhoto(pix);
-          })
+        if(newValue != undefined){
+          var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
+          addJobPhoto(pix);
         }
       });
 
@@ -270,6 +233,7 @@ angular.module('servu')
           return $scope.message;
     }
        else if($scope.cityName && $scope.cityInfo && !$scope.job.location_id){
+        $scope.locationObj.area = $scope.job.area;
         getLocation($scope.locationObj);
       }
 

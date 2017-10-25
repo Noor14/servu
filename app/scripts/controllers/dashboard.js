@@ -72,6 +72,27 @@ angular.module('servu')
 
       }
       };
+      vm.notifyBox = function(page, time){
+        if($rootScope.notifyToggle =='setting-close'){
+          $rootScope.notifyToggle = "setting-open";
+          vm.loadSetting = true;
+          profileService.getNotification(page, time).then(function(res){
+            vm.loadSetting = false;
+            if(res.status == 200){
+                  vm.notifications = res.data.notifications;
+
+            }
+          }, function(err){
+            console.log(err);
+          })
+        }
+        else if($rootScope.notifyToggle == "setting-open"){
+          $rootScope.notifyToggle ='setting-close';
+          vm.loadSetting = false;
+
+        }
+      };
+
       vm.logout = function(){
       var obj = {
         token: vm.accountInfo.data.token,

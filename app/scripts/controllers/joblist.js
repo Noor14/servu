@@ -17,9 +17,15 @@ angular.module('servu')
       localStorage.removeItem('conversation_id');
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       vm.userData = vm.accountInfo.data.user;
-
       vm.jobsCard = "col-lg-4";
+      if(vm.userData.user_type==1){
+        vm.jobHeading = 'My Jobs';
 
+      }
+      else if(vm.userData.user_type==2){
+        vm.jobHeading = 'All Jobs';
+
+      }
       vm.status = [
         {
           id:0,
@@ -56,9 +62,14 @@ angular.module('servu')
          var status= vm.status.find(function(obj){
            return obj.id === job.status;
         });
-
+        if (status.name != "In Process" && (vm.userData.id == job.user.id || job.accepted_bid.user.id == vm.userData.id))  {
         job.statusName = status.name;
         return status.name;
+        }
+        else if(status.name == "In Process") {
+          job.statusName = status.name;
+          return status.name;
+        }
       };
       $rootScope.$on('filterScope', function(events, args){
          vm.showfilter = args;

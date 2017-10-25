@@ -52,6 +52,24 @@ angular.module('servu')
       });
       return deffered.promise;
     };
+
+    vm.getNotification = function(page, time){
+      var deffered = $q.defer();
+      var obj = {
+        url :  host + "/notifications",
+        method : "GET",
+        headers: header.userAuth,
+        params : {
+          page : page,
+          timestamp: time
+        }
+
+      };
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      });
+      return deffered.promise;
+    };
     vm.getSetting = function(){
       var deffered = $q.defer();
       var obj = {

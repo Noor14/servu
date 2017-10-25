@@ -9,9 +9,14 @@
             </div>
           </div>
         </li>
-        <li ng-class="vm.getClass('/user/dashboard')">
+        <li  ng-if="vm.userData.user_type == 2" ng-class="vm.getClass('/user/dashboard')">
           <a ui-sref="user.joblist"><i class="fa fa-briefcase" aria-hidden="true"></i>
-            <span  class="nav-label"><span ng-if="vm.userData.user_type == 1">My </span>Jobs</span>
+            <span  class="nav-label">All Jobs</span>
+          </a>
+        </li>
+        <li ng-class="vm.getClass('/user/my-jobs')">
+          <a ui-sref="user.myjobs"><i class="fa fa-briefcase" aria-hidden="true"></i>
+            <span  class="nav-label">My Jobs</span>
           </a>
         </li>
         <li ng-class="vm.getClass('/user/messages')">
@@ -19,7 +24,7 @@
             <span class="nav-label">Messages</span> </a>
         </li>
         <li>
-          <a><i class="fa fa-bell" aria-hidden="true"></i>
+          <a ng-click="vm.notifyBox('','')"><i class="fa fa-bell" aria-hidden="true"></i>
             <span class="nav-label">Notifications</span> </a>
         </li>
         <li ng-class="vm.getClass('/user/profile')">

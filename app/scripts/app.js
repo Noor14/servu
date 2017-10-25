@@ -33,7 +33,7 @@ angular
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http', 'ActionCableConfig','cableUrl',
     function($transitions, $rootScope, credentialService, $state, $location, host,  $http, ActionCableConfig, cableUrl){
       $transitions.onStart({}, function($transition) {
-        $rootScope.displayToggle = 'setting-close';
+        $rootScope.notifyToggle = $rootScope.displayToggle = 'setting-close';
         $rootScope.sidemenu='display-not';
       $rootScope.sidemenuHome='display-not';
       function checkLogin(){
@@ -195,6 +195,15 @@ angular
         url:'/dashboard',
         templateUrl: 'views/templates/jobList.html',
         controller: 'jobListCtrl',
+        controllerAs: 'vm',
+        data: {
+          authRequired: true
+        }
+      })
+      .state('user.myjobs', {
+        url:'/my-jobs',
+        templateUrl: 'views/templates/jobList.html',
+        controller: 'myJobCtrl',
         controllerAs: 'vm',
         data: {
           authRequired: true

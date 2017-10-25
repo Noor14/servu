@@ -9,10 +9,9 @@
   <div class="col-lg-12 wrapper white-bg page-heading"  ng-if="!pageLoader">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 no-padding">
       <h3 ng-if="vm.userData.user_type == 1"><a class="text-bold createJob" ng-click="vm.addJob()"><i class="fa fa-plus" aria-hidden="true"></i> New Job</a></h3>
-      <h3 ng-if="vm.userData.user_type == 2"><a class="text-bold">Jobs</a></h3>
     </div>
     <div class="col-lg-6 col-lg-6 col-md-6 col-sm-6">
-      <h3>My Jobs</h3>
+      <h3>{{vm.jobHeading}}</h3>
     </div>
   </div>
 

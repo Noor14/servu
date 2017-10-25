@@ -1,0 +1,22 @@
+
+<div class="setting col-md-3 no-padding">
+
+  <page-loader ng-if="vm.loadSetting" class="settingLoader"></page-loader>
+
+  <div class="notificationList" ng-repeat="notify in vm.notifications">
+    <div class="notifyImg">
+      <div class="pixDiv">
+        <img ng-if = "notify.creator.profile_pic" ng-src="{{notify.creator.profile_pic.url}}" alt="user" class="img-responsive">
+        <img ng-if = "!notify.creator.profile_pic && notify.creator.pic_url" ng-src="{{notify.creator.pic_url}}" alt="user" class="img-responsive">
+        <img ng-if = "!notify.creator.profile_pic && !notify.creator.pic_url" src="images/user.jpg" alt="user" class="img-responsive">
+      </div>
+      <div class="notifyDetail">
+        <strong><span>{{notify.creator.name | limitTo : 8}}</span><span ng-if="notify.creator.name.length > 8"> ...</span></strong>
+        <strong><span>{{notify.job_title | limitTo : 40}}</span><span ng-if="notify.job_title.length > 40"> ...</span></strong>
+        <p>{{notify.message}}</p>
+      </div>
+    </div>
+    <div>{{notify.created_at | date : 'shortTime'}}</div>
+  </div>
+
+</div>
