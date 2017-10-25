@@ -3,7 +3,7 @@
 
   <page-loader ng-if="vm.loadSetting" class="settingLoader"></page-loader>
 
-  <div class="notificationList" ng-repeat="notify in vm.notifications">
+  <div class="notificationList" ng-repeat="notify in vm.notifications" ng-click= "vm.notifyDetail(notify)">
     <div class="notifyImg">
       <div class="pixDiv">
         <img ng-if = "notify.creator.profile_pic" ng-src="{{notify.creator.profile_pic.url}}" alt="user" class="img-responsive">

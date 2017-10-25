@@ -15,17 +15,14 @@ angular.module('servu')
 
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
+      localStorage.removeItem('notify_conversation_id');
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       vm.userData = vm.accountInfo.data.user;
       vm.jobsCard = "col-lg-4";
-      if(vm.userData.user_type==1){
-        vm.jobHeading = 'My Jobs';
+      vm.jobHeading = 'My Jobs';
+      vm.toggle = true;
 
-      }
-      else if(vm.userData.user_type==2){
-        vm.jobHeading = 'All Jobs';
 
-      }
       vm.status = [
         {
           id:0,
@@ -89,7 +86,9 @@ angular.module('servu')
       });
 
       $rootScope.$on('searchFilter', function(events, args){
-        vm.filter = args;
+        if(args)
+        vm.query = args;
+        vm.getJobs('', '');
       });
 
 
@@ -98,9 +97,12 @@ angular.module('servu')
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
-      jobListService.getJobList(page, time).then(function(res){
+      (!vm.query)?'':vm.query;
+      jobListService.getmyJobs(vm.query, page, time).then(function(res){
         console.log("res",res.data.jobs);
         $rootScope.pageLoader = false;
+        vm.toggle = true;
+        vm.jobHeading = 'My Jobs';
         $rootScope.fullHeight = '';
         if(!vm.current_time){
           vm.current_time = res.data.timestamp;
@@ -113,9 +115,37 @@ angular.module('servu')
         vm.jobs = res.data.jobs;
       });
     };
+
+      vm.getallJob = function(page, time){
+        $rootScope.pageLoader = true;
+        $rootScope.fullHeight = 'full-height';
+        jobListService.allJobs(page, time).then(function(res){
+          console.log("res",res.data.jobs);
+          $rootScope.pageLoader = vm.toggle = false;
+          vm.jobHeading = 'All Jobs';
+          $rootScope.fullHeight = '';
+          if(!vm.current_time){
+            vm.current_time = res.data.timestamp;
+          }
+          vm.pages = new Array(res.data.total_pages);
+          vm.page_no =  res.data.page;
+          vm.total_pages = res.data.total_pages;
+          vm.records = res.data.total_records;
+          vm.jobTime = res.data.timestamp;
+          vm.jobs = res.data.jobs;
+        });
+      };
+
     vm.navigate = function(page, time, disabled){
+      if(vm.toggle){
       if(disabled == 'true'){
         vm.getJobs(page, time);
+      }
+      }
+      if(!vm.toggle){
+        if(disabled == 'true'){
+          vm.getallJob(page, time);
+        }
       }
     };
 

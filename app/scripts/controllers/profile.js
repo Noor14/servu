@@ -13,6 +13,7 @@ angular.module('servu')
     vm.current_time;
     localStorage.removeItem('jobId');
     localStorage.removeItem('conversation_id');
+    localStorage.removeItem('notify_conversation_id');
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     vm.status = [

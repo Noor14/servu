@@ -200,15 +200,6 @@ angular
           authRequired: true
         }
       })
-      .state('user.myjobs', {
-        url:'/my-jobs',
-        templateUrl: 'views/templates/jobList.html',
-        controller: 'myJobCtrl',
-        controllerAs: 'vm',
-        data: {
-          authRequired: true
-        }
-      })
       .state('user.message', {
         url:'/messages',
         templateUrl: 'views/templates/message.html',

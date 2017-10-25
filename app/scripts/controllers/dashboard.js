@@ -119,9 +119,11 @@ angular.module('servu')
       vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
-      vm.search = function(arg){
-      $rootScope.$broadcast('searchFilter', arg);
-      };
+      $rootScope.$watch('vm.searchjob', function(oldvalue, newvalue){
+        if(newvalue){
+      $rootScope.$broadcast('searchFilter', vm.searchjob);
+        }
+    });
       vm.updateSetting = function(){
         vm.obj = {};
         vm.loadSetting = true;
@@ -141,6 +143,22 @@ angular.module('servu')
         vm.toggle = !vm.toggle;
         $rootScope.$broadcast('filterScope', vm.toggle);
       };
+
+      vm.notifyDetail = function(obj){
+        if(obj.notification_type < 11 && (obj.notification_type != 7 || obj.notification_type != 8)){
+        $state.go('user.jobDetail', {id: obj.resource_id});
+          $rootScope.notifyToggle ='setting-close';
+        }
+        if(obj.notification_type ==7){
+          $state.go('user.profile');
+          $rootScope.notifyToggle ='setting-close';
+        }
+        if(obj.notification_type ==8){
+          localStorage.setItem('notify_conversation_id', obj.resource_id);
+          $state.go('user.message');
+        }
+      };
+
       function init(){
       vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
       header.authorize(vm.accountInfo);

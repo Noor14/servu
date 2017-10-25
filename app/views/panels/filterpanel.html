@@ -1,31 +1,28 @@
 <div class="filterDiv col-md-3 animated" ng-class="vm.filterContainer" ng-if="vm.showfilter && !pageLoader">
   <h3><span>STATUS</span> <i class="fa fa-angle-down"></i></h3>
 
-  <div class="filterMode">
+  <div class="filterMode btn-group" ng-checked="vm.ge('','')">
     <div class='form-group'>
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value=""> <span>All</span>
-    </div>
-    <div class='form-group'>
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Rejected by Admin"> <span>Rejected by Admin</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="0"> <span>All</span>
     </div>
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="In Process"> <span>In Process</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="1"> <span>In Process</span>
     </div>
 
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Awarded"> <span>Awarded</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="2"> <span>Awarded</span>
     </div>
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Started"> <span>Started</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="3"> <span>Started</span>
     </div>
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Completed"> <span>Completed</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="4"> <span>Completed</span>
     </div>
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="In Dispute"> <span>In Dispute</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="5"> <span>In Dispute</span>
     </div>
     <div class="form-group">
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="Signed Off"> <span>Signed Off</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="6"> <span>Signed Off</span>
     </div>
 
   </div>

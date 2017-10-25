@@ -15,6 +15,7 @@ angular.module('servu')
     vm.messages=[];
     vm.glued = true;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
+    vm.notifyConvoId = localStorage.getItem('notify_conversation_id')
     vm.userData = vm.accountInfo.data.user;
     var consumer = new ActionCableChannel("ConversationsChannel");
 
@@ -100,7 +101,11 @@ angular.module('servu')
       }
 
     };
-
+    if(vm.notifyConvoId){
+      vm.convlist='con-display-not';
+      vm.chatbox = 'col-md-offset-2';
+      vm.openConversation(vm.notifyConvoId, '', '')
+    }
     vm.openConversation = function(id, page, time){
       vm.chatLoader = true;
       vm.conversation_id = id;
@@ -116,6 +121,9 @@ angular.module('servu')
         console.log(err)
       })
     };
+
+
+
 
 
     vm.conversationList('', '');

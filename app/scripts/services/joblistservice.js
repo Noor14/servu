@@ -13,22 +13,16 @@ angular.module('servu')
     var vm = this;
 
 
-    vm.getJobList = function(page, time){
+    vm.getmyJobs = function(query, page, time){
       var deffered = $q.defer();
-      if(header.userCredential.data.user.user_type == 1){
-        var url = host + "/jobs/my_jobs";
-      }
-      if(header.userCredential.data.user.user_type == 2){
-        var url = host + "/jobs";
-      }
-
       var obj = {
-        url : url ,
+        url : host + "/jobs/my_jobs" ,
         method : "GET",
         headers: header.userAuth,
         params : {
           page : page,
-          timestamp: time
+          timestamp: time,
+          query:query
         }
 
       };
@@ -37,10 +31,10 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-      vm.myJobs = function(page, time){
+      vm.allJobs = function(page, time){
         var deffered = $q.defer();
         var obj = {
-          url : host + "/jobs/my_jobs",
+          url : host + "/jobs",
           method : "GET",
           headers: header.userAuth,
           params : {
