@@ -218,7 +218,7 @@
                 <div class="col-md-12 widget_btn">
                   <button class="btn btn-primary btn-rounded btn-block widget_compl" ng-click="vm.gotoMessage()" ng-if="vm.job.status >= 2 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)">Go To Conversation</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && !vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.insertBid()">Bid</button>
-                  <button ng-if="vm.userData.user_type == 2 && vm.job.status == 1 && vm.job.my_bid" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
+                  <button ng-if="vm.userData.user_type == 2 && vm.job.my_bid && vm.job.accepted_bid.user.id != vm.userData.id" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.viewBid()">View Bid</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 2 && vm.job.accepted_bid.user.id == vm.userData.id" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.jobCode()">Start</button>
                   <button ng-if="vm.userData.user_type == 2 && vm.job.status == 3 && vm.job.accepted_bid.user.id == vm.userData.id" class="btn btn-primary btn-rounded btn-block widget_revi" ng-click="vm.JobCompleted()">Job Complete</button>
                   <button ng-if="vm.userData.user_type == 1 && vm.job.status == 4 && vm.userData.id == vm.job.user.id" class="btn btn-primary btn-rounded btn-block widget_complain" ng-click="vm.JobComplain()">File a Complaint</button>

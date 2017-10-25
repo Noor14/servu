@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('dashboardCtrl', ['$state', 'twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService','header','profileService',
-    function ($state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService, header, profileService) {
+  .controller('dashboardCtrl', ['$scope', '$state', 'twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService','header','profileService',
+    function ($scope, $state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService, header, profileService) {
 
       var vm = this;
       vm.toggle = false;
@@ -119,8 +119,8 @@ angular.module('servu')
       vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
-      $rootScope.$watch('searchjob', function(newValue, oldValue){
-        if(newValue){
+      $scope.$watch('vm.searchjob', function(newValue, oldValue){
+        if(newValue != undefined){
       $rootScope.$broadcast('searchFilter', newValue);
         }
     });

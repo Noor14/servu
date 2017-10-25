@@ -11,8 +11,8 @@ angular.module('servu')
   .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state',
     function ($rootScope, jobListService, ngDialog, $state) {
 
-    var vm = this;
-
+      var vm = this;
+      vm.current_time;
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
       localStorage.removeItem('notify_conversation_id');
@@ -86,14 +86,19 @@ angular.module('servu')
       });
 
       $rootScope.$on('searchFilter', function(events, args){
-        if(args)
         vm.query = args;
+        if(vm.toggle){
         vm.getJobs('', '');
+        }
+        else if(!vm.toggle){
+          vm.getallJob('','');
+        }
       });
 
+      vm.filteration = function(status){
+        console.log(status,"status");
+      };
 
-
-      vm.current_time;
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
@@ -119,7 +124,8 @@ angular.module('servu')
       vm.getallJob = function(page, time){
         $rootScope.pageLoader = true;
         $rootScope.fullHeight = 'full-height';
-        jobListService.allJobs(page, time).then(function(res){
+        (!vm.query)?'':vm.query;
+        jobListService.allJobs(vm.query,page, time).then(function(res){
           console.log("res",res.data.jobs);
           $rootScope.pageLoader = vm.toggle = false;
           vm.jobHeading = 'All Jobs';

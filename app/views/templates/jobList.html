@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                   <h4><span ng-bind="job.user.name | limitTo:8"></span><span ng-if="job.user.name.length > 8">...</span></h4>
-                  <p class="jobLocation">{{job.location.city.name}}, {{job.location.country.name}}</p>
+                  <p ng-init="location = job.location.city.name + ', '+job.location.country.name"><span>{{location | limitTo:20}}</span><span ng-if="location.length > 20">...</span></p>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

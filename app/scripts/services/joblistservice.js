@@ -31,7 +31,7 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-      vm.allJobs = function(page, time){
+      vm.allJobs = function(query, page, time){
         var deffered = $q.defer();
         var obj = {
           url : host + "/jobs",
@@ -39,7 +39,9 @@ angular.module('servu')
           headers: header.userAuth,
           params : {
             page : page,
-            timestamp: time
+            timestamp: time,
+            query: query
+
           }
 
         };
