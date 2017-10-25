@@ -119,9 +119,9 @@ angular.module('servu')
       vm.getClass = function (path) {
       return ($location.path() === path) ? 'active' : '';
     };
-      $rootScope.$watch('vm.searchjob', function(oldvalue, newvalue){
-        if(newvalue){
-      $rootScope.$broadcast('searchFilter', vm.searchjob);
+      $rootScope.$watch('searchjob', function(newValue, oldValue){
+        if(newValue){
+      $rootScope.$broadcast('searchFilter', newValue);
         }
     });
       vm.updateSetting = function(){
