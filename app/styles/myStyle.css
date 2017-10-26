@@ -367,11 +367,11 @@ span.rz-ceil{
   height: 60vh;
   align-items: center;
 }
-.setting .settingLoader{
+.setting .settingLoader, .jobList .advanceFilter .settingLoader{
  position: absolute;
  width: 100%;
 }
-.setting .settingLoader .loader{
+.setting .settingLoader .loader, .jobList .advanceFilter .settingLoader .loader{
   border: 1px solid #ccc;
   border-radius: 4px;
 }
