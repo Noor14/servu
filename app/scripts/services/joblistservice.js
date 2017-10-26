@@ -13,7 +13,7 @@ angular.module('servu')
     var vm = this;
 
 
-    vm.getmyJobs = function(query, page, time){
+    vm.getmyJobs = function(query, status, page, time){
       var deffered = $q.defer();
       var obj = {
         url : host + "/jobs/my_jobs" ,
@@ -22,7 +22,8 @@ angular.module('servu')
         params : {
           page : page,
           timestamp: time,
-          query:query
+          query:query,
+          status: status
         }
 
       };

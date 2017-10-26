@@ -15,7 +15,6 @@ angular.module('servu')
     vm.messages=[];
     vm.glued = true;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
-    vm.notifyConvoId = localStorage.getItem('notify_conversation_id')
     vm.userData = vm.accountInfo.data.user;
     var consumer = new ActionCableChannel("ConversationsChannel");
 
@@ -90,22 +89,23 @@ angular.module('servu')
     vm.conversationList = function(page, time){
       ActionCableSocketWrangler.stop();
       var id = localStorage.getItem('jobId');
-      if(!id){
+      var notifyConvoId = localStorage.getItem('notify_conversation_id')
+      if(!id && !notifyConvoId){
         vm.convlist = 'con-display';
         conversationList(page, time);
       }
-      else{
+      else if(id && !notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
         jobMessages(page, time);
       }
-
+      else if(!id && notifyConvoId){
+        vm.convlist='con-display-not';
+        vm.chatbox = 'col-md-offset-2';
+        vm.openConversation(vm.notifyConvoId, page, time)
+      }
     };
-    if(vm.notifyConvoId){
-      vm.convlist='con-display-not';
-      vm.chatbox = 'col-md-offset-2';
-      vm.openConversation(vm.notifyConvoId, '', '')
-    }
+
     vm.openConversation = function(id, page, time){
       vm.chatLoader = true;
       vm.conversation_id = id;

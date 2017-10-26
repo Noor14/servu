@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$rootScope', 'jobListService', 'ngDialog','$state',
-    function ($rootScope, jobListService, ngDialog, $state) {
+  .controller('jobListCtrl',['$scope', '$rootScope', 'jobListService', 'ngDialog','$state',
+    function ($scope, $rootScope, jobListService, ngDialog, $state) {
 
       var vm = this;
       vm.current_time;
@@ -59,7 +59,7 @@ angular.module('servu')
          var status= vm.status.find(function(obj){
            return obj.id === job.status;
         });
-        if (status.name != "In Process" && (vm.userData.id == job.user.id || job.accepted_bid.user.id == vm.userData.id))  {
+        if (status.name != "In Process" && (vm.userData.id == job.user.id || (job.accepted_bid && job.accepted_bid.user.id == vm.userData.id)))  {
         job.statusName = status.name;
         return status.name;
         }
@@ -67,6 +67,7 @@ angular.module('servu')
           job.statusName = status.name;
           return status.name;
         }
+
       };
       $rootScope.$on('filterScope', function(events, args){
          vm.showfilter = args;
@@ -74,14 +75,11 @@ angular.module('servu')
         if(vm.showfilter){
           vm.jobContent = "col-md-9 fadeInLeft";
           vm.jobsCard = "col-lg-6";
-          vm.filterContainer = "fadeInDown";
-
         }
         else{
-          vm.filterContainer = "fadeInUp";
             vm.jobContent="fadeInRight";
             vm.jobsCard = "col-lg-4"
-        }
+          }
 
       });
 
@@ -97,13 +95,25 @@ angular.module('servu')
 
       vm.filteration = function(status){
         console.log(status,"status");
+        vm.showfilter = false;
+        $scope.$emit('filterScope', vm.showfilter);
+        $rootScope.$emit('filterbtn', vm.showfilter);
+        if(status){
+        vm.jobStatus = Number(status);
+        }
+        else{
+          vm.jobStatus = status;
+
+        }
+        vm.getJobs('','')
       };
 
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
-      (!vm.query)?'':vm.query;
-      jobListService.getmyJobs(vm.query, page, time).then(function(res){
+      (!vm.query)?undefined:vm.query;
+      (!vm.jobStatus)?undefined:vm.jobStatus;
+      jobListService.getmyJobs(vm.query, vm.jobStatus, page, time).then(function(res){
         console.log("res",res.data.jobs);
         $rootScope.pageLoader = false;
         vm.toggle = true;

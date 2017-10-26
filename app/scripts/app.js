@@ -28,7 +28,8 @@ angular
     'infinite-scroll',
     'socialLogin',
     'naif.base64',
-    'luegg.directives'
+    'luegg.directives',
+    'rzModule'
   ])
   .run(['$transitions', '$rootScope', 'credentialService', '$state', '$location', 'host',  '$http', 'ActionCableConfig','cableUrl',
     function($transitions, $rootScope, credentialService, $state, $location, host,  $http, ActionCableConfig, cableUrl){

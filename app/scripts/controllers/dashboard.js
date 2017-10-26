@@ -143,6 +143,10 @@ angular.module('servu')
         vm.toggle = !vm.toggle;
         $rootScope.$broadcast('filterScope', vm.toggle);
       };
+      $rootScope.$on('filterbtn', function(event, arg){
+        vm.toggle=arg;
+      });
+
 
       vm.notifyDetail = function(obj){
         if(obj.notification_type < 11 && (obj.notification_type != 7 || obj.notification_type != 8)){

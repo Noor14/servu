@@ -393,6 +393,10 @@ align-items: center;
 .filterDiv{
   border-right:2px solid #ddd;
   border-bottom: 2px solid #ddd;
+  z-index: 1000
+}
+.filterfunction:focus{
+  outline: 0;
 }
 #homePage .full-height{
   height: 100vh;

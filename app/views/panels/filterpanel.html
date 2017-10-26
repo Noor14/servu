@@ -1,9 +1,13 @@
-<div class="filterDiv col-md-3 animated" ng-class="vm.filterContainer" ng-if="vm.showfilter && !pageLoader">
+<div class="filterDiv col-md-3">
   <h3><span>STATUS</span> <i class="fa fa-angle-down"></i></h3>
 
-  <div class="filterMode" ng-checked="vm.filteration(vm.filter)">
+  <div class="filterMode">
+    <div class="filterfunction" ng-click="vm.filteration(vm.filter)">
     <div class='form-group'>
-      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="0"> <span>All</span>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value=""> <span>All</span>
+    </div>
+      <div class='form-group'>
+      <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="0"> <span>Rejected by Admin</span>
     </div>
     <div class="form-group">
       <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="1"> <span>In Process</span>
@@ -24,7 +28,7 @@
     <div class="form-group">
       <input class=form-control" type="radio" name="filter" ng-model="vm.filter" value="6"> <span>Signed Off</span>
     </div>
-
+    </div>
   </div>
 
 </div>
