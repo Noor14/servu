@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$scope', '$rootScope', 'jobListService', 'ngDialog','$state',
-    function ($scope, $rootScope, jobListService, ngDialog, $state) {
+  .controller('jobListCtrl',['$scope','$timeout', '$rootScope', 'jobListService', 'jobCategory', 'ngDialog','$state',
+    function ($scope, $timeout, $rootScope, jobListService, jobCategory, ngDialog, $state) {
 
       var vm = this;
       vm.current_time;
@@ -21,8 +21,31 @@ angular.module('servu')
       vm.jobsCard = "col-lg-4";
       vm.jobHeading = 'My Jobs';
       vm.toggle = true;
+      vm.slider = {
+        minValue: 10,
+        maxValue: 4000,
+        options: {
+          floor: 0,
+          ceil: 5000,
+          step: 1,
+          noSwitching: true
+        }
+      };
+      vm.distance = {
+        value: 10,
+        options: {
+          floor: 0,
+          ceil: 1000,
+          step: 1
+        }
+      };
 
-
+      vm.refreshSlider = function () {
+        $timeout(function(){
+          $scope.$broadcast('rzSliderForceRender');
+        });
+      };
+      vm.refreshSlider();
       vm.status = [
         {
           id:0,
@@ -69,12 +92,22 @@ angular.module('servu')
         }
 
       };
+      function category(){
+        vm.filterLoader = true;
+        jobCategory.getjobCategory().then(function(res){
+          vm.filterLoader = false;
+          vm.filterCat = res.data.categories;
+        });
+      }
       $rootScope.$on('filterScope', function(events, args){
          vm.showfilter = args;
         $rootScope.filterArrow = args.toString();
         if(vm.showfilter){
           vm.jobContent = "col-md-9 fadeInLeft";
           vm.jobsCard = "col-lg-6";
+          if(vm.userData.user_type==2){
+            category();
+          }
         }
         else{
             vm.jobContent="fadeInRight";

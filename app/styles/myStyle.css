@@ -34,29 +34,38 @@
 #homePage .setting-open{
   display: block;
 }
-#homePage .setting .panelHeading{
+#homePage .setting .panelHeading, .jobList .advanceFilter .panelHeading{
   padding:10px 15px;
   background-color: #edf5fa;
   color: #8e8d8d;
   border-bottom: 1px solid #b4b4b4;
   border-top: 1px solid #b4b4b4;
 }
-#homePage .setting ul{
+#homePage .setting ul, .jobList .advanceFilter ul{
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-#homePage .setting ul li{
+#homePage .setting ul li, .jobList .advanceFilter ul li{
   padding:15px;
   border-bottom: 1px solid #b4b4b4;
   display: flex;
   justify-content: space-between;
 
 }
-#homePage .setting .setting-update button{
+.jobList .advanceFilter ul.sortfilter li{
+  justify-content: flex-start;
+}
+.jobList .advanceFilter ul.sortfilter li input{
+
+  margin-right: 15px;
+  margin-top: 0;
+}
+
+#homePage .setting .setting-update button, .jobList .advanceFilter .setting-update button{
   margin: 10px 5px;
 }
-#homePage .setting .panelHeading h3{
+#homePage .setting .panelHeading h3, .jobList .advanceFilter .panelHeading h3{
   display: flex;
   margin-top: 10px;
   justify-content: space-between;
@@ -161,7 +170,7 @@ margin-left: 20px;
 .Detail input[type='radio'], .jobList .filterDiv input[type='radio']{
   margin-right: 10px;
 }
-.Detail input[type='radio']:after, .jobList .filterDiv input[type='radio']:after{
+.Detail input[type='radio']:after, .jobList .filterDiv input[type='radio']:after, .jobList .advanceFilter input[type='radio']:after{
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -174,7 +183,7 @@ margin-left: 20px;
   visibility: visible;
   border: 2px solid #ccc;
 }
-.setting input[type='checkbox']:after{
+.setting input[type='checkbox']:after, .jobList .advanceFilter input[type='checkbox']:after{
   width: 20px;
   height: 20px;
   top: -4px;
@@ -189,7 +198,7 @@ margin-left: 20px;
 .image img.view{
   margin: 0 auto;
 }
-.setting input[type='checkbox']:checked:after{
+.setting input[type='checkbox']:checked:after, .jobList .advanceFilter input[type='checkbox']:checked:after{
   width: 20px;
   height: 20px;
   top: -4px;
@@ -271,7 +280,7 @@ align-items: center;
   right: 2px;
   top:1px
 }
-.Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after{
+.Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after, .jobList .advanceFilter input[type='radio']:checked:after{
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -300,8 +309,21 @@ align-items: center;
   padding: 10px 0;
   height: calc(100vh - 90px);
 }
+.jobList .advanceFilter{
+  z-index: 1000;
+  background-color: white;
+  height: calc(100vh - 70px);
+  box-shadow: 0 0 1px 1px #ccc;
+  overflow-y: auto;
+}
+span.rz-ceil{
+  left:315px !important;
+}
+.jobList .budgetFilter, .jobList .distanceFilter{
+  width:100%;
+}
 .jobList .filterMode .form-group{
-  padding: 0 10px;
+  padding: 0 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }

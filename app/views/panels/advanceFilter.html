@@ -1,0 +1,52 @@
+
+<div class="advanceFilter col-md-3 no-padding">
+
+  <page-loader ng-if=" vm.filterLoader" class="settingLoader"></page-loader>
+
+  <div class="panelHeading">
+    <h3><span>SORT BY</span> <i class="fa fa-angle-down"></i></h3>
+  </div>
+  <ul class="sortfilter">
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="1"><span> Relevence</span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="2"><span> Recently Listed </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="3"><span>Price Lowest to Highest </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="4"><span>Price Highest to Lowest </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="5"><span>Distance </span></li>
+  </ul>
+
+  <div class="panelHeading">
+    <h3><span>BUDGET</span> <i class="fa fa-angle-down"></i></h3>
+  </div>
+  <ul>
+    <li>
+      <div class="budgetFilter">
+        <rzslider rz-slider-model="vm.slider.minValue"
+                     rz-slider-high="vm.slider.maxValue"
+                     rz-slider-options="vm.slider.options"></rzslider>
+      </div>
+    </li>
+  </ul>
+  <div class="panelHeading">
+    <h3><span>DISTANCE</span> <i class="fa fa-angle-down"></i></h3>
+  </div>
+  <ul>
+    <li>
+      <div class="distanceFilter">
+        <rzslider rz-slider-model="vm.distance.value"
+                  rz-slider-options="vm.distance.options"></rzslider>
+      </div>
+    </li>
+  </ul>
+  <div class="panelHeading">
+    <h3><span>CATEGORY</span> <i class="fa fa-angle-down"></i></h3>
+  </div>
+  <ul>
+    <li ng-repeat="filter in vm.filterCat">
+      <span>{{filter.title}} </span> <input type="checkbox" ng-value="filter.title">
+    </li>
+
+  </ul>
+  <div class="text-right setting-update">
+    <button class="btn btn-primary btn-rounded" ng-click="vm.updateSetting()">Search</button>
+  </div>
+</div>
