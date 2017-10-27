@@ -23,7 +23,6 @@ angular.module('servu')
     };
     function socket_connect(){
       ActionCableSocketWrangler.start();
-
       consumer.subscribe(vm.callback).then(function(){
       vm.message = function(){
         vm.msg.conversation_id = vm.conversation_id;
@@ -89,7 +88,7 @@ angular.module('servu')
     vm.conversationList = function(page, time){
       ActionCableSocketWrangler.stop();
       var id = localStorage.getItem('jobId');
-      var notifyConvoId = localStorage.getItem('notify_conversation_id')
+      var notifyConvoId = localStorage.getItem('notify_conversation_id');
       if(!id && !notifyConvoId){
         vm.convlist = 'con-display';
         conversationList(page, time);

@@ -76,8 +76,6 @@ angular.module('servu')
           $scope.cityName = $scope.message = $scope.job.city = $scope.job.country= '';
           $scope.lat = marker.getPosition().lat();
           $scope.lon = marker.getPosition().lng();
-          console.log($scope.lat);
-          console.log($scope.lon);
           var latlng = new google.maps.LatLng($scope.lat, $scope.lon);
           var geocoder  = new google.maps.Geocoder();
           geocoder.geocode({ 'latLng': latlng }, function (results, status) {
@@ -108,15 +106,6 @@ angular.module('servu')
           });
 
 
-
-
-
-          //$scope.marker.options = {
-          //  draggable: true,
-          //  labelContent: "",
-          //  labelAnchor: "100 0",
-          //  labelClass: "marker-labels"
-          //};
         }
       }
     };
@@ -214,22 +203,22 @@ angular.module('servu')
 
     $scope.updateJob = function() {
       $scope.jobLoader = true;
-      if($scope.lat && $scope.lon){
-        $scope.locationObj.area = $scope.job.area;
-        updateLocation($scope.job.location.id, $scope.locationObj)
-      }
-      if(!$scope.lat && !$scope.lon){
+        if ($scope.lat && $scope.lon) {
+          $scope.locationObj.area = $scope.job.area;
+          updateLocation($scope.job.location.id, $scope.locationObj)
+        }
+      if (!$scope.lat && !$scope.lon) {
         $scope.locationObj = {
           longitude: $scope.job.location.longitude,
           latitude: $scope.job.location.latitude,
           city_id: $scope.job.location.city.id,
-          street:$scope.job.address,
-          area:$scope.job.area,
+          street: $scope.job.address,
+          area: $scope.job.area,
           country_id: $scope.job.location.country.id
         };
         updateLocation($scope.job.location.id, $scope.locationObj)
       }
-      else{
+      else {
         addJobInfo();
       }
     };

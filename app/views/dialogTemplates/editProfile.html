@@ -26,6 +26,10 @@
     <div class="form-group">
       <textarea class="form-control" name="about" rows="5" ng-model="obj.about" placeholder="About"></textarea>
     </div>
+    <div class="form-group" ng-if="userType == 2">
+      <a ng-click="OpenCategory()"><i class="fa fa-plus"></i> Add Skills</a>
+      <p ng-if="skills.length">Skills are added</p>
+    </div>
     <div class="form-group">
       <input type="text" class="form-control" name="location" ng-model="address" placeholder="Location" readonly>
     </div>

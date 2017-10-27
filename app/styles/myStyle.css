@@ -98,7 +98,7 @@ display: flex;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  width: 8.2em;
+  width: 220px;;
 }
 .mainNav a.filter{
   color: white;
@@ -183,7 +183,7 @@ margin-left: 20px;
   visibility: visible;
   border: 2px solid #ccc;
 }
-.setting input[type='checkbox']:after, .jobList .advanceFilter input[type='checkbox']:after{
+.skillList input[type='checkbox']:after, .setting input[type='checkbox']:after, .jobList .advanceFilter input[type='checkbox']:after{
   width: 20px;
   height: 20px;
   top: -4px;
@@ -198,7 +198,7 @@ margin-left: 20px;
 .image img.view{
   margin: 0 auto;
 }
-.setting input[type='checkbox']:checked:after, .jobList .advanceFilter input[type='checkbox']:checked:after{
+.skillList input[type='checkbox']:checked:after, .setting input[type='checkbox']:checked:after, .jobList .advanceFilter input[type='checkbox']:checked:after{
   width: 20px;
   height: 20px;
   top: -4px;
@@ -212,7 +212,9 @@ margin-left: 20px;
   visibility: visible;
   border: 2px solid #ccc;
 }
-
+.skillList button{
+  border-radius: 6px;
+}
 .Detail .btn-bs-file{
   background-image: url(../images/plus.png);
   width: 75px;
@@ -280,7 +282,7 @@ align-items: center;
   right: 2px;
   top:1px
 }
-.Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after, .jobList .advanceFilter input[type='radio']:checked:after{
+ .Detail input[type='radio']:checked:after,.jobList .filterDiv input[type='radio']:checked:after, .jobList .advanceFilter input[type='radio']:checked:after{
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -304,11 +306,7 @@ align-items: center;
   border-bottom:2px solid #ddd;
   justify-content: space-between;
 }
-.jobList .filterMode{
-  background-color: white;
-  padding: 10px 0;
-  height: calc(100vh - 90px);
-}
+
 .jobList .advanceFilter{
   z-index: 1000;
   background-color: white;
@@ -322,14 +320,7 @@ span.rz-ceil{
 .jobList .budgetFilter, .jobList .distanceFilter{
   width:100%;
 }
-.jobList .filterMode .form-group{
-  padding: 0 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
-.jobList .filterMode .form-group span{
-  font-weight: 600;
-}
+
 
 .sideNav{
   background: #2b405a;
@@ -409,17 +400,11 @@ span.rz-ceil{
 .jobContent{
   padding: 20px 35px 45px;
 }
-.filterDiv, .jobList, .jobList .wrapper-content{
+.jobList, .jobList .wrapper-content{
   padding: 0;
 }
-.filterDiv{
-  border-right:2px solid #ddd;
-  border-bottom: 2px solid #ddd;
-  z-index: 1000
-}
-.filterfunction:focus{
-  outline: 0;
-}
+
+
 #homePage .full-height{
   height: 100vh;
 }

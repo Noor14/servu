@@ -6,7 +6,7 @@
   <div class="panelHeading">
     <h3><span>SORT BY</span> <i class="fa fa-angle-down"></i></h3>
   </div>
-  <ul class="sortfilter">
+  <ul class="sortfilter" ng-click="vm.sorting(vm.sort)">
     <li><input type="radio" name="sort" ng-model="vm.sort" value="1"><span> Relevence</span></li>
     <li><input type="radio" name="sort" ng-model="vm.sort" value="2"><span> Recently Listed </span></li>
     <li><input type="radio" name="sort" ng-model="vm.sort" value="3"><span>Price Lowest to Highest </span></li>
@@ -42,11 +42,11 @@
   </div>
   <ul>
     <li ng-repeat="filter in vm.filterCat">
-      <span>{{filter.title}} </span> <input type="checkbox" ng-value="filter.id">
+      <span>{{filter.title}} </span> <input type="checkbox"  ng-click="vm.cat_Filter(filter.id)" ng-value="filter.id">
     </li>
 
   </ul>
   <div class="text-right setting-update">
-    <button class="btn btn-primary btn-rounded" ng-click="vm.updateSetting()">Search</button>
+    <button class="btn btn-primary btn-rounded" ng-click="vm.advancesearch()">Search</button>
   </div>
 </div>

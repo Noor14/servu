@@ -8,7 +8,7 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService','ngDialog', function (profileService, $rootScope, jobListService, ngDialog) {
+  .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService','ngDialog', '$state', function (profileService, $rootScope, jobListService, ngDialog, $state) {
     var vm = this;
     vm.current_time;
     localStorage.removeItem('jobId');
@@ -100,7 +100,8 @@ angular.module('servu')
     };
     vm.getJobs = function(page, time){
       vm.JobLoader = true;
-      jobListService.getJobList(page, time).then(function(res){
+      (!vm.query)?undefined:vm.query;
+      jobListService.getmyJobs(vm.query, page, time).then(function(res){
         vm.JobLoader = false;
         if(!vm.current_time){
           vm.current_time = res.data.timestamp;
@@ -114,7 +115,9 @@ angular.module('servu')
         console.log(err);
       });
     };
-
+    vm.jobDetail = function(jobid){
+      $state.go("user.jobDetail",{id: jobid});
+    };
     vm.editProfile = function(){
       vm.profileBox = ngDialog.open({
         template: 'views/dialogTemplates/editProfile.html',

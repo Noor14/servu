@@ -8,11 +8,12 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$scope','$timeout', '$rootScope', 'jobListService', 'jobCategory', 'ngDialog','$state',
-    function ($scope, $timeout, $rootScope, jobListService, jobCategory, ngDialog, $state) {
+  .controller('jobListCtrl',['$scope','$timeout', '$rootScope', 'jobListService', 'jobCategory', 'ngDialog','$state','ActionCableSocketWrangler',
+    function ($scope, $timeout, $rootScope, jobListService, jobCategory, ngDialog, $state, ActionCableSocketWrangler) {
 
       var vm = this;
       vm.current_time;
+      ActionCableSocketWrangler.stop('ConversationsChannel');
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
       localStorage.removeItem('notify_conversation_id');
@@ -20,6 +21,8 @@ angular.module('servu')
       vm.userData = vm.accountInfo.data.user;
       vm.jobsCard = "col-lg-4";
       vm.jobHeading = 'My Jobs';
+      vm.categoryId = [];
+      vm.filterObject = {};
       vm.toggle = true;
       vm.slider = {
         minValue: 10,
@@ -141,6 +144,48 @@ angular.module('servu')
         vm.getJobs('','')
       };
 
+
+
+      vm.cat_Filter = function(id){
+
+        if(vm.categoryId.length){
+          var idx = vm.categoryId.indexOf(id);
+        if(idx  > -1){
+          vm.categoryId.splice(idx, 1);
+        }
+          else{
+          vm.categoryId.push(parseInt(id));
+        }
+        }
+       else if(!vm.categoryId.length){
+        vm.categoryId.push(parseInt(id));
+        }
+      };
+      vm.sorting = function(sortOrder){
+        vm.filterObject.sort_by = parseInt(sortOrder);
+      };
+
+
+      vm.advancesearch = function(){
+        if(isNaN(vm.slider.minValue)){
+          vm.filterObject.budget_min = Number(vm.slider.minValue);
+        }
+        if(isNaN(vm.slider.maxValue)){
+          vm.filterObject.budget_max = Number(vm.slider.maxValue);
+        }
+        if(isNaN(vm.distance.value)){
+          vm.filterObject.distance = Number(vm.distance.value);
+        }
+        if(vm.categoryId.length){
+          vm.filterObject.category_ids = vm.categoryId;
+        }
+        vm.getallJob('', '');
+        vm.showfilter = false;
+        $scope.$emit('filterScope', vm.showfilter);
+        $rootScope.$emit('filterbtn', vm.showfilter);
+      };
+
+
     vm.getJobs = function(page, time){
       $rootScope.pageLoader = true;
       $rootScope.fullHeight = 'full-height';
@@ -168,11 +213,12 @@ angular.module('servu')
         $rootScope.pageLoader = true;
         $rootScope.fullHeight = 'full-height';
         (!vm.query)?'':vm.query;
-        jobListService.allJobs(vm.query,page, time).then(function(res){
+        jobListService.allJobs(vm.query, page, time, vm.filterObject).then(function(res){
           console.log("res",res.data.jobs);
           $rootScope.pageLoader = vm.toggle = false;
           vm.jobHeading = 'All Jobs';
-          $rootScope.fullHeight = '';
+          vm.sort = vm.filterObject = $rootScope.fullHeight = '';
+          vm.categoryId=[];
           if(!vm.current_time){
             vm.current_time = res.data.timestamp;
           }

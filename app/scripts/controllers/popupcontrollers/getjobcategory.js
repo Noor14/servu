@@ -164,7 +164,6 @@ angular.module('servu')
       $rootScope.popupLoader = true;
       jobCategory.categoryService(category).then(function(res){
         $scope.step = 2;
-
         $rootScope.popupLoader = false;
         $scope.job.category_id = category.id;
         $scope.services = res.data.services;

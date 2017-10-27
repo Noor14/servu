@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('editProfileCtrl',['$scope','locationService','documentService', 'profileService','toastr',
-    function ($scope, locationService, documentService, profileService,toastr) {
+  .controller('editProfileCtrl',['$scope','locationService','documentService', 'profileService','toastr','ngDialog',
+    function ($scope, locationService, documentService, profileService,toastr, ngDialog) {
 
     $scope.obj={};
     $scope.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -80,6 +80,7 @@ angular.module('servu')
     function getProfile(id){
       profileService.getProfile(id).then(function(res){
         if(res.status==200){
+          $scope.userType = res.data.user_type;
           $scope.obj.name = res.data.name;
           $scope.obj.phone = res.data.phone;
           $scope.obj.email = res.data.email;
@@ -105,6 +106,8 @@ angular.module('servu')
           addJobPhoto(pix);
       }
     });
+
+
     function addJobPhoto(pix){
       documentService.profileDoc({input:pix}).then(function(res){
         if(res.status == 201){
@@ -128,12 +131,28 @@ angular.module('servu')
       update();
 
     };
+
+
+      $scope.OpenCategory = function(){
+        $scope.skillBox = ngDialog.open({
+          template: 'views/dialogTemplates/jobcatergoryPopup.html',
+          appendClassName: 'addPopup',
+          controller: 'addSkillCtrl'
+        });
+        $scope.skillBox.closePromise.then(function (data) {
+          console.log(data);
+          $scope.skills = data.value;
+        });
+      };
     function update(){
       if($scope.location_id){
         $scope.obj.location_id = $scope.location_id;
       }
       if($scope.profile_pic_id){
         $scope.obj.profile_pic_id = $scope.profile_pic_id;
+      }
+      if($scope.skills && $scope.skills.length){
+        $scope.obj.skills = $scope.skills;
       }
       profileService.updateProfile($scope.obj).then(function(res){
         if(res.status == 200){

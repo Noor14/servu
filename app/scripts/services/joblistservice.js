@@ -32,7 +32,7 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-      vm.allJobs = function(query, page, time){
+      vm.allJobs = function(query, page, time, obj){
         var deffered = $q.defer();
         var obj = {
           url : host + "/jobs",
@@ -41,8 +41,12 @@ angular.module('servu')
           params : {
             page : page,
             timestamp: time,
-            query: query
-
+            query: query,
+            distance: obj.distance,
+            budget_min: obj.budget_min,
+            budget_max: obj.budget_max,
+            category_ids: JSON.stringify(obj.category_ids),
+            sort_by: obj.sort_by
           }
 
         };
