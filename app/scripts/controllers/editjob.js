@@ -202,13 +202,13 @@ angular.module('servu')
     });
 
     $scope.updateJob = function() {
-      if(!$scope.jobLoader){
+
       $scope.jobLoader = true;
         if ($scope.lat && $scope.lon) {
           $scope.locationObj.area = $scope.job.area;
           updateLocation($scope.job.location.id, $scope.locationObj)
         }
-      if (!$scope.lat && !$scope.lon) {
+      else if (!$scope.lat && !$scope.lon) {
         $scope.locationObj = {
           longitude: $scope.job.location.longitude,
           latitude: $scope.job.location.latitude,
@@ -221,7 +221,6 @@ angular.module('servu')
       }
       else {
         addJobInfo();
-      }
       }
     };
 
@@ -267,11 +266,12 @@ angular.module('servu')
         if(res.status == 200){
           console.log(res);
           $scope.jobLoader = false;
-          $scope.closeThisDialog();
           toastr.success('Your job has been updated',{
             closeButton: true,
             preventOpenDuplicates: true
           });
+          $scope.closeThisDialog();
+
         }
 
       },function(err){
