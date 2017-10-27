@@ -111,6 +111,7 @@ angular.module('servu')
       messageService.getSpecConversation(id, page, time).then(function(res){
         if(res.status == 200){
           console.log(res);
+          vm.chatSection = true;
           vm.status = vm.chatLoader = false;
           vm.messages = res.data.messages.reverse();
 
