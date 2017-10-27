@@ -202,6 +202,7 @@ angular.module('servu')
     });
 
     $scope.updateJob = function() {
+      if(!$scope.jobLoader){
       $scope.jobLoader = true;
         if ($scope.lat && $scope.lon) {
           $scope.locationObj.area = $scope.job.area;
@@ -220,6 +221,7 @@ angular.module('servu')
       }
       else {
         addJobInfo();
+      }
       }
     };
 
