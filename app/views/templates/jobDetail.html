@@ -81,7 +81,7 @@
                           <img ng-if="!bid.user.profile_pic.url" src="images/user.jpg" alt="user" class="img-responsive">
                           <img ng-if="bid.user.profile_pic.url" ng-src="{{bid.user.profile_pic.url}}" alt="user" class="img-responsive">
                           <div class="bid_text">
-                            <strong>{{bid.user.name}}</strong><br>
+                            <strong><span>{{bid.user.name | limitTo:8}}</span><span ng-if="bid.user.name.length > 8"> ...</span></strong><br>
                             <strong>AED {{bid.budget}}</strong>
                             <div class="rating_star">
                               <input-stars max="5" readonly="true" ng-model="bid.user.average_rating"></input-stars>
@@ -167,13 +167,15 @@
                     <span ng-if="vm.job.status == 2 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="awardedjob">Awarded</span>
                     <span ng-if="vm.job.status == 3 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="ongoingjob">On Going</span>
                   </li>
-                  <li ng-hide="vm.job.status == 5" ng-if="vm.completeJob = (vm.job.status == 4 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id))?'completeJob':'c'">
+                  <li ng-hide="vm.job.status == 5 || vm.job.status == 0" ng-if="vm.completeJob = ((vm.job.status == 4 || vm.job.status == 6) && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id))?'completeJob':'c'">
                     <a class="widget_border widget_border3" ng-class="vm.completeJob"></a>
                     <span ng-if="vm.job.status == 4 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="completejob">Completed</span>
+                    <span ng-if="vm.job.status == 6 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="completejob">Signed Off</span>
                   </li>
-                  <li ng-show="vm.job.status == 5" ng-if="vm.disputeJob = (vm.job.status == 5 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id))?'Indispute':'I'">
+                  <li ng-show="vm.job.status == 5 || vm.job.status == 0" ng-if="vm.disputeJob = ((vm.job.status == 5 || vm.job.status == 0)  && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id))?'Indispute':'I'">
                     <a class="widget_border widget_border3" ng-class="vm.disputeJob"></a>
                     <span ng-if="vm.job.status == 5 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="indispute">In Dispute</span>
+                    <span ng-if="vm.job.status == 0 && (vm.job.accepted_bid.user.id == vm.userData.id || vm.userData.id == vm.job.user.id)" class="indispute">Rejected by Admin</span>
                   </li>
                 </ul>
               </div>

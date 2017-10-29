@@ -25,9 +25,10 @@
         </div>
         <div class="form-group">
           <input type="number" min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" ng-maxlength="5" class="form-control" placeholder="Budget *" ng-required name="Budget" ng-model="job.budget">
-          <p class="valid" ng-if="jobInfo.Budget.$invalid">Budget no should not be exceed 5 characters</p>
+          <p class="valid" ng-if="jobInfo.Budget.$invalid">Budget should not be exceed from 5 digits</p>
         </div>
         <div class="pictureBox">
+          <p class="oversize">{{overSize}}</p>
           <div class="pixContainer">
           <div class="jobPix" ng-repeat="image in jobImages"><img ng-src="{{image.url}}" class="img img-responsive" alt="job_pix"> <i class="fa fa-times" ng-click="deleteJobPhoto(image ,$index)"></i></div>
           </div>

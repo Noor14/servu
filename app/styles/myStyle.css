@@ -85,7 +85,7 @@ border-bottom: 1px solid #ccc;
 display: flex;
 }
 #homePage .setting .notificationList .notifyImg .pixDiv{
-  width:45px;
+  width:80px;
   height:45px;
 }
 #homePage .setting .notificationList .notifyImg .pixDiv img{
@@ -98,7 +98,14 @@ display: flex;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  width: 220px;;
+}
+#homePage .setting .notificationList .notifyImg .notifyDetail .notifydata-time{
+  display: flex;
+  justify-content: space-between;
+}
+#homePage .setting .notificationList .notifyImg .notifyDetail .notifydata{
+  display: flex;
+  flex-direction: column;
 }
 .mainNav a.filter{
   color: white;
@@ -245,8 +252,14 @@ margin-left: 20px;
 }
 .Detail .pictureBox{
 display: flex;
+position: relative;
 justify-content: space-between;
 align-items: center;
+}
+.Detail .pictureBox p.oversize{
+  position: absolute;
+  top: -20px;
+  left: -15px;
 }
 .Detail .jobPix{
   height: 100px;
@@ -314,9 +327,7 @@ align-items: center;
   box-shadow: 0 0 1px 1px #ccc;
   overflow-y: auto;
 }
-span.rz-ceil{
-  left:315px !important;
-}
+
 .jobList .budgetFilter, .jobList .distanceFilter{
   width:100%;
 }
@@ -328,7 +339,7 @@ span.rz-ceil{
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1500;
+  z-index: 3500;
   display: block;
   margin: 0;
   padding: 0;
@@ -541,6 +552,8 @@ font-size: 30px;
   word-spacing: 1px;
   letter-spacing: .4px;
   font-weight: 200;
+  padding: 0 20px;
+  width: calc(15.97em - -4%);
 }
 .loginPage .loginDiv .loginForm .loginButton{
   margin-top: 65px;
@@ -845,7 +858,6 @@ i.bar{
 .signupPage .uploadPicture p{
   position: absolute;
   bottom: -50px;
-  z-index: 10000;
   color: #fff !important;
   text-align: center;
   left: 30%;

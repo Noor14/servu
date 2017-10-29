@@ -195,9 +195,13 @@ angular.module('servu')
 
     $scope.$watch('job.photo', function(newValue, oldValue){
       console.log(newValue,'newValue');
-      if(newValue != undefined){
+      $scope.overSize='';
+      if(newValue != undefined && newValue.filesize < 5242880 ){
         var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
         addJobPhoto(pix);
+      }
+      else if(newValue != undefined){
+        $scope.overSize = "Please select an image less than 5MB.";
       }
     });
 

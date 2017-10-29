@@ -61,10 +61,7 @@ angular
           }
           else if (credentialService.authed && $transition.$to().self.hasOwnProperty("data")) {
 
-            if($transition.$to().self.url == "/job-detail/:id"){
-              $location.path($transition.$to().self.url)
-            }
-            else{
+            if($transition.$to().self.url != "/job-detail/:id"){
               $state.go($transition.$to().self.name);
             }
           }
@@ -214,10 +211,10 @@ angular
       .state('user.profile', {
         url:'/profile',
         templateUrl: 'views/templates/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'vm',
         data: {
           authRequired: true
-        },
-        controller: 'ProfileCtrl',
-        controllerAs: 'vm'
+        }
       });
   }]);

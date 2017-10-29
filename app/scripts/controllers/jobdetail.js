@@ -13,6 +13,9 @@ angular.module('servu')
 
     var vm = this;
     vm.activeDetailTab = 'active';
+    localStorage.removeItem('jobId');
+    localStorage.removeItem('conversation_id');
+    localStorage.removeItem('notify_conversation_id');
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
     if(vm.userData.user_type == 1){

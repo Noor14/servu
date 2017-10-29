@@ -88,17 +88,17 @@ angular.module('servu')
     vm.conversationList = function(page, time){
       ActionCableSocketWrangler.stop();
       var id = localStorage.getItem('jobId');
-      var notifyConvoId = localStorage.getItem('notify_conversation_id');
-      if(!id && !notifyConvoId){
+      vm.notifyConvoId = localStorage.getItem('notify_conversation_id');
+      if(!id && !vm.notifyConvoId){
         vm.convlist = 'con-display';
         conversationList(page, time);
       }
-      else if(id && !notifyConvoId){
+      else if(id && !vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
         jobMessages(page, time);
       }
-      else if(!id && notifyConvoId){
+      else if(!id && vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
         vm.openConversation(vm.notifyConvoId, page, time)
@@ -113,6 +113,9 @@ angular.module('servu')
           console.log(res);
           vm.chatSection = true;
           vm.status = vm.chatLoader = false;
+          if(vm.notifyConvoId){
+            socket_connect();
+          }
           vm.messages = res.data.messages.reverse();
 
         }
