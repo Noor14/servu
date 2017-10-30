@@ -50,6 +50,7 @@
   padding:15px;
   border-bottom: 1px solid #b4b4b4;
   display: flex;
+  font-size: 17px;
   justify-content: space-between;
 
 }
@@ -67,7 +68,8 @@
 }
 #homePage .setting .panelHeading h3, .jobList .advanceFilter .panelHeading h3{
   display: flex;
-  margin-top: 10px;
+  margin: 10px 0;
+  font-size: 15px;
   justify-content: space-between;
 }
 #homePage .setting .notificationList{
@@ -255,6 +257,24 @@ display: flex;
 position: relative;
 justify-content: space-between;
 align-items: center;
+}
+.Detail .partField{
+  display: flex;
+}
+.Detail .partField .form-group{
+  flex: 80;
+}
+.Detail .partField a.partInc{
+  width: 25px;
+  height: 25px;
+  border: 1px solid #337ab7;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 25px;
+}
+.Detail .partImage{
+  width:50px;
+  height: 50px;
 }
 .Detail .pictureBox p.oversize{
   position: absolute;

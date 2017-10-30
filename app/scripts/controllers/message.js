@@ -34,10 +34,15 @@ angular.module('servu')
       consumer.onConfirmSubscription(function(){
         console.log('subscribed');
         vm.chatLoader = $rootScope.pageLoader = false;
+
+      });
+      setTimeout(function(){
+      if(!$rootScope.pageLoader){
         toastr.success('Chat connected',{
           preventDuplicates:true
         });
-      });
+      }
+    },4000)
     }
 
     vm.send = function(e){

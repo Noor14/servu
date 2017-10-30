@@ -8,12 +8,11 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('jobListCtrl',['$scope','$timeout', '$rootScope', 'jobListService', 'jobCategory', 'ngDialog','$state','ActionCableSocketWrangler',
-    function ($scope, $timeout, $rootScope, jobListService, jobCategory, ngDialog, $state, ActionCableSocketWrangler) {
+  .controller('jobListCtrl',['$scope','$timeout', '$rootScope', 'jobListService', 'jobCategory', 'ngDialog','$state',
+    function ($scope, $timeout, $rootScope, jobListService, jobCategory, ngDialog, $state) {
 
       var vm = this;
       vm.current_time;
-      ActionCableSocketWrangler.stop('ConversationsChannel');
       localStorage.removeItem('jobId');
       localStorage.removeItem('conversation_id');
       localStorage.removeItem('notify_conversation_id');

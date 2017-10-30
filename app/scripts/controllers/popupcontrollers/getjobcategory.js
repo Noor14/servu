@@ -12,11 +12,14 @@ angular.module('servu')
     function ($scope, $rootScope, toastr, jobCategory, $timeout, locationService, documentService, jobListService){
 
     $scope.jobImages=[];
+    $scope.partImages = [];
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.minDate = new Date();
+    $scope.parts=[];
     $scope.job = {
       job_type : 0,
-      image_ids:[]
+      image_ids:[],
+      parts:[]
 
     };
     $scope.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
@@ -217,9 +220,26 @@ angular.module('servu')
           $scope.overSize = "Please select an image less than 5MB.";
         }
       });
-
-
-
+      $scope.$watch('job.part', function(newValue, oldValue){
+        console.log(newValue,'newValue');
+        $scope.overSize='';
+        if(newValue != undefined && newValue.filesize < 5242880 ){
+          var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
+          addPartPhoto(pix);
+        }
+        else if(newValue != undefined){
+          $scope.overSize = "Please select an image less than 5MB.";
+        }
+      });
+    $scope.incPart = function(data){
+      if(data){
+      $scope.parts.push(data);
+        $scope.job.part_no=''
+      }
+    };
+      $scope.decPart = function(index){
+        $scope.parts.splice(index, 1);
+      };
     $scope.createJob = function() {
       $scope.jobLoader = true;
       if(!$scope.lat && !$scope.lon){
@@ -253,11 +273,34 @@ angular.module('servu')
           console.log(err);
         })
       }
+      function addPartPhoto(pix){
+        documentService.profileDoc({input:pix}).then(function(res){
+          if(res.status == 201){
+            $scope.job.image_ids.push(res.data.id) ; //should be an array
+            $scope.partImages.push(res.data);
+            console.log("res.data",res.data);
+          }
+        },function(err){
+          $scope.jobLoader = false;
+          console.log(err);
+        })
+      }
       $scope.deleteJobPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
             $scope.job.image_ids.splice(img.id, 1);
             $scope.jobImages.splice(index, 1);
+          }
+        },function(err){
+          $scope.jobLoader = false;
+          console.log(err);
+        })
+      };
+      $scope.deletePartPhoto = function(img, index){
+        documentService.deleteDoc(img.id).then(function(res){
+          if(res.status == 204){
+            $scope.job.image_ids.splice(img.id, 1);
+            $scope.partImages.splice(index, 1);
           }
         },function(err){
           $scope.jobLoader = false;
