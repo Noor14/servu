@@ -12,7 +12,7 @@ angular.module('servu')
     function ($scope, $rootScope, toastr, jobCategory, $timeout, locationService, documentService, jobListService){
 
     $scope.jobImages=[];
-    $scope.partImages = [];
+    $scope.part_Img=$scope.partImages = [];
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.minDate = new Date();
     $scope.parts=[];
@@ -220,21 +220,44 @@ angular.module('servu')
           $scope.overSize = "Please select an image less than 5MB.";
         }
       });
-      $scope.$watch('job.part', function(newValue, oldValue){
+      //$scope.$watch('job.part', function(newValue, oldValue){
+      //  console.log(newValue,'newValue');
+      //  $scope.overSize='';
+      //  if(newValue != undefined && newValue.filesize < 5242880 ){
+      //    var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
+      //    addPartPhoto(pix);
+      //  }
+      //  else if(newValue != undefined){
+      //    $scope.overSize = "Please select an image less than 5MB.";
+      //  }
+      //});
+
+      $scope.$watch('job.partImg', function(newValue, oldValue){
         console.log(newValue,'newValue');
         $scope.overSize='';
         if(newValue != undefined && newValue.filesize < 5242880 ){
           var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
-          addPartPhoto(pix);
+          addPartImgPhoto(pix);
         }
         else if(newValue != undefined){
           $scope.overSize = "Please select an image less than 5MB.";
         }
       });
+      //$scope.$watch('parts', function(newValue, oldValue){
+      //  if(newValue.length && newValue != undefined){
+      //  console.log(newValue,'newValue');
+      //  }
+      //},true);
     $scope.incPart = function(data){
       if(data){
-      $scope.parts.push(data);
-        $scope.job.part_no=''
+        $scope.partObj={
+          part_number:data,
+          image_ids :$scope.part_Img
+        };
+
+      $scope.parts.push($scope.partObj);
+        $scope.job.part_no='';
+        $scope.part_Img=[];
       }
     };
       $scope.decPart = function(index){
@@ -285,6 +308,18 @@ angular.module('servu')
           console.log(err);
         })
       }
+      function addPartImgPhoto(pix){
+        documentService.profileDoc({input:pix}).then(function(res){
+          if(res.status == 201){
+            $scope.job.image_ids.push(res.data.id) ; //should be an array
+            $scope.part_Img.push(res.data);
+            console.log("res.data",res.data);
+          }
+        },function(err){
+          $scope.jobLoader = false;
+          console.log(err);
+        })
+      }
       $scope.deleteJobPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
@@ -296,11 +331,31 @@ angular.module('servu')
           console.log(err);
         })
       };
+      $scope.deletePartarrayPhoto = function(img, index){
+        documentService.deleteDoc(img.id).then(function(res){
+          if(res.status == 204){
+
+            $scope.parts.forEach(function(obj){
+              obj.image_ids.forEach(function(item){
+                if(item.id == img.id){
+                  obj.image_ids.splice(item, 1);
+                }
+              })
+            });
+            console.log($scope.job.parts,'$scope.job.part');
+          }
+        },function(err){
+          $scope.jobLoader = false;
+          console.log(err);
+        })
+      };
       $scope.deletePartPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
-            $scope.job.image_ids.splice(img.id, 1);
-            $scope.partImages.splice(index, 1);
+            //$scope.job.image_ids.splice(img.id, 1);
+            $scope.part_Img.splice(index, 1);
+            console.log($scope.job.parts,'$scope.job.part');
+
           }
         },function(err){
           $scope.jobLoader = false;
@@ -315,6 +370,19 @@ angular.module('servu')
           $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
           $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
         }
+        if($scope.parts.length){
+          $scope.job.parts.push($scope.parts);
+        }
+        if($scope.job.part_no){
+          if($scope.part_Img.length){
+            $scope.job.parts.push({ part_number:$scope.job.part_no,image_ids :$scope.part_Img})
+          }
+          else{
+            $scope.job.parts.push({ part_number:$scope.job.part_no, image_ids :[]})
+
+          }
+        }
+
         jobListService.addJob($scope.job).then(function(res){
           if(res.status == 201){
             console.log(res);

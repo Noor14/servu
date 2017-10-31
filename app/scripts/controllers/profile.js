@@ -91,7 +91,10 @@ angular.module('servu')
         if(res.status==200){
           vm.reviewLoader = false;
           vm.reviews = res.data.reviews;
-        }
+          vm.page_no =  res.data.page;
+          if(!vm.current_time)
+            vm.current_time = res.data.timestamp;
+            }
 
       },function(err){
         vm.reviewLoader = false;
@@ -128,5 +131,12 @@ angular.module('servu')
         vm.getUserProfile();
       });
     };
+
+
+    //vm.loadMore= function(){
+    //  vm.page_no += 1;
+    //
+    //  vm.getUserReview(vm.userData.id, vm.page_no, vm.current_time);
+    //};
     vm.getUserProfile();
   }]);

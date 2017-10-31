@@ -6,12 +6,12 @@
   <div class="panelHeading">
     <h3><span>SORT BY</span> <i class="fa fa-angle-down"></i></h3>
   </div>
-  <ul class="sortfilter" ng-click="vm.sorting(vm.sort)">
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="1"><span> Relevence</span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="2"><span> Recently Listed </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="3"><span>Price Lowest to Highest </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="4"><span>Price Highest to Lowest </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="5"><span>Distance </span></li>
+  <ul class="sortfilter">
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="1" ng-click="vm.sorting(vm.sort)"><span> Relevence</span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="2" ng-click="vm.sorting(vm.sort)"><span> Recently Listed </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="3" ng-click="vm.sorting(vm.sort)"><span>Price Lowest to Highest </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="4" ng-click="vm.sorting(vm.sort)"><span>Price Highest to Lowest </span></li>
+    <li><input type="radio" name="sort" ng-model="vm.sort" value="5" ng-click="vm.sorting(vm.sort)"><span>Distance </span></li>
   </ul>
 
   <div class="panelHeading">
