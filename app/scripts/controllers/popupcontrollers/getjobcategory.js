@@ -12,10 +12,10 @@ angular.module('servu')
     function ($scope, $rootScope, toastr, jobCategory, $timeout, locationService, documentService, jobListService){
 
     $scope.jobImages=[];
-    $scope.part_Img=$scope.partImages = [];
+    $scope.part_Img = [];
     $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
     $scope.minDate = new Date();
-    $scope.parts=[];
+    $scope.partsImage=[];
     $scope.job = {
       job_type : 0,
       image_ids:[],
@@ -220,34 +220,19 @@ angular.module('servu')
           $scope.overSize = "Please select an image less than 5MB.";
         }
       });
-      //$scope.$watch('job.part', function(newValue, oldValue){
-      //  console.log(newValue,'newValue');
-      //  $scope.overSize='';
-      //  if(newValue != undefined && newValue.filesize < 5242880 ){
-      //    var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
-      //    addPartPhoto(pix);
-      //  }
-      //  else if(newValue != undefined){
-      //    $scope.overSize = "Please select an image less than 5MB.";
-      //  }
-      //});
 
       $scope.$watch('job.partImg', function(newValue, oldValue){
         console.log(newValue,'newValue');
-        $scope.overSize='';
+        $scope.overPartSize='';
         if(newValue != undefined && newValue.filesize < 5242880 ){
           var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
           addPartImgPhoto(pix);
         }
         else if(newValue != undefined){
-          $scope.overSize = "Please select an image less than 5MB.";
+          $scope.overPartSize = "Please select an image less than 5MB.";
         }
       });
-      //$scope.$watch('parts', function(newValue, oldValue){
-      //  if(newValue.length && newValue != undefined){
-      //  console.log(newValue,'newValue');
-      //  }
-      //},true);
+
     $scope.incPart = function(data){
       if(data){
         $scope.partObj={
@@ -255,13 +240,13 @@ angular.module('servu')
           image_ids :$scope.part_Img
         };
 
-      $scope.parts.push($scope.partObj);
+      $scope.partsImage.push($scope.partObj);
         $scope.job.part_no='';
         $scope.part_Img=[];
       }
     };
       $scope.decPart = function(index){
-        $scope.parts.splice(index, 1);
+        $scope.partsImage.splice(index, 1);
       };
     $scope.createJob = function() {
       $scope.jobLoader = true;
@@ -296,22 +281,9 @@ angular.module('servu')
           console.log(err);
         })
       }
-      function addPartPhoto(pix){
-        documentService.profileDoc({input:pix}).then(function(res){
-          if(res.status == 201){
-            $scope.job.image_ids.push(res.data.id) ; //should be an array
-            $scope.partImages.push(res.data);
-            console.log("res.data",res.data);
-          }
-        },function(err){
-          $scope.jobLoader = false;
-          console.log(err);
-        })
-      }
       function addPartImgPhoto(pix){
         documentService.profileDoc({input:pix}).then(function(res){
           if(res.status == 201){
-            $scope.job.image_ids.push(res.data.id) ; //should be an array
             $scope.part_Img.push(res.data);
             console.log("res.data",res.data);
           }
@@ -335,14 +307,13 @@ angular.module('servu')
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
 
-            $scope.parts.forEach(function(obj){
+            $scope.partsImage.forEach(function(obj){
               obj.image_ids.forEach(function(item){
                 if(item.id == img.id){
                   obj.image_ids.splice(item, 1);
                 }
               })
             });
-            console.log($scope.job.parts,'$scope.job.part');
           }
         },function(err){
           $scope.jobLoader = false;
@@ -352,10 +323,7 @@ angular.module('servu')
       $scope.deletePartPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
-            //$scope.job.image_ids.splice(img.id, 1);
             $scope.part_Img.splice(index, 1);
-            console.log($scope.job.parts,'$scope.job.part');
-
           }
         },function(err){
           $scope.jobLoader = false;
@@ -370,15 +338,31 @@ angular.module('servu')
           $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
           $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
         }
-        if($scope.parts.length){
-          $scope.job.parts.push($scope.parts);
+        if($scope.partsImage.length){
+          var partsImages = angular.copy($scope.partsImage);
+          partsImages.forEach(function(obj, index){
+            var number = obj.image_ids.map(function(item){
+              return item['id'];
+            });
+            partsImages[index].image_ids = number;
+            $scope.job.parts.push(partsImages[index]);
+
+
+          });
         }
         if($scope.job.part_no){
           if($scope.part_Img.length){
-            $scope.job.parts.push({ part_number:$scope.job.part_no,image_ids :$scope.part_Img})
+           var images = angular.copy($scope.part_Img);
+            var number = images.map(function(item){
+
+              return item['id'];
+
+            });
+            images = number;
+            $scope.job.parts.push({part_number: $scope.job.part_no, image_ids : images})
           }
           else{
-            $scope.job.parts.push({ part_number:$scope.job.part_no, image_ids :[]})
+            $scope.job.parts.push({part_number: $scope.job.part_no, image_ids : []})
 
           }
         }
@@ -399,11 +383,6 @@ angular.module('servu')
           console.log(err);
         })
       }
-
-
-
-
-
 
     $scope.category()
   }]);

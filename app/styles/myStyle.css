@@ -73,8 +73,8 @@
   justify-content: space-between;
 }
 #homePage .setting .notificationList{
-display: flex;
-justify-content: space-between;
+/*display: flex;
+justify-content: space-between;*/
 padding: 10px 20px;
 border-bottom: 1px solid #ccc;
 }
@@ -83,12 +83,14 @@ border-bottom: 1px solid #ccc;
   background-color: #c4d3e9;
   outline: 0;
 }
-#homePage .setting .notificationList .notifyImg{
+/*#homePage .setting .notificationList .notifyImg{
 display: flex;
-}
+}*/
 #homePage .setting .notificationList .notifyImg .pixDiv{
-  width:80px;
+  width:45px;
   height:45px;
+  margin-right: 10px;
+  float: left;
 }
 #homePage .setting .notificationList .notifyImg .pixDiv img{
   width:45px;
@@ -99,7 +101,6 @@ display: flex;
 #homePage .setting .notificationList .notifyImg .notifyDetail{
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 }
 #homePage .setting .notificationList .notifyImg .notifyDetail .notifydata-time{
   display: flex;
@@ -245,6 +246,9 @@ margin-left: 20px;
 }
 .Detail .btn-bs-file:active, .profile-update .btn-bs-file:active{
   box-shadow: unset;
+}
+.Detail h3.parts{
+  margin-top: 30px;
 }
 .Detail .pixContainer{
   padding: 10px 0;
@@ -992,6 +996,7 @@ i.bar{
 .jobCategory .serviceList li{
   display: flex;
   padding: 15px;
+  border-bottom: 1px solid #b7b7b7;
 }
 .jobCategory .serviceList li:focus{
   outline:0

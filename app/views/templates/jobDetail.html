@@ -49,6 +49,26 @@
                     </ul>
                   </div>
 
+                     <div class="panel_media" ng-if="vm.job.parts.length">
+                    <h3>Parts</h3>
+                    <div ng-repeat="part in vm.job.parts">
+                    <p>Part No # {{part.part_number}}</p>
+                    <ul class="list-unstyled panel_img" ng-if="part.images.length">
+                      <li ng-repeat="image in part.images" ng-click="vm.viewImage(image.url)">
+                        <a>
+                          <img ng-src="{{image.url}}" alt="user" class="image">
+                        </a>
+                        <div class="middle">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                      </li>
+                      <div class="middle">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </div>
+                      </li>
+                    </ul>
+                    </div>
+                  </div>
                   <div class="panel_location">
                     <div class="locat_heading">
                       <h3>Location</h3>

@@ -23,7 +23,10 @@ angular.module('servu')
     $scope.userData = $scope.accountInfo.data.user;
     $scope.job.phone = $scope.userData.phone;
 
-
+    //   if(jobDetail.parts.length){
+    //     $scope.abc = jobDetail.parts.pop();
+    //     $scope.partsImage= jobDetail.parts;
+    // }
     if(JobDetail.images && JobDetail.images.length){
       $scope.job.image_ids=[];
       $scope.jobImages= JobDetail.images;

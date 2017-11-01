@@ -73,7 +73,8 @@ angular.module('servu')
           $rootScope.pageLoader = false;
           vm.profile = res.data;
           if(vm.profile.user_type == 2){
-          vm.getUserReview(vm.userData.id,'', '');
+            vm.getJobs('', '');
+            vm.getUserReview(vm.userData.id,'', '');
           }
           else if(vm.profile.user_type == 1){
             vm.getJobs('', '');
@@ -110,9 +111,9 @@ angular.module('servu')
           vm.current_time = res.data.timestamp;
         }
         vm.userJob = res.data.jobs;
-        vm.reviews = vm.userJob.map(function(obj){
-          return {job : obj};
-        });
+        // vm.reviews = vm.userJob.map(function(obj){
+        //   return {job : obj};
+        // });
       },function(err){
         vm.JobLoader = false;
         console.log(err);
