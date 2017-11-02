@@ -23,13 +23,35 @@ angular.module('servu')
     $scope.userData = $scope.accountInfo.data.user;
     $scope.job.phone = $scope.userData.phone;
 
-    //   if(jobDetail.parts.length){
-    //     $scope.abc = jobDetail.parts.pop();
-    //     $scope.partsImage= jobDetail.parts;
-    // }
+       if(JobDetail.parts.length){
+         $scope.partsfield = true;
+         $scope.part_Img = JobDetail.parts.pop();
+         $scope.job.part_no = $scope.part_Img.part_number;
+         if($scope.part_Img.images && $scope.part_Img.images.length){
+         $scope.part_Img  = $scope.part_Img.images;
+         }else{
+           $scope.part_Img = [];
+         }
+         $scope.partsImage= JobDetail.parts;
+         JobDetail.parts.map(function(obj){
+           if(obj.images && obj.images.length){
+           return obj.image_ids = obj.images;
+           }
+           else{
+             return obj.image_ids = []
+           }
+         })
+     }
+    else{
+         $scope.partsfield = false;
+       }
+
     if(JobDetail.images && JobDetail.images.length){
       $scope.job.image_ids=[];
       $scope.jobImages= JobDetail.images;
+      JobDetail.images.forEach(function(obj){
+        $scope.job.image_ids.push(obj.id);
+      });
     }
     else{
        $scope.job.image_ids = [];
@@ -208,6 +230,8 @@ angular.module('servu')
       }
     });
 
+
+
     $scope.updateJob = function() {
 
       $scope.jobLoader = true;
@@ -243,18 +267,18 @@ angular.module('servu')
         console.log(err);
       })
     }
+
     $scope.deleteJobPhoto = function(img, index){
-      documentService.deleteDoc(img.id).then(function(res){
-        if(res.status == 204){
-          $scope.job.image_ids.splice(img.id, 1);
+
           $scope.jobImages.splice(index, 1);
-        }
-      },function(err){
-        $scope.jobLoader = false;
-        console.log(err);
-      })
+          var index_Of = $scope.job.image_ids.indexOf(img.id);
+          $scope.job.image_ids.splice(index_Of,1);
+
+
     };
+
     function addJobInfo(){
+
       if($scope.job.schedule){
         $scope.job.schedule = new Date($scope.job.schedule).toString();
       }
@@ -262,11 +286,12 @@ angular.module('servu')
         $scope.job.contract.contract_type = Number( $scope.job.contract.contract_type);
         $scope.job.contract.first_service_date = new Date($scope.job.contract.first_service_date).toString();
       }
+
       if($scope.job.images && !$scope.job.images.length){
         delete $scope.job.images;
       }
       if($scope.job.image_ids && !$scope.job.image_ids.length){
-        delete $scope.job.image_ids;
+        $scope.job.image_ids = [];
       }
 
       jobListService.updateUserJob($scope.job).then(function(res){

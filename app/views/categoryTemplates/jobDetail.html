@@ -31,20 +31,21 @@
           <p class="valid" ng-message="maxlength">Budget should not be exceed from 5 digits</p>
           </div>
         </div>
+        <div ng-if="partsfield">
         <h3 class="parts">Parts:</h3>
         <div class="partNoBox"  ng-if="partsImage.length" ng-repeat="part in partsImage track by $index">
           <div class="partField">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Part No." name="partNo" ng-model="part.part_number">
+              <input type="text" class="form-control" placeholder="Part No." name="partNo" ng-model="part.part_number" ng-disabled="job.id" ng-readonly="job.id">
             </div>
-            <a class="partInc" ng-click="decPart($index)">
+            <a class="partInc" ng-click="decPart($index)" ng-if="!job.id">
               <i class="fa fa-minus"></i>
             </a>
           </div>
           <div class="pictureBox">
             <div class="pixContainer">
               <div class="jobPix" ng-repeat="partImg in part.image_ids">
-                <img ng-src="{{partImg.url}}" class="img img-responsive" alt="part_pix"> <i class="fa fa-times" ng-click="deletePartarrayPhoto(partImg ,$index)"></i></div>
+                <img ng-src="{{partImg.url}}" class="img img-responsive" alt="part_pix"> <i class="fa fa-times" ng-if="!job.id" ng-click="deletePartarrayPhoto(partImg ,$index)"></i></div>
             </div>
 
             <!--<div class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="partImages.length < 5 || job.id">-->
@@ -53,26 +54,27 @@
             <!--</div>-->
           </div>
         </div>
-        <div class="partNoBox">
+        <div class="partNoBox" >
           <div class="partField">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Part No." name="partNo" ng-model="job.part_no">
+              <input type="text" class="form-control" placeholder="Part No." name="partNo" ng-model="job.part_no" ng-disabled="job.id" ng-readonly="job.id">
             </div>
-            <a class="partInc" ng-click="incPart(job.part_no)" ng-if="partsImage.length < 4">
+            <a ng-show="!job.id" class="partInc" ng-click="incPart(job.part_no)" ng-if="partsImage.length < 4" >
               <i class="fa fa-plus"></i>
             </a>
           </div>
           <div class="pictureBox">
             <p class="oversize">{{overPartSize}}</p>
             <div class="pixContainer">
-              <div class="jobPix" ng-repeat="img in part_Img"><img ng-src="{{img.url}}" class="img img-responsive" alt="part_pix"> <i class="fa fa-times" ng-click="deletePartPhoto(img ,$index)"></i></div>
+              <div class="jobPix" ng-repeat="img in part_Img"><img ng-src="{{img.url}}" class="img img-responsive" alt="part_pix"> <i class="fa fa-times" ng-if="!job.id" ng-click="deletePartPhoto(img ,$index)"></i></div>
             </div>
 
-            <div class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="part_Img.length < 5 || job.id">
+            <div ng-show="!job.id" class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="part_Img.length < 5">
               <input type="file" name="pic" class="form-control" placeholder="Photo" base-sixty-four-input accept="image/*" ng-model="job.partImg">
             </label>
             </div>
           </div>
+        </div>
         </div>
 
         <h3 class="parts">Job Images:</h3>

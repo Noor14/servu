@@ -12,10 +12,12 @@ angular.module('servu')
     function ($scope, $rootScope, toastr, jobCategory, $timeout, locationService, documentService, jobListService){
 
     $scope.jobImages=[];
-    $scope.part_Img = [];
-    $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
-    $scope.minDate = new Date();
     $scope.partsImage=[];
+    $scope.part_Img = [];
+    $scope.partsfield = true;
+
+      $scope.contractDays = ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Bi-Annually'];
+    $scope.minDate = new Date();
     $scope.job = {
       job_type : 0,
       image_ids:[],
@@ -295,7 +297,8 @@ angular.module('servu')
       $scope.deleteJobPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
-            $scope.job.image_ids.splice(img.id, 1);
+            var index_Of = $scope.job.image_ids.indexOf(img.id);
+            $scope.job.image_ids.splice(index_Of,1);
             $scope.jobImages.splice(index, 1);
           }
         },function(err){

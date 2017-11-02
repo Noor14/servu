@@ -263,6 +263,7 @@ justify-content: space-between;
 align-items: center;
 }
 .Detail .partField{
+  margin-top: 10px;
   display: flex;
 }
 .Detail .partField .form-group{
