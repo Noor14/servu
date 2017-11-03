@@ -92,9 +92,13 @@ angular.module('servu')
         if(res.status==200){
           vm.reviewLoader = false;
           vm.reviews = res.data.reviews;
+          // angular.forEach(res.data.reviews, function(obj){
+          //   vm.reviews.push(obj);
+          // });
           vm.page_no =  res.data.page;
-          if(!vm.current_time)
+          if(!vm.current_time){
             vm.current_time = res.data.timestamp;
+          }
             }
 
       },function(err){
@@ -111,9 +115,7 @@ angular.module('servu')
           vm.current_time = res.data.timestamp;
         }
         vm.userJob = res.data.jobs;
-        // vm.reviews = vm.userJob.map(function(obj){
-        //   return {job : obj};
-        // });
+
       },function(err){
         vm.JobLoader = false;
         console.log(err);
@@ -134,10 +136,9 @@ angular.module('servu')
     };
 
 
-    //vm.loadMore= function(){
+    // vm.loadReview= function(){
     //  vm.page_no += 1;
-    //
-    //  vm.getUserReview(vm.userData.id, vm.page_no, vm.current_time);
-    //};
+    //   vm.getUserReview(vm.userData.id, vm.page_no, vm.current_time);
+    // };
     vm.getUserProfile();
   }]);
