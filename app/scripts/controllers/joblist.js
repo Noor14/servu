@@ -216,7 +216,8 @@ angular.module('servu')
           console.log("res",res.data.jobs);
           $rootScope.pageLoader = vm.toggle = false;
           vm.jobHeading = 'All Jobs';
-          vm.sort = vm.filterObject = $rootScope.fullHeight = '';
+          vm.sort = $rootScope.fullHeight = '';
+          vm.filterObject = {};
           vm.categoryId=[];
           if(!vm.current_time){
             vm.current_time = res.data.timestamp;

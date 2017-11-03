@@ -283,7 +283,7 @@ align-items: center;
 }
 .Detail .pictureBox p.oversize{
   position: absolute;
-  top: -20px;
+  top: -10px;
   left: -15px;
 }
 .Detail .jobPix{
@@ -491,9 +491,6 @@ font-size: 30px;
 .jobList div.myjob-bg img, .userProfile div.myjob-bg img{
   width: 100%;
   height: 100%;
-}
-.userProfile .tabs-container .nav-tabs .col-md-12 a{
-  padding: 20px 0;
 }
 .jobList div.myjob-image, .userProfile div.myjob-image{
   padding: 25px;
@@ -1151,6 +1148,10 @@ i.bar{
   margin-bottom: 10px;
   padding: 5px 16px;
   align-items: center;
+}
+.jobDetailpage .adminRejected{
+  display: inline-block;
+  margin-bottom: 5px;
 }
 .jobDetailpage .commmt_time span.glyphicon{
   color: #426fb6;

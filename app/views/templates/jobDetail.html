@@ -171,6 +171,7 @@
                 <img ng-if="vm.job.status > 1 && vm.userData.user_type == 1 && !vm.job.accepted_bid.user.profile_pic && !vm.job.accepted_bid.user.pic_url" src="images/user.jpg" alt="user" width="29px" height="29px" class="img">
                 <span ng-if="vm.userData.user_type == 2"><span ng-bind="vm.job.user.name | limitTo:13"></span></span><span ng-if="vm.userData.user_type == 2 && vm.job.user.name.length > 13">...</span>
                 <span ng-if="vm.userData.user_type == 1 && vm.job.status == 1">Job not awarded yet</span>
+                <span class="adminRejected" ng-if="vm.userData.user_type == 1 && vm.job.status == 0 && !vm.job.accepted_bid">This job is rejected</span>
                 <span ng-if="vm.userData.user_type == 1 && vm.job.status > 1"><span>{{vm.job.accepted_bid.user.name | limitTo:8}}</span><span ng-if="vm.job.accepted_bid.user.name.length > 8">...</span></span>
               </div>
               <div class="text-right">
@@ -224,7 +225,7 @@
                     <div class="m-b-md">
                       <span>Start Code</span>
                       <h1 class="m-xs" ng-if="vm.job.status > 1">{{vm.job.start_code}}</h1>
-                      <h1 class="m-xs" ng-if="vm.job.status == 1"> -- </h1>
+                      <h1 class="m-xs" ng-if="vm.job.status <= 1"> -- </h1>
                     </div>
                   </div>
                 </div>
