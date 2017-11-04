@@ -192,10 +192,6 @@ angular.module('servu')
       (!vm.jobStatus)?undefined:vm.jobStatus;
       jobListService.getmyJobs(vm.query, vm.jobStatus, page, time).then(function(res){
         console.log("res",res.data.jobs);
-        $rootScope.pageLoader = false;
-        vm.toggle = true;
-        vm.jobHeading = 'My Jobs';
-        $rootScope.fullHeight = '';
         if(!vm.current_time){
           vm.current_time = res.data.timestamp;
         }
@@ -205,6 +201,11 @@ angular.module('servu')
         vm.records = res.data.total_records;
         vm.jobTime = res.data.timestamp;
         vm.jobs = res.data.jobs;
+        vm.toggle = true;
+        vm.jobHeading = 'My Jobs';
+        $rootScope.fullHeight = '';
+        $rootScope.pageLoader = false;
+
       });
     };
 
@@ -214,11 +215,6 @@ angular.module('servu')
         (!vm.query)?'':vm.query;
         jobListService.allJobs(vm.query, page, time, vm.filterObject).then(function(res){
           console.log("res",res.data.jobs);
-          $rootScope.pageLoader = vm.toggle = false;
-          vm.jobHeading = 'All Jobs';
-          vm.sort = $rootScope.fullHeight = '';
-          vm.filterObject = {};
-          vm.categoryId=[];
           if(!vm.current_time){
             vm.current_time = res.data.timestamp;
           }
@@ -228,6 +224,12 @@ angular.module('servu')
           vm.records = res.data.total_records;
           vm.jobTime = res.data.timestamp;
           vm.jobs = res.data.jobs;
+          vm.jobHeading = 'All Jobs';
+          vm.sort = $rootScope.fullHeight = '';
+          vm.filterObject = {};
+          vm.categoryId=[];
+          $rootScope.pageLoader = vm.toggle = false;
+
         });
       };
 

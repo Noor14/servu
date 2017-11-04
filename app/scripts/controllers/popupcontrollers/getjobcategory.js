@@ -294,6 +294,10 @@ angular.module('servu')
           console.log(err);
         })
       }
+      $scope.insertImage = function(index){
+        $scope.partialpartIndex = index;
+        console.log($scope.partialpartIndex,'vm.partialpartIndex');
+      };
       $scope.deleteJobPhoto = function(img, index){
         documentService.deleteDoc(img.id).then(function(res){
           if(res.status == 204){
