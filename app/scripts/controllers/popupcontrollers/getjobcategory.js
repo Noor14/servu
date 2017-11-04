@@ -212,7 +212,6 @@ angular.module('servu')
 
 
       $scope.$watch('job.photo', function(newValue, oldValue){
-        console.log(newValue,'newValue');
         $scope.overSize='';
         if(newValue != undefined && newValue.filesize < 5242880 ){
           var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
@@ -224,7 +223,6 @@ angular.module('servu')
       });
 
       $scope.$watch('job.partImg', function(newValue, oldValue){
-        console.log(newValue,'newValue');
         $scope.overPartSize='';
         if(newValue != undefined && newValue.filesize < 5242880 ){
           var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
@@ -232,6 +230,16 @@ angular.module('servu')
         }
         else if(newValue != undefined){
           $scope.overPartSize = "Please select an image less than 5MB.";
+        }
+      });
+      $scope.$watch('job.part', function(newValue, oldValue){
+        $scope.overPartimgSize='';
+        if(newValue != undefined && newValue.filesize < 5242880 ){
+          var pix = "data:" + newValue.filetype + ";base64,"+ newValue.base64;
+          addPartPhoto(pix);
+        }
+        else if(newValue != undefined){
+          $scope.overPartimgSize = "Please select an image less than 5MB.";
         }
       });
 
@@ -294,6 +302,17 @@ angular.module('servu')
           console.log(err);
         })
       }
+      function addPartPhoto(pix){
+        documentService.profileDoc({input:pix}).then(function(res){
+          if(res.status == 201){
+            $scope.partsImage[$scope.partialpartIndex].image_ids.push(res.data);
+            console.log("res.data",res.data);
+          }
+        },function(err){
+          $scope.jobLoader = false;
+          console.log(err);
+        })
+      }
       $scope.insertImage = function(index){
         $scope.partialpartIndex = index;
         console.log($scope.partialpartIndex,'vm.partialpartIndex');
@@ -315,11 +334,10 @@ angular.module('servu')
           if(res.status == 204){
 
             $scope.partsImage.forEach(function(obj){
-              obj.image_ids.forEach(function(item){
-                if(item.id == img.id){
-                  obj.image_ids.splice(item, 1);
-                }
-              })
+              var index = obj.image_ids.indexOf(img);
+              if(index > -1){
+                  obj.image_ids.splice(index, 1);
+                  }
             });
           }
         },function(err){

@@ -254,7 +254,8 @@ margin-left: 20px;
   padding: 10px 0;
   max-width: 320px;
   display: -webkit-inline-box;
-  overflow-x: scroll;
+  overflow-x: auto;
+  margin-top: 5px;
 }
 .Detail .pictureBox{
 display: flex;
