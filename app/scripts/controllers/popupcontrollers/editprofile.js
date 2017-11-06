@@ -128,7 +128,10 @@ angular.module('servu')
       else if($scope.locationId && $scope.cityInfo){
         updateLocation($scope.locationId, $scope.locationObj)
       }
-      update();
+     else{
+        update();
+      }
+
 
     };
 
@@ -227,8 +230,9 @@ angular.module('servu')
         console.log(res);
         if(res.status == 201){
           $scope.location_id = res.data.id;
-          $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.location.latitude;
-          $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.location.longitude;
+          $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.latitude;
+          $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.longitude;
+          update();
         }
       },function(err){
         console.log(err);
@@ -238,8 +242,9 @@ angular.module('servu')
       locationService.updateLocation(id, locationObj).then(function(res){
         if(res.status == 200){
           $scope.location_id = res.data.id;
-          $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.location.latitude;
-          $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.location.longitude;
+          $scope.marker.coords.latitude = $scope.map.center.latitude = res.data.latitude;
+          $scope.marker.coords.longitude = $scope.map.center.longitude = res.data.longitude;
+          update();
         }
       },function(err){
         console.log(err);
