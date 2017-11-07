@@ -576,7 +576,7 @@ font-size: 30px;
   letter-spacing: .4px;
   font-weight: 200;
   padding: 0 20px;
-  width: calc(15.97em - -4%);
+  width: calc(15em + 4%);
 }
 .loginPage .loginDiv .loginForm .loginButton{
   margin-top: 65px;
@@ -1283,14 +1283,6 @@ background-color: #426fb6;
   margin-top: 10px;
 }
 
-@media only screen and (max-width: 1199px){
-
-  .jobDetailpage .widget-box {
-  padding: 0;
-  }
-
-}
-
 @media only screen and (min-width: 767px){
 
   .uploadPicture{
@@ -1305,6 +1297,9 @@ background-color: #426fb6;
   }
 }
 @media only screen and (max-width: 1199px){
+  .jobDetailpage .widget-box {
+    padding: 0;
+  }
   .homeMenu{
     display: none;
   }

@@ -1,5 +1,5 @@
 
-<div class="setting col-md-3 no-padding">
+<div class="setting col-md-3 col-xs-12 no-padding">
 
   <page-loader ng-if="vm.loadSetting" class="settingLoader"></page-loader>
 
@@ -7,7 +7,7 @@
     <h3><span>EMAIL ALERTS</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul>
-    <li><span>New Related Jobs </span> <input type="checkbox" value="" ng-model="vm.set_email.related_jobs"></li>
+    <li ng-if="vm.userData.user_type == 2"><span>New Related Jobs </span> <input type="checkbox" value="" ng-model="vm.set_email.related_jobs"></li>
     <li><span>Job Status </span><input type="checkbox" value=""  ng-model="vm.set_email.jobStatus"></li>
     <li><span>New Review </span><input type="checkbox" value="" ng-model="vm.set_email.new_review"></li>
     <li><span>New Message </span> <input type="checkbox" value="" ng-model="vm.set_email.new_message"></li>

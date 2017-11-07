@@ -48,6 +48,7 @@ body {
 .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus{
   background-color: #6b798b;
 }
+
 .btn-primary {
   background-color: #426fb6;
   border-color: #fff;

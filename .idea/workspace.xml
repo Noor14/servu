@@ -2,8 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ed8049-1500-4f33-82f0-ffa5489c8e2f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist.zip" afterPath="$PROJECT_DIR$/dist.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editprofile.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editprofile.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/forget-route-banner.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/search-icon-home.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/small_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/test.gif" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/add-photo.png" afterPath="$PROJECT_DIR$/app/images/add-photo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/banner-login.png" afterPath="$PROJECT_DIR$/app/images/banner-login.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/banner-signup.png" afterPath="$PROJECT_DIR$/app/images/banner-signup.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/checked.png" afterPath="$PROJECT_DIR$/app/images/checked.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/contact-banner.png" afterPath="$PROJECT_DIR$/app/images/contact-banner.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/edit.png" afterPath="$PROJECT_DIR$/app/images/edit.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/favicon.png" afterPath="$PROJECT_DIR$/app/images/favicon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/forget-banner.png" afterPath="$PROJECT_DIR$/app/images/forget-banner.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/home-banner.png" afterPath="$PROJECT_DIR$/app/images/home-banner.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/logo.png" afterPath="$PROJECT_DIR$/app/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/newsletter-banner.png" afterPath="$PROJECT_DIR$/app/images/newsletter-banner.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/pageloader.gif" afterPath="$PROJECT_DIR$/app/images/pageloader.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/plus.png" afterPath="$PROJECT_DIR$/app/images/plus.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/searchicon.png" afterPath="$PROJECT_DIR$/app/images/searchicon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/services-banner.png" afterPath="$PROJECT_DIR$/app/images/services-banner.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/spinner_two.gif" afterPath="$PROJECT_DIR$/app/images/spinner_two.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/w-Facebook.png" afterPath="$PROJECT_DIR$/app/images/w-Facebook.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/w-Google.png" afterPath="$PROJECT_DIR$/app/images/w-Google.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/w-Twitter.png" afterPath="$PROJECT_DIR$/app/images/w-Twitter.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/myStyle.css" afterPath="$PROJECT_DIR$/app/styles/myStyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/stylesheet.css" afterPath="$PROJECT_DIR$/app/styles/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" afterPath="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html" afterPath="$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/panels/settingpanel.html" afterPath="$PROJECT_DIR$/app/views/panels/settingpanel.html" />
     </list>
     <ignored path="ServuApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,54 +52,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myStyle.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myStyle.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.884615">
-              <caret line="195" column="70" selection-start-line="195" selection-start-column="62" selection-end-line="195" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.589183">
+              <caret line="1300" column="15" selection-start-line="1300" selection-start-column="15" selection-end-line="1300" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <file leaf-file-name="message.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/message.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobdetail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/jobdetail.js">
+      <file leaf-file-name="message.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="140" selection-start-line="11" selection-start-column="140" selection-end-line="11" selection-end-column="140" />
-              <folding>
-                <marker date="1509956383302" expanded="true" signature="2070:2355" placeholder="..." />
-                <marker date="1509956383302" expanded="true" signature="4703:4988" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-23.413794">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.0">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.html">
+        <entry file="file://$PROJECT_DIR$/dist/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="32.692307">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,48 +105,48 @@
       <file leaf-file-name="settingpanel.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/panels/settingpanel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewImage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/viewImage.html">
+      <file leaf-file-name="joblist.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.931034">
+              <caret line="187" column="30" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/profile.js">
+      <file leaf-file-name="jobList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/jobList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="17" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="17" />
+            <state vertical-scroll-proportion="-3.709091">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editprofile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editprofile.js">
+      <file leaf-file-name="jobscheduleTab.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.0">
-              <caret line="245" column="81" selection-start-line="245" selection-start-column="81" selection-end-line="245" selection-end-column="81" />
+            <state vertical-scroll-proportion="-15.115385">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imgview.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/imgview.js">
+      <file leaf-file-name="editProfile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.230769">
+              <caret line="17" column="106" selection-start-line="17" selection-start-column="106" selection-end-line="17" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -160,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/confirmpin.js" />
         <option value="$PROJECT_DIR$/app/styles/main.css" />
         <option value="$PROJECT_DIR$/test/spec/controllers/imgview.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/imgview.js" />
@@ -174,7 +198,6 @@
         <option value="$PROJECT_DIR$/app/views/dialogTemplates/reviewJob.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/jobreview.js" />
         <option value="$PROJECT_DIR$/app/views/templates/message.html" />
-        <option value="$PROJECT_DIR$/app/styles/stylesheet.css" />
         <option value="$PROJECT_DIR$/app/views/dialogTemplates/viewBid.html" />
         <option value="$PROJECT_DIR$/app/scripts/directives/notificationpanel.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/profileservice.js" />
@@ -189,17 +212,14 @@
         <option value="$PROJECT_DIR$/app/views/dialogTemplates/jobcatergoryPopup.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/addskill.js" />
         <option value="$PROJECT_DIR$/app/views/categoryTemplates/skillsList.html" />
-        <option value="$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html" />
         <option value="$PROJECT_DIR$/app/views/panels/filterpanel.html" />
         <option value="$PROJECT_DIR$/app/views/panels/notificationpanel.html" />
         <option value="$PROJECT_DIR$/app/views/LandingPageTemplates/login.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/dashboard.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/message.js" />
         <option value="$PROJECT_DIR$/app/views/panels/advanceFilter.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/profile.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/editjob.js" />
         <option value="$PROJECT_DIR$/app/views/templates/profile.html" />
-        <option value="$PROJECT_DIR$/app/styles/myStyle.css" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/joblist.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/getjobcategory.js" />
         <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobDetail.html" />
@@ -208,9 +228,14 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/imgview.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/jobdetail.js" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/app/views/panels/settingpanel.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editprofile.js" />
+        <option value="$PROJECT_DIR$/app/styles/stylesheet.css" />
+        <option value="$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html" />
+        <option value="$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html" />
+        <option value="$PROJECT_DIR$/app/views/panels/settingpanel.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/message.js" />
+        <option value="$PROJECT_DIR$/app/styles/myStyle.css" />
       </list>
     </option>
   </component>
@@ -291,7 +316,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -424,12 +448,133 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServuApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -548,12 +693,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2799576" sideWeight="0.4409534" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2799576" sideWeight="0.55904657" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7053088" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25541127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -567,7 +713,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7053088" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -592,24 +737,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/addBid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="156" selection-start-line="8" selection-start-column="156" selection-end-line="8" selection-end-column="156" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/reviewJob.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="122" selection-start-line="17" selection-start-column="110" selection-end-line="17" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -725,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/panels/filterpanel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -760,13 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/message.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="15" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/panels/notificationpanel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -788,21 +905,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
@@ -823,18 +926,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/jobList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/LandingPageTemplates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="86" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,69 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="80" selection-start-line="62" selection-start-column="80" selection-end-line="62" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="218" column="27" selection-start-line="218" selection-start-column="27" selection-end-line="218" selection-end-column="27" />
-          <folding>
-            <marker date="1509950552743" expanded="true" signature="192:7198" placeholder="[...]" />
-            <marker date="1509950552743" expanded="true" signature="373:7197" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="910:1010" placeholder="{&quot;floor&quot;: 0...}" />
-            <marker date="1509950552743" expanded="true" signature="1040:1157" placeholder="{&quot;value&quot;: 10...}" />
-            <marker date="1509950552743" expanded="true" signature="1078:1149" placeholder="{&quot;floor&quot;: 0...}" />
-            <marker date="1509950552743" expanded="true" signature="1197:1299" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="1226:1289" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="1345:1809" placeholder="[...]" />
-            <marker date="1509950552743" expanded="true" signature="1355:1417" placeholder="{&quot;id&quot;: 0...}" />
-            <marker date="1509950552743" expanded="true" signature="1427:1482" placeholder="{&quot;id&quot;: 1...}" />
-            <marker date="1509950552743" expanded="true" signature="1492:1544" placeholder="{&quot;id&quot;: 2...}" />
-            <marker date="1509950552743" expanded="true" signature="1554:1606" placeholder="{&quot;id&quot;: 3...}" />
-            <marker date="1509950552743" expanded="true" signature="1616:1670" placeholder="{&quot;id&quot;: 4...}" />
-            <marker date="1509950552743" expanded="true" signature="1680:1735" placeholder="{&quot;id&quot;: 5...}" />
-            <marker date="1509950552743" expanded="true" signature="1745:1800" placeholder="{&quot;id&quot;: 6...}" />
-            <marker date="1509950552743" expanded="true" signature="1846:2310" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="1897:1949" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2220:2301" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2337:2528" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2426:2518" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2587:2980" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2695:2867" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2820:2857" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="2880:2971" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3043:3208" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3091:3130" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3158:3200" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3251:3588" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3446:3496" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3509:3554" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3627:3962" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3662:3863" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3732:3783" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3798:3853" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="3901:3954" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4002:4066" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4105:4725" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4144:4222" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4260:4338" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4375:4450" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4483:4550" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="4766:5070" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6415:6425" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6415:6435" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6486:6700" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6507:6586" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6537:6578" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6607:6694" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6639:6686" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6738:6792" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6820:7162" placeholder="{...}" />
-            <marker date="1509950552743" expanded="true" signature="6854:7007" placeholder="{&quot;template&quot;: 'views/dialogTemplates/jobcatergoryPopup.html'...}" />
-            <marker date="1509950552743" expanded="true" signature="7060:7154" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,57 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-          <folding>
-            <marker date="1509950552806" expanded="true" signature="15:153" placeholder="/** @ngdoc function ...*/" />
-            <marker date="1509950552806" expanded="true" signature="213:12818" placeholder="[...]" />
-            <marker date="1509950552806" expanded="true" signature="442:12817" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="691:754" placeholder="{&quot;job_type&quot;: 0...}" />
-            <marker date="1509950552806" expanded="true" signature="948:1053" placeholder="{&quot;zoom&quot;: 14...}" />
-            <marker date="1509950552806" expanded="true" signature="964:1031" placeholder="{&quot;latitude&quot;: 24.774265...}" />
-            <marker date="1509950552806" expanded="true" signature="1076:1108" placeholder="{&quot;scrollwheel&quot;: false...}" />
-            <marker date="1509950552806" expanded="true" signature="1119:1179" placeholder="//..." />
-            <marker date="1509950552806" expanded="true" signature="1200:2783" placeholder="{&quot;id&quot;: 0...}" />
-            <marker date="1509950552806" expanded="true" signature="1229:1296" placeholder="{&quot;latitude&quot;: 24.774265...}" />
-            <marker date="1509950552806" expanded="true" signature="1313:1346" placeholder="{&quot;draggable&quot;: true...}" />
-            <marker date="1509950552806" expanded="true" signature="1362:2777" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="1415:2769" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="1877:2756" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="1936:2744" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="1971:2730" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2147:2714" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2210:2452" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2273:2430" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2319:2408" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2492:2546" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="2590:2695" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3005:3105" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3052:3093" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3139:3989" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3175:3565" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3257:3496" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3583:3928" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="3620:3859" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4163:4273" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4295:4330" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4375:4646" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4442:4590" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4499:4582" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4604:4639" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4702:4900" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4794:4892" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="4946:5265" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="5308:5499" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="5540:5700" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="5737:6172" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="5809:5869" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="5909:6016" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="6056:6166" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="6237:6247" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="10561:10575" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="10561:10589" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="10561:10599" placeholder="{...}" />
-            <marker date="1509950552806" expanded="true" signature="10561:10697" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -978,7 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019562716">
           <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -986,7 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.346153">
           <caret line="56" column="82" selection-start-line="56" selection-start-column="82" selection-end-line="56" selection-end-column="91" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,25 +984,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/panels/settingpanel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.884615">
-          <caret line="195" column="70" selection-start-line="195" selection-start-column="62" selection-end-line="195" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/viewImage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
@@ -1032,7 +994,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="32.692307">
+        <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
@@ -1059,7 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/popupcontrollers/editprofile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="245" column="81" selection-start-line="245" selection-start-column="81" selection-end-line="245" selection-end-column="81" />
           <folding />
         </state>
@@ -1069,6 +1031,86 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/twitterservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/categoryTemplates/jobscheduleTab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.115385">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dialogTemplates/editProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.230769">
+          <caret line="17" column="106" selection-start-line="17" selection-start-column="106" selection-end-line="17" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/jobList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.709091">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/panels/settingpanel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.931034">
+          <caret line="187" column="30" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.413794">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/myStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.589183">
+          <caret line="1300" column="15" selection-start-line="1300" selection-start-column="15" selection-end-line="1300" selection-end-column="15" />
           <folding />
         </state>
       </provider>

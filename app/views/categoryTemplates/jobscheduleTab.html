@@ -33,7 +33,7 @@
 
     <div class="col-lg-12">
       <div class="col-lg-4" ng-repeat="cont in contractDays">
-        <input type="radio" ng-required="contType" ng-model="job.contract.contract_type" name="contract_type" id="inlineRadio1" value="{{$index}}"> {{cont}}
+        <input type="radio" ng-checked="(job.id && $index == job.contract.contract_type)? true :false" ng-required="contType" ng-model="job.contract.contract_type" name="contract_type" id="inlineRadio1" value="{{$index}}"> {{cont}}
       </div>
     </div>
     <div class="col-lg-12">
