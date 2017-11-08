@@ -6,9 +6,13 @@
   <div class="row">
     <form ng-submit="bidPlace()" name="bidForm" novalidate>
       <div class="form-group">
-        <input type="number" min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"  class="form-control" name="budget" required ng-model="obj.budget" placeholder="Add Budget (AED) *" />
+        <input type="number" ng-min="1" ng-maxlength="5" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"  class="form-control" name="budget" required ng-model="obj.budget" placeholder="Add Budget (AED) *" />
+        <div ng-messages="bidForm.budget.$error">
+          <p class="valid" ng-message="min">Budget should not be less than from 1</p>
+          <p class="valid" ng-message="maxlength">Budget should not be exceed from 5 digits</p>
+        </div>
       </div>
-      <div class="form-group">
+      <div class="form-group m-t-lg">
         <textarea class="form-control" name="description" rows="5" ng-model="obj.description" placeholder="Other Description"></textarea>
       </div>
       <div>

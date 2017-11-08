@@ -1273,6 +1273,9 @@ background-color: #426fb6;
 .editjobComment .form-group ::-moz-placeholder, .message-chat .form-group ::-moz-placeholder{
   color: #444 !important;
 }
+.message-chat .messagelistBack{
+display: none;
+}
 .jobDetailpage .widget-box{
   display: flex;
   padding-right: 0;
@@ -1317,7 +1320,16 @@ background-color: #426fb6;
     display: none;
   }
 }
+@media screen and (max-width: 991px) {
+  .message-chat .con-display {
+    display: block;
+  }
 
+  .message-chat .messagelistBack{
+    display: inline-block;
+    margin-top: 15px;
+  }
+}
 @media screen and (max-width: 767px) {
   .signupPage .bgImage{
     height: 100% !important;

@@ -166,13 +166,13 @@ angular.module('servu')
 
 
       vm.advancesearch = function(){
-        if(isNaN(vm.slider.minValue)){
+        if(vm.slider.minValue){
           vm.filterObject.budget_min = Number(vm.slider.minValue);
         }
-        if(isNaN(vm.slider.maxValue)){
+        if(vm.slider.maxValue){
           vm.filterObject.budget_max = Number(vm.slider.maxValue);
         }
-        if(isNaN(vm.distance.value)){
+        if(vm.distance.value){
           vm.filterObject.distance = Number(vm.distance.value);
         }
         if(vm.categoryId.length){
@@ -227,6 +227,10 @@ angular.module('servu')
           vm.jobHeading = 'All Jobs';
           vm.sort = $rootScope.fullHeight = '';
           vm.filterObject = {};
+          vm.slider.minValue = 10;
+          vm.slider. maxValue= 4000;
+          vm.distance. value = 10;
+
           vm.categoryId=[];
           $rootScope.pageLoader = vm.toggle = false;
 

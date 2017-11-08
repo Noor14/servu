@@ -13,6 +13,7 @@ angular.module('servu')
     var vm = this;
     vm.msg = {};
     vm.messages=[];
+    vm.connection;
     vm.glued = true;
     vm.accountInfo = JSON.parse(localStorage.getItem("userDetail"));
     vm.userData = vm.accountInfo.data.user;
@@ -34,17 +35,20 @@ angular.module('servu')
       consumer.onConfirmSubscription(function(){
         console.log('subscribed');
         vm.chatLoader = $rootScope.pageLoader = false;
+        if(!vm.connection){
+          vm.connection = 'connected';
+          connection_Toaster();
+
+        }
 
       });
-      setTimeout(function(){
-      if(!$rootScope.pageLoader){
+
+    }
+      function connection_Toaster(){
         toastr.success('Chat connected',{
           preventDuplicates:true
         });
       }
-    },4000)
-    }
-
     vm.send = function(e){
       if(e.keyCode == 13 && vm.msg.body){
         vm.message();
@@ -92,27 +96,65 @@ angular.module('servu')
 
     vm.conversationList = function(page, time){
       ActionCableSocketWrangler.stop();
-      var id = localStorage.getItem('jobId');
+     vm.id = localStorage.getItem('jobId');
       vm.notifyConvoId = localStorage.getItem('notify_conversation_id');
-      if(!id && !vm.notifyConvoId){
+      if(!vm.id && !vm.notifyConvoId){
         vm.convlist = 'con-display';
         conversationList(page, time);
       }
-      else if(id && !vm.notifyConvoId){
+      else if(vm.id && !vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
         jobMessages(page, time);
       }
-      else if(!id && vm.notifyConvoId){
+      else if(!vm.id && vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
         vm.openConversation(vm.notifyConvoId, page, time)
       }
     };
+   $rootScope.$on('size',function(arg){
+      console.log('size', arg.targetScope.windowWidth);
+     vm.size = arg.targetScope.windowWidth;
+     if(vm.size >= 991){
+       if(!vm.notifyConvoId && !vm.id){
+         vm.chatbox = vm.convlist = 'con-display';
+       }
+       else if(vm.id || vm.notifyConvoId){
+         vm.chatbox = 'con-display col-md-offset-2';
+       }
+     }
+     if(vm.size < 991 && vm.chatbox != 'con-display'){
+       if(!vm.notifyConvoId && !vm.id){
+         vm.chatbox = 'con-display-not';
+         }
+      if(vm.id || vm.notifyConvoId){
+         vm.chatbox = 'con-display col-md-offset-2';
+       }
+     }
+     else if(vm.size < 991 && (vm.chatbox == 'con-display' ||  vm.chatbox == 'con-display col-md-offset-2')){
+       if(!vm.notifyConvoId && !vm.id) {
+         vm.chatbox = 'con-display';
+         vm.convlist = 'con-display-not';
+       }
+       else if(vm.id || vm.notifyConvoId){
+         vm.chatbox = 'con-display col-md-offset-2';
+       }
+     }
 
+    });
+      vm.back = function(){
+        vm.convlist = 'con-display';
+        vm.chatbox = 'con-display-not';
+
+      };
     vm.openConversation = function(id, page, time){
       vm.chatLoader = true;
       vm.conversation_id = id;
+      if(vm.size < 991 && !vm.notifyConvoId && !vm.id){
+        vm.convlist='con-display-not';
+        vm.chatbox = 'con-display';
+      }
       messageService.getSpecConversation(id, page, time).then(function(res){
         if(res.status == 200){
           console.log(res);

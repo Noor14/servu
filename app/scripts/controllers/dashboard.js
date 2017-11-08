@@ -31,6 +31,9 @@ angular.module('servu')
       };
       vm.settingBox = function(){
       if($rootScope.displayToggle =='setting-close'){
+        if(vm.size <768){
+          $rootScope.sidemenuHome = 'display-not';
+        }
         $rootScope.displayToggle = "setting-open";
         vm.loadSetting = true;
         profileService.getSetting().then(function(res){
@@ -72,8 +75,19 @@ angular.module('servu')
 
       }
       };
+      $rootScope.$on('size',function(arg){
+        vm.size = arg.targetScope.windowWidth;
+        if(vm.size >= 768){
+          vm.chatbox = vm.convlist = 'con-display';
+        }
+
+
+      });
       vm.notifyBox = function(page, time){
         if($rootScope.notifyToggle =='setting-close'){
+          if(vm.size <768){
+            $rootScope.sidemenuHome = 'display-not';
+          }
           $rootScope.notifyToggle = "setting-open";
           vm.loadSetting = true;
           profileService.getNotification(page, time).then(function(res){
