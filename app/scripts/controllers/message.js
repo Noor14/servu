@@ -61,7 +61,7 @@ angular.module('servu')
          if(res.status == 200){
            vm.conversations = res.data.conversations;
            if(vm.conversations.length){
-             vm.status = vm.chatSection = true;
+           vm.chatSection = true;
              socket_connect();
            }
            else{
@@ -74,15 +74,12 @@ angular.module('servu')
      }
     function jobMessages(page, time){
       var id = localStorage.getItem('jobId');
-      vm.status = true;
       var conversation_id = localStorage.getItem('conversation_id');
-      vm.chatLoader = true;
+      vm.chatSection = vm.chatLoader = true;
       messageService.allMessages(id, page, time).then(function(res){
         if(res.status == 200){
           vm.messages = res.data.messages.reverse();
           vm.conversation_id = conversation_id;
-            vm.chatSection = true;
-          vm.status=false;
             socket_connect();
 
         }
@@ -100,16 +97,19 @@ angular.module('servu')
       vm.notifyConvoId = localStorage.getItem('notify_conversation_id');
       if(!vm.id && !vm.notifyConvoId){
         vm.convlist = 'con-display';
+        vm.chatArea = false;
         conversationList(page, time);
       }
       else if(vm.id && !vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
+        vm.chatArea = true;
         jobMessages(page, time);
       }
       else if(!vm.id && vm.notifyConvoId){
         vm.convlist='con-display-not';
         vm.chatbox = 'col-md-offset-2';
+        vm.chatArea = true;
         vm.openConversation(vm.notifyConvoId, page, time)
       }
     };
@@ -149,7 +149,7 @@ angular.module('servu')
 
       };
     vm.openConversation = function(id, page, time){
-      vm.chatLoader = true;
+      vm.chatSection = vm.chatLoader = true;
       vm.conversation_id = id;
       if(vm.size < 991 && !vm.notifyConvoId && !vm.id){
         vm.convlist='con-display-not';
@@ -158,8 +158,8 @@ angular.module('servu')
       messageService.getSpecConversation(id, page, time).then(function(res){
         if(res.status == 200){
           console.log(res);
-          vm.chatSection = true;
-          vm.status = vm.chatLoader = false;
+          vm.chatArea = true;
+          vm.chatLoader = false;
           if(vm.notifyConvoId){
             socket_connect();
           }
