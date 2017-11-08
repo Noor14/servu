@@ -151,6 +151,9 @@ angular.module('servu')
     vm.openConversation = function(id, page, time){
       vm.chatSection = vm.chatLoader = true;
       vm.conversation_id = id;
+      if(!vm.size){
+        vm.size= screen.width;
+      }
       if(vm.size < 991 && !vm.notifyConvoId && !vm.id){
         vm.convlist='con-display-not';
         vm.chatbox = 'con-display';
