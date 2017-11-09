@@ -21,7 +21,7 @@ angular.module('servu')
             user_info.user.phone_confirmed = true;
             $scope.closeThisDialog();
             //vm.user = {};
-            if(user_info.user.user_type < 3){
+            if((user_info.user.user_type == 1 && !user_info.user.hasOwnProperty('company_name')) || (user_info.user.user_type == 2 && user_info.user.hasOwnProperty('company_name'))){
               credentialService.authed = true;
               localStorage.setItem("userDetail",JSON.stringify({data: user_info}));
               toastr.success('Your account has been created',{
@@ -29,6 +29,12 @@ angular.module('servu')
                 preventOpenDuplicates: true
               });
               $state.go("user.joblist");
+            }
+            else if(user_info.user.user_type == 1 && user_info.user.hasOwnProperty('company_name')){
+              toastr.success('Your account has been created',{
+                closeButton: true
+              });
+              $state.go("home.login");
             }
             else{
             toastr.warning('Invalid login credential',{

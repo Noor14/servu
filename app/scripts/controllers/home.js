@@ -57,6 +57,12 @@ angular.module('servu')
 
           }
         }
+        else if(res.status == 401){
+          var toast_message = res.data.errors[0];
+          toastr.warning(toast_message,{
+            closeButton: true
+          });
+        }
         else{
           vm.loginCheck = "Username or password is incorrect";
         }

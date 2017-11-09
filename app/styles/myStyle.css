@@ -409,6 +409,7 @@ align-items: center;
   border-radius: 8px;
   top: 35%;
 }
+
 .spinner_two{
   width: 70px;
   height: 70px;
@@ -462,6 +463,15 @@ align-items: center;
   padding: 0;
   margin-right: -10px;
   margin-left: -10px;
+}
+#homePage .absoluteLoader .spinner{
+  position: absolute;
+  z-index: 1000;
+  left: calc(52% - 50px);
+  top: 50%;
+  border: 1px solid #ccc;
+  width: inherit;
+  height: unset;
 }
 .userProfile .myjobs-list{
   margin: 0;

@@ -114,7 +114,6 @@ angular.module('servu')
       }
     };
    $rootScope.$on('size',function(arg){
-      console.log('size', arg.targetScope.windowWidth);
      vm.size = arg.targetScope.windowWidth;
      if(vm.size >= 991){
        if(!vm.notifyConvoId && !vm.id){

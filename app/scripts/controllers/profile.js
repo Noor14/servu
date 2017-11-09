@@ -11,6 +11,9 @@ angular.module('servu')
   .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService','ngDialog', '$state', function (profileService, $rootScope, jobListService, ngDialog, $state) {
     var vm = this;
     vm.current_time;
+    vm.currentReview_time;
+    vm.reviewLoader = true;
+    vm.reviews=[];
     localStorage.removeItem('jobId');
     localStorage.removeItem('conversation_id');
     localStorage.removeItem('notify_conversation_id');
@@ -74,7 +77,7 @@ angular.module('servu')
           vm.profile = res.data;
           if(vm.profile.user_type == 2){
             vm.getJobs('', '');
-            vm.getUserReview(vm.userData.id,'', '');
+            //vm.getUserReview(vm.userData.id,'', '');
           }
           else if(vm.profile.user_type == 1){
             vm.getJobs('', '');
@@ -86,18 +89,17 @@ angular.module('servu')
       })
     };
     vm.getUserReview = function(id, page, time){
-      vm.reviewLoader = true;
       profileService.getReview(id, page, time).then(function(res){
 
         if(res.status==200){
           vm.reviewLoader = false;
-          vm.reviews = res.data.reviews;
-          // angular.forEach(res.data.reviews, function(obj){
-          //   vm.reviews.push(obj);
-          // });
+          //vm.reviews = res.data.reviews;
+           angular.forEach(res.data.reviews, function(obj){
+             vm.reviews.push(obj);
+           });
           vm.page_no =  res.data.page;
-          if(!vm.current_time){
-            vm.current_time = res.data.timestamp;
+          if(!vm.currentReview_time){
+            vm.currentReview_time = res.data.timestamp;
           }
             }
 
@@ -136,9 +138,18 @@ angular.module('servu')
     };
 
 
-    // vm.loadReview= function(){
-    //  vm.page_no += 1;
-    //   vm.getUserReview(vm.userData.id, vm.page_no, vm.current_time);
-    // };
+     vm.loadReview = function(){
+
+       if(!vm.page_no && !vm.currentReview_time){
+         vm.page_no ='';
+         vm.currentReview_time='';
+         vm.getUserReview(vm.userData.id, vm.page_no, vm.currentReview_time);
+
+       }
+       else if(vm.page_no){
+         vm.page_no += 1;
+         vm.getUserReview(vm.userData.id, vm.page_no, vm.currentReview_time);
+       }
+     };
     vm.getUserProfile();
   }]);

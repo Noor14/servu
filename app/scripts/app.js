@@ -180,19 +180,19 @@ angular
         controller: 'dashboardCtrl',
         controllerAs: 'vm'
       })
-      .state('user.jobDetail', {
-        url:'/job-detail/:id',
-        templateUrl: 'views/templates/jobDetail.html',
-        controller: 'JobDetailCtrl',
+      .state('user.joblist', {
+        url:'/dashboard',
+        templateUrl: 'views/templates/jobList.html',
+        controller: 'jobListCtrl',
         controllerAs: 'vm',
         data: {
           authRequired: true
         }
       })
-      .state('user.joblist', {
-        url:'/dashboard',
-        templateUrl: 'views/templates/jobList.html',
-        controller: 'jobListCtrl',
+      .state('user.jobDetail', {
+        url:'/job-detail/:id',
+        templateUrl: 'views/templates/jobDetail.html',
+        controller: 'JobDetailCtrl',
         controllerAs: 'vm',
         data: {
           authRequired: true

@@ -27,9 +27,9 @@
           <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false"><strong class="count" ng-if="vm.profile.user_type == 2">{{vm.profile.total_jobs_completed}} <br></strong><strong class="count" ng-if="vm.profile.user_type == 1">{{vm.profile.total_jobs_created}} <br></strong><strong>Jobs</strong></a></li>
         </ul>
         <div class="tab-content">
-          <div id="tab-1" class="tab-pane" ng-class="vm.activeTabOne">
-            <page-loader ng-if="vm.reviewLoader"></page-loader>
-            <div class="panel-body profile_review"  ng-repeat="review in vm.reviews" ng-if="!vm.reviewLoader && vm.reviews.length">
+          <div id="tab-1" infinite-scroll='vm.loadReview()' infinite-scroll-distance='0' infinite-scroll-disabled="!vm.reviewLoader" class="tab-pane" ng-class="vm.activeTabOne">
+            <page-loader ng-if="vm.reviewLoader" class="absoluteLoader"></page-loader>
+            <div class="panel-body profile_review"  ng-repeat="review in vm.reviews" ng-if="vm.reviews.length">
               <div class="review_sect">
                 <img ng-if="!review.job.user.profile_pic" src="images/user.jpg" alt="user" class="img-responsive">
                 <img ng-if="review.job.user.profile_pic && review.job.user.profile_pic.url" ng-src="{{review.job.user.profile_pic.url}}" alt="user" class="img-responsive">
