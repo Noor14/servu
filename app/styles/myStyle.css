@@ -62,7 +62,11 @@
   margin-right: 15px;
   margin-top: 0;
 }
-
+.jobList p.location, .userProfile p.location{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+   overflow-x: hidden;
+}
 #homePage .setting .setting-update button, .jobList .advanceFilter .setting-update button{
   margin: 10px 5px;
 }

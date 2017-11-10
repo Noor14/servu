@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('dashboardCtrl', ['$scope', '$state', 'twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService','header','profileService',
-    function ($scope, $state, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService, header, profileService) {
+  .controller('dashboardCtrl', ['$scope', '$state', 'jobListService','twitterService', '$rootScope', '$location', 'credentialService', 'toastr', 'socialLoginService','header','profileService',
+    function ($scope, $state, jobListService, twitterService, $rootScope, $location, credentialService, toastr, socialLoginService, header, profileService) {
 
       var vm = this;
       vm.toggle = false;
@@ -116,6 +116,8 @@ angular.module('servu')
       credentialService.userLogout(obj).then(function(res){
         console.log("res",res);
         if(res.status == 204){
+          jobListService.allJobFilter = {};
+          jobListService.myJobFilter = {};
           socialLoginService.logout();
           twitterService.clearCache();
           credentialService.authed = false;
