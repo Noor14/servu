@@ -6,14 +6,14 @@
     <h3><span>STATUS</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul class="sortfilter" >
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value=""><span> All</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="0"><span> Rejected by Admin</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="1"><span> In Process</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="2"><span> Awarded </span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="3"><span> Started</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="4"><span> Completed</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="5"><span> In Dispute</span></li>
-    <li><input type="radio" name="sort" ng-click="vm.filteration(vm.filter)" ng-model="vm.filter" value="6"><span> Signed Off</span></li>
+    <li><input type="radio" name="sort" ng-checked="(!vm.filter)?true :false" ng-click="vm.filteration('')"><span> All</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 0)?true :false" ng-click="vm.filteration(0)"><span> Rejected by Admin</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 1)?true :false" ng-click="vm.filteration(1)"><span> In Process</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 2)?true :false" ng-click="vm.filteration(2)"><span> Awarded </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 3)?true :false" ng-click="vm.filteration(3)"><span> Started</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 4)?true :false" ng-click="vm.filteration(4)"><span> Completed</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 5)?true :false" ng-click="vm.filteration(5)"><span> In Dispute</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.filter == 6)?true :false" ng-click="vm.filteration(6)"><span> Signed Off</span></li>
   </ul>
 
 

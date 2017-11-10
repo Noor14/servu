@@ -34,7 +34,7 @@ angular.module('servu')
         }
       };
       vm.distance = {
-        value: 10,
+        value: 0,
         options: {
           floor: 0,
           ceil: 1000,
@@ -99,6 +99,16 @@ angular.module('servu')
         jobCategory.getjobCategory().then(function(res){
           vm.filterLoader = false;
           vm.filterCat = res.data.categories;
+
+          if(vm.filterObject.category_ids.length){
+            vm.filterCat.forEach(function(obj){
+              for(var i=0; i < vm.filterObject.category_ids.length; i++){
+                if(obj.id == vm.filterObject.category_ids[i]){
+                  obj.selected = true;
+                }
+              }
+            })
+          }
         });
       }
       $rootScope.$on('filterScope', function(events, args){
@@ -203,6 +213,7 @@ angular.module('servu')
         vm.jobs = res.data.jobs;
         vm.toggle = true;
         vm.jobHeading = 'My Jobs';
+        vm.filter = vm.jobStatus;
         $rootScope.fullHeight = '';
         $rootScope.pageLoader = false;
 
@@ -225,13 +236,8 @@ angular.module('servu')
           vm.jobTime = res.data.timestamp;
           vm.jobs = res.data.jobs;
           vm.jobHeading = 'All Jobs';
-          vm.sort = $rootScope.fullHeight = '';
-          vm.filterObject = {};
-          vm.slider.minValue = 10;
-          vm.slider. maxValue= 4000;
-          vm.distance. value = 10;
-
-          vm.categoryId=[];
+          $rootScope.fullHeight = '';
+          vm.sort = vm.filterObject.sort_by;
           $rootScope.pageLoader = vm.toggle = false;
 
         });
@@ -250,8 +256,32 @@ angular.module('servu')
       }
     };
 
+    vm.clearSearch = function(){
+      vm.filterObject = {};
+      vm.categoryId=[];
+      vm.sort='';
+      vm.slider.minValue= 10;
+      vm.slider.maxValue=4000;
+      vm.distance.value= 0;
+      if(vm.filterCat && vm.filterCat.length){
+      vm.filterCat.forEach(function(obj){
+        if(obj.hasOwnProperty('selected'))
+            obj.selected = false;
+      })
+      }
+    };
+
+      vm.allJobs = function(){
+        vm.clearSearch();
+        vm.getallJob('', '');
+
+      };
+
 
     vm.jobDetail = function(jobid){
+      vm.showfilter=false;
+      $scope.$emit('filterScope', vm.showfilter);
+      $rootScope.$emit('filterbtn', vm.showfilter);
       $state.go("user.jobDetail",{id: jobid});
     };
     vm.addJob = function(){
@@ -267,7 +297,22 @@ angular.module('servu')
 
       });
     };
-
+      if(Object.keys(jobListService.allJobFilter).length > 0){
+        vm.filterObject = jobListService.allJobFilter;
+        vm.categoryId = vm.filterObject.category_ids;
+        vm.sort = vm.filterObject.sort_by;
+        vm.getallJob(vm.filterObject.page, vm.filterObject.time);
+      }
+      else{
+        if(Object.keys(jobListService.myJobFilter).length > 0){
+          if(jobListService.myJobFilter.status){
+            vm.filter = vm.jobStatus = jobListService.myJobFilter.status;
+          }
+          vm.getJobs(jobListService.myJobFilter.page, jobListService.myJobFilter.time);
+        }
+        else{
         vm.getJobs('', '');
+        }
+      }
 
   }]);

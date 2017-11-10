@@ -11,19 +11,25 @@ angular.module('servu')
   .service('jobListService',['$http', '$q', 'host','header',
     function ($http, $q, host ,header) {
     var vm = this;
-
+      vm.allJobFilter = {};
+      vm.myJobFilter = {};
 
     vm.getmyJobs = function(query, status, page, time){
+      if(!vm.myJobFilter.time){
+        vm.myJobFilter.page = page;
+        vm.myJobFilter.time = time;
+      }
+      vm.myJobFilter.status = status;
       var deffered = $q.defer();
       var obj = {
         url : host + "/jobs/my_jobs" ,
         method : "GET",
         headers: header.userAuth,
         params : {
-          page : page,
-          timestamp: time,
+          page : vm.myJobFilter.page,
+          timestamp: vm.myJobFilter.time,
           query:query,
-          status: status
+          status: vm.myJobFilter.status
         }
 
       };
@@ -32,21 +38,30 @@ angular.module('servu')
       });
       return deffered.promise;
     };
-      vm.allJobs = function(query, page, time, obj){
+      vm.allJobs = function(query, page, time, filter){
+        vm.allJobFilter = filter;
+        if(filter.hasOwnProperty('time')){
+        vm.allJobFilter.page = filter.page;
+        vm.allJobFilter.time = filter.time;
+        }
+        else if(!filter.hasOwnProperty('time')){
+          vm.allJobFilter.page = page;
+          vm.allJobFilter.time = time;
+        }
         var deffered = $q.defer();
         var obj = {
           url : host + "/jobs",
           method : "GET",
           headers: header.userAuth,
           params : {
-            page : page,
-            timestamp: time,
+            page : vm.allJobFilter.page,
+            timestamp: vm.allJobFilter.time,
             query: query,
-            distance: obj.distance,
-            budget_min: obj.budget_min,
-            budget_max: obj.budget_max,
-            category_ids: JSON.stringify(obj.category_ids),
-            sort_by: obj.sort_by
+            distance: vm.allJobFilter.distance,
+            budget_min: vm.allJobFilter.budget_min,
+            budget_max: vm.allJobFilter.budget_max,
+            category_ids: JSON.stringify(vm.allJobFilter.category_ids),
+            sort_by: vm.allJobFilter.sort_by
           }
 
         };

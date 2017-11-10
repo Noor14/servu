@@ -464,6 +464,14 @@ align-items: center;
   margin-right: -10px;
   margin-left: -10px;
 }
+.rz-ceil{
+  right:0;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+.rz-pointer:focus{
+  outline: 0;
+}
 #homePage .absoluteLoader .spinner{
   position: absolute;
   z-index: 1000;

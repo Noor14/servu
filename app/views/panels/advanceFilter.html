@@ -7,11 +7,11 @@
     <h3><span>SORT BY</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul class="sortfilter">
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="1" ng-click="vm.sorting(vm.sort)"><span> Relevence</span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="2" ng-click="vm.sorting(vm.sort)"><span> Recently Listed </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="3" ng-click="vm.sorting(vm.sort)"><span>Price Lowest to Highest </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="4" ng-click="vm.sorting(vm.sort)"><span>Price Highest to Lowest </span></li>
-    <li><input type="radio" name="sort" ng-model="vm.sort" value="5" ng-click="vm.sorting(vm.sort)"><span>Distance </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 1)?true :false" ng-click="vm.sorting(1)"><span> Relevence</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 2)?true :false" ng-click="vm.sorting(2)"><span> Recently Listed </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 3)?true :false" ng-click="vm.sorting(3)"><span>Price Lowest to Highest </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 4)?true :false" ng-click="vm.sorting(4)"><span>Price Highest to Lowest </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 5)?true :false" ng-click="vm.sorting(5)"><span>Distance </span></li>
   </ul>
 
   <div class="panelHeading">
@@ -41,12 +41,13 @@
     <h3><span>CATEGORY</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul>
-    <li ng-repeat="filter in vm.filterCat">
-      <span>{{filter.title}} </span> <input type="checkbox"  ng-click="vm.cat_Filter(filter.id)" ng-value="filter.id">
+    <li ng-repeat="filter in vm.filterCat track by $index">
+      <span>{{filter.title}} </span> <input type="checkbox"  ng-checked="filter.selected" ng-click="vm.cat_Filter(filter.id)" ng-value="filter.id">
     </li>
 
   </ul>
   <div class="text-right setting-update">
+    <button class="btn btn-primary btn-rounded" ng-click="vm.clearSearch()">Clear All</button>
     <button class="btn btn-primary btn-rounded" ng-click="vm.advancesearch()">Search</button>
   </div>
 </div>
