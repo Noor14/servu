@@ -42,7 +42,7 @@
   </div>
   <ul>
     <li ng-repeat="filter in vm.filterCat track by $index">
-      <span>{{filter.title}} </span> <input type="checkbox"  ng-checked="filter.selected" ng-click="vm.cat_Filter(filter.id)">
+      <span>{{filter.title}} </span> <input type="checkbox" name="CheckBoxCat" ng-checked="filter.selected" ng-click="vm.cat_Filter(filter.id)">
     </li>
 
   </ul>

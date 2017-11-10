@@ -54,7 +54,7 @@
               </div>
             </div>
           </div>
-          <div id="tab-3" infinite-scroll='vm.loadJobs()' infinite-scroll-distance='0' infinite-scroll-container='".tab-content"' infinite-scroll-disabled="vm.JobLoader" infinite-scroll-immediate-check="false" class="tab-pane myjobs-list" ng-class="vm.activeTabThree">
+          <div id="tab-3" infinite-scroll='vm.loadJobs()' infinite-scroll-distance='1' infinite-scroll-container='".tab-content"' infinite-scroll-disabled="vm.JobLoader" infinite-scroll-immediate-check="false" class="tab-pane myjobs-list" ng-class="vm.activeTabThree">
             <page-loader ng-if="vm.JobLoader" class="absoluteLoader"></page-loader>
             <div class="jobDiv col-md-6 col-sm-6 col-xs-6" ng-repeat="job in vm.userJob" ng-if="vm.userJob.length">
               <div class="list-holder" ng-click="vm.jobDetail(job.id)">

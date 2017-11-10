@@ -15,11 +15,10 @@ angular.module('servu')
       vm.myJobFilter = {};
 
     vm.getmyJobs = function(query, status, page, time){
-      if(!vm.myJobFilter.time){
+     
         vm.myJobFilter.page = page;
         vm.myJobFilter.time = time;
-      }
-      vm.myJobFilter.status = status;
+        vm.myJobFilter.status = status;
       var deffered = $q.defer();
       var obj = {
         url : host + "/jobs/my_jobs" ,
@@ -40,11 +39,11 @@ angular.module('servu')
     };
       vm.allJobs = function(query, page, time, filter){
         vm.allJobFilter = filter;
-        if(filter.hasOwnProperty('time')){
+        if(filter.hasOwnProperty('time') && filter.time){
         vm.allJobFilter.page = filter.page;
         vm.allJobFilter.time = filter.time;
         }
-        else if(!filter.hasOwnProperty('time')){
+        else if(!filter.hasOwnProperty('time') || !filter.time){
           vm.allJobFilter.page = page;
           vm.allJobFilter.time = time;
         }

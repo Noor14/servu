@@ -279,6 +279,11 @@ angular.module('servu')
             obj.selected = false;
       })
       }
+      var cbarray = document.getElementsByName("CheckBoxCat");
+    for(var i = 0; i < cbarray.length; i++){
+
+        cbarray[i].checked = false;
+}   
     };
 
       vm.allJobs = function(){

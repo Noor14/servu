@@ -8,7 +8,7 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('ProfileCtrl',['profileService','$rootScope', 'jobListService','ngDialog', '$state', function (profileService, $rootScope, jobListService, ngDialog, $state) {
+  .controller('ProfileCtrl',['profileService','$rootScope', 'ngDialog', '$state', function (profileService, $rootScope, ngDialog, $state) {
     var vm = this;
     vm.current_time;
     vm.currentReview_time;
@@ -113,7 +113,7 @@ angular.module('servu')
     vm.getJobs = function(page, time){
       if(vm.JobLoader) return;
       vm.JobLoader = true;
-      jobListService.getmyJobs(undefined, undefined, page, time).then(function(res){
+      profileService.userJobs(page, time).then(function(res){
         if(res.status == 200){
         angular.forEach(res.data.jobs, function(obj){
              vm.userJob.push(obj);

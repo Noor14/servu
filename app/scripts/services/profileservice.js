@@ -23,6 +23,24 @@ angular.module('servu')
       });
       return deffered.promise;
     };
+       vm.userJobs = function(page, time){
+     
+      var deffered = $q.defer();
+      var obj = {
+        url : host + "/jobs/my_jobs" ,
+        method : "GET",
+        headers: header.userAuth,
+        params : {
+          page : page,
+          timestamp: time
+        }
+
+      };
+      $http(obj).then(function(res){
+        deffered.resolve(res);
+      });
+      return deffered.promise;
+    };
     vm.updateProfile = function(obj){
       var deffered = $q.defer();
       var obj = {
