@@ -6,7 +6,7 @@
     <h3><span>STATUS</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul class="sortfilter" >
-    <li><input type="radio" name="sort" ng-checked="(!vm.filter)?true :false" ng-click="vm.filteration('')"><span> All</span></li>
+    <li><input type="radio" name="sort" ng-checked="(!vm.filter)?true :false" ng-click="vm.filteration(undefined)"><span> All</span></li>
     <li><input type="radio" name="sort" ng-checked="(vm.filter == 0)?true :false" ng-click="vm.filteration(0)"><span> Rejected by Admin</span></li>
     <li><input type="radio" name="sort" ng-checked="(vm.filter == 1)?true :false" ng-click="vm.filteration(1)"><span> In Process</span></li>
     <li><input type="radio" name="sort" ng-checked="(vm.filter == 2)?true :false" ng-click="vm.filteration(2)"><span> Awarded </span></li>
