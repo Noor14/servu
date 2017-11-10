@@ -27,7 +27,7 @@
           <li class="no-padding" ng-class="vm.tabwidth"><a data-toggle="tab" data-target="#tab-3" aria-expanded="false"><strong class="count" ng-if="vm.profile.user_type == 2">{{vm.profile.total_jobs_completed}} <br></strong><strong class="count" ng-if="vm.profile.user_type == 1">{{vm.profile.total_jobs_created}} <br></strong><strong>Jobs</strong></a></li>
         </ul>
         <div class="tab-content">
-          <div id="tab-1" infinite-scroll='vm.loadReview()' infinite-scroll-distance='0' infinite-scroll-disabled="!vm.reviewLoader" class="tab-pane" ng-class="vm.activeTabOne">
+          <div ng-if="vm.userData.user_type == 2" id="tab-1" infinite-scroll='vm.loadReview()' infinite-scroll-distance='0' infinite-scroll-container='".tab-content"' infinite-scroll-disabled="vm.reviewLoader" infinite-scroll-immediate-check="false" class="tab-pane" ng-class="vm.activeTabOne">
             <page-loader ng-if="vm.reviewLoader" class="absoluteLoader"></page-loader>
             <div class="panel-body profile_review"  ng-repeat="review in vm.reviews" ng-if="vm.reviews.length">
               <div class="review_sect">
@@ -47,16 +47,16 @@
               </div>
             </div>
           </div>
-          <div id="tab-2" class="tab-pane">
+          <div ng-if="vm.userData.user_type == 2" id="tab-2" class="tab-pane">
             <div class="panel-body profile_review" ng-repeat="skill in vm.profile.skills">
               <div class="review_sect">
                 <p>{{skill.title}}</p>
               </div>
             </div>
           </div>
-          <div id="tab-3" class="tab-pane myjobs-list" ng-class="vm.activeTabThree">
-            <page-loader ng-if="vm.JobLoader"></page-loader>
-            <div class="jobDiv col-md-6 col-sm-6 col-xs-6" ng-repeat="job in vm.userJob" ng-if="!vm.JobLoader && vm.userJob.length">
+          <div id="tab-3" infinite-scroll='vm.loadJobs()' infinite-scroll-distance='0' infinite-scroll-container='".tab-content"' infinite-scroll-disabled="vm.JobLoader" infinite-scroll-immediate-check="false" class="tab-pane myjobs-list" ng-class="vm.activeTabThree">
+            <page-loader ng-if="vm.JobLoader" class="absoluteLoader"></page-loader>
+            <div class="jobDiv col-md-6 col-sm-6 col-xs-6" ng-repeat="job in vm.userJob" ng-if="vm.userJob.length">
               <div class="list-holder" ng-click="vm.jobDetail(job.id)">
                   <div class="myjob-image">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                           <h4><span ng-bind="job.user.name | limitTo : 8"></span><span ng-if="job.user.name.length > 8">...</span></h4>
-                          <p ng-init="location = job.location.city.name + ', '+ job.location.country.name"><span>{{location | limitTo:20}}</span><span ng-if="location.length > 20">...</span></p>
+                          <p ng-init="location = job.location.city.name + ', '+ job.location.country.name"><span>{{location | limitTo:18}}</span><span ng-if="location.length > 18">...</span></p>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

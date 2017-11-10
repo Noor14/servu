@@ -12,8 +12,10 @@ angular.module('servu')
     var vm = this;
     vm.current_time;
     vm.currentReview_time;
-    vm.reviewLoader = true;
+    vm.reviewLoader = false;
+    vm.JobLoader = false;
     vm.reviews=[];
+    vm.userJob=[];
     localStorage.removeItem('jobId');
     localStorage.removeItem('conversation_id');
     localStorage.removeItem('notify_conversation_id');
@@ -75,13 +77,10 @@ angular.module('servu')
         if(res.status==200){
           $rootScope.pageLoader = false;
           vm.profile = res.data;
-          if(vm.profile.user_type == 2){
-            vm.getJobs('', '');
-            //vm.getUserReview(vm.userData.id,'', '');
+            if(vm.profile.user_type == 2){
+            vm.getUserReview(vm.userData.id,'', '');
           }
-          else if(vm.profile.user_type == 1){
-            vm.getJobs('', '');
-          }
+          vm.getJobs('', '');
         }
       },function(err){
         $rootScope.pageLoader = false;
@@ -89,18 +88,21 @@ angular.module('servu')
       })
     };
     vm.getUserReview = function(id, page, time){
+      if(vm.reviewLoader) return;
+      vm.reviewLoader = true;
       profileService.getReview(id, page, time).then(function(res){
 
         if(res.status==200){
-          vm.reviewLoader = false;
-          //vm.reviews = res.data.reviews;
            angular.forEach(res.data.reviews, function(obj){
              vm.reviews.push(obj);
            });
+          vm.totalreviewPages = res.data.total_pages; 
           vm.page_no =  res.data.page;
           if(!vm.currentReview_time){
             vm.currentReview_time = res.data.timestamp;
           }
+          vm.reviewLoader = false;
+
             }
 
       },function(err){
@@ -109,14 +111,20 @@ angular.module('servu')
       })
     };
     vm.getJobs = function(page, time){
+      if(vm.JobLoader) return;
       vm.JobLoader = true;
-      (!vm.query)?undefined:vm.query;
-      jobListService.getmyJobs(vm.query, page, time).then(function(res){
-        vm.JobLoader = false;
-        if(!vm.current_time){
+      jobListService.getmyJobs(undefined, undefined, page, time).then(function(res){
+        if(res.status == 200){
+        angular.forEach(res.data.jobs, function(obj){
+             vm.userJob.push(obj);
+           });
+         if(!vm.current_time){
           vm.current_time = res.data.timestamp;
         }
-        vm.userJob = res.data.jobs;
+        vm.totalJobPages = res.data.total_pages; 
+        vm.jobpage_no =  res.data.page;
+        vm.JobLoader = false;
+      }
 
       },function(err){
         vm.JobLoader = false;
@@ -140,16 +148,19 @@ angular.module('servu')
 
      vm.loadReview = function(){
 
-       if(!vm.page_no && !vm.currentReview_time){
-         vm.page_no ='';
-         vm.currentReview_time='';
-         vm.getUserReview(vm.userData.id, vm.page_no, vm.currentReview_time);
-
-       }
-       else if(vm.page_no){
+       if(vm.page_no < vm.totalreviewPages){
          vm.page_no += 1;
          vm.getUserReview(vm.userData.id, vm.page_no, vm.currentReview_time);
-       }
+      
+         }
+     };
+     vm.loadJobs = function(){
+
+      if(vm.jobpage_no < vm.totalJobPages){
+         vm.jobpage_no += 1;
+         vm.getJobs(vm.jobpage_no, vm.current_time);
+      
+         }
      };
     vm.getUserProfile();
   }]);
