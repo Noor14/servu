@@ -14,7 +14,7 @@
         <div class="notifydata-time">
         <div class="notifydata">
         <strong><span>{{notify.creator.name | limitTo : 8}}</span><span ng-if="notify.creator.name.length > 8"> ...</span></strong>
-        <strong><span>{{notify.job_title | limitTo : 40}}</span><span ng-if="notify.job_title.length > 40"> ...</span></strong>
+        <strong><span>{{notify.job_title | limitTo : 15}}</span><span ng-if="notify.job_title.length > 15"> ...</span></strong>
         </div>
         <div>
           {{notify.created_at | date : 'shortTime'}}
@@ -27,6 +27,6 @@
     </div>
   </div>
 
-  <h2 ng-if="!vm.loadSetting && !vm.notifications.length">Notaification are not available</h2>
+  <h1 class="text-center" ng-if="!vm.loadSetting && !vm.notifications.length">Notaification are not available</h2>
 
 </div>

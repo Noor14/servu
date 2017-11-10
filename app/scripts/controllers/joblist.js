@@ -289,9 +289,11 @@ angular.module('servu')
 
 
     vm.jobDetail = function(jobid){
+      if(vm.showfilter){
       vm.showfilter=false;
       $scope.$emit('filterScope', vm.showfilter);
       $rootScope.$emit('filterbtn', vm.showfilter);
+      }
       $state.go("user.jobDetail",{id: jobid});
     };
     vm.addJob = function(){
