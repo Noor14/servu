@@ -41,7 +41,13 @@ angular.module('servu')
           step: 1
         }
       };
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          vm.lat = position.coords.latitude;
+          vm.lng = position.coords.longitude;
 
+        });
+      }
       vm.refreshSlider = function () {
         $timeout(function(){
           $scope.$broadcast('rzSliderForceRender');
@@ -224,6 +230,10 @@ angular.module('servu')
         $rootScope.pageLoader = true;
         $rootScope.fullHeight = 'full-height';
         (!vm.query)?'':vm.query;
+        if(vm.lat && vm.lng){
+          vm.filterObject.lat = vm.lat;
+          vm.filterObject.long = vm.lng;
+        }
         jobListService.allJobs(vm.query, page, time, vm.filterObject).then(function(res){
           console.log("res",res.data.jobs);
           if(!vm.current_time){

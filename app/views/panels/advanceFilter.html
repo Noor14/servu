@@ -7,11 +7,11 @@
     <h3><span>SORT BY</span> <i class="fa fa-angle-down"></i></h3>
   </div>
   <ul class="sortfilter">
-    <li><input type="radio" name="sort" ng-checked="(vm.sort == 1)?true :false" ng-click="vm.sorting(1)"><span> Relevence</span></li>
-    <li><input type="radio" name="sort" ng-checked="(vm.sort == 2)?true :false" ng-click="vm.sorting(2)"><span> Recently Listed </span></li>
-    <li><input type="radio" name="sort" ng-checked="(vm.sort == 3)?true :false" ng-click="vm.sorting(3)"><span>Price Lowest to Highest </span></li>
-    <li><input type="radio" name="sort" ng-checked="(vm.sort == 4)?true :false" ng-click="vm.sorting(4)"><span>Price Highest to Lowest </span></li>
-    <li><input type="radio" name="sort" ng-checked="(vm.sort == 5)?true :false" ng-click="vm.sorting(5)"><span>Distance </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 1)?true :false" ng-model='vm.sort' ng-click="vm.sorting(1); vm.sort = 1"><span> Relevence</span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 2)?true :false" ng-model='vm.sort' ng-click="vm.sorting(2); vm.sort = 2"><span> Recently Listed </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 3)?true :false" ng-model='vm.sort' ng-click="vm.sorting(3); vm.sort = 3"><span>Price Lowest to Highest </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 4)?true :false" ng-model='vm.sort' ng-click="vm.sorting(4); vm.sort = 4"><span>Price Highest to Lowest </span></li>
+    <li><input type="radio" name="sort" ng-checked="(vm.sort == 5)?true :false" ng-model='vm.sort' ng-click="vm.sorting(5); vm.sort = 5"><span>Distance </span></li>
   </ul>
 
   <div class="panelHeading">
@@ -42,7 +42,7 @@
   </div>
   <ul>
     <li ng-repeat="filter in vm.filterCat track by $index">
-      <span>{{filter.title}} </span> <input type="checkbox"  ng-checked="filter.selected" ng-click="vm.cat_Filter(filter.id)" ng-value="filter.id">
+      <span>{{filter.title}} </span> <input type="checkbox"  ng-checked="filter.selected" ng-click="vm.cat_Filter(filter.id)">
     </li>
 
   </ul>

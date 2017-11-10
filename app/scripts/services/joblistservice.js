@@ -58,6 +58,8 @@ angular.module('servu')
             timestamp: vm.allJobFilter.time,
             query: query,
             distance: vm.allJobFilter.distance,
+            lat:vm.allJobFilter.lat,
+            long:vm.allJobFilter.long,
             budget_min: vm.allJobFilter.budget_min,
             budget_max: vm.allJobFilter.budget_max,
             category_ids: JSON.stringify(vm.allJobFilter.category_ids),
