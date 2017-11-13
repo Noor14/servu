@@ -283,7 +283,7 @@ angular.module('servu')
     for(var i = 0; i < cbarray.length; i++){
 
         cbarray[i].checked = false;
-}   
+}
     };
 
       vm.allJobs = function(){
@@ -316,7 +316,9 @@ angular.module('servu')
     };
       if(Object.keys(jobListService.allJobFilter).length > 0){
         vm.filterObject = jobListService.allJobFilter;
-        vm.categoryId = vm.filterObject.category_ids;
+        vm.slider.minValue = vm.filterObject.budget_min;
+        vm.slider.maxValue = vm.filterObject.budget_max;
+        vm.categoryId = (vm.filterObject.category_ids.length)?vm.filterObject.category_ids:[];
         vm.sort = vm.filterObject.sort_by;
         vm.getallJob(vm.filterObject.page, vm.filterObject.time);
       }

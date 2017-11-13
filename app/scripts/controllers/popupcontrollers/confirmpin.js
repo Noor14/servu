@@ -19,9 +19,8 @@ angular.module('servu')
             $scope.pinEntered = false;
             credentialService.authed = true;
             user_info.user.phone_confirmed = true;
-            $scope.closeThisDialog();
             //vm.user = {};
-            if((user_info.user.user_type == 1 && !user_info.user.hasOwnProperty('company_name')) || (user_info.user.user_type == 2 && user_info.user.hasOwnProperty('company_name'))){
+            if((user_info.user.user_type == 1 && (!user_info.user.hasOwnProperty('company_name') || !user_info.user.company_name)) || (user_info.user.user_type == 2 && user_info.user.hasOwnProperty('company_name') && user_info.user.company_name)){
               credentialService.authed = true;
               localStorage.setItem("userDetail",JSON.stringify({data: user_info}));
               toastr.success('Your account has been created',{
@@ -30,17 +29,20 @@ angular.module('servu')
               });
               $state.go("user.joblist");
             }
-            else if(user_info.user.user_type == 1 && user_info.user.hasOwnProperty('company_name')){
+            else if(user_info.user.user_type == 1 && user_info.user.hasOwnProperty('company_name') && user_info.user.company_name){
               toastr.success('Your account has been created',{
-                closeButton: true
+                closeButton: true,
+                preventOpenDuplicates: true
               });
               $state.go("home.login");
+
             }
             else{
             toastr.warning('Invalid login credential',{
               closeButton: true
             });
             }
+            $scope.closeThisDialog();
           }
           else{
             $scope.pinEntered = false;

@@ -126,18 +126,6 @@ angular
         controller: 'homeCtrl',
         controllerAs: 'vm'
       })
-      .state('home.main', {
-        url:'/home',
-        templateUrl: 'views/LandingPageTemplates/main.html',
-        controller: 'homeCtrl',
-        controllerAs: 'vm'
-      })
-      .state('home.about', {
-        url:'/about',
-        templateUrl: 'views/LandingPageTemplates/about.html',
-        controller: 'aboutCtrl',
-        controllerAs: 'vm'
-      })
       .state('home.login',{
         url:'/login',
         templateUrl: 'views/LandingPageTemplates/login.html'
@@ -160,7 +148,18 @@ angular
         controller: 'contactCtrl',
         controllerAs: 'vm'
       })
-
+      .state('home.main', {
+        url:'/home',
+        templateUrl: 'views/LandingPageTemplates/main.html',
+        controller: 'homeCtrl',
+        controllerAs: 'vm'
+      })
+      .state('home.about', {
+        url:'/about',
+        templateUrl: 'views/LandingPageTemplates/about.html',
+        controller: 'aboutCtrl',
+        controllerAs: 'vm'
+      })
       .state('home.service', {
         url:'/services',
         templateUrl: 'views/LandingPageTemplates/service.html',

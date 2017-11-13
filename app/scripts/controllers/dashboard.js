@@ -35,6 +35,7 @@ angular.module('servu')
           $rootScope.sidemenuHome = 'display-not';
         }
         $rootScope.displayToggle = "setting-open";
+        $rootScope.notifyToggle = "setting-close";
         vm.loadSetting = true;
         profileService.getSetting().then(function(res){
           vm.loadSetting = false;
@@ -89,6 +90,7 @@ angular.module('servu')
             $rootScope.sidemenuHome = 'display-not';
           }
           $rootScope.notifyToggle = "setting-open";
+          $rootScope.displayToggle = 'setting-close';
           vm.loadSetting = true;
           profileService.getNotification(page, time).then(function(res){
             vm.loadSetting = false;

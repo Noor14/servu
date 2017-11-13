@@ -9,7 +9,7 @@
   <ul>
     <li ng-if="vm.userData.user_type == 2"><span>New Related Jobs </span> <input type="checkbox" value="" ng-model="vm.set_email.related_jobs"></li>
     <li><span>Job Status </span><input type="checkbox" value=""  ng-model="vm.set_email.jobStatus"></li>
-    <li><span>New Review </span><input type="checkbox" value="" ng-model="vm.set_email.new_review"></li>
+    <li ng-if="vm.userData.user_type == 2"><span>New Review </span><input type="checkbox" value="" ng-model="vm.set_email.new_review"></li>
     <!--<li><span>New Message </span> <input type="checkbox" value="" ng-model="vm.set_email.new_message"></li>-->
   </ul>
   <!--<div class="panelHeading">-->

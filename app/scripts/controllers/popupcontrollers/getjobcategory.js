@@ -366,11 +366,19 @@ angular.module('servu')
         if($scope.partsImage.length){
           var partsImages = angular.copy($scope.partsImage);
           partsImages.forEach(function(obj, index){
+            if(obj.part_number){
             var number = obj.image_ids.map(function(item){
               return item['id'];
             });
             partsImages[index].image_ids = number;
             $scope.job.parts.push(partsImages[index]);
+            }
+            else{
+              $scope.jobLoader = false;
+              $scope.partValidation = "Insert part number";
+              $scope.partsImage[index].validate = $scope.partValidation;
+
+            }
 
 
           });
@@ -396,7 +404,7 @@ angular.module('servu')
           if(res.status == 201){
             console.log(res);
             $scope.jobLoader = false;
-            $scope.closeThisDialog();
+            //$scope.closeThisDialog();
             toastr.success('Your job has been created',{
               closeButton: true,
               preventOpenDuplicates: true
