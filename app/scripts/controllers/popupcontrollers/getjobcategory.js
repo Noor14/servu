@@ -377,6 +377,7 @@ angular.module('servu')
               $scope.jobLoader = false;
               $scope.partValidation = "Insert part number";
               $scope.partsImage[index].validate = $scope.partValidation;
+              exit;
 
             }
 
