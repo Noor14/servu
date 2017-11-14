@@ -34,7 +34,9 @@ angular.module('servu')
                 closeButton: true,
                 preventOpenDuplicates: true
               });
-              $state.go("home.login");
+              $scope.$apply(function(){
+                $state.go("home.login");
+              });
 
             }
             else{

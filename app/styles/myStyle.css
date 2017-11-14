@@ -1143,6 +1143,13 @@ i.bar{
   background-color: #e7eaec;
   border-color: #426fb6;
 }
+.Detail .part_validation{
+  position: absolute;
+  right:0;
+  background: #999999;
+  color: white;
+  border-radius: 3px;
+}
 .Detail .location-message, .profile-update .location-message{
   position: absolute;
   right: 9px;

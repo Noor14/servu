@@ -46,6 +46,7 @@
           </div>
         </div>
         <div ng-if="partsfield">
+          <p class="text-danger part_validation" ng-if="partValidation">{{partValidation}}</p>
           <h3 class="parts">Parts:</h3>
           <div class="partNoBox"  ng-if="partsImage.length" ng-repeat="part in partsImage track by $index">
             <div class="partField">
@@ -57,7 +58,6 @@
               </a>
             </div>
             <div class="pictureBox">
-              <p class="oversize text-danger" ng-if="part.validate">{{partValidation}}</p>
             <p class="oversize" ng-if= "$index== partialpartIndex && overPartimgSize">{{overPartimgSize}}</p>
               <div class="pixContainer">
                 <div class="jobPix" ng-repeat="partImg in part.image_ids">
