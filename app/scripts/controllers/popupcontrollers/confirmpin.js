@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('confirmPinCtrl',['$scope', 'user_info', 'credentialService', 'toastr', '$state', '$location',
-    function($scope, user_info, credentialService, toastr, $state, $location){
+  .controller('confirmPinCtrl',['$scope', 'user_info', 'credentialService', 'toastr', '$state',
+    function($scope, user_info, credentialService, toastr, $state){
       $scope.pinLogin = function(){
         $scope.pinEntered = true;
         $scope.pinMessage='';
@@ -17,7 +17,6 @@ angular.module('servu')
         credentialService.phoneConfirm(user_info).then(function(response){
           if(response.status == 200){
             $scope.pinEntered = false;
-            credentialService.authed = true;
             user_info.user.phone_confirmed = true;
             //vm.user = {};
             if((user_info.user.user_type == 1 && (!user_info.user.hasOwnProperty('company_name') || !user_info.user.company_name)) || (user_info.user.user_type == 2 && user_info.user.hasOwnProperty('company_name') && user_info.user.company_name)){
@@ -28,6 +27,7 @@ angular.module('servu')
                 preventOpenDuplicates: true
               });
               $scope.closeThisDialog();
+              credentialService.authed = true;
               $state.go("user.joblist");
             }
             else if(user_info.user.user_type == 1 && user_info.user.hasOwnProperty('company_name') && user_info.user.company_name){
@@ -35,7 +35,7 @@ angular.module('servu')
                 closeButton: true,
                 preventOpenDuplicates: true
               });
-              $location.path('/login');
+              $state.go('home.login');
               $scope.closeThisDialog();
 
             }
