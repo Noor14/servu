@@ -318,7 +318,7 @@ angular.module('servu')
         vm.filterObject = jobListService.allJobFilter;
         vm.slider.minValue = vm.filterObject.budget_min;
         vm.slider.maxValue = vm.filterObject.budget_max;
-        vm.categoryId = (vm.filterObject.category_ids.length)?vm.filterObject.category_ids:[];
+        vm.categoryId = (vm.filterObject.category_ids && vm.filterObject.category_ids.length)?vm.filterObject.category_ids:[];
         vm.sort = vm.filterObject.sort_by;
         vm.getallJob(vm.filterObject.page, vm.filterObject.time);
       }

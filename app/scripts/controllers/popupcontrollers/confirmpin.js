@@ -8,8 +8,8 @@
  * Controller of the servu
  */
 angular.module('servu')
-  .controller('confirmPinCtrl',['$scope', 'user_info', 'credentialService', 'toastr', '$state',
-    function($scope, user_info, credentialService, toastr, $state){
+  .controller('confirmPinCtrl',['$scope', 'user_info', 'credentialService', 'toastr', '$state', '$location',
+    function($scope, user_info, credentialService, toastr, $state, $location){
       $scope.pinLogin = function(){
         $scope.pinEntered = true;
         $scope.pinMessage='';
@@ -27,6 +27,7 @@ angular.module('servu')
                 closeButton: true,
                 preventOpenDuplicates: true
               });
+              $scope.closeThisDialog();
               $state.go("user.joblist");
             }
             else if(user_info.user.user_type == 1 && user_info.user.hasOwnProperty('company_name') && user_info.user.company_name){
@@ -34,17 +35,17 @@ angular.module('servu')
                 closeButton: true,
                 preventOpenDuplicates: true
               });
-              $scope.$apply(function(){
-                $state.go("home.login");
-              });
+              $location.path('/login');
+              $scope.closeThisDialog();
 
             }
             else{
             toastr.warning('Invalid login credential',{
               closeButton: true
             });
+              $scope.closeThisDialog();
+
             }
-            $scope.closeThisDialog();
           }
           else{
             $scope.pinEntered = false;
