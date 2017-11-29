@@ -570,7 +570,7 @@ font-size: 30px;
   height: 100%;
 }
 .loginPage .loginDiv .loginForm{
-  margin: 5.6em 20px;
+  margin: 5.3em 20px;
 }
 .loginPage .loginDiv .loginForm .forgetPassword{
   margin-bottom: 16px;
@@ -597,8 +597,6 @@ font-size: 30px;
   word-spacing: 1px;
   letter-spacing: .4px;
   font-weight: 200;
-  padding: 0 20px;
-  width: calc(15em + 4%);
 }
 .loginPage .loginDiv .loginForm .loginButton{
   margin-top: 65px;
@@ -630,7 +628,7 @@ font-size: 30px;
   outline: none;
 }
 .loginWith{
-  margin: 35px 0;
+  margin: 8% 0;
 }
 .socialIcons div i{
   color: #000;
@@ -1335,18 +1333,22 @@ display: none;
   .homeMenu{
     display: none;
   }
-  i.bar{
+  i.bar, .fa-close{
     display: block;
   }
-  .fa-close{
-    display: block;
-  }
+
   div.display{
     width: 25em;
     display: block;
   }
   div.display-not{
     display: none;
+  }
+   .loginPage .bgImage, .contactPage .bgImage{
+    height: 100% !important;
+  }
+  .loginPage .loginDiv .signupLink{
+    right: inherit;
   }
 }
 @media screen and (max-width: 991px) {
@@ -1362,5 +1364,10 @@ display: none;
 @media screen and (max-width: 767px) {
   .signupPage .bgImage{
     height: 100% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contactPage .bgImage{
+    height: 100vh !important;
   }
 }
