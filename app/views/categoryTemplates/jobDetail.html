@@ -40,7 +40,7 @@
             <div class="jobPix" ng-repeat="image in jobImages"><img ng-src="{{image.url}}" class="img img-responsive" alt="job_pix"> <i class="fa fa-times" ng-click="deleteJobPhoto(image ,$index)"></i></div>
           </div>
 
-          <div class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="jobImages.length < 5 || job.id">
+          <div class="uploadPic"><label class="btn-bs-file btn btn-lg" ng-if="jobImages.length < 5 || (job.id && jobImages.length < 5)">
             <input type="file" name="pic" class="form-control" placeholder="Photo" base-sixty-four-input accept="image/*" ng-model="job.photo">
           </label>
           </div>

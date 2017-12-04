@@ -24,7 +24,7 @@ angular.module('servu')
       vm.filterObject = {};
       vm.toggle = true;
       vm.slider = {
-        minValue: 10,
+        minValue: 0,
         maxValue: 4000,
         options: {
           floor: 0,
@@ -316,7 +316,7 @@ angular.module('servu')
     };
       if(Object.keys(jobListService.allJobFilter).length > 0){
         vm.filterObject = jobListService.allJobFilter;
-        vm.slider.minValue = vm.filterObject.budget_min;
+        vm.slider.minValue = (vm.filterObject.budget_min)?vm.filterObject.budget_min: 0;
         vm.slider.maxValue = vm.filterObject.budget_max;
         vm.categoryId = (vm.filterObject.category_ids && vm.filterObject.category_ids.length)?vm.filterObject.category_ids:[];
         vm.sort = vm.filterObject.sort_by;

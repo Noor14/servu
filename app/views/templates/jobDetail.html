@@ -9,7 +9,7 @@
     <button ng-if="vm.userData.user_type == 1 && vm.job.status == 1" type="button" class="btn btn-circle" ng-click="vm.deleteJob(vm.job.id)"><i class="glyphicon glyphicon-trash"></i></button>
   </div>
   <div class="text-right">
-    <b>AED {{vm.job.budget}}</b>
+    <b>AED {{vm.job.accepted_bid.budget || vm.job.budget}}</b>
     <p>Estimated Budget</p>
   </div>
 </div>

@@ -7,7 +7,7 @@
       <textarea class="form-control" name="update" required rows="5" ng-model="obj.body" placeholder="Comment..."></textarea>
     </div>
   <div class="text-right">
-    <button type="submit" ng-disabled="updateForm.$invalid" class="btn btn-primary">Update</button>
+    <button type="submit" ng-disabled="updateForm.$invalid || pageLoader" class="btn btn-primary">Update</button>
   </div>
   </form>
 </div>
