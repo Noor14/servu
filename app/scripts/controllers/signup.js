@@ -11,13 +11,17 @@ angular.module('servu')
   .controller('signupCtrl', ['credentialService', 'documentService', 'toastr', '$state', 'ngDialog',
     function (credentialService, documentService, toastr, $state, ngDialog) {
     var vm = this;
-    vm.user = {};
+    vm.user = {
+      general_or_company:0
+    };
       vm.serviceProvider = function(){
         if(vm.provider){
           vm.required = true;
+          vm.user.general_or_company = 1;
         }
         else{
           vm.required = false;
+          vm.user.general_or_company = 0;
           delete vm.user.company_name;
         }
       };
