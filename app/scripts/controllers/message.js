@@ -92,7 +92,6 @@ angular.module('servu')
 
 
     vm.conversationList = function(page, time){
-      ActionCableSocketWrangler.stop();
      vm.id = localStorage.getItem('jobId');
       vm.notifyConvoId = localStorage.getItem('notify_conversation_id');
       if(!vm.id && !vm.notifyConvoId){
