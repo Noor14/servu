@@ -332,32 +332,32 @@ angular.module('servu')
       }
 
 
-      StartCheckout.config({
-        key: "test_open_k_8a7b71440fff9ece9816",
-        complete: function (params) {
-          var token_details = params;
-          console.log(token_details,'token_details');
-          vm.payment = {
-            token_name: token_details.token.id, amount: parseInt(vm.bidBudget), currency: "AED"
-          };
-          bidService.acceptBid(vm.payment, $state.params.id, vm.bidId).then(function(res){
-          if(res.status == 200){
-            toastr.success('You successfully accepted the bid',{
-              closeButton: true,
-              preventOpenDuplicates: true
-            });
-            vm.getJobDetail();
-          }
-          },function(err){
-            toastr.warning('You do not successfully accepted the bid',{
-              closeButton: true,
-              preventOpenDuplicates: true
-            });
-          })
-
-        }
-
-      });
+      //StartCheckout.config({
+      //  key: "test_open_k_8a7b71440fff9ece9816",
+      //  complete: function (params) {
+      //    var token_details = params;
+      //    console.log(token_details,'token_details');
+      //    vm.payment = {
+      //      token_name: token_details.token.id, amount: parseInt(vm.bidBudget), currency: "AED"
+      //    };
+      //    bidService.acceptBid(vm.payment, $state.params.id, vm.bidId).then(function(res){
+      //    if(res.status == 200){
+      //      toastr.success('You successfully accepted the bid',{
+      //        closeButton: true,
+      //        preventOpenDuplicates: true
+      //      });
+      //      vm.getJobDetail();
+      //    }
+      //    },function(err){
+      //      toastr.warning('You do not successfully accepted the bid',{
+      //        closeButton: true,
+      //        preventOpenDuplicates: true
+      //      });
+      //    })
+      //
+      //  }
+      //
+      //});
 
 
       init();
