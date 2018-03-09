@@ -30,13 +30,12 @@ angular.module('servu')
         });
         return deffered.promise;
       };
-      vm.acceptBid = function(obj, jobId, id){
+      vm.acceptBid = function(jobId, id){
         var deffered = $q.defer();
         var obj = {
           url: host+'/jobs/'+jobId+'/bids/'+id+'/accept',
           method:'PUT',
           headers: header.userAuth,
-          data : obj,
           params:{
             job_id:jobId,
             id:id

@@ -234,7 +234,8 @@
                     <div class="m-b-md">
                       <span>Schedule for</span>
                       <h1 class="m-xs" ng-if="vm.job.schedule">{{vm.job.schedule | date : "mediumDate"}}</h1>
-                      <h1 class="m-xs" ng-if="!vm.job.schedule">Urgent</h1>
+                      <h1 class="m-xs" ng-if="vm.job.contract">{{vm.job.contract.first_service_date | date : "mediumDate"}}</h1>
+                      <h1 class="m-xs" ng-if="!vm.job.schedule && !vm.job.contract">Urgent</h1>
                     </div>
                   </div>
                 </div>

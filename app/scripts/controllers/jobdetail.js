@@ -216,10 +216,24 @@ angular.module('servu')
    vm.acceptBid = function(bid) {
      vm.bidId = bid.id;
      vm.bidBudget = bid.budget;
-     StartCheckout.open({
-       amount: bid.budget + "00",
-       currency: "AED"
+     bidService.acceptBid($state.params.id, vm.bidId).then(function(res){
+       if(res.status == 200){
+         toastr.success('You successfully accepted the bid',{
+           closeButton: true,
+           preventOpenDuplicates: true
+         });
+         vm.getJobDetail();
+       }
+     },function(err){
+       toastr.warning('You do not successfully accepted the bid',{
+         closeButton: true,
+         preventOpenDuplicates: true
+       });
      });
+     //StartCheckout.open({
+     //  amount: bid.budget + "00",
+     //  currency: "AED"
+     //});
    };
    vm.getBidList = function(){
      vm.activeBidTab = 'active';
