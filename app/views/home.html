@@ -1,9 +1,5 @@
 
 <div class="homePage">
-<div class="col-lg-9 col-md-12 col-sm-12 no-padding">
-<i ng-click="vm.sidenav('display')" class="fa fa-bars bar"></i>
-<ui-view></ui-view>
-</div>
 <div ng-class="sidemenu" class="col-lg-3 homeMenu">
 
   <div id="mySidenav" class="sidenav">
@@ -37,6 +33,10 @@
     <p>All Rights Reserved.</p>
 
   </div>
+</div>
+<div class="col-lg-9 col-lg-offset-3 col-md-12 col-sm-12 no-padding">
+    <i ng-click="vm.sidenav('display')" class="fa fa-bars bar"></i>
+    <ui-view></ui-view>
 </div>
 
 
